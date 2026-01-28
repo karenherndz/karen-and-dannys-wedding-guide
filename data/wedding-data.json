@@ -505,7 +505,7 @@
     { "task": "Pay 2B1L catering remainder ($4,557.39)", "assignee": "", "due": "4/11/26", "status": "not started", "priority": "high" },
     { "task": "Pay venue remainder ($3,950)", "assignee": "", "due": "3/31/26", "status": "not started", "priority": "high" },
     { "task": "Pay Thomas Glass Band remainder ($1,700)", "assignee": "", "due": "4/11/26", "status": "not started", "priority": "high" },
-    { "task": "Ask Sam Kuslan about blocking wedding dates", "assignee": "", "due": "", "status": "not started", "priority": "high" },
+    { "task": "Sam Kuslan confirmed for ceremony piano", "assignee": "", "due": "", "status": "done", "priority": "high" },
     { "task": "Dress fitting with Sophie Tran", "assignee": "Karen", "due": "Feb 10, 11am", "status": "scheduled", "priority": "high" },
     { "task": "Confirm layout at venue", "assignee": "", "due": "", "status": "not started", "priority": "high" },
     { "task": "Finalize ceremony music selections", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
