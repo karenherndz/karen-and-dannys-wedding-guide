@@ -394,9 +394,12 @@
     }
   ],
 
-  "cousins": [
+  "flowerGirls": [
     "Jonah", "Jess", "Mady", "Kelsey", "Gabi", "Anna", "Carly",
     "Blair", "Sara K", "Reagan", "Jenny", "Kagan", "Sara B"
+  ],
+  "flipCrew": [
+    "Zach", "Joey", "John", "Gabriel", "+ any guys who want to help"
   ],
 
   "weddingParty": {
@@ -502,7 +505,8 @@
       { "time": "1:00 PM", "event": "Vendors & Crew Arrive", "location": "Industrial Gardens", "who": "Jeanne, Lady B, Jenny and any girls that want to help decorate tables", "notes": "Jeanne sets up seating chart & oversees. DJ sets up sound." },
       { "time": "1:00 PM", "event": "Flower delivery", "location": "Greatman Cottage", "who": "Florist", "notes": "Bridal bouquet, boutonnieres, Lauren's flowers" },
       { "time": "2:00 PM", "event": "Photo team & Sam Kuslan arrive", "location": "Greatman Cottage / Industrial Gardens", "who": "Karen, Danny, Photographer, Sam Kuslan", "notes": "First look & beauty shots at Greatman Cottage. Sam sets up piano at venue." },
-      { "time": "2:30 - 3:15 PM", "event": "Touch-ups & hang out", "location": "Conference room", "who": "Karen, Danny, Cindy, Duey, Jose Sr, Jose Jr, Lauren, boys", "notes": "Away from guests" },
+      { "time": "2:30 PM", "event": "Flower Girls / Ushers arrive", "location": "Industrial Gardens", "who": "Flower Girls", "notes": "Hand out flower petals and usher guests to seats at 3pm." },
+      { "time": "2:30 - 3:15 PM", "event": "Touch-ups & hang out", "location": "Conference room", "who": "Karen, Danny, Cindy, Duschan, Jose N., Jose D., Lauren", "notes": "Away from guests" },
       { "time": "2:40 PM", "event": "Prelude music begins", "location": "Industrial Gardens", "who": "DJ", "notes": "Kamasi Washington - Harmony of Difference Album" },
       { "time": "3:00 PM", "event": "Guests arrive - Flower Girls usher", "location": "Industrial Gardens", "who": "Flower Girls, Guests", "notes": "Flower girls hand out petals and usher guests. Seat family up front (roped off)." },
       { "time": "3:15 - 3:45 PM", "event": "CEREMONY", "location": "Industrial Gardens", "who": "Everyone", "notes": "Guests told 3:00 PM. Jeanne holds latecomers until ceremony is over." },

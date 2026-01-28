@@ -368,11 +368,21 @@ function renderPeople() {
         </div>
     `).join('');
 
-    // Cousins
+    // Flower Girls / Ushers
     const cousinsList = document.getElementById('cousins-list');
-    cousinsList.innerHTML = weddingData.cousins.map(cousin => `
-        <span class="cousin-tag">${cousin}</span>
-    `).join('');
+    if (weddingData.flowerGirls) {
+        cousinsList.innerHTML = weddingData.flowerGirls.map(name => `
+            <span class="cousin-tag">${name}</span>
+        `).join('');
+    }
+
+    // Flip Crew
+    const flipCrewList = document.getElementById('flip-crew-list');
+    if (weddingData.flipCrew && flipCrewList) {
+        flipCrewList.innerHTML = weddingData.flipCrew.map(name => `
+            <span class="cousin-tag">${name}</span>
+        `).join('');
+    }
 
     // Lodging
     const lodgingList = document.getElementById('lodging-list');
