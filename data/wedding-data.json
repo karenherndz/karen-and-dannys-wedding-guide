@@ -320,13 +320,15 @@
 
   "ceremony": {
     "preludeMusic": "Kamasi Washington - Harmony of Difference",
+    "processionalMusic": "James Blake - I'll Come Too (Sam Kuslan on piano)",
+    "brideProcessionalMusic": "There Goes My Baby (Sam Kuslan on piano)",
     "processional": [
       "Kali enters and stands up front",
       "Cindy escorted to seat by Danny, Duschan follows (sits left side)",
       "Danny stays up front next to Kali",
       "Lauren Langenmayr and Jose David come down the aisle",
       "Ring Bearers enter",
-      "Bride's processional music begins",
+      "Bride's processional music begins - There Goes My Baby",
       "Karen enters with her father Jose Nestor Hernandez",
       "Guests stand as bride enters"
     ],

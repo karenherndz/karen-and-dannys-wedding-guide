@@ -313,6 +313,14 @@ function renderCeremony() {
                 <span class="person-role">${weddingData.ceremony.preludeMusic || 'TBD'}</span>
             </div>
             <div class="person-item">
+                <span class="person-name">Processional</span>
+                <span class="person-role">${weddingData.ceremony.processionalMusic || 'TBD'}</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Bride's Processional</span>
+                <span class="person-role">${weddingData.ceremony.brideProcessionalMusic || 'TBD'}</span>
+            </div>
+            <div class="person-item">
                 <span class="person-name">Recessional</span>
                 <span class="person-role">${weddingData.ceremony.recessionalMusic || 'TBD'}</span>
             </div>
