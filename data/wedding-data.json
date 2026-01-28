@@ -34,7 +34,7 @@
       "name": "Industrial Gardens",
       "date": "Friday April 10",
       "time": "1:00 PM - 3:00 PM",
-      "address": "",
+      "address": "1024 Elysian Fields Avenue, New Orleans, LA 70118",
       "notes": "Walk through ceremony and room flip. Antonia sets up banners."
     },
     "welcomeParty": {
@@ -55,14 +55,14 @@
       "name": "Industrial Gardens",
       "date": "Saturday April 11",
       "time": "3:15 PM",
-      "address": "",
+      "address": "1024 Elysian Fields Avenue, New Orleans, LA 70118",
       "notes": "Guests told 3:00 PM. Prelude music (Kamasi Washington) at 2:40 PM."
     },
     "reception": {
       "name": "Industrial Gardens",
       "date": "Saturday April 11",
       "time": "5:00 PM",
-      "address": "",
+      "address": "1024 Elysian Fields Avenue, New Orleans, LA 70118",
       "notes": "Room flip 4:00-4:30 PM. Cocktail hour during flip."
     },
     "afterParty": {
@@ -151,11 +151,13 @@
       "company": "YUR Event Rentals",
       "phone": "",
       "email": "",
-      "cost": 1800,
-      "paid": false,
+      "cost": 3176,
+      "paid": 785.40,
+      "amountDue": 2390.69,
       "arrivalTime": "12:00 PM Saturday",
-      "status": "pending",
-      "notes": "150 folding chairs ($600), 8 high-top cocktail tables ($160), 8 60\" rounds ($112), 6 32\" rounds ($72), 6 8ft banquet tables ($84), 2 portable bars ($300). Base: $1,328 + delivery/linens."
+      "pickupTime": "8:50 PM Saturday",
+      "status": "booked",
+      "notes": "170 fruitwood folding chairs w/ seat pads, 2 wood alpine bars, 12 banquet tables (8'), 7 round tables (60\"), 6 adjustable rounds (30\"), 12 chocolate linens (90x156), 13 chocolate linens (120\" round), 3 trash cans. Includes setup/breakdown. Pickup contact: Jeanne Gallo."
     },
     {
       "role": "Photographer",
@@ -439,6 +441,7 @@
     { "task": "Create DJ playlist for dinner", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Plan Bach Party Trip", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Finalize lodging assignments", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Pay remaining YUR Rentals balance ($2,390.69)", "assignee": "", "due": "Before April 11", "status": "not started", "priority": "high" },
     { "task": "Costco run for liquor/BYOB supplies", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Book hair and makeup artist", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Create seating chart and table numbers", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
