@@ -258,6 +258,44 @@
       "arrivalTime": "",
       "status": "booked",
       "notes": "On Magazine St"
+    },
+    {
+      "role": "Bartenders",
+      "name": "",
+      "company": "Branson Bartending",
+      "phone": "",
+      "email": "",
+      "cost": 750,
+      "deposit": 300,
+      "remainder": 450,
+      "arrivalTime": "",
+      "status": "booked",
+      "notes": "Bar service with BYOB supply (Costco run)"
+    },
+    {
+      "role": "Rain Contingency Tent",
+      "name": "",
+      "company": "Larkin",
+      "phone": "",
+      "email": "",
+      "cost": 3358,
+      "deposit": 1679,
+      "remainder": 1679,
+      "arrivalTime": "",
+      "status": "booked",
+      "notes": "Tenting option for rain contingency"
+    },
+    {
+      "role": "Rehearsal Dinner",
+      "name": "",
+      "company": "Oak & Ale",
+      "phone": "",
+      "email": "",
+      "cost": null,
+      "paid": false,
+      "arrivalTime": "",
+      "status": "booked",
+      "notes": "Friday rehearsal dinner - 7:00 PM"
     }
   ],
 
