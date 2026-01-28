@@ -66,7 +66,7 @@
       "notes": "Room flip 4:00-4:30 PM. Cocktail hour during flip."
     },
     "afterParty": {
-      "name": "Blue Nile (NO DICE)",
+      "name": "No Dice",
       "date": "Saturday April 11",
       "time": "9:00 PM",
       "address": "",
@@ -222,7 +222,7 @@
       "remainder": 1700,
       "arrivalTime": "",
       "status": "booked",
-      "notes": "Playing at Blue Nile / NO DICE. Deposit paid by Papa (Jose N.). Remainder due 4/11/26."
+      "notes": "Playing at No Dice. Deposit paid by Papa (Jose N.). Remainder due 4/11/26."
     },
     {
       "role": "Tailor / Dress",
@@ -348,7 +348,7 @@
     {
       "role": "After Party Coordinator",
       "name": "Kayla",
-      "task": "Make sure Blue Nile is ready at 9:00 PM"
+      "task": "Make sure No Dice is ready at 9:00 PM"
     },
     {
       "role": "Design Team Lead",
@@ -491,8 +491,8 @@
       { "time": "6:35 PM", "event": "Dance Floor Open!", "location": "Industrial Gardens", "who": "Everyone" },
       { "time": "7:30 PM", "event": "Dessert", "location": "Industrial Gardens", "who": "Milo announces", "notes": "Milo does the dessert announcement." },
       { "time": "7:30 PM", "event": "Vendor payments distributed", "location": "Industrial Gardens", "who": "Jeanne" },
-      { "time": "8:45 PM", "event": "Puerto Rican Second Line Begins", "location": "Industrial Gardens to Blue Nile", "who": "Everyone", "notes": "DJ concludes, photographer departs. Pass out beads/kerchiefs." },
-      { "time": "9:00 PM", "event": "AFTER PARTY!", "location": "Blue Nile (NO DICE)", "who": "Everyone", "notes": "Thomas Glass Band" }
+      { "time": "8:45 PM", "event": "Puerto Rican Second Line Begins", "location": "Industrial Gardens to No Dice", "who": "Everyone", "notes": "DJ concludes, photographer departs. Pass out beads/kerchiefs." },
+      { "time": "9:00 PM", "event": "AFTER PARTY!", "location": "No Dice", "who": "Everyone", "notes": "Thomas Glass Band" }
     ]
   },
 
