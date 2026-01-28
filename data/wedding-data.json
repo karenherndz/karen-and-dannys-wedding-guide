@@ -116,7 +116,7 @@
       "email": "",
       "cost": null,
       "paid": false,
-      "arrivalTime": "1:00 PM Saturday",
+      "arrivalTime": "12:00 PM Saturday",
       "status": "booked",
       "notes": "Oversee setup, vendors, manage ceremony. Distributes vendor payments at 7:30 PM."
     },
@@ -376,16 +376,6 @@
 
   "staffing": [
     {
-      "role": "Officiant",
-      "name": "Kali Serna",
-      "task": "Officiate the ceremony"
-    },
-    {
-      "role": "Day-of Coordinator",
-      "name": "Jeanne Gallo",
-      "task": "Oversee everything. Distributes payments at 7:30 PM."
-    },
-    {
       "role": "Plant Setup",
       "name": "Khristian",
       "task": "Transport & layout plants"
@@ -542,10 +532,10 @@
     ],
     "saturday": [
       { "time": "11:00 AM", "event": "Setup begins", "location": "Industrial Gardens", "who": "Venue staff" },
-      { "time": "12:00 PM", "event": "Antonia & YUR Rentals arrive", "location": "Industrial Gardens", "who": "Antonia, YUR Rentals", "notes": "Decor/draping setup and furniture delivery" },
+      { "time": "12:00 PM", "event": "Jeanne, Antonia & YUR Rentals arrive", "location": "Industrial Gardens", "who": "Jeanne, Antonia, YUR Rentals", "notes": "Jeanne oversees setup. Decor/draping setup and furniture delivery." },
       { "time": "11:30 - 12:30 PM", "event": "Lunch available", "location": "Greatman Cottage/Loft", "who": "Wedding party" },
       { "time": "11:30 AM - 1:30 PM", "event": "Hair & Makeup", "location": "Hotel Peter and Paul", "who": "Karen, Mady, Kelsey, Kali, Kagan", "notes": "Kagan helps with hair. Peggy assists." },
-      { "time": "1:00 PM", "event": "Vendors & Crew Arrive", "location": "Industrial Gardens", "who": "Jeanne, Lady B, Jenny and any girls that want to help decorate tables", "notes": "Jeanne sets up seating chart & oversees. DJ sets up sound." },
+      { "time": "1:00 PM", "event": "Vendors & Crew Arrive", "location": "Industrial Gardens", "who": "Lady B, Jenny and any girls that want to help decorate tables", "notes": "DJ sets up sound." },
       { "time": "1:00 PM", "event": "Flower delivery", "location": "Greatman Cottage", "who": "Florist", "notes": "Bridal bouquet, boutonnieres, Lauren's flowers" },
       { "time": "2:00 PM", "event": "Photo team & Sam Kuslan arrive", "location": "Greatman Cottage / Industrial Gardens", "who": "Karen, Danny, Photographer, Sam Kuslan", "notes": "First look & beauty shots at Greatman Cottage. Sam sets up piano at venue." },
       { "time": "2:30 PM", "event": "Flower Girls / Ushers arrive", "location": "Industrial Gardens", "who": "Flower Girls", "notes": "Hand out flower petals and usher guests to seats at 3pm." },

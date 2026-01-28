@@ -351,10 +351,18 @@ function renderVendors() {
 function renderPeople() {
     if (!weddingData) return;
 
-    // Family
+    // Ceremony
     const familyList = document.getElementById('family-list');
     if (familyList) {
         familyList.innerHTML = `
+            <div class="person-item">
+                <span class="person-name">Kali Serna</span>
+                <span class="person-role">Officiant</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Jeanne Gallo</span>
+                <span class="person-role">Day-of Coordinator</span>
+            </div>
             <div class="person-item">
                 <span class="person-name">Jose N. Hernandez</span>
                 <span class="person-role">Karen's Dad</span>
