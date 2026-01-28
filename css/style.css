@@ -71,17 +71,14 @@ body {
 }
 
 .countdown {
-    display: inline-block;
-    padding: 16px 40px;
-    margin-bottom: 28px;
+    display: block;
+    margin-bottom: 20px;
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 1.3rem;
     font-weight: 500;
     font-style: italic;
     letter-spacing: 0.03em;
-    color: var(--bg-brown);
-    background: var(--pink-light);
-    border-radius: 30px;
+    color: var(--pink-light);
 }
 
 /* Navigation */
