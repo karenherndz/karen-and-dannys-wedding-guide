@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karen & Danny's Wedding Guide</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="countdown" id="countdown"></div>
+        <h1>Karen & Danny</h1>
+        <p class="date">April 11, 2026</p>
+    </header>
+
+    <nav class="nav">
+        <a href="#timeline" class="nav-item active" data-section="timeline">Timeline</a>
+        <a href="#ceremony" class="nav-item" data-section="ceremony">Ceremony</a>
+        <a href="#tasks" class="nav-item" data-section="tasks">Tasks</a>
+        <a href="#vendors" class="nav-item" data-section="vendors">Vendors</a>
+        <a href="#budget" class="nav-item" data-section="budget">Budget</a>
+        <a href="#people" class="nav-item" data-section="people">People</a>
+        <a href="#dayof" class="nav-item" data-section="dayof">Day-Of</a>
+    </nav>
+
+    <main class="main">
+        <!-- Timeline Section -->
+        <section id="timeline" class="section active">
+            <h2>Wedding Weekend Timeline</h2>
+
+            <div class="day-card">
+                <h3>Friday, April 10</h3>
+                <div class="timeline-list" id="friday-timeline"></div>
+            </div>
+
+            <div class="day-card">
+                <h3>Saturday, April 11 - Wedding Day!</h3>
+                <div class="timeline-list" id="saturday-timeline"></div>
+            </div>
+        </section>
+
+        <!-- Ceremony Section -->
+        <section id="ceremony" class="section">
+            <h2>Ceremony Details</h2>
+
+            <div class="quick-card">
+                <h3>Processional Order</h3>
+                <div id="ceremony-processional"></div>
+            </div>
+
+            <div class="quick-card">
+                <h3>Ceremony Program</h3>
+                <div id="ceremony-program"></div>
+            </div>
+
+            <div class="quick-card">
+                <h3>Music</h3>
+                <div id="ceremony-music"></div>
+            </div>
+
+            <div class="quick-card">
+                <h3>Recessional Order</h3>
+                <div id="ceremony-recessional"></div>
+            </div>
+        </section>
+
+        <!-- Tasks Section -->
+        <section id="tasks" class="section">
+            <h2>To-Do List</h2>
+            <div class="task-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="high">High Priority</button>
+                <button class="filter-btn" data-filter="not started">Not Started</button>
+                <button class="filter-btn" data-filter="done">Done</button>
+            </div>
+            <div class="task-list" id="task-list"></div>
+        </section>
+
+        <!-- Vendors Section -->
+        <section id="vendors" class="section">
+            <h2>Vendors</h2>
+            <div class="vendor-grid" id="vendor-list"></div>
+        </section>
+
+        <!-- Budget Section -->
+        <section id="budget" class="section">
+            <h2>Budget</h2>
+
+            <div class="quick-card">
+                <h3>Vendor Costs</h3>
+                <div id="budget-vendors"></div>
+            </div>
+
+            <div class="quick-card">
+                <h3>Budget Summary</h3>
+                <div id="budget-summary"></div>
+            </div>
+
+            <div class="quick-card">
+                <h3>Notes</h3>
+                <div id="budget-notes"></div>
+            </div>
+        </section>
+
+        <!-- People Section -->
+        <section id="people" class="section">
+            <h2>People & Roles</h2>
+
+            <div class="people-card">
+                <h3>Family</h3>
+                <div id="family-list"></div>
+            </div>
+
+            <div class="people-card">
+                <h3>Wedding Day Crew</h3>
+                <div id="staffing-list"></div>
+            </div>
+
+            <div class="people-card">
+                <h3>Cousins & Twins (Flip Crew)</h3>
+                <div id="cousins-list" class="cousins-grid"></div>
+            </div>
+
+            <div class="people-card">
+                <h3>Lodging Assignments</h3>
+                <div id="lodging-list"></div>
+            </div>
+        </section>
+
+        <!-- Day-Of Section -->
+        <section id="dayof" class="section">
+            <h2>Day-Of Quick Reference</h2>
+
+            <div class="quick-card emergency">
+                <h3>Emergency Contacts</h3>
+                <div id="emergency-contacts"></div>
+            </div>
+
+            <div class="quick-card">
+                <h3>Ceremony Processional</h3>
+                <div id="processional-list"></div>
+            </div>
+
+            <div class="quick-card">
+                <h3>Speeches (6:15 PM - Must Finish by 6:45)</h3>
+                <div id="speeches-list"></div>
+            </div>
+
+            <div class="quick-card">
+                <h3>Flower List</h3>
+                <div id="flowers-list"></div>
+            </div>
+
+            <div class="quick-card">
+                <h3>Items for Jeanne (Friday Rehearsal)</h3>
+                <div id="jeanne-items"></div>
+            </div>
+
+            <div class="quick-card">
+                <h3>Ceremony Setup Notes</h3>
+                <div id="ceremony-notes"></div>
+            </div>
+
+            <div class="quick-card">
+                <h3>Vendor Arrival Times</h3>
+                <div id="arrival-times"></div>
+            </div>
+
+            <div class="quick-card">
+                <h3>Key Locations</h3>
+                <div id="locations-list"></div>
+            </div>
+
+            <div class="quick-card memorial">
+                <h3>In Loving Memory</h3>
+                <p>Karen's mom is posthumously honored at this celebration of love.</p>
+            </div>
+
+            <a href="print.html" class="print-btn">Print Day-Of Guide</a>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
