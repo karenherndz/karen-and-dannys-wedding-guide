@@ -563,10 +563,6 @@ a:hover {
     text-transform: uppercase;
 }
 
-.quick-card.emergency {
-    border-left: none;
-}
-
 .quick-card.memorial {
     text-align: center;
     padding: 40px 20px;
