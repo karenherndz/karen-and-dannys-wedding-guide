@@ -4,13 +4,20 @@ let weddingData = null;
 
 // Load wedding data
 async function loadData() {
+    // Use embedded data (works locally and on GitHub Pages)
+    if (typeof WEDDING_DATA !== 'undefined') {
+        weddingData = WEDDING_DATA;
+        initApp();
+        return;
+    }
+
+    // Fallback to fetch (for servers)
     try {
         const response = await fetch('data/wedding-data.json');
         weddingData = await response.json();
         initApp();
     } catch (error) {
         console.error('Error loading data:', error);
-        // Fallback: try to load from inline
         initApp();
     }
 }
