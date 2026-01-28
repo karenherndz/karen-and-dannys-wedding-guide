@@ -171,51 +171,54 @@ function renderCeremony() {
 
 // Budget
 function renderBudget() {
-    if (!weddingData) return;
+    if (!weddingData || !weddingData.budget) return;
 
-    // Vendor costs from vendor list
+    const budget = weddingData.budget;
+
+    // Expenses list
     const vendorBudgetEl = document.getElementById('budget-vendors');
-    const vendorsWithCost = weddingData.vendors.filter(v => v.cost);
-    let totalCost = 0;
-
-    vendorBudgetEl.innerHTML = vendorsWithCost.map(v => {
-        totalCost += v.cost;
+    vendorBudgetEl.innerHTML = budget.expenses.map(exp => {
+        const paidStatus = exp.remainder === 0 ? '✓ Paid in full' : (exp.deposit ? `$${exp.deposit.toLocaleString()} paid` : 'Not paid');
+        const remainderText = exp.remainder > 0 ? `$${exp.remainder.toLocaleString()} due${exp.dueDate ? ' ' + exp.dueDate : ''}` : '';
         return `
-            <div class="person-item">
-                <span class="person-name">${v.role}</span>
-                <span class="person-role" style="color:var(--ivory);">$${v.cost.toLocaleString()}${v.paid ? ' ✓ Paid' : ''}</span>
+            <div class="person-item" style="flex-wrap:wrap;">
+                <span class="person-name">${exp.item}</span>
+                <span class="person-role" style="color:var(--ivory);text-align:right;">
+                    ${exp.total ? '$' + exp.total.toLocaleString() : 'TBD'}
+                </span>
+            </div>
+            <div style="width:100%;font-size:0.8rem;color:var(--ivory-soft);padding-bottom:10px;border-bottom:1px solid rgba(245,240,230,0.1);margin-bottom:10px;">
+                ${paidStatus}${remainderText ? ' · ' + remainderText : ''}${exp.whoPaid ? ' · ' + exp.whoPaid : ''}
             </div>
         `;
     }).join('');
-
-    // Add vendors without cost as TBD
-    const vendorsNoCost = weddingData.vendors.filter(v => !v.cost && v.status !== 'booked');
-    if (vendorsNoCost.length > 0) {
-        vendorBudgetEl.innerHTML += vendorsNoCost.map(v => `
-            <div class="person-item">
-                <span class="person-name">${v.role}</span>
-                <span class="person-role">TBD</span>
-            </div>
-        `).join('');
-    }
 
     // Summary
     const summaryEl = document.getElementById('budget-summary');
     summaryEl.innerHTML = `
         <div class="person-item">
-            <span class="person-name">Confirmed Costs</span>
-            <span class="person-role" style="color:var(--ivory);font-size:1.2rem;font-weight:600;">$${totalCost.toLocaleString()}</span>
+            <span class="person-name">Total Costs</span>
+            <span class="person-role" style="color:var(--ivory);font-size:1.1rem;font-weight:600;">$${budget.totalCosts.toLocaleString()}</span>
         </div>
         <div class="person-item">
-            <span class="person-name">Estimated Total</span>
-            <span class="person-role">TBD (awaiting remaining quotes)</span>
+            <span class="person-name">Deposits Paid</span>
+            <span class="person-role" style="color:var(--pink-light);">$${budget.totalDeposits.toLocaleString()}</span>
+        </div>
+        <div class="person-item">
+            <span class="person-name">Still Owed</span>
+            <span class="person-role" style="color:var(--ivory);font-size:1.1rem;font-weight:600;">$${budget.totalRemaining.toLocaleString()}</span>
+        </div>
+        <div class="person-item" style="margin-top:15px;padding-top:15px;border-top:1px solid var(--pink-medium);">
+            <span class="person-name">Budget Remaining</span>
+            <span class="person-role" style="color:var(--pink-light);font-size:1.2rem;font-weight:600;">$${budget.budgetRemainder.toLocaleString()}</span>
         </div>
     `;
 
-    // Notes
+    // TBD items
     const notesEl = document.getElementById('budget-notes');
     notesEl.innerHTML = `
-        <p style="color:var(--ivory-soft);line-height:1.8;">${weddingData.budget?.notes || 'No notes yet.'}</p>
+        <p style="color:var(--ivory);margin-bottom:10px;font-weight:500;">Still need pricing for:</p>
+        ${budget.tbd.map(item => `<p style="color:var(--ivory-soft);padding:4px 0;">• ${item}</p>`).join('')}
     `;
 }
 

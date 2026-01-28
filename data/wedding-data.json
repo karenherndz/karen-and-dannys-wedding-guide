@@ -103,11 +103,12 @@
       "company": "2 Brothers 1 Love (2B1L)",
       "phone": "",
       "email": "",
-      "cost": 5400,
-      "paid": false,
+      "cost": 10661.25,
+      "deposit": 6103.86,
+      "remainder": 4557.39,
       "arrivalTime": "",
-      "status": "confirm quote",
-      "notes": "Catering and providing catering staff"
+      "status": "booked",
+      "notes": "Saturday catering. 50% deposit paid by Cindy & Duschan. Remainder due 4/11/26."
     },
     {
       "role": "Decor / Banners",
@@ -115,23 +116,25 @@
       "company": "",
       "phone": "",
       "email": "",
-      "cost": 2500,
-      "paid": false,
+      "cost": 1650,
+      "deposit": 825,
+      "remainder": 825,
       "arrivalTime": "12:00 PM Saturday",
-      "status": "get quote",
-      "notes": "Make & install banners, draping. Sets up banners at Friday rehearsal."
+      "status": "booked",
+      "notes": "Make & install banners, draping. Sets up banners at Friday rehearsal. Deposit paid by Jose N. Remainder due 4/11/26."
     },
     {
-      "role": "DJ & Puerto Rican Second Line",
+      "role": "DJ, Ritmeaux Krewe & Puerto Rican Second Line",
       "name": "Lady B",
       "company": "",
       "phone": "",
       "email": "",
-      "cost": null,
-      "paid": false,
+      "cost": 1500,
+      "deposit": null,
+      "remainder": 1500,
       "arrivalTime": "1:00 PM Saturday",
       "status": "booked",
-      "notes": "Cocktail reception music, dancing, PA for ceremony, handheld mic with stand. Leads second line at 8:45 PM."
+      "notes": "Cocktail reception music, dancing, PA for ceremony, handheld mic with stand. Leads Puerto Rican second line at 8:45 PM."
     },
     {
       "role": "Piano",
@@ -165,11 +168,12 @@
       "company": "",
       "phone": "",
       "email": "",
-      "cost": null,
-      "paid": false,
+      "cost": 2700,
+      "deposit": 300,
+      "remainder": 2400,
       "arrivalTime": "2:00 PM Saturday",
-      "status": "need to book",
-      "notes": "First look at 2:00 PM at Greatman Cottage Courtyard. Departs after second line at 8:45 PM."
+      "status": "booked",
+      "notes": "First look at 2:00 PM at Greatman Cottage Courtyard. Departs after second line at 8:45 PM. Deposit paid by Karen."
     },
     {
       "role": "Florist",
@@ -213,11 +217,12 @@
       "company": "",
       "phone": "",
       "email": "",
-      "cost": null,
-      "paid": false,
+      "cost": 3000,
+      "deposit": 1300,
+      "remainder": 1700,
       "arrivalTime": "",
-      "status": "TBD",
-      "notes": "Playing at Blue Nile / NO DICE"
+      "status": "booked",
+      "notes": "Playing at Blue Nile / NO DICE. Deposit paid by Papa (Jose N.). Remainder due 4/11/26."
     },
     {
       "role": "Tailor / Dress",
@@ -432,9 +437,11 @@
   },
 
   "todos": [
-    { "task": "Book photographer (Stephanie Terrant)", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-    { "task": "Get final quote from Antonia ($2500)", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-    { "task": "Confirm quote from David/2B1L ($5400)", "assignee": "", "due": "", "status": "not started", "priority": "high" },
+    { "task": "Pay photographer remainder ($2,400)", "assignee": "", "due": "Before April 11", "status": "not started", "priority": "high" },
+    { "task": "Pay Antonia remainder ($825)", "assignee": "", "due": "4/11/26", "status": "not started", "priority": "high" },
+    { "task": "Pay 2B1L catering remainder ($4,557.39)", "assignee": "", "due": "4/11/26", "status": "not started", "priority": "high" },
+    { "task": "Pay venue remainder ($3,950)", "assignee": "", "due": "3/31/26", "status": "not started", "priority": "high" },
+    { "task": "Pay Thomas Glass Band remainder ($1,700)", "assignee": "", "due": "4/11/26", "status": "not started", "priority": "high" },
     { "task": "Ask Sam Kuslan about blocking wedding dates", "assignee": "", "due": "", "status": "not started", "priority": "high" },
     { "task": "Dress fitting with Sophie Tran", "assignee": "Karen", "due": "Feb 10, 11am", "status": "scheduled", "priority": "high" },
     { "task": "Confirm layout at venue", "assignee": "", "due": "", "status": "not started", "priority": "high" },
@@ -442,7 +449,7 @@
     { "task": "Create DJ playlist for dinner", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Plan Bach Party Trip", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Finalize lodging assignments", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Pay remaining YUR Rentals balance ($2,390.69)", "assignee": "", "due": "Before April 11", "status": "not started", "priority": "high" },
+    { "task": "Pay YUR Rentals remainder ($2,364.75)", "assignee": "", "due": "Before April 11", "status": "not started", "priority": "high" },
     { "task": "Costco run for liquor/BYOB supplies", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Book hair and makeup artist", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Create seating chart and table numbers", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
@@ -490,16 +497,34 @@
   },
 
   "budget": {
-    "estimated": {
-      "catering": 5400,
-      "decor": 2500,
-      "furniture": 1800,
-      "dj": null,
-      "photographer": null,
-      "florist": null,
-      "piano": null,
-      "cake": null
-    },
-    "notes": "Furniture base $1,328 + delivery ($75-150) + linens ($200-400). Grand total estimate: $1,600-2,000"
+    "totalBudget": 39000,
+    "totalCosts": 31189.94,
+    "totalDeposits": 14732.80,
+    "totalRemaining": 15797.14,
+    "budgetRemainder": 7810.06,
+    "expenses": [
+      { "item": "PJI Industrial Garden (venue, security, clean)", "total": 4700, "deposit": 750, "paid": true, "remainder": 3950, "dueDate": "3/31/26", "whoPaid": "Danny" },
+      { "item": "Karen's Dress", "total": 2242.69, "deposit": 2242.69, "paid": true, "remainder": 0, "dueDate": "N/A", "whoPaid": "Elizabeth ($1000), Karen ($1242.69)" },
+      { "item": "Stationary & Invites", "total": 600, "deposit": 600, "paid": true, "remainder": 0, "dueDate": "N/A", "whoPaid": "Jose N." },
+      { "item": "Bartenders (Branson)", "total": null, "deposit": 300, "paid": true, "remainder": null, "dueDate": null, "whoPaid": "Jose N." },
+      { "item": "DJ, Ritmeaux Krewe, Puerto Rican Second Line & Ceremony Sound", "total": 1500, "deposit": 1500, "paid": false, "remainder": 0, "dueDate": null, "whoPaid": null },
+      { "item": "Antonia's Decorating Setup", "total": 1650, "deposit": 825, "paid": true, "remainder": 825, "dueDate": "4/11/26", "whoPaid": "Jose N." },
+      { "item": "Photographer (Stephanie Terrant)", "total": 2700, "deposit": 300, "paid": true, "remainder": 2400, "dueDate": null, "whoPaid": "Karen" },
+      { "item": "Furniture Rental (YUR)", "total": 3176, "deposit": 811.25, "paid": true, "remainder": 2364.75, "dueDate": null, "whoPaid": null },
+      { "item": "Saturday Catering (2B1L)", "total": 10661.25, "deposit": 6103.86, "paid": true, "remainder": 4557.39, "dueDate": "4/11/26", "whoPaid": "Cindy & Duschan" },
+      { "item": "After Party Live Band (Thomas Glass)", "total": 3000, "deposit": 1300, "paid": true, "remainder": 1700, "dueDate": "4/11/26", "whoPaid": "Papa (Jose N.)" },
+      { "item": "Insurance", "total": 160, "deposit": null, "paid": false, "remainder": 160, "dueDate": null, "whoPaid": null },
+      { "item": "Clean up Staff", "total": 300, "deposit": null, "paid": false, "remainder": 300, "dueDate": null, "whoPaid": null },
+      { "item": "After Party DJ", "total": 500, "deposit": null, "paid": false, "remainder": 500, "dueDate": null, "whoPaid": null }
+    ],
+    "tbd": [
+      "Danny's Suit",
+      "Tenting option",
+      "Tailoring",
+      "Place Settings & Flowers",
+      "Restroom Trailer",
+      "Alcohol (wholesale liquor) Both Days",
+      "Food for Friday"
+    ]
   }
 }
