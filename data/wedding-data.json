@@ -453,8 +453,8 @@
 
   "timeline": {
     "friday": [
-      { "time": "1:00 - 3:00 PM", "event": "Rehearsal", "location": "Industrial Gardens", "who": "Wedding party, Jeanne, Antonia, Khristian, Cindy, Duschan, Jose N., Jose D., Lauren, Dave, Milo, Remy, Amanda, Doug, Ellison, Kali", "notes": "Walk through ceremony and room flip. Antonia sets up banners/decor. Khristian drops off plants. Give Jeanne all items for next day." },
-      { "time": "3:30 PM", "event": "Key members back at Milo Gardens", "location": "Milo Gardens", "who": "Key members" },
+      { "time": "1:00 - 3:00 PM", "event": "Rehearsal", "location": "Industrial Gardens", "who": "Wedding party, Jeanne, Antonia, Khristian, Cindy, Duschan, Jose N., Jose D., Lauren, Dave, Milo, Remy, Amanda, Doug, Ellison, Kali, Elizabeth", "notes": "Walk through ceremony and room flip. Antonia sets up banners/decor. Khristian drops off plants. Give Jeanne all items for next day." },
+      { "time": "3:30 PM", "event": "Key members back at Milo Gardens", "location": "Milo Gardens", "who": "Cindy, Duschan, Jose N., Jose D., Lauren, Dave, Milo, Remy, Amanda, Doug, Ellison, Kali, Elizabeth" },
       { "time": "4:00 - 7:00 PM", "event": "Welcome Party", "location": "Milo Gardens", "who": "Everyone", "notes": "Crawfish boil, pizza, beer & wine, music. High-tops, seating areas." },
       { "time": "7:00 PM", "event": "Rehearsal Dinner", "location": "Oak & Ale", "who": "Family" }
     ],
