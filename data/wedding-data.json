@@ -484,7 +484,7 @@
     { "task": "Order custom kerchiefs for Puerto Rican second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Order maracas for Puerto Rican second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Order dinnerware disposables", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-    { "task": "Confirm Thomas Glass Band for after party", "assignee": "", "due": "", "status": "not started", "priority": "low" }
+    { "task": "Book after party DJ for No Dice", "assignee": "", "due": "", "status": "not started", "priority": "high" }
   ],
 
   "timeline": {
