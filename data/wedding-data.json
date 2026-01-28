@@ -424,8 +424,9 @@
       "Collect cell phones from wedding party"
     ],
     "forGuests": [
-      "Beads for second line?",
-      "Kerchiefs for second line?",
+      "Custom koozies",
+      "Custom kerchiefs for Puerto Rican second line",
+      "Maracas for Puerto Rican second line",
       "Chimes to cue guests (Cindy bringing)"
     ]
   },
@@ -450,7 +451,9 @@
     { "task": "Purchase wedding bands", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Finalize vows", "assignee": "Karen & Danny", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Create family photo list for photographer", "assignee": "", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Get beads/kerchiefs for second line", "assignee": "", "due": "", "status": "not started", "priority": "low" },
+    { "task": "Order custom koozies", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Order custom kerchiefs for Puerto Rican second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Order maracas for Puerto Rican second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Confirm Thomas Glass Band for after party", "assignee": "", "due": "", "status": "not started", "priority": "low" }
   ],
 
