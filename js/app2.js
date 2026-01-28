@@ -679,6 +679,46 @@ function renderDayOf() {
         `).join('');
     }
 
+    // Layout Details
+    const layoutDetails = document.getElementById('layout-details');
+    if (layoutDetails) {
+        layoutDetails.innerHTML = `
+            <div class="person-item">
+                <span class="person-name">Ceremony Seating</span>
+                <span class="person-role">170-188 total</span>
+            </div>
+            <div style="font-size:0.85rem;color:var(--ivory-soft);padding:10px 0;border-bottom:1px solid rgba(245,240,230,0.15);">
+                Right: 52 (34 + 18) · Back: 64 · Main: 18 · Dance Floor: 36 · Courtyard: 18
+            </div>
+            <div class="person-item">
+                <span class="person-name">Tables to Flip</span>
+                <span class="person-role">7 round tables (yellow)</span>
+            </div>
+            <div style="font-size:0.85rem;color:var(--ivory-soft);padding:10px 0;border-bottom:1px solid rgba(245,240,230,0.15);">
+                Pre-decorated and ready to move. Ceremony chairs redistributed to tables during flip.
+            </div>
+            <div class="person-item">
+                <span class="person-name">Bars</span>
+                <span class="person-role">2 locations</span>
+            </div>
+            <div style="font-size:0.85rem;color:var(--ivory-soft);padding:10px 0;border-bottom:1px solid rgba(245,240,230,0.15);">
+                Ceremony space bar (sets up during flip) · Courtyard bar (open during cocktail hour)
+            </div>
+            <div class="person-item">
+                <span class="person-name">Photobooth</span>
+                <span class="person-role">14' x 5'</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Seating Chart</span>
+                <span class="person-role">Near entrance (5' x 2')</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Soloist Position</span>
+                <span class="person-role">Sam Kuslan (piano)</span>
+            </div>
+        `;
+    }
+
     // Locations
     const locationsList = document.getElementById('locations-list');
     if (locationsList && weddingData.venues) {
