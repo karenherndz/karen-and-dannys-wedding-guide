@@ -57,7 +57,22 @@
       "date": "Saturday April 11",
       "time": "3:15 PM",
       "address": "1024 Elysian Fields Avenue, New Orleans, LA 70118",
-      "notes": "Guests told 3:00 PM. Prelude music (Kamasi Washington) at 2:40 PM."
+      "notes": "Guests told 3:00 PM. Prelude music (Kamasi Washington) at 2:40 PM.",
+      "seating": {
+        "right": 52,
+        "back": 64,
+        "main": 18,
+        "danceFloor": 36,
+        "courtyard": 18,
+        "total": "170-188"
+      }
+    },
+    "layout": {
+      "tablesToFlip": 7,
+      "notes": "7 round tables (yellow on layout) already decorated and ready to move. Ceremony chairs redistributed to tables during flip.",
+      "bars": ["Ceremony space bar (sets up during flip)", "Courtyard bar (open during cocktail hour)"],
+      "photobooth": "14' x 5'",
+      "seatingChart": "Near entrance"
     },
     "reception": {
       "name": "Industrial Gardens",
@@ -346,7 +361,7 @@
     {
       "role": "Room Flip Crew",
       "name": "Zach, Joey, John, Gabriel + any guys",
-      "task": "Move 7 pre-decorated tables from ceremony to reception"
+      "task": "Move 7 pre-decorated tables, redistribute ceremony chairs to tables"
     },
     {
       "role": "Cleanup",
