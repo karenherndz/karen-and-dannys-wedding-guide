@@ -396,7 +396,7 @@ const WEDDING_DATA = {
     },
     {
       "role": "Flower Girls / Ushers",
-      "name": "TBD",
+      "name": "Flower Girls / Ushers",
       "task": "Hand out flower petals to guests, usher guests to seats"
     },
     {
