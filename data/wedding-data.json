@@ -117,7 +117,7 @@
       "email": "",
       "cost": 2500,
       "paid": false,
-      "arrivalTime": "1:00 PM Saturday",
+      "arrivalTime": "12:00 PM Saturday",
       "status": "get quote",
       "notes": "Make & install banners, draping. Sets up banners at Friday rehearsal."
     },
@@ -153,7 +153,7 @@
       "email": "",
       "cost": 1800,
       "paid": false,
-      "arrivalTime": "11:00 AM Saturday",
+      "arrivalTime": "12:00 PM Saturday",
       "status": "pending",
       "notes": "150 folding chairs ($600), 8 high-top cocktail tables ($160), 8 60\" rounds ($112), 6 32\" rounds ($72), 6 8ft banquet tables ($84), 2 portable bars ($300). Base: $1,328 + delivery/linens."
     },
@@ -459,10 +459,11 @@
       { "time": "7:00 PM", "event": "Rehearsal Dinner", "location": "Oak & Ale", "who": "Family" }
     ],
     "saturday": [
-      { "time": "11:00 AM", "event": "Setup begins", "location": "Industrial Gardens", "who": "Vendors, rental company" },
+      { "time": "11:00 AM", "event": "Setup begins", "location": "Industrial Gardens", "who": "Venue staff" },
+      { "time": "12:00 PM", "event": "Antonia & YUR Rentals arrive", "location": "Industrial Gardens", "who": "Antonia, YUR Rentals", "notes": "Decor/draping setup and furniture delivery" },
       { "time": "11:30 - 12:30 PM", "event": "Lunch available", "location": "Greatman Cottage/Loft", "who": "Wedding party" },
       { "time": "11:30 AM - 1:30 PM", "event": "Hair & Makeup", "location": "Hotel Peter and Paul", "who": "Karen, Mady, Kelsey, Kali, Kagan", "notes": "Kagan helps with hair. Peggy assists." },
-      { "time": "1:00 PM", "event": "Vendors & Crew Arrive", "location": "Industrial Gardens", "who": "Jeanne, Antonia, Lady B, Sam Kuslan, Cousins, Twins", "notes": "Jeanne sets up seating chart & oversees. Antonia does draping. DJ/Piano set up sound. Flip crew ready for later." },
+      { "time": "1:00 PM", "event": "Vendors & Crew Arrive", "location": "Industrial Gardens", "who": "Jeanne, Lady B, Sam Kuslan, Cousins, Twins", "notes": "Jeanne sets up seating chart & oversees. DJ/Piano set up sound. Flip crew ready for later." },
       { "time": "1:00 PM", "event": "Flower delivery", "location": "Greatman Cottage", "who": "Florist", "notes": "Bridal bouquet, boutonnieres, Lauren's flowers" },
       { "time": "2:00 PM", "event": "Photo team arrives - First Look", "location": "Greatman Cottage Courtyard", "who": "Karen, Danny, Photographer", "notes": "Beauty shots by photographer" },
       { "time": "2:30 - 3:15 PM", "event": "Touch-ups & hang out", "location": "Conference room", "who": "Karen, Danny, Cindy, Duey, Jose Sr, Jose Jr, Lauren, boys", "notes": "Away from guests" },
