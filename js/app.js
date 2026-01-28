@@ -81,41 +81,45 @@ function setupNavigation() {
 
 // Timeline
 function renderTimeline() {
-    if (!weddingData) return;
+    if (!weddingData || !weddingData.timeline) return;
 
     const fridayEl = document.getElementById('friday-timeline');
     const saturdayEl = document.getElementById('saturday-timeline');
-
-    fridayEl.innerHTML = weddingData.timeline.friday.map(item => {
-        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
-        return `
-        <div class="timeline-item">
-            <div class="timeline-time">${item.time}</div>
-            <div class="timeline-content">
-                <div class="timeline-event">${item.event}</div>
-                <div class="timeline-location">${item.location} <a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-left:10px;padding:4px 10px;font-size:0.65rem;">Directions</a></div>
-                ${item.who ? `<div class="timeline-who">${item.who}</div>` : ''}
-                ${item.notes ? `<div class="timeline-notes">${item.notes}</div>` : ''}
-            </div>
-        </div>
-    `}).join('');
-
-    saturdayEl.innerHTML = weddingData.timeline.saturday.map(item => {
-        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
-        return `
-        <div class="timeline-item">
-            <div class="timeline-time">${item.time}</div>
-            <div class="timeline-content">
-                <div class="timeline-event">${item.event}</div>
-                <div class="timeline-location">${item.location} <a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-left:10px;padding:4px 10px;font-size:0.65rem;">Directions</a></div>
-                ${item.who ? `<div class="timeline-who">${item.who}</div>` : ''}
-                ${item.notes ? `<div class="timeline-notes">${item.notes}</div>` : ''}
-            </div>
-        </div>
-    `}).join('');
-
     const sundayEl = document.getElementById('sunday-timeline');
-    if (weddingData.timeline.sunday) {
+
+    if (fridayEl && weddingData.timeline.friday) {
+        fridayEl.innerHTML = weddingData.timeline.friday.map(item => {
+            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
+            return `
+            <div class="timeline-item">
+                <div class="timeline-time">${item.time}</div>
+                <div class="timeline-content">
+                    <div class="timeline-event">${item.event}</div>
+                    <div class="timeline-location">${item.location} <a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-left:10px;padding:4px 10px;font-size:0.65rem;">Directions</a></div>
+                    ${item.who ? `<div class="timeline-who">${item.who}</div>` : ''}
+                    ${item.notes ? `<div class="timeline-notes">${item.notes}</div>` : ''}
+                </div>
+            </div>
+        `}).join('');
+    }
+
+    if (saturdayEl && weddingData.timeline.saturday) {
+        saturdayEl.innerHTML = weddingData.timeline.saturday.map(item => {
+            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
+            return `
+            <div class="timeline-item">
+                <div class="timeline-time">${item.time}</div>
+                <div class="timeline-content">
+                    <div class="timeline-event">${item.event}</div>
+                    <div class="timeline-location">${item.location} <a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-left:10px;padding:4px 10px;font-size:0.65rem;">Directions</a></div>
+                    ${item.who ? `<div class="timeline-who">${item.who}</div>` : ''}
+                    ${item.notes ? `<div class="timeline-notes">${item.notes}</div>` : ''}
+                </div>
+            </div>
+        `}).join('');
+    }
+
+    if (sundayEl && weddingData.timeline.sunday) {
         sundayEl.innerHTML = weddingData.timeline.sunday.map(item => {
             const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
             return `
@@ -138,7 +142,7 @@ function renderCeremony() {
 
     // Processional
     const processionalEl = document.getElementById('ceremony-processional');
-    if (weddingData.ceremony && weddingData.ceremony.processional) {
+    if (processionalEl && weddingData.ceremony && weddingData.ceremony.processional) {
         processionalEl.innerHTML = weddingData.ceremony.processional.map((step, i) => `
             <div class="person-item">
                 <span class="person-name">${i + 1}.</span>
@@ -153,7 +157,7 @@ function renderCeremony() {
 
     // Program
     const programEl = document.getElementById('ceremony-program');
-    if (weddingData.ceremony && weddingData.ceremony.program) {
+    if (programEl && weddingData.ceremony && weddingData.ceremony.program) {
         programEl.innerHTML = weddingData.ceremony.program.map((item, i) => `
             <div class="person-item">
                 <span class="person-name">${i + 1}.</span>
@@ -164,7 +168,7 @@ function renderCeremony() {
 
     // Music
     const musicEl = document.getElementById('ceremony-music');
-    if (weddingData.ceremony) {
+    if (musicEl && weddingData.ceremony) {
         musicEl.innerHTML = `
             <div class="person-item">
                 <span class="person-name">Prelude</span>
@@ -183,7 +187,7 @@ function renderCeremony() {
 
     // Recessional Order
     const recessionalEl = document.getElementById('ceremony-recessional');
-    if (weddingData.ceremony && weddingData.ceremony.recessionalOrder) {
+    if (recessionalEl && weddingData.ceremony && weddingData.ceremony.recessionalOrder) {
         recessionalEl.innerHTML = weddingData.ceremony.recessionalOrder.map((step, i) => `
             <div class="person-item">
                 <span class="person-name">${i + 1}.</span>
@@ -201,57 +205,65 @@ function renderBudget() {
 
     // Expenses list
     const vendorBudgetEl = document.getElementById('budget-vendors');
-    vendorBudgetEl.innerHTML = budget.expenses.map(exp => {
-        const paidStatus = exp.remainder === 0 ? '✓ Paid in full' : (exp.deposit ? `$${exp.deposit.toLocaleString()} deposit paid` : 'Not paid');
-        const remainderText = exp.remainder > 0 ? `$${exp.remainder.toLocaleString()} due${exp.dueDate ? ' ' + exp.dueDate : ''}` : '';
-        const estimatedTag = exp.estimated ? ' <span style="color:var(--pink-medium);font-size:0.7rem;">(est)</span>' : '';
-        return `
-            <div class="person-item" style="flex-wrap:wrap;">
-                <span class="person-name">${exp.item}</span>
-                <span class="person-role" style="color:var(--ivory);text-align:right;">
-                    ${exp.total ? '$' + exp.total.toLocaleString() + estimatedTag : 'TBD'}
-                </span>
-            </div>
-            <div style="width:100%;font-size:0.8rem;color:var(--ivory-soft);padding-bottom:10px;border-bottom:1px solid rgba(245,240,230,0.1);margin-bottom:10px;">
-                ${paidStatus}${remainderText ? ' · ' + remainderText : ''}
-            </div>
-        `;
-    }).join('');
+    if (vendorBudgetEl && budget.expenses) {
+        vendorBudgetEl.innerHTML = budget.expenses.map(exp => {
+            const paidStatus = exp.remainder === 0 ? '✓ Paid in full' : (exp.deposit ? `$${exp.deposit.toLocaleString()} deposit paid` : 'Not paid');
+            const remainderText = exp.remainder > 0 ? `$${exp.remainder.toLocaleString()} due${exp.dueDate ? ' ' + exp.dueDate : ''}` : '';
+            const estimatedTag = exp.estimated ? ' <span style="color:var(--pink-medium);font-size:0.7rem;">(est)</span>' : '';
+            return `
+                <div class="person-item" style="flex-wrap:wrap;">
+                    <span class="person-name">${exp.item}</span>
+                    <span class="person-role" style="color:var(--ivory);text-align:right;">
+                        ${exp.total ? '$' + exp.total.toLocaleString() + estimatedTag : 'TBD'}
+                    </span>
+                </div>
+                <div style="width:100%;font-size:0.8rem;color:var(--ivory-soft);padding-bottom:10px;border-bottom:1px solid rgba(245,240,230,0.1);margin-bottom:10px;">
+                    ${paidStatus}${remainderText ? ' · ' + remainderText : ''}
+                </div>
+            `;
+        }).join('');
+    }
 
     // Summary
     const summaryEl = document.getElementById('budget-summary');
-    summaryEl.innerHTML = `
-        <div class="person-item">
-            <span class="person-name">Total Costs</span>
-            <span class="person-role" style="color:var(--ivory);font-size:1.1rem;font-weight:600;">$${budget.totalCosts.toLocaleString()}</span>
-        </div>
-        <div class="person-item">
-            <span class="person-name">Deposits Paid</span>
-            <span class="person-role" style="color:var(--pink-light);">$${budget.totalDeposits.toLocaleString()}</span>
-        </div>
-        <div class="person-item">
-            <span class="person-name">Still Owed</span>
-            <span class="person-role" style="color:var(--ivory);font-size:1.1rem;font-weight:600;">$${budget.totalRemaining.toLocaleString()}</span>
-        </div>
-        <div class="person-item" style="margin-top:15px;padding-top:15px;border-top:1px solid var(--pink-medium);">
-            <span class="person-name">Budget Remaining</span>
-            <span class="person-role" style="color:var(--pink-light);font-size:1.2rem;font-weight:600;">$${budget.budgetRemainder.toLocaleString()}</span>
-        </div>
-    `;
+    if (summaryEl) {
+        summaryEl.innerHTML = `
+            <div class="person-item">
+                <span class="person-name">Total Costs</span>
+                <span class="person-role" style="color:var(--ivory);font-size:1.1rem;font-weight:600;">$${budget.totalCosts.toLocaleString()}</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Deposits Paid</span>
+                <span class="person-role" style="color:var(--pink-light);">$${budget.totalDeposits.toLocaleString()}</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Still Owed</span>
+                <span class="person-role" style="color:var(--ivory);font-size:1.1rem;font-weight:600;">$${budget.totalRemaining.toLocaleString()}</span>
+            </div>
+            <div class="person-item" style="margin-top:15px;padding-top:15px;border-top:1px solid var(--pink-medium);">
+                <span class="person-name">Budget Remaining</span>
+                <span class="person-role" style="color:var(--pink-light);font-size:1.2rem;font-weight:600;">$${budget.budgetRemainder.toLocaleString()}</span>
+            </div>
+        `;
+    }
 
     // TBD items
     const notesEl = document.getElementById('budget-notes');
-    notesEl.innerHTML = `
-        <p style="color:var(--ivory);margin-bottom:10px;font-weight:500;">Still need pricing for:</p>
-        ${budget.tbd.map(item => `<p style="color:var(--ivory-soft);padding:4px 0;">• ${item}</p>`).join('')}
-    `;
+    if (notesEl && budget.tbd) {
+        notesEl.innerHTML = `
+            <p style="color:var(--ivory);margin-bottom:10px;font-weight:500;">Still need pricing for:</p>
+            ${budget.tbd.map(item => `<p style="color:var(--ivory-soft);padding:4px 0;">• ${item}</p>`).join('')}
+        `;
+    }
 }
 
 // Tasks
 function renderTasks(filter = 'all') {
-    if (!weddingData) return;
+    if (!weddingData || !weddingData.todos) return;
 
     const taskList = document.getElementById('task-list');
+    if (!taskList) return;
+
     let tasks = weddingData.todos;
 
     if (filter === 'high') {
@@ -303,9 +315,11 @@ function setupTaskFilters() {
 
 // Vendors
 function renderVendors() {
-    if (!weddingData) return;
+    if (!weddingData || !weddingData.vendors) return;
 
     const vendorList = document.getElementById('vendor-list');
+    if (!vendorList) return;
+
     vendorList.innerHTML = weddingData.vendors.map(vendor => {
         let statusClass = 'pending';
         if (vendor.status === 'booked') statusClass = 'booked';
@@ -402,22 +416,24 @@ function renderDayOf() {
 
     // Emergency Contacts
     const emergencyContacts = document.getElementById('emergency-contacts');
-    const vendorsWithPhone = weddingData.vendors.filter(v => v.phone);
-    emergencyContacts.innerHTML = vendorsWithPhone.map(v => `
-        <div class="person-item">
-            <span class="person-name">${v.name || v.company}</span>
-            <span class="person-role"><a href="tel:${v.phone}">${v.phone}</a> - ${v.role}</span>
-        </div>
-    `).join('') || `
-        <div class="person-item">
-            <span class="person-name">Jeanne Gallo</span>
-            <span class="person-role">(312) 882-2087 - Day-of Coordinator</span>
-        </div>
-    `;
+    if (emergencyContacts && weddingData.vendors) {
+        const vendorsWithPhone = weddingData.vendors.filter(v => v.phone);
+        emergencyContacts.innerHTML = vendorsWithPhone.map(v => `
+            <div class="person-item">
+                <span class="person-name">${v.name || v.company}</span>
+                <span class="person-role"><a href="tel:${v.phone}">${v.phone}</a> - ${v.role}</span>
+            </div>
+        `).join('') || `
+            <div class="person-item">
+                <span class="person-name">Jeanne Gallo</span>
+                <span class="person-role">(312) 882-2087 - Day-of Coordinator</span>
+            </div>
+        `;
+    }
 
     // Processional
     const processionalList = document.getElementById('processional-list');
-    if (weddingData.ceremony && weddingData.ceremony.processional) {
+    if (processionalList && weddingData.ceremony && weddingData.ceremony.processional) {
         processionalList.innerHTML = weddingData.ceremony.processional.map((step, i) => `
             <div class="person-item">
                 <span class="person-name">${i + 1}.</span>
@@ -433,7 +449,7 @@ function renderDayOf() {
 
     // Speeches
     const speechesList = document.getElementById('speeches-list');
-    if (weddingData.speeches && weddingData.speeches.order) {
+    if (speechesList && weddingData.speeches && weddingData.speeches.order) {
         speechesList.innerHTML = weddingData.speeches.order.map(s => `
             <div class="person-item">
                 <span class="person-name">${s.speaker}</span>
@@ -444,7 +460,7 @@ function renderDayOf() {
 
     // Flowers
     const flowersList = document.getElementById('flowers-list');
-    if (weddingData.flowers && weddingData.flowers.list) {
+    if (flowersList && weddingData.flowers && weddingData.flowers.list) {
         flowersList.innerHTML = `
             <p style="margin-bottom:10px;"><strong>Delivery:</strong> ${weddingData.flowers.delivery}</p>
             ${weddingData.flowers.list.map(f => `
@@ -457,7 +473,7 @@ function renderDayOf() {
 
     // Items for Jeanne
     const jeanneItems = document.getElementById('jeanne-items');
-    if (weddingData.dayOfItems && weddingData.dayOfItems.forJeanne) {
+    if (jeanneItems && weddingData.dayOfItems && weddingData.dayOfItems.forJeanne) {
         jeanneItems.innerHTML = weddingData.dayOfItems.forJeanne.map(item => `
             <div class="person-item">
                 <span class="person-name">• ${item}</span>
@@ -467,7 +483,7 @@ function renderDayOf() {
 
     // Ceremony Notes
     const ceremonyNotes = document.getElementById('ceremony-notes');
-    if (weddingData.dayOfItems && weddingData.dayOfItems.ceremonySetup) {
+    if (ceremonyNotes && weddingData.dayOfItems && weddingData.dayOfItems.ceremonySetup) {
         ceremonyNotes.innerHTML = weddingData.dayOfItems.ceremonySetup.map(note => `
             <div class="person-item">
                 <span class="person-name">• ${note}</span>
@@ -477,49 +493,55 @@ function renderDayOf() {
 
     // Arrival Times
     const arrivalTimes = document.getElementById('arrival-times');
-    const vendorsWithArrival = weddingData.vendors.filter(v => v.arrivalTime);
-    arrivalTimes.innerHTML = vendorsWithArrival.map(v => `
-        <div class="person-item">
-            <span class="person-name">${v.arrivalTime}</span>
-            <span class="person-role">${v.name || v.company || v.role}</span>
-        </div>
-    `).join('');
+    if (arrivalTimes && weddingData.vendors) {
+        const vendorsWithArrival = weddingData.vendors.filter(v => v.arrivalTime);
+        arrivalTimes.innerHTML = vendorsWithArrival.map(v => `
+            <div class="person-item">
+                <span class="person-name">${v.arrivalTime}</span>
+                <span class="person-role">${v.name || v.company || v.role}</span>
+            </div>
+        `).join('');
+    }
 
     // Locations
     const locationsList = document.getElementById('locations-list');
-    const venues = Object.entries(weddingData.venues).filter(([key]) => !['gettingReady'].includes(key));
-    locationsList.innerHTML = venues.map(([key, venue]) => {
-        if (typeof venue === 'object' && venue.name) {
-            const mapsUrl = venue.address
-                ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(venue.address)}`
-                : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venue.name + ' New Orleans')}`;
-            return `
+    if (locationsList && weddingData.venues) {
+        const venues = Object.entries(weddingData.venues).filter(([key]) => !['gettingReady'].includes(key));
+        locationsList.innerHTML = venues.map(([key, venue]) => {
+            if (typeof venue === 'object' && venue.name) {
+                const mapsUrl = venue.address
+                    ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(venue.address)}`
+                    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venue.name + ' New Orleans')}`;
+                return `
+                    <div class="location-item">
+                        <div class="location-name">${venue.name}</div>
+                        <div class="location-purpose">${key.replace(/([A-Z])/g, ' $1').trim()} - ${venue.date || ''} ${venue.time || ''}</div>
+                        ${venue.notes ? `<div class="location-purpose">${venue.notes}</div>` : ''}
+                        <a href="${mapsUrl}" target="_blank" class="directions-btn">Get Directions</a>
+                    </div>
+                `;
+            }
+            return '';
+        }).join('');
+
+        // Add getting ready locations
+        if (weddingData.venues.gettingReady) {
+            const karenMapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Hotel Peter and Paul New Orleans');
+            const dannyMapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Greatman Loft New Orleans');
+            locationsList.innerHTML += `
                 <div class="location-item">
-                    <div class="location-name">${venue.name}</div>
-                    <div class="location-purpose">${key.replace(/([A-Z])/g, ' $1').trim()} - ${venue.date || ''} ${venue.time || ''}</div>
-                    ${venue.notes ? `<div class="location-purpose">${venue.notes}</div>` : ''}
-                    <a href="${mapsUrl}" target="_blank" class="directions-btn">Get Directions</a>
+                    <div class="location-name">Hotel Peter and Paul</div>
+                    <div class="location-purpose">Karen Getting Ready - ${weddingData.venues.gettingReady.karen.notes}</div>
+                    <a href="${karenMapsUrl}" target="_blank" class="directions-btn">Get Directions</a>
+                </div>
+                <div class="location-item">
+                    <div class="location-name">Greatman Loft</div>
+                    <div class="location-purpose">Danny Getting Ready</div>
+                    <a href="${dannyMapsUrl}" target="_blank" class="directions-btn">Get Directions</a>
                 </div>
             `;
         }
-        return '';
-    }).join('');
-
-    // Add getting ready locations
-    const karenMapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Hotel Peter and Paul New Orleans');
-    const dannyMapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Greatman Loft New Orleans');
-    locationsList.innerHTML += `
-        <div class="location-item">
-            <div class="location-name">Hotel Peter and Paul</div>
-            <div class="location-purpose">Karen Getting Ready - ${weddingData.venues.gettingReady.karen.notes}</div>
-            <a href="${karenMapsUrl}" target="_blank" class="directions-btn">Get Directions</a>
-        </div>
-        <div class="location-item">
-            <div class="location-name">Greatman Loft</div>
-            <div class="location-purpose">Danny Getting Ready</div>
-            <a href="${dannyMapsUrl}" target="_blank" class="directions-btn">Get Directions</a>
-        </div>
-    `;
+    }
 }
 
 // Save data to localStorage (for task persistence)
