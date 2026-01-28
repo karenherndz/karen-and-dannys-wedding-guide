@@ -530,7 +530,7 @@ const WEDDING_DATA = {
   "timeline": {
     "friday": [
       { "time": "1:00 - 3:00 PM", "event": "Rehearsal", "location": "Industrial Gardens", "who": "Wedding party, Jeanne (1pm), Antonia (1pm for setup), Khristian (plants), Cindy, Duschan, Jose Nestor, Jose David, Lauren, Dave, Milo, Remy, Amanda, Doug, Ellison, Kali, Elizabeth", "notes": "Walk through ceremony and room flip. Jeanne arrives at 1pm. Antonia arrives at 1pm to set up banners/decor. Khristian drops off plants. Give Jeanne all items for next day." },
-      { "time": "3:30 PM", "event": "Key members back at Milo Gardens", "location": "Milo Gardens", "who": "Cindy, Duschan, Jose Nestor, Jose David, Lauren, Dave, Milo, Remy, Amanda, Doug, Ellison, Kali, Elizabeth" },
+      { "time": "3:30 PM", "event": "Back to Milo Gardens", "location": "Milo Gardens", "who": "Cindy, Duschan, Jose Nestor, Jose David, Lauren, Dave, Milo, Remy, Amanda, Doug, Ellison, Kali, Elizabeth" },
       { "time": "4:00 - 7:00 PM", "event": "Welcome Party", "location": "Milo Gardens", "who": "Everyone", "notes": "Crawfish boil, pizza, beer & wine, music. High-tops, seating areas." },
       { "time": "7:00 PM", "event": "Rehearsal Dinner", "location": "Oak & Ale", "who": "Family" }
     ],
