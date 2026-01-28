@@ -173,59 +173,25 @@ a:hover {
     text-transform: uppercase;
 }
 
-/* Timeline - Sidebar Style */
-.timeline-group {
-    display: flex;
-    margin-bottom: 0;
-}
-
-.timeline-sidebar {
-    flex-shrink: 0;
-    width: 100px;
-    padding-right: 20px;
-    border-right: 2px solid var(--pink-medium);
-    text-align: right;
-    position: relative;
-}
-
-.timeline-time {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: var(--pink-light);
-    position: sticky;
-    top: 80px;
-    padding: 10px 0;
-}
-
-.timeline-sidebar::after {
-    content: '';
-    position: absolute;
-    right: -6px;
-    top: 14px;
-    width: 10px;
-    height: 10px;
-    background: var(--pink-medium);
-    border-radius: 50%;
-}
-
-.timeline-events {
-    flex: 1;
-    padding-left: 24px;
-    padding-bottom: 30px;
-}
-
+/* Timeline */
 .timeline-item {
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(245, 240, 230, 0.1);
+    display: flex;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(245, 240, 230, 0.15);
 }
 
 .timeline-item:last-child {
     border-bottom: none;
 }
 
-.timeline-item:first-child {
-    padding-top: 0;
+.timeline-time {
+    flex-shrink: 0;
+    width: 110px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--pink-light);
 }
 
 .timeline-content {

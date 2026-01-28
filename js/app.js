@@ -79,58 +79,33 @@ function renderTimeline() {
     const fridayEl = document.getElementById('friday-timeline');
     const saturdayEl = document.getElementById('saturday-timeline');
 
-    // Group events by time
-    function groupByTime(events) {
-        const groups = [];
-        let currentGroup = null;
+    fridayEl.innerHTML = weddingData.timeline.friday.map(item => {
+        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
+        return `
+        <div class="timeline-item">
+            <div class="timeline-time">${item.time}</div>
+            <div class="timeline-content">
+                <div class="timeline-event">${item.event}</div>
+                <div class="timeline-location">${item.location} <a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-left:10px;padding:4px 10px;font-size:0.65rem;">Directions</a></div>
+                ${item.who ? `<div class="timeline-who">${item.who}</div>` : ''}
+                ${item.notes ? `<div class="timeline-notes">${item.notes}</div>` : ''}
+            </div>
+        </div>
+    `}).join('');
 
-        events.forEach(item => {
-            // Normalize time for comparison (extract start time)
-            const timeKey = item.time.split(' - ')[0].split(' ')[0];
-
-            if (!currentGroup || currentGroup.timeKey !== timeKey) {
-                currentGroup = { time: item.time, timeKey: timeKey, events: [] };
-                groups.push(currentGroup);
-            }
-            currentGroup.events.push(item);
-        });
-
-        return groups;
-    }
-
-    function renderGroupedTimeline(events) {
-        const groups = groupByTime(events);
-
-        return groups.map(group => {
-            const eventsHtml = group.events.map(item => {
-                const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
-                return `
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-event">${item.event}</div>
-                            <div class="timeline-location">${item.location} <a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-left:10px;padding:4px 10px;font-size:0.65rem;">Directions</a></div>
-                            ${item.who ? `<div class="timeline-who">${item.who}</div>` : ''}
-                            ${item.notes ? `<div class="timeline-notes">${item.notes}</div>` : ''}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-
-            return `
-                <div class="timeline-group">
-                    <div class="timeline-sidebar">
-                        <div class="timeline-time">${group.time}</div>
-                    </div>
-                    <div class="timeline-events">
-                        ${eventsHtml}
-                    </div>
-                </div>
-            `;
-        }).join('');
-    }
-
-    fridayEl.innerHTML = renderGroupedTimeline(weddingData.timeline.friday);
-    saturdayEl.innerHTML = renderGroupedTimeline(weddingData.timeline.saturday);
+    saturdayEl.innerHTML = weddingData.timeline.saturday.map(item => {
+        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
+        return `
+        <div class="timeline-item">
+            <div class="timeline-time">${item.time}</div>
+            <div class="timeline-content">
+                <div class="timeline-event">${item.event}</div>
+                <div class="timeline-location">${item.location} <a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-left:10px;padding:4px 10px;font-size:0.65rem;">Directions</a></div>
+                ${item.who ? `<div class="timeline-who">${item.who}</div>` : ''}
+                ${item.notes ? `<div class="timeline-notes">${item.notes}</div>` : ''}
+            </div>
+        </div>
+    `}).join('');
 }
 
 // Ceremony
