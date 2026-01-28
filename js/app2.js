@@ -436,17 +436,11 @@ function renderDayOf() {
 
     // Emergency Contacts
     const emergencyContacts = document.getElementById('emergency-contacts');
-    if (emergencyContacts && weddingData.vendors) {
-        const vendorsWithPhone = weddingData.vendors.filter(v => v.phone);
-        emergencyContacts.innerHTML = vendorsWithPhone.map(v => `
-            <div class="person-item">
-                <span class="person-name">${v.name || v.company}</span>
-                <span class="person-role"><a href="tel:${v.phone}">${v.phone}</a> - ${v.role}</span>
-            </div>
-        `).join('') || `
+    if (emergencyContacts) {
+        emergencyContacts.innerHTML = `
             <div class="person-item">
                 <span class="person-name">Jeanne Gallo</span>
-                <span class="person-role">(312) 882-2087 - Day-of Coordinator</span>
+                <span class="person-role"><a href="tel:3128822087">(312) 882-2087</a> - Day-of Coordinator</span>
             </div>
         `;
     }
