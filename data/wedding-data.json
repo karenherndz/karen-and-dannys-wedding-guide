@@ -498,33 +498,33 @@
 
   "budget": {
     "totalBudget": 39000,
-    "totalCosts": 31189.94,
-    "totalDeposits": 14732.80,
+    "totalCosts": 38531.94,
+    "totalDeposits": 16411.80,
     "totalRemaining": 15797.14,
-    "budgetRemainder": 7810.06,
+    "budgetRemainder": 468.06,
     "expenses": [
       { "item": "PJI Industrial Garden (venue, security, clean)", "total": 4700, "deposit": 750, "paid": true, "remainder": 3950, "dueDate": "3/31/26", "whoPaid": "Danny" },
+      { "item": "Tenting option", "total": 3358, "deposit": 1679, "paid": true, "remainder": 1679, "dueDate": null, "whoPaid": null },
+      { "item": "Insurance", "total": 160, "deposit": null, "paid": false, "remainder": 160, "dueDate": null, "whoPaid": null },
+      { "item": "Tailoring", "total": 350, "deposit": null, "paid": false, "remainder": 350, "dueDate": null, "whoPaid": null },
       { "item": "Karen's Dress", "total": 2242.69, "deposit": 2242.69, "paid": true, "remainder": 0, "dueDate": "N/A", "whoPaid": "Elizabeth ($1000), Karen ($1242.69)" },
       { "item": "Stationary & Invites", "total": 600, "deposit": 600, "paid": true, "remainder": 0, "dueDate": "N/A", "whoPaid": "Jose N." },
-      { "item": "Bartenders (Branson)", "total": null, "deposit": 300, "paid": true, "remainder": null, "dueDate": null, "whoPaid": "Jose N." },
+      { "item": "Bartenders (Branson)", "total": 750, "deposit": 300, "paid": true, "remainder": 450, "dueDate": null, "whoPaid": "Jose N." },
+      { "item": "Restroom Trailer", "total": 650, "deposit": null, "paid": false, "remainder": 650, "dueDate": null, "whoPaid": null, "estimated": true },
       { "item": "DJ, Ritmeaux Krewe, Puerto Rican Second Line & Ceremony Sound", "total": 1500, "deposit": 1500, "paid": false, "remainder": 0, "dueDate": null, "whoPaid": null },
       { "item": "Antonia's Decorating Setup", "total": 1650, "deposit": 825, "paid": true, "remainder": 825, "dueDate": "4/11/26", "whoPaid": "Jose N." },
+      { "item": "Alcohol (wholesale liquor) Both Days", "total": 1734, "deposit": null, "paid": false, "remainder": 1734, "dueDate": null, "whoPaid": null, "estimated": true },
       { "item": "Photographer (Stephanie Terrant)", "total": 2700, "deposit": 300, "paid": true, "remainder": 2400, "dueDate": null, "whoPaid": "Karen" },
       { "item": "Furniture Rental (YUR)", "total": 3176, "deposit": 811.25, "paid": true, "remainder": 2364.75, "dueDate": null, "whoPaid": null },
       { "item": "Saturday Catering (2B1L)", "total": 10661.25, "deposit": 6103.86, "paid": true, "remainder": 4557.39, "dueDate": "4/11/26", "whoPaid": "Cindy & Duschan" },
-      { "item": "After Party Live Band (Thomas Glass)", "total": 3000, "deposit": 1300, "paid": true, "remainder": 1700, "dueDate": "4/11/26", "whoPaid": "Papa (Jose N.)" },
-      { "item": "Insurance", "total": 160, "deposit": null, "paid": false, "remainder": 160, "dueDate": null, "whoPaid": null },
+      { "item": "Food for Friday", "total": 500, "deposit": null, "paid": false, "remainder": 500, "dueDate": null, "whoPaid": null, "estimated": true },
       { "item": "Clean up Staff", "total": 300, "deposit": null, "paid": false, "remainder": 300, "dueDate": null, "whoPaid": null },
-      { "item": "After Party DJ", "total": 500, "deposit": null, "paid": false, "remainder": 500, "dueDate": null, "whoPaid": null }
+      { "item": "After Party DJ", "total": 500, "deposit": null, "paid": false, "remainder": 500, "dueDate": null, "whoPaid": null },
+      { "item": "After Party Live Band (Thomas Glass)", "total": 3000, "deposit": 1300, "paid": true, "remainder": 1700, "dueDate": "4/11/26", "whoPaid": "Papa (Jose N.)" }
     ],
     "tbd": [
       "Danny's Suit",
-      "Tenting option",
-      "Tailoring",
-      "Place Settings & Flowers",
-      "Restroom Trailer",
-      "Alcohol (wholesale liquor) Both Days",
-      "Food for Friday"
+      "Place Settings & Flowers"
     ]
   }
 }

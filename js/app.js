@@ -180,11 +180,12 @@ function renderBudget() {
     vendorBudgetEl.innerHTML = budget.expenses.map(exp => {
         const paidStatus = exp.remainder === 0 ? '✓ Paid in full' : (exp.deposit ? `$${exp.deposit.toLocaleString()} paid` : 'Not paid');
         const remainderText = exp.remainder > 0 ? `$${exp.remainder.toLocaleString()} due${exp.dueDate ? ' ' + exp.dueDate : ''}` : '';
+        const estimatedTag = exp.estimated ? ' <span style="color:var(--pink-medium);font-size:0.7rem;">(est)</span>' : '';
         return `
             <div class="person-item" style="flex-wrap:wrap;">
                 <span class="person-name">${exp.item}</span>
                 <span class="person-role" style="color:var(--ivory);text-align:right;">
-                    ${exp.total ? '$' + exp.total.toLocaleString() : 'TBD'}
+                    ${exp.total ? '$' + exp.total.toLocaleString() + estimatedTag : 'TBD'}
                 </span>
             </div>
             <div style="width:100%;font-size:0.8rem;color:var(--ivory-soft);padding-bottom:10px;border-bottom:1px solid rgba(245,240,230,0.1);margin-bottom:10px;">
