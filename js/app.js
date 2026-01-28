@@ -332,45 +332,49 @@ function renderPeople() {
 
     // Family
     const familyList = document.getElementById('family-list');
-    familyList.innerHTML = `
-        <div class="person-item">
-            <span class="person-name">Jose N. Hernandez</span>
-            <span class="person-role">Karen's Dad</span>
-        </div>
-        <div class="person-item">
-            <span class="person-name">Karen's Mom</span>
-            <span class="person-role">Posthumously Honored</span>
-        </div>
-        <div class="person-item">
-            <span class="person-name">Jose D. Hernandez</span>
-            <span class="person-role">Karen's Brother / Best Man</span>
-        </div>
-        <div class="person-item">
-            <span class="person-name">Cindy Milojevic</span>
-            <span class="person-role">Danny's Mom</span>
-        </div>
-        <div class="person-item">
-            <span class="person-name">Duschan Milojevic</span>
-            <span class="person-role">Danny's Dad</span>
-        </div>
-        <div class="person-item">
-            <span class="person-name">Lauren Langenmayr</span>
-            <span class="person-role">Danny's Sister / Maid of Honor</span>
-        </div>
-    `;
+    if (familyList) {
+        familyList.innerHTML = `
+            <div class="person-item">
+                <span class="person-name">Jose N. Hernandez</span>
+                <span class="person-role">Karen's Dad</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Karen's Mom</span>
+                <span class="person-role">Posthumously Honored</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Jose D. Hernandez</span>
+                <span class="person-role">Karen's Brother / Best Man</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Cindy Milojevic</span>
+                <span class="person-role">Danny's Mom</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Duschan Milojevic</span>
+                <span class="person-role">Danny's Dad</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Lauren Langenmayr</span>
+                <span class="person-role">Danny's Sister / Maid of Honor</span>
+            </div>
+        `;
+    }
 
     // Staffing
     const staffingList = document.getElementById('staffing-list');
-    staffingList.innerHTML = weddingData.staffing.map(person => `
-        <div class="person-item">
-            <span class="person-name">${person.name}</span>
-            <span class="person-role">${person.role}: ${person.task}</span>
-        </div>
-    `).join('');
+    if (staffingList && weddingData.staffing) {
+        staffingList.innerHTML = weddingData.staffing.map(person => `
+            <div class="person-item">
+                <span class="person-name">${person.name}</span>
+                <span class="person-role">${person.role}: ${person.task}</span>
+            </div>
+        `).join('');
+    }
 
     // Flower Girls / Ushers
     const cousinsList = document.getElementById('cousins-list');
-    if (weddingData.flowerGirls) {
+    if (cousinsList && weddingData.flowerGirls) {
         cousinsList.innerHTML = weddingData.flowerGirls.map(name => `
             <span class="cousin-tag">${name}</span>
         `).join('');
@@ -378,12 +382,11 @@ function renderPeople() {
 
     // Flip Crew
     const flipCrewList = document.getElementById('flip-crew-list');
-    if (weddingData.flipCrew && flipCrewList) {
+    if (flipCrewList && weddingData.flipCrew) {
         flipCrewList.innerHTML = weddingData.flipCrew.map(name => `
             <span class="cousin-tag">${name}</span>
         `).join('');
     }
-
 }
 
 // Day-Of Quick Reference
