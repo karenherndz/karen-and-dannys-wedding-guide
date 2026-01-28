@@ -1,25 +1,33 @@
 {
   "couple": {
     "person1": "Karen",
-    "person2": "Danny"
+    "person1Phone": "(216) 212-6400",
+    "person2": "Danny",
+    "person2Phone": "(504) 491-6756"
   },
   "date": "2026-04-11",
   "website": "https://karenanddanny.xyz/",
 
   "family": {
     "karen": {
-      "dad": "Jose N. Hernandez",
+      "dad": "Jose Nestor Hernandez",
+      "dadPhone": "(216) 502-7882",
       "mom": "Posthumously Honored",
-      "brother": "Jose D. Hernandez"
+      "brother": "Jose David Hernandez",
+      "brotherPhone": "(216) 375-5326"
     },
     "danny": {
       "mom": "Cindy Milojevic",
+      "momPhone": "(708) 606-8839",
       "dad": "Duschan Milojevic",
-      "sister": "Lauren Langenmayr"
+      "dadPhone": "(708) 689-7000",
+      "sister": "Lauren Langenmayr",
+      "sisterPhone": "(708) 606-9583"
     },
     "extended": {
-      "peggy": "Assists Karen and girls",
-      "marilyn": "Assists men with boutonnieres",
+      "elizabeth": { "role": "Dad's Wife", "phone": "(216) 767-6293" },
+      "peggy": { "role": "Assists Karen and girls", "phone": "(217) 390-6527" },
+      "marilyn": { "role": "Assists men with boutonnieres", "phone": "(708) 807-0568" },
       "lauren": "Family",
       "dave": "Family",
       "milo": "Family",
@@ -124,7 +132,7 @@
       "role": "Caterer",
       "name": "David Hargrove",
       "company": "2 Brothers 1 Love (2B1L)",
-      "phone": "",
+      "phone": "(646) 842-9038",
       "email": "",
       "cost": 10661.25,
       "deposit": 6103.86,
@@ -137,20 +145,20 @@
       "role": "Decor / Banners",
       "name": "Antonia Zennaro",
       "company": "",
-      "phone": "",
+      "phone": "(504) 518-3218",
       "email": "",
       "cost": 1650,
       "deposit": 825,
       "remainder": 825,
       "arrivalTime": "12:00 PM Saturday",
       "status": "booked",
-      "notes": "Make & install banners, draping. Sets up banners at Friday rehearsal. Deposit paid by Jose N. Remainder due 4/11/26."
+      "notes": "Make & install banners, draping. Sets up banners at Friday rehearsal. Deposit paid by Jose Nestor Remainder due 4/11/26."
     },
     {
       "role": "DJ, Ritmeaux Krewe & Puerto Rican Second Line",
       "name": "Lady B",
       "company": "",
-      "phone": "",
+      "phone": "(504) 214-8105",
       "email": "",
       "cost": 1500,
       "deposit": null,
@@ -163,7 +171,7 @@
       "role": "Piano",
       "name": "Sam Kuslan",
       "company": "",
-      "phone": "",
+      "phone": "(203) 535-2159",
       "email": "",
       "cost": null,
       "paid": false,
@@ -175,7 +183,7 @@
       "role": "Furniture Rentals",
       "name": "",
       "company": "YUR Event Rentals",
-      "phone": "",
+      "phone": "(504) 218-0726",
       "email": "",
       "cost": 3176,
       "paid": 785.40,
@@ -189,7 +197,7 @@
       "role": "Photographer",
       "name": "Stephanie Terrant",
       "company": "",
-      "phone": "",
+      "phone": "(219) 776-9158",
       "email": "",
       "cost": 3000,
       "deposit": 300,
@@ -214,7 +222,7 @@
       "role": "Officiant",
       "name": "Kali Serna",
       "company": "",
-      "phone": "",
+      "phone": "(347) 526-6632",
       "email": "",
       "cost": null,
       "paid": false,
@@ -225,8 +233,8 @@
     {
       "role": "Cake",
       "name": "",
-      "company": "Boulangerie Bakery",
-      "phone": "",
+      "company": "La Boulangerie",
+      "phone": "(504) 269-3777",
       "email": "",
       "cost": null,
       "paid": false,
@@ -245,13 +253,13 @@
       "remainder": 1700,
       "arrivalTime": "",
       "status": "booked",
-      "notes": "Playing at No Dice. Deposit paid by Papa (Jose N.). Remainder due 4/11/26."
+      "notes": "Playing at No Dice. Deposit paid by Papa (Jose Nestor). Remainder due 4/11/26."
     },
     {
       "role": "Tailor / Dress",
       "name": "Sophie Tran",
       "company": "",
-      "phone": "",
+      "phone": "(504) 319-7799",
       "email": "",
       "cost": null,
       "paid": false,
@@ -263,7 +271,7 @@
       "role": "Bartenders",
       "name": "",
       "company": "Branson Bartending",
-      "phone": "",
+      "phone": "(337) 940-2190",
       "email": "",
       "cost": 750,
       "deposit": 300,
@@ -276,7 +284,7 @@
       "role": "Rain Contingency Tent",
       "name": "",
       "company": "Larkin",
-      "phone": "",
+      "phone": "(504) 444-7877",
       "email": "",
       "cost": 3358,
       "deposit": 1679,
@@ -289,7 +297,7 @@
       "role": "Rehearsal Dinner",
       "name": "",
       "company": "Oak & Ale",
-      "phone": "",
+      "phone": "(504) 324-6658",
       "email": "",
       "cost": null,
       "paid": false,
@@ -316,10 +324,10 @@
       "Kali enters and stands up front",
       "Cindy escorted to seat by Danny, Duschan follows (sits left side)",
       "Danny stays up front next to Kali",
-      "Lauren Langenmayr and Jose D. come down the aisle",
+      "Lauren Langenmayr and Jose David come down the aisle",
       "Ring Bearers enter",
       "Bride's processional music begins",
-      "Karen enters with her father Jose N. Hernandez",
+      "Karen enters with her father Jose Nestor Hernandez",
       "Guests stand as bride enters"
     ],
     "program": [
@@ -332,18 +340,18 @@
     "recessionalMusic": "Gal Costa - Cuidando de Longe",
     "recessionalOrder": [
       "Bride and Groom process down the aisle",
-      "Lauren Langenmayr and Jose D. process",
-      "Cindy, Duschan, and Jose N. process",
+      "Lauren Langenmayr and Jose David process",
+      "Cindy, Duschan, and Jose Nestor process",
       "Flower girls guide the rest of the guests"
     ],
-    "notes": "Jose N. walks Karen down the aisle and takes his seat. Kali says 'You may all be seated' and begins the ceremony. Jeanne holds latecomers until ceremony is over."
+    "notes": "Jose Nestor walks Karen down the aisle and takes his seat. Kali says 'You may all be seated' and begins the ceremony. Jeanne holds latecomers until ceremony is over."
   },
 
   "speeches": {
     "order": [
-      { "speaker": "Jose N. Hernandez (Karen's Dad)", "time": "3 minutes" },
+      { "speaker": "Jose Nestor Hernandez (Karen's Dad)", "time": "3 minutes" },
       { "speaker": "Cindy & Duschan Milojevic (Danny's Parents)", "time": "3 minutes" },
-      { "speaker": "Jose D. Hernandez (Best Man)", "time": "5 minutes" },
+      { "speaker": "Jose David Hernandez (Best Man)", "time": "5 minutes" },
       { "speaker": "Lauren Langenmayr (Danny's Sister / Maid of Honor)", "time": "5 minutes" }
     ],
     "maxTime": "5:30 PM",
@@ -437,7 +445,7 @@
 
   "weddingParty": {
     "maidOfHonor": "Lauren Langenmayr",
-    "bestMan": "Jose D. Hernandez",
+    "bestMan": "Jose David Hernandez",
     "karen": {
       "gettingReadyWith": ["Mady", "Kelsey", "Kali", "Kagan"],
       "hairHelp": "Kagan",
@@ -525,8 +533,8 @@
 
   "timeline": {
     "friday": [
-      { "time": "1:00 - 3:00 PM", "event": "Rehearsal", "location": "Industrial Gardens", "who": "Wedding party, Jeanne (1pm), Antonia (1pm for setup), Khristian (plants), Cindy, Duschan, Jose N., Jose D., Lauren, Dave, Milo, Remy, Amanda, Doug, Ellison, Kali, Elizabeth", "notes": "Walk through ceremony and room flip. Jeanne arrives at 1pm. Antonia arrives at 1pm to set up banners/decor. Khristian drops off plants. Give Jeanne all items for next day." },
-      { "time": "3:30 PM", "event": "Key members back at Milo Gardens", "location": "Milo Gardens", "who": "Cindy, Duschan, Jose N., Jose D., Lauren, Dave, Milo, Remy, Amanda, Doug, Ellison, Kali, Elizabeth" },
+      { "time": "1:00 - 3:00 PM", "event": "Rehearsal", "location": "Industrial Gardens", "who": "Wedding party, Jeanne (1pm), Antonia (1pm for setup), Khristian (plants), Cindy, Duschan, Jose Nestor, Jose David, Lauren, Dave, Milo, Remy, Amanda, Doug, Ellison, Kali, Elizabeth", "notes": "Walk through ceremony and room flip. Jeanne arrives at 1pm. Antonia arrives at 1pm to set up banners/decor. Khristian drops off plants. Give Jeanne all items for next day." },
+      { "time": "3:30 PM", "event": "Key members back at Milo Gardens", "location": "Milo Gardens", "who": "Cindy, Duschan, Jose Nestor, Jose David, Lauren, Dave, Milo, Remy, Amanda, Doug, Ellison, Kali, Elizabeth" },
       { "time": "4:00 - 7:00 PM", "event": "Welcome Party", "location": "Milo Gardens", "who": "Everyone", "notes": "Crawfish boil, pizza, beer & wine, music. High-tops, seating areas." },
       { "time": "7:00 PM", "event": "Rehearsal Dinner", "location": "Oak & Ale", "who": "Family" }
     ],
@@ -539,13 +547,13 @@
       { "time": "1:00 PM", "event": "Flower delivery", "location": "Greatman Cottage", "who": "Florist", "notes": "Bridal bouquet, boutonnieres, Lauren's flowers" },
       { "time": "2:00 PM", "event": "Photo team & Sam Kuslan arrive", "location": "Greatman Cottage / Industrial Gardens", "who": "Karen, Danny, Photographer, Sam Kuslan", "notes": "First look & beauty shots at Greatman Cottage. Sam sets up piano at venue." },
       { "time": "2:30 PM", "event": "Flower Girls / Ushers arrive", "location": "Industrial Gardens", "who": "Flower Girls", "notes": "Hand out flower petals and usher guests to seats at 3pm." },
-      { "time": "2:30 - 3:15 PM", "event": "Touch-ups & hang out", "location": "Conference room", "who": "Karen, Danny, Cindy, Duschan, Jose N., Jose D., Lauren", "notes": "Away from guests" },
+      { "time": "2:30 - 3:15 PM", "event": "Touch-ups & hang out", "location": "Conference room", "who": "Karen, Danny, Cindy, Duschan, Jose Nestor, Jose David, Lauren", "notes": "Away from guests" },
       { "time": "2:40 PM", "event": "Prelude music begins", "location": "Industrial Gardens", "who": "DJ", "notes": "Kamasi Washington - Harmony of Difference Album" },
       { "time": "3:00 PM", "event": "Guests arrive - Flower Girls usher", "location": "Industrial Gardens", "who": "Flower Girls, Guests", "notes": "Flower girls hand out petals and usher guests. Seat family up front (roped off)." },
       { "time": "3:15 - 3:45 PM", "event": "CEREMONY", "location": "Industrial Gardens", "who": "Everyone", "notes": "Guests told 3:00 PM. Jeanne holds latecomers until ceremony is over." },
       { "time": "4:00 - 4:30 PM", "event": "Room Flip & Cocktail Hour", "location": "Industrial Gardens", "who": "Zach, Joey, John, Gabriel + any guys, Family, Photographer", "notes": "High tops stocked with champagne glasses. Courtyard bar open. Guests hang out in street, balcony, or conference room while guy cousins move 7 tables. Bar in ceremony space sets up during flip. Family photos happening simultaneously." },
       { "time": "5:00 - 6:30 PM", "event": "Dinner & Buffet", "location": "Industrial Gardens", "who": "Everyone", "notes": "DJ plays Karen & Danny's playlist." },
-      { "time": "6:15 PM", "event": "Speeches", "location": "Industrial Gardens", "who": "Jose N., Cindy, Duschan, Jose D., Lauren", "notes": "After everyone has their meal." },
+      { "time": "6:15 PM", "event": "Speeches", "location": "Industrial Gardens", "who": "Jose Nestor, Cindy, Duschan, Jose David, Lauren", "notes": "After everyone has their meal." },
       { "time": "6:35 PM", "event": "First Dance & Parent Dance", "location": "Industrial Gardens", "who": "Karen & Danny, then Parents", "notes": "First dance song: Virgen - Adolescent Orchestra." },
       { "time": "6:40 PM", "event": "Dance Floor Open!", "location": "Industrial Gardens", "who": "Everyone" },
       { "time": "7:30 PM", "event": "Dessert", "location": "Industrial Gardens", "who": "Milo announces", "notes": "Milo does the dessert announcement." },
@@ -571,11 +579,11 @@
       { "item": "Insurance", "total": 160, "deposit": null, "paid": false, "remainder": 160, "dueDate": null, "whoPaid": null },
       { "item": "Tailoring", "total": 350, "deposit": null, "paid": false, "remainder": 350, "dueDate": null, "whoPaid": null },
       { "item": "Karen's Dress", "total": 2242.69, "deposit": 2242.69, "paid": true, "remainder": 0, "dueDate": "N/A", "whoPaid": "Elizabeth ($1000), Karen ($1242.69)" },
-      { "item": "Stationary & Invites", "total": 600, "deposit": 600, "paid": true, "remainder": 0, "dueDate": "N/A", "whoPaid": "Jose N." },
-      { "item": "Bartenders (Branson)", "total": 750, "deposit": 300, "paid": true, "remainder": 450, "dueDate": null, "whoPaid": "Jose N." },
+      { "item": "Stationary & Invites", "total": 600, "deposit": 600, "paid": true, "remainder": 0, "dueDate": "N/A", "whoPaid": "Jose Nestor" },
+      { "item": "Bartenders (Branson)", "total": 750, "deposit": 300, "paid": true, "remainder": 450, "dueDate": null, "whoPaid": "Jose Nestor" },
       { "item": "Restroom Trailer", "total": 650, "deposit": null, "paid": false, "remainder": 650, "dueDate": null, "whoPaid": null, "estimated": true },
       { "item": "DJ, Ritmeaux Krewe, Puerto Rican Second Line & Ceremony Sound", "total": 1500, "deposit": 1500, "paid": false, "remainder": 0, "dueDate": null, "whoPaid": null },
-      { "item": "Antonia's Decorating Setup", "total": 1650, "deposit": 825, "paid": true, "remainder": 825, "dueDate": "4/11/26", "whoPaid": "Jose N." },
+      { "item": "Antonia's Decorating Setup", "total": 1650, "deposit": 825, "paid": true, "remainder": 825, "dueDate": "4/11/26", "whoPaid": "Jose Nestor" },
       { "item": "Alcohol (wholesale liquor) Both Days", "total": 1734, "deposit": null, "paid": false, "remainder": 1734, "dueDate": null, "whoPaid": null, "estimated": true },
       { "item": "Photographer (Stephanie Terrant)", "total": 3000, "deposit": 300, "paid": true, "remainder": 2700, "dueDate": null, "whoPaid": "Karen" },
       { "item": "Furniture Rental (YUR)", "total": 3176, "deposit": 811.25, "paid": true, "remainder": 2364.75, "dueDate": null, "whoPaid": null },
@@ -583,7 +591,7 @@
       { "item": "Food for Friday", "total": 500, "deposit": null, "paid": false, "remainder": 500, "dueDate": null, "whoPaid": null, "estimated": true },
       { "item": "Clean up Staff", "total": 300, "deposit": null, "paid": false, "remainder": 300, "dueDate": null, "whoPaid": null },
       { "item": "After Party DJ", "total": 500, "deposit": null, "paid": false, "remainder": 500, "dueDate": null, "whoPaid": null },
-      { "item": "After Party Live Band (Thomas Glass)", "total": 3000, "deposit": 1300, "paid": true, "remainder": 1700, "dueDate": "4/11/26", "whoPaid": "Papa (Jose N.)" }
+      { "item": "After Party Live Band (Thomas Glass)", "total": 3000, "deposit": 1300, "paid": true, "remainder": 1700, "dueDate": "4/11/26", "whoPaid": "Papa (Jose Nestor)" }
     ],
     "tbd": [
       "Danny's Suit",

@@ -356,36 +356,48 @@ function renderPeople() {
     if (familyList) {
         familyList.innerHTML = `
             <div class="person-item">
+                <span class="person-name">Karen Hernandez</span>
+                <span class="person-role">Bride · <a href="tel:2162126400">(216) 212-6400</a></span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Danny Milojevic</span>
+                <span class="person-role">Groom · <a href="tel:5044916756">(504) 491-6756</a></span>
+            </div>
+            <div class="person-item">
                 <span class="person-name">Kali Serna</span>
-                <span class="person-role">Officiant</span>
+                <span class="person-role">Officiant · <a href="tel:3475266632">(347) 526-6632</a></span>
             </div>
             <div class="person-item">
                 <span class="person-name">Jeanne Gallo</span>
-                <span class="person-role">Day-of Coordinator</span>
+                <span class="person-role">Day-of Coordinator · <a href="tel:3128822087">(312) 882-2087</a></span>
             </div>
             <div class="person-item">
-                <span class="person-name">Jose N. Hernandez</span>
-                <span class="person-role">Karen's Dad</span>
+                <span class="person-name">Jose Nestor Hernandez</span>
+                <span class="person-role">Karen's Dad · <a href="tel:2165027882">(216) 502-7882</a></span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Elizabeth Hernandez</span>
+                <span class="person-role">Dad's Wife · <a href="tel:2167676293">(216) 767-6293</a></span>
             </div>
             <div class="person-item">
                 <span class="person-name">Karen's Mom</span>
                 <span class="person-role">Posthumously Honored</span>
             </div>
             <div class="person-item">
-                <span class="person-name">Jose D. Hernandez</span>
-                <span class="person-role">Karen's Brother / Best Man</span>
+                <span class="person-name">Jose David Hernandez</span>
+                <span class="person-role">Karen's Brother / Best Man · <a href="tel:2163755326">(216) 375-5326</a></span>
             </div>
             <div class="person-item">
                 <span class="person-name">Cindy Milojevic</span>
-                <span class="person-role">Danny's Mom</span>
+                <span class="person-role">Danny's Mom · <a href="tel:7086068839">(708) 606-8839</a></span>
             </div>
             <div class="person-item">
-                <span class="person-name">Duschan Milojevic</span>
-                <span class="person-role">Danny's Dad</span>
+                <span class="person-name">Duschan "Duey" Milojevic</span>
+                <span class="person-role">Danny's Dad · <a href="tel:7086897000">(708) 689-7000</a></span>
             </div>
             <div class="person-item">
                 <span class="person-name">Lauren Langenmayr</span>
-                <span class="person-role">Danny's Sister / Maid of Honor</span>
+                <span class="person-role">Danny's Sister / Maid of Honor · <a href="tel:7086069583">(708) 606-9583</a></span>
             </div>
         `;
     }
