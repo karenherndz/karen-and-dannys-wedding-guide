@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Plumeria flower -->
+  <defs>
+    <radialGradient id="petalGrad" cx="30%" cy="30%">
+      <stop offset="0%" stop-color="#ffd6e8"/>
+      <stop offset="100%" stop-color="#ffb6d3"/>
+    </radialGradient>
+    <radialGradient id="centerGrad" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#fff4a3"/>
+      <stop offset="100%" stop-color="#ffdb58"/>
+    </radialGradient>
+  </defs>
+  <!-- 5 petals -->
+  <ellipse cx="50" cy="25" rx="18" ry="28" fill="url(#petalGrad)" transform="rotate(0 50 50)"/>
+  <ellipse cx="50" cy="25" rx="18" ry="28" fill="url(#petalGrad)" transform="rotate(72 50 50)"/>
+  <ellipse cx="50" cy="25" rx="18" ry="28" fill="url(#petalGrad)" transform="rotate(144 50 50)"/>
+  <ellipse cx="50" cy="25" rx="18" ry="28" fill="url(#petalGrad)" transform="rotate(216 50 50)"/>
+  <ellipse cx="50" cy="25" rx="18" ry="28" fill="url(#petalGrad)" transform="rotate(288 50 50)"/>
+  <!-- Yellow center -->
+  <circle cx="50" cy="50" r="12" fill="url(#centerGrad)"/>
+</svg>
