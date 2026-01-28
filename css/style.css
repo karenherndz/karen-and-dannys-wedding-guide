@@ -549,6 +549,44 @@ a:hover {
     color: var(--ivory);
 }
 
+/* Document links */
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(245, 240, 230, 0.15);
+    text-decoration: none;
+    color: var(--ivory);
+    transition: all 0.2s ease;
+}
+
+.doc-link:last-child {
+    border-bottom: none;
+}
+
+.doc-link:hover {
+    color: var(--pink-light);
+}
+
+.doc-icon {
+    font-size: 1.5rem;
+}
+
+.doc-info {
+    flex: 1;
+}
+
+.doc-name {
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.doc-desc {
+    font-size: 0.85rem;
+    color: var(--ivory-soft);
+}
+
 .quick-card h3 {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 1.4rem;
