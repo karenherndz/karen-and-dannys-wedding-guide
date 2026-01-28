@@ -219,7 +219,7 @@
       "cost": null,
       "paid": false,
       "arrivalTime": "",
-      "status": "asked",
+      "status": "booked",
       "notes": "Friend officiating ceremony"
     },
     {
