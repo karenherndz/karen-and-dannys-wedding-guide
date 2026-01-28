@@ -384,18 +384,6 @@ function renderPeople() {
         `).join('');
     }
 
-    // Lodging
-    const lodgingList = document.getElementById('lodging-list');
-    lodgingList.innerHTML = `
-        <h4 style="font-size:0.9rem;margin:10px 0 8px;color:var(--pink-medium);">Hotels</h4>
-        ${weddingData.lodging.hotels.map(h => `<p style="padding:6px 0;">${h}</p>`).join('')}
-        <h4 style="font-size:0.9rem;margin:20px 0 8px;color:var(--pink-medium);">The Syd Units</h4>
-        ${Object.entries(weddingData.lodging.vacationRentals.theSyd.assignments).map(([unit, guests]) => `
-            <p style="padding:6px 0;"><strong>Unit ${unit}:</strong> ${guests}</p>
-        `).join('')}
-        <h4 style="font-size:0.9rem;margin:20px 0 8px;color:var(--pink-medium);">CastleDay</h4>
-        <p style="padding:6px 0;">${weddingData.lodging.vacationRentals.castleDay.assignments}</p>
-    `;
 }
 
 // Day-Of Quick Reference
