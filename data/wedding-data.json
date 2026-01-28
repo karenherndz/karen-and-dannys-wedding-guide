@@ -276,13 +276,13 @@
 
   "speeches": {
     "order": [
-      { "speaker": "Milo (Lauren and Duey?)", "time": "3 minutes" },
-      { "speaker": "Danny's Besties", "time": "5 minutes" },
-      { "speaker": "Karen's Dad (Jose Sr)", "time": "3 minutes" },
-      { "speaker": "Karen's Besties", "time": "5 minutes" }
+      { "speaker": "Jose N. Hernandez (Karen's Dad)", "time": "3 minutes" },
+      { "speaker": "Cindy & Duschan Milojevic (Danny's Parents)", "time": "3 minutes" },
+      { "speaker": "Jose D. Hernandez (Best Man)", "time": "5 minutes" },
+      { "speaker": "Lauren Langenmayr (Maid of Honor)", "time": "5 minutes" }
     ],
-    "maxTime": "6:45 PM",
-    "notes": "Speeches during dessert. Must finish by 6:45 PM for first dance."
+    "maxTime": "5:30 PM",
+    "notes": "Speeches before dinner. Parents and siblings only."
   },
 
   "dances": {
@@ -474,9 +474,11 @@
       { "time": "3:00 PM", "event": "Guests arrive - Flower Girls usher", "location": "Industrial Gardens", "who": "Flower Girls, Guests", "notes": "Flower girls hand out petals and usher guests. Seat family up front (roped off)." },
       { "time": "3:15 - 3:45 PM", "event": "CEREMONY", "location": "Industrial Gardens", "who": "Everyone", "notes": "Guests told 3:00 PM. Jeanne holds latecomers until ceremony is over." },
       { "time": "4:00 - 4:30 PM", "event": "Room Flip & Family Photos", "location": "Industrial Gardens", "who": "Flip crew, Family, Photographer", "notes": "Cousins/Twins flip tables while family photos happen. Cocktail hour for guests." },
-      { "time": "5:00 - 6:15 PM", "event": "Dinner & Buffet", "location": "Industrial Gardens", "who": "Everyone", "notes": "Couple announced. DJ plays Karen & Danny's playlist. Chimes to cue guests." },
-      { "time": "6:15 PM", "event": "Speeches & Dessert", "location": "Industrial Gardens", "who": "Milo, Danny's Besties, Jose Sr, Karen's Besties", "notes": "Must finish by 6:45 PM. 3-5 min each." },
-      { "time": "6:45 PM", "event": "First Dance & Parent Dance", "location": "Industrial Gardens", "who": "Karen & Danny, then Parents", "notes": "First dance song: Virgen - Adolescent Orchestra. Dance floor opens right after!" },
+      { "time": "5:00 PM", "event": "Speeches", "location": "Industrial Gardens", "who": "Parents & Siblings", "notes": "Jose N., Cindy, Duschan, Jose D., Lauren. Keep it short!" },
+      { "time": "5:30 - 6:30 PM", "event": "Dinner & Buffet", "location": "Industrial Gardens", "who": "Everyone", "notes": "DJ plays Karen & Danny's playlist." },
+      { "time": "6:30 PM", "event": "First Dance & Parent Dance", "location": "Industrial Gardens", "who": "Karen & Danny, then Parents", "notes": "First dance song: Virgen - Adolescent Orchestra." },
+      { "time": "6:35 PM", "event": "Dance Floor Open!", "location": "Industrial Gardens", "who": "Everyone" },
+      { "time": "7:30 PM", "event": "Dessert", "location": "Industrial Gardens", "who": "Milo announces", "notes": "Milo does the dessert announcement." },
       { "time": "7:30 PM", "event": "Vendor payments distributed", "location": "Industrial Gardens", "who": "Jeanne" },
       { "time": "8:45 PM", "event": "Puerto Rican Second Line Begins", "location": "Industrial Gardens to Blue Nile", "who": "Everyone", "notes": "DJ concludes, photographer departs. Pass out beads/kerchiefs." },
       { "time": "9:00 PM", "event": "AFTER PARTY!", "location": "Blue Nile (NO DICE)", "who": "Everyone", "notes": "Thomas Glass Band" }
