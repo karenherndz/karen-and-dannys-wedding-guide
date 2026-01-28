@@ -8,7 +8,18 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Welcome Modal -->
+    <div id="welcome-modal" class="welcome-modal">
+        <div class="welcome-content">
+            <h2>Welcome!</h2>
+            <p>What's your first name?</p>
+            <input type="text" id="name-input" placeholder="Enter your first name" autocomplete="off">
+            <button id="name-submit" class="welcome-btn">Enter</button>
+        </div>
+    </div>
+
     <header class="header">
+        <div class="user-role" id="user-role" style="display:none;"></div>
         <div class="countdown" id="countdown"></div>
         <h1>Karen & Danny</h1>
         <p class="date">April 11, 2026</p>

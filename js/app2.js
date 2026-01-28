@@ -1,6 +1,133 @@
 // Wedding Command Center - App Logic
 
 let weddingData = null;
+let currentUser = null;
+let accessLevel = 'guest'; // 'family', 'vendor', or 'guest'
+
+// Name lists for access control
+const familyNames = [
+    'karen', 'danny', 'jose', 'lauren', 'cindy', 'duschan', 'duey',
+    'elizabeth', 'peggy', 'marilyn', 'kali', 'jeanne', 'dave', 'milo',
+    'remy', 'amanda', 'doug', 'ellison', 'kathryn', 'nestor', 'david',
+    'zach', 'joey', 'john', 'gabriel', 'jonah', 'jess', 'mady', 'kelsey',
+    'gabi', 'anna', 'carly', 'blair', 'sara', 'reagan', 'jenny', 'kagan',
+    'khristian', 'scottie', 'tim', 'scott'
+];
+
+const vendorNames = {
+    'david': 'Caterer (2B1L)',
+    'hargrove': 'Caterer (2B1L)',
+    'antonia': 'Decor / Banners',
+    'lady b': 'DJ',
+    'sam': 'Piano',
+    'kuslan': 'Piano',
+    'stephanie': 'Photographer',
+    'terrant': 'Photographer',
+    'sophie': 'Tailor / Dress',
+    'tran': 'Tailor / Dress',
+    'thomas': 'After Party Band',
+    'glass': 'After Party Band',
+    'branson': 'Bartenders',
+    'larkin': 'Rain Tent'
+};
+
+// Check if name matches family
+function isFamilyMember(name) {
+    const lower = name.toLowerCase().trim();
+    return familyNames.some(n => lower.includes(n) || n.includes(lower));
+}
+
+// Check if name matches vendor and return their role
+function getVendorRole(name) {
+    const lower = name.toLowerCase().trim();
+    for (const [vendorName, role] of Object.entries(vendorNames)) {
+        if (lower.includes(vendorName) || vendorName.includes(lower)) {
+            return role;
+        }
+    }
+    return null;
+}
+
+// Initialize access control
+function initAccessControl() {
+    const savedName = localStorage.getItem('weddingUserName');
+    const modal = document.getElementById('welcome-modal');
+    const input = document.getElementById('name-input');
+    const submitBtn = document.getElementById('name-submit');
+    const userRoleEl = document.getElementById('user-role');
+
+    if (savedName) {
+        setUserAccess(savedName);
+        modal.classList.add('hidden');
+    }
+
+    submitBtn.addEventListener('click', () => handleNameSubmit(input, modal));
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleNameSubmit(input, modal);
+    });
+
+    // Click on user role to change name
+    userRoleEl.addEventListener('click', () => {
+        localStorage.removeItem('weddingUserName');
+        modal.classList.remove('hidden');
+        input.value = '';
+        input.focus();
+    });
+}
+
+function handleNameSubmit(input, modal) {
+    const name = input.value.trim();
+    if (name) {
+        localStorage.setItem('weddingUserName', name);
+        setUserAccess(name);
+        modal.classList.add('hidden');
+        // Re-render to apply access level
+        renderVendors();
+        renderBudget();
+        applyAccessLevel();
+    }
+}
+
+function setUserAccess(name) {
+    currentUser = name;
+    const userRoleEl = document.getElementById('user-role');
+
+    if (isFamilyMember(name)) {
+        accessLevel = 'family';
+        userRoleEl.innerHTML = `✿ Welcome, ${name}`;
+        userRoleEl.style.display = 'inline-block';
+    } else {
+        const vendorRole = getVendorRole(name);
+        if (vendorRole) {
+            accessLevel = 'vendor';
+            currentUser = { name, role: vendorRole };
+            userRoleEl.innerHTML = `✿ ${name} - ${vendorRole}`;
+            userRoleEl.style.display = 'inline-block';
+        } else {
+            accessLevel = 'guest';
+            userRoleEl.innerHTML = `Welcome, ${name}`;
+            userRoleEl.style.display = 'inline-block';
+        }
+    }
+
+    applyAccessLevel();
+}
+
+function applyAccessLevel() {
+    const budgetNav = document.querySelector('.nav-item[data-section="budget"]');
+
+    if (accessLevel === 'family') {
+        // Full access
+        if (budgetNav) budgetNav.classList.remove('budget-hidden');
+        document.querySelectorAll('.price-hidden').forEach(el => el.classList.remove('price-hidden'));
+    } else if (accessLevel === 'vendor') {
+        // Hide budget tab, but vendor can see their own payment in vendors section
+        if (budgetNav) budgetNav.classList.add('budget-hidden');
+    } else {
+        // Guest - hide all prices and budget
+        if (budgetNav) budgetNav.classList.add('budget-hidden');
+    }
+}
 
 // Load wedding data
 async function loadData() {
@@ -23,6 +150,7 @@ async function loadData() {
 }
 
 function initApp() {
+    initAccessControl();
     updateCountdown();
     setInterval(updateCountdown, 60000); // Update every minute
 
@@ -36,6 +164,7 @@ function initApp() {
 
     setupNavigation();
     setupTaskFilters();
+    applyAccessLevel();
 }
 
 // Countdown
@@ -90,8 +219,11 @@ function renderTimeline() {
     if (fridayEl && weddingData.timeline.friday) {
         fridayEl.innerHTML = weddingData.timeline.friday.map(item => {
             const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
+            const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
+            const itemText = `${item.who || ''} ${item.notes || ''}`.toLowerCase();
+            const isPersonalized = userName && itemText.includes(userName.toLowerCase());
             return `
-            <div class="timeline-item">
+            <div class="timeline-item${isPersonalized ? ' flower-indicator' : ''}">
                 <div class="timeline-time">${item.time}</div>
                 <div class="timeline-content">
                     <div class="timeline-event">${item.event}</div>
@@ -106,8 +238,11 @@ function renderTimeline() {
     if (saturdayEl && weddingData.timeline.saturday) {
         saturdayEl.innerHTML = weddingData.timeline.saturday.map(item => {
             const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
+            const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
+            const itemText = `${item.who || ''} ${item.notes || ''}`.toLowerCase();
+            const isPersonalized = userName && itemText.includes(userName.toLowerCase());
             return `
-            <div class="timeline-item">
+            <div class="timeline-item${isPersonalized ? ' flower-indicator' : ''}">
                 <div class="timeline-time">${item.time}</div>
                 <div class="timeline-content">
                     <div class="timeline-event">${item.event}</div>
@@ -122,8 +257,11 @@ function renderTimeline() {
     if (sundayEl && weddingData.timeline.sunday) {
         sundayEl.innerHTML = weddingData.timeline.sunday.map(item => {
             const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
+            const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
+            const itemText = `${item.who || ''} ${item.notes || ''}`.toLowerCase();
+            const isPersonalized = userName && itemText.includes(userName.toLowerCase());
             return `
-            <div class="timeline-item">
+            <div class="timeline-item${isPersonalized ? ' flower-indicator' : ''}">
                 <div class="timeline-time">${item.time}</div>
                 <div class="timeline-content">
                     <div class="timeline-event">${item.event}</div>
@@ -200,6 +338,17 @@ function renderCeremony() {
 // Budget
 function renderBudget() {
     if (!weddingData || !weddingData.budget) return;
+
+    // Only show budget for family members
+    if (accessLevel !== 'family') {
+        const vendorBudgetEl = document.getElementById('budget-vendors');
+        const summaryEl = document.getElementById('budget-summary');
+        const notesEl = document.getElementById('budget-notes');
+        if (vendorBudgetEl) vendorBudgetEl.innerHTML = '<p style="color:var(--ivory-soft);">Budget details are private.</p>';
+        if (summaryEl) summaryEl.innerHTML = '';
+        if (notesEl) notesEl.innerHTML = '';
+        return;
+    }
 
     const budget = weddingData.budget;
 
@@ -326,8 +475,20 @@ function renderVendors() {
         else if (vendor.status.includes('need')) statusClass = 'need';
         else if (vendor.status.includes('confirm') || vendor.status.includes('quote')) statusClass = 'confirm';
 
+        // Check if this vendor matches current user (for vendor access level)
+        const isMyVendorCard = accessLevel === 'vendor' &&
+            currentUser && currentUser.role === vendor.role;
+
+        // Show price only if family OR if it's the vendor's own card
+        const showPrice = accessLevel === 'family' || isMyVendorCard;
+
+        // Check if current user's name appears in this vendor card
+        const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
+        const vendorText = `${vendor.name || ''} ${vendor.company || ''} ${vendor.role || ''}`.toLowerCase();
+        const isPersonalized = userName && vendorText.includes(userName.toLowerCase());
+
         return `
-            <div class="vendor-card">
+            <div class="vendor-card${isPersonalized ? ' flower-indicator' : ''}">
                 <div class="vendor-header">
                     <div>
                         <div class="vendor-role">${vendor.role}</div>
@@ -337,10 +498,11 @@ function renderVendors() {
                 </div>
                 <div class="vendor-details">
                     ${vendor.company && vendor.name ? `<p>${vendor.company}</p>` : ''}
-                    ${vendor.cost ? `<p class="vendor-cost">$${vendor.cost.toLocaleString()}</p>` : ''}
+                    ${showPrice && vendor.cost ? `<p class="vendor-cost">$${vendor.cost.toLocaleString()}</p>` : ''}
                     ${vendor.arrivalTime ? `<p>Arrives: ${vendor.arrivalTime}</p>` : ''}
                     ${vendor.phone ? `<p><a href="tel:${vendor.phone}">${vendor.phone}</a></p>` : ''}
-                    ${vendor.notes ? `<p style="font-size:0.85rem;">${vendor.notes}</p>` : ''}
+                    ${vendor.notes && showPrice ? `<p style="font-size:0.85rem;">${vendor.notes}</p>` : ''}
+                    ${vendor.notes && !showPrice ? `<p style="font-size:0.85rem;">${vendor.notes.replace(/\$[\d,]+(\.\d{2})?/g, '').replace(/deposit|paid|remainder|due/gi, '').trim()}</p>` : ''}
                 </div>
             </div>
         `;
