@@ -501,7 +501,7 @@ const WEDDING_DATA = {
   },
 
   "todos": [
-    { "task": "Pay photographer remainder ($2,400)", "assignee": "", "due": "Before April 11", "status": "not started", "priority": "high" },
+    { "task": "Pay photographer remainder ($2,700)", "assignee": "", "due": "Before April 11", "status": "not started", "priority": "high" },
     { "task": "Pay Antonia remainder ($825)", "assignee": "", "due": "4/11/26", "status": "not started", "priority": "high" },
     { "task": "Pay 2B1L catering remainder ($4,557.39)", "assignee": "", "due": "4/11/26", "status": "not started", "priority": "high" },
     { "task": "Pay venue remainder ($3,950)", "assignee": "", "due": "3/31/26", "status": "not started", "priority": "high" },
