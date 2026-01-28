@@ -72,6 +72,13 @@
       "address": "",
       "notes": "Thomas Glass Band. Second line at 8:45 PM leads to venue."
     },
+    "sundayFarewell": {
+      "name": "CastleDay",
+      "date": "Sunday April 12",
+      "time": "11:00 AM - 2:00 PM",
+      "address": "1319 Japonica Street, New Orleans, LA",
+      "notes": "Poolside Farewell / Despedida al lado de la piscina. Casual attire."
+    },
     "gettingReady": {
       "karen": {
         "name": "Hotel Peter and Paul",
@@ -493,6 +500,9 @@
       { "time": "7:30 PM", "event": "Vendor payments distributed", "location": "Industrial Gardens", "who": "Jeanne" },
       { "time": "8:45 PM", "event": "Puerto Rican Second Line Begins", "location": "Industrial Gardens to No Dice", "who": "Everyone", "notes": "DJ concludes, photographer departs. Pass out beads/kerchiefs." },
       { "time": "9:00 PM", "event": "AFTER PARTY!", "location": "No Dice", "who": "Everyone", "notes": "Thomas Glass Band" }
+    ],
+    "sunday": [
+      { "time": "11:00 AM - 2:00 PM", "event": "Poolside Farewell", "location": "CastleDay, 1319 Japonica St", "who": "Everyone", "notes": "Despedida al lado de la piscina. Casual attire." }
     ]
   },
 

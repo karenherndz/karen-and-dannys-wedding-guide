@@ -106,6 +106,23 @@ function renderTimeline() {
             </div>
         </div>
     `}).join('');
+
+    const sundayEl = document.getElementById('sunday-timeline');
+    if (weddingData.timeline.sunday) {
+        sundayEl.innerHTML = weddingData.timeline.sunday.map(item => {
+            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
+            return `
+            <div class="timeline-item">
+                <div class="timeline-time">${item.time}</div>
+                <div class="timeline-content">
+                    <div class="timeline-event">${item.event}</div>
+                    <div class="timeline-location">${item.location} <a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-left:10px;padding:4px 10px;font-size:0.65rem;">Directions</a></div>
+                    ${item.who ? `<div class="timeline-who">${item.who}</div>` : ''}
+                    ${item.notes ? `<div class="timeline-notes">${item.notes}</div>` : ''}
+                </div>
+            </div>
+        `}).join('');
+    }
 }
 
 // Ceremony
