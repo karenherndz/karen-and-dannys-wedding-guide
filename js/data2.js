@@ -377,6 +377,11 @@ const WEDDING_DATA = {
 
   "staffing": [
     {
+      "role": "Officiant",
+      "name": "Kali Serna",
+      "task": "Officiate the ceremony"
+    },
+    {
       "role": "Day-of Coordinator",
       "name": "Jeanne Gallo",
       "task": "Oversee everything. Distributes payments at 7:30 PM."
