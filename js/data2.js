@@ -13,7 +13,7 @@ const WEDDING_DATA = {
     "karen": {
       "dad": "Jose Nestor Hernandez",
       "dadPhone": "(216) 502-7882",
-      "mom": "Posthumously Honored",
+      "mom": "Kathryn Alatha Williams (Posthumously Honored)",
       "brother": "Jose David Hernandez",
       "brotherPhone": "(216) 375-5326"
     },
@@ -26,7 +26,7 @@ const WEDDING_DATA = {
       "sisterPhone": "(708) 606-9583"
     },
     "extended": {
-      "elizabeth": { "role": "Dad's Wife", "phone": "(216) 767-6293" },
+      "elizabethMazzie": { "role": "Dad's Wife", "phone": "(216) 767-6293" },
       "peggy": { "role": "Assists Karen and girls", "phone": "(217) 390-6527" },
       "marilyn": { "role": "Assists men with boutonnieres", "phone": "(708) 807-0568" },
       "lauren": "Family",

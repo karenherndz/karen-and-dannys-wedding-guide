@@ -376,12 +376,12 @@ function renderPeople() {
                 <span class="person-role">Karen's Dad · <a href="tel:2165027882">(216) 502-7882</a></span>
             </div>
             <div class="person-item">
-                <span class="person-name">Elizabeth Hernandez</span>
+                <span class="person-name">Elizabeth Mazzie</span>
                 <span class="person-role">Dad's Wife · <a href="tel:2167676293">(216) 767-6293</a></span>
             </div>
             <div class="person-item">
-                <span class="person-name">Karen's Mom</span>
-                <span class="person-role">Posthumously Honored</span>
+                <span class="person-name">Kathryn Alatha Williams</span>
+                <span class="person-role">Karen's Mom · Posthumously Honored</span>
             </div>
             <div class="person-item">
                 <span class="person-name">Jose David Hernandez</span>
