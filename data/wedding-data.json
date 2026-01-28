@@ -515,7 +515,7 @@
       { "time": "7:30 PM", "event": "Dessert", "location": "Industrial Gardens", "who": "Milo announces", "notes": "Milo does the dessert announcement." },
       { "time": "7:30 PM", "event": "Vendor payments distributed", "location": "Industrial Gardens", "who": "Jeanne" },
       { "time": "8:45 PM", "event": "Puerto Rican Second Line Begins", "location": "Industrial Gardens to No Dice", "who": "Everyone", "notes": "DJ concludes, photographer departs. Pass out beads/kerchiefs." },
-      { "time": "9:00 PM", "event": "AFTER PARTY!", "location": "No Dice", "who": "Everyone", "notes": "Thomas Glass Band" }
+      { "time": "9:00 PM", "event": "AFTER PARTY!", "location": "No Dice", "who": "Everyone", "notes": "Thomas Glass Band goes on at 9:30 PM" }
     ],
     "sunday": [
       { "time": "11:00 AM - 2:00 PM", "event": "Poolside Farewell", "location": "CastleDay, 1319 Japonica St", "who": "Everyone", "notes": "Despedida al lado de la piscina. Casual attire." }
