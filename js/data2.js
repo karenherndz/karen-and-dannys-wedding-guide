@@ -389,12 +389,7 @@ const WEDDING_DATA = {
       "name": "Khristian",
       "task": "Transport & layout plants"
     },
-    {
-      "role": "Bartending",
-      "name": "Branson Bartending",
-      "task": "Bar service with BYOB supply (Costco run)"
-    },
-    {
+        {
       "role": "Flower Girls / Ushers",
       "name": "Flower Girls / Ushers",
       "task": "Hand out flower petals to guests, usher guests to seats"
