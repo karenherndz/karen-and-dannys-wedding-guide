@@ -355,7 +355,7 @@ function renderPeople() {
         </div>
         <div class="person-item">
             <span class="person-name">Lauren Langenmayr</span>
-            <span class="person-role">Maid of Honor</span>
+            <span class="person-role">Danny's Sister / Maid of Honor</span>
         </div>
     `;
 
