@@ -99,7 +99,7 @@
     },
     {
       "role": "Caterer",
-      "name": "David",
+      "name": "David Hargrove",
       "company": "2 Brothers 1 Love (2B1L)",
       "phone": "",
       "email": "",
@@ -112,7 +112,7 @@
     },
     {
       "role": "Decor / Banners",
-      "name": "Antonia",
+      "name": "Antonia Zennaro",
       "company": "",
       "phone": "",
       "email": "",
@@ -145,8 +145,8 @@
       "cost": null,
       "paid": false,
       "arrivalTime": "2:00 PM Saturday",
-      "status": "block dates",
-      "notes": "Ceremony music"
+      "status": "booked",
+      "notes": "Ceremony music. Dates blocked."
     },
     {
       "role": "Furniture Rentals",
@@ -189,14 +189,14 @@
     },
     {
       "role": "Officiant",
-      "name": "Kali",
+      "name": "Kali Serna",
       "company": "",
       "phone": "",
       "email": "",
       "cost": null,
       "paid": false,
       "arrivalTime": "",
-      "status": "booked",
+      "status": "asked",
       "notes": "Friend officiating ceremony"
     },
     {
