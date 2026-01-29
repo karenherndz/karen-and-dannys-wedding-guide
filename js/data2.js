@@ -381,7 +381,8 @@ const WEDDING_DATA = {
       "1 father of groom boutonniere (Duey)",
       "1 Best Bro boutonniere",
       "1 FOB boutonniere (Jose Sr)",
-      "4 usher boutonnieres"
+      "4 usher boutonnieres",
+      "Wedding decoration flowers (Trader Joe's - get 1-3 days before)"
     ]
   },
 
@@ -554,6 +555,10 @@ const WEDDING_DATA = {
     { "task": "Finalize vows", "assignee": "Karen & Danny", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Get marriage license", "assignee": "", "due": "", "status": "not started", "priority": "high" },
     { "task": "Purchase wedding bands", "assignee": "", "due": "", "status": "not started", "priority": "high" },
+
+    // === FLOWERS ===
+    { "task": "Get flowers from Trader Joe's (wedding decoration flowers)", "assignee": "", "due": "1-3 days before wedding", "status": "not started", "priority": "high" },
+    { "task": "Figure out which florist friends to use for boutonnieres", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
 
     // === SECOND LINE ===
     { "task": "Get DJ quote from Lady B for second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
