@@ -161,6 +161,7 @@ function initApp() {
     renderBudget();
     renderPeople();
     renderDayOf();
+    renderDocuments();
 
     setupNavigation();
     setupTaskFilters();
@@ -687,84 +688,48 @@ function renderDayOf() {
         `).join('');
     }
 
-    // Layout Details
-    const layoutDetails = document.getElementById('layout-details');
-    if (layoutDetails) {
-        layoutDetails.innerHTML = `
-            <div class="person-item">
-                <span class="person-name">Ceremony Seating</span>
-                <span class="person-role">170-188 total</span>
+    // Locations - Consolidated unique venues
+    const locationsList = document.getElementById('locations-list');
+    if (locationsList) {
+        locationsList.innerHTML = `
+            <div class="location-item">
+                <div class="location-name">Industrial Gardens</div>
+                <div class="location-purpose">Rehearsal (Fri 1-3pm) · Ceremony (Sat 3:15pm) · Reception (Sat 5pm)</div>
+                <div class="location-purpose">1024 Elysian Fields Avenue, New Orleans, LA 70118</div>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=1024+Elysian+Fields+Avenue+New+Orleans+LA" target="_blank" class="directions-btn">Get Directions</a>
             </div>
-            <div style="font-size:0.85rem;color:var(--ivory-soft);padding:10px 0;border-bottom:1px solid rgba(245,240,230,0.15);">
-                Right: 52 (34 + 18) · Back: 64 · Main: 18 · Dance Floor: 36 · Courtyard: 18
+            <div class="location-item">
+                <div class="location-name">Milo Gardens</div>
+                <div class="location-purpose">Welcome Party (Fri 4-7pm)</div>
+                <a href="https://www.google.com/maps/search/?api=1&query=Milo+Gardens+New+Orleans" target="_blank" class="directions-btn">Get Directions</a>
             </div>
-            <div class="person-item">
-                <span class="person-name">Tables to Flip</span>
-                <span class="person-role">7 round tables (yellow)</span>
+            <div class="location-item">
+                <div class="location-name">Oak & Ale</div>
+                <div class="location-purpose">Rehearsal Dinner (Fri 7pm)</div>
+                <a href="https://www.google.com/maps/search/?api=1&query=Oak+and+Ale+New+Orleans" target="_blank" class="directions-btn">Get Directions</a>
             </div>
-            <div style="font-size:0.85rem;color:var(--ivory-soft);padding:10px 0;border-bottom:1px solid rgba(245,240,230,0.15);">
-                Pre-decorated and ready to move. Ceremony chairs redistributed to tables during flip.
+            <div class="location-item">
+                <div class="location-name">Hotel Peter and Paul</div>
+                <div class="location-purpose">Karen Getting Ready (Sat morning)</div>
+                <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Peter+and+Paul+New+Orleans" target="_blank" class="directions-btn">Get Directions</a>
             </div>
-            <div class="person-item">
-                <span class="person-name">Bars</span>
-                <span class="person-role">2 locations</span>
+            <div class="location-item">
+                <div class="location-name">Greatman Loft</div>
+                <div class="location-purpose">Danny Getting Ready (Sat morning)</div>
+                <a href="https://www.google.com/maps/search/?api=1&query=Greatman+Loft+New+Orleans" target="_blank" class="directions-btn">Get Directions</a>
             </div>
-            <div style="font-size:0.85rem;color:var(--ivory-soft);padding:10px 0;border-bottom:1px solid rgba(245,240,230,0.15);">
-                Ceremony space bar (sets up during flip) · Courtyard bar (open during cocktail hour)
+            <div class="location-item">
+                <div class="location-name">No Dice</div>
+                <div class="location-purpose">After Party (Sat 9pm) · Thomas Glass Band</div>
+                <a href="https://www.google.com/maps/search/?api=1&query=No+Dice+New+Orleans" target="_blank" class="directions-btn">Get Directions</a>
             </div>
-            <div class="person-item">
-                <span class="person-name">Photobooth</span>
-                <span class="person-role">14' x 5'</span>
-            </div>
-            <div class="person-item">
-                <span class="person-name">Seating Chart</span>
-                <span class="person-role">Near entrance (5' x 2')</span>
-            </div>
-            <div class="person-item">
-                <span class="person-name">Soloist Position</span>
-                <span class="person-role">Sam Kuslan (piano)</span>
+            <div class="location-item">
+                <div class="location-name">CastleDay</div>
+                <div class="location-purpose">Poolside Farewell (Sun 11am-2pm)</div>
+                <div class="location-purpose">1319 Japonica Street, New Orleans, LA</div>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=1319+Japonica+Street+New+Orleans+LA" target="_blank" class="directions-btn">Get Directions</a>
             </div>
         `;
-    }
-
-    // Locations
-    const locationsList = document.getElementById('locations-list');
-    if (locationsList && weddingData.venues) {
-        const venues = Object.entries(weddingData.venues).filter(([key]) => !['gettingReady'].includes(key));
-        locationsList.innerHTML = venues.map(([key, venue]) => {
-            if (typeof venue === 'object' && venue.name) {
-                const mapsUrl = venue.address
-                    ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(venue.address)}`
-                    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venue.name + ' New Orleans')}`;
-                return `
-                    <div class="location-item">
-                        <div class="location-name">${venue.name}</div>
-                        <div class="location-purpose">${key.replace(/([A-Z])/g, ' $1').trim()} - ${venue.date || ''} ${venue.time || ''}</div>
-                        ${venue.notes ? `<div class="location-purpose">${venue.notes}</div>` : ''}
-                        <a href="${mapsUrl}" target="_blank" class="directions-btn">Get Directions</a>
-                    </div>
-                `;
-            }
-            return '';
-        }).join('');
-
-        // Add getting ready locations
-        if (weddingData.venues.gettingReady) {
-            const karenMapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Hotel Peter and Paul New Orleans');
-            const dannyMapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Greatman Loft New Orleans');
-            locationsList.innerHTML += `
-                <div class="location-item">
-                    <div class="location-name">Hotel Peter and Paul</div>
-                    <div class="location-purpose">Karen Getting Ready - ${weddingData.venues.gettingReady.karen.notes}</div>
-                    <a href="${karenMapsUrl}" target="_blank" class="directions-btn">Get Directions</a>
-                </div>
-                <div class="location-item">
-                    <div class="location-name">Greatman Loft</div>
-                    <div class="location-purpose">Danny Getting Ready</div>
-                    <a href="${dannyMapsUrl}" target="_blank" class="directions-btn">Get Directions</a>
-                </div>
-            `;
-        }
     }
 }
 
@@ -786,6 +751,48 @@ function loadSavedData() {
                 }
             });
         }
+    }
+}
+
+// Documents
+function renderDocuments() {
+    const layoutDetails = document.getElementById('layout-details');
+    if (layoutDetails) {
+        layoutDetails.innerHTML = `
+            <div class="person-item">
+                <span class="person-name">Ceremony Seating</span>
+                <span class="person-role">170-188 Total</span>
+            </div>
+            <div style="font-size:0.85rem;color:var(--ivory-soft);padding:10px 0;border-bottom:1px solid rgba(245,240,230,0.15);">
+                Right: 52 (34 + 18) · Back: 64 · Main: 18 · Dance Floor: 36 · Courtyard: 18
+            </div>
+            <div class="person-item">
+                <span class="person-name">Tables to Flip</span>
+                <span class="person-role">7 Round Tables (Yellow)</span>
+            </div>
+            <div style="font-size:0.85rem;color:var(--ivory-soft);padding:10px 0;border-bottom:1px solid rgba(245,240,230,0.15);">
+                Pre-decorated and ready to move. Ceremony chairs redistributed to tables during flip.
+            </div>
+            <div class="person-item">
+                <span class="person-name">Bars</span>
+                <span class="person-role">2 Locations</span>
+            </div>
+            <div style="font-size:0.85rem;color:var(--ivory-soft);padding:10px 0;border-bottom:1px solid rgba(245,240,230,0.15);">
+                Ceremony space bar (sets up during flip) · Courtyard bar (open during cocktail hour)
+            </div>
+            <div class="person-item">
+                <span class="person-name">Photobooth</span>
+                <span class="person-role">14' x 5'</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Seating Chart</span>
+                <span class="person-role">Near Entrance (5' x 2')</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Soloist Position</span>
+                <span class="person-role">Sam Kuslan (Piano)</span>
+            </div>
+        `;
     }
 }
 
