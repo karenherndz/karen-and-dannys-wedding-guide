@@ -520,6 +520,8 @@ function renderVendors() {
     const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
     const canSeeAllPrices = isPlanningCrew(userName);
 
+    console.log('DEBUG renderVendors:', { accessLevel, currentUser, userName });
+
     vendorList.innerHTML = weddingData.vendors.map(vendor => {
         let statusClass = 'pending';
         if (vendor.status === 'booked') statusClass = 'booked';
@@ -546,6 +548,17 @@ function renderVendors() {
         // Check if vendor has a contract - only show to the vendor themselves
         const contractFile = vendorContracts[vendor.role];
         const showContract = contractFile && isMyVendorCard;
+
+        if (vendor.role === 'Caterer') {
+            console.log('DEBUG Caterer card:', {
+                vendorRole: vendor.role,
+                currentUserRole: currentUser?.role,
+                accessLevel,
+                isMyVendorCard,
+                contractFile,
+                showContract
+            });
+        }
 
         // Flower shows next to name if it's the user's card
         const flowerMark = isPersonalized ? ' <span style="color:var(--pink-medium);">✿</span>' : '';
