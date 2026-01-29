@@ -109,6 +109,7 @@ function setUserAccess(name) {
     currentUser = name;
     const userRoleEl = document.getElementById('user-role');
     const notYouLink = `<a href="#" class="not-you-link" onclick="resetName(event)">Not ${name}?</a>`;
+    const vendorRole = getVendorRole(name);
 
     if (isFamilyMember(name)) {
         accessLevel = 'family';
