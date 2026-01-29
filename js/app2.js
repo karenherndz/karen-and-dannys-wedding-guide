@@ -18,7 +18,7 @@ const familyNames = [
 const budgetAccess = ['karen', 'danny'];
 
 // Only these people can see tasks
-const tasksAccess = ['karen', 'danny', 'jeanne', 'cindy', 'duey', 'duschan'];
+const tasksAccess = ['karen', 'danny', 'jeanne', 'cindy', 'duey', 'duschan', 'jose'];
 
 const vendorNames = {
     'david': 'Caterer (2B1L)',
