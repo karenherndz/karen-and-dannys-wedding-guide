@@ -18,8 +18,9 @@ const familyNames = [
 const planningCrew = ['karen', 'danny', 'jeanne', 'cindy', 'duey', 'duschan', 'jose'];
 
 const vendorNames = {
-    'david': 'Caterer',
+    'david hargrove': 'Caterer',
     'hargrove': 'Caterer',
+    '2b1l': 'Caterer',
     'antonia': 'Decor / Banners',
     'lady b': 'DJ',
     'sam': 'Piano',
