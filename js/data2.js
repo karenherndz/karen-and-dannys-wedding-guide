@@ -538,8 +538,7 @@ const WEDDING_DATA = {
       { "time": "7:00 PM", "event": "Rehearsal Dinner", "location": "Oak & Ale", "who": "Karen, Danny, Family" }
     ],
     "saturday": [
-      { "time": "11:00 AM", "event": "Setup begins", "location": "Industrial Gardens", "who": "Venue staff" },
-      { "time": "12:00 PM", "event": "Jeanne, Antonia & YUR Rentals arrive", "location": "Industrial Gardens", "who": "Jeanne, Antonia, YUR Rentals", "notes": "Jeanne oversees setup. Decor/draping setup and furniture delivery." },
+      { "time": "12:00 PM", "event": "Setup begins", "location": "Industrial Gardens", "who": "Jeanne, Antonia, YUR Rentals", "notes": "Jeanne oversees setup. Decor/draping and furniture delivery." },
       { "time": "11:30 AM - 1:30 PM", "event": "Hair & Makeup", "location": "Hotel Peter and Paul", "who": "Karen, Mady, Kelsey, Kali, Kagan", "notes": "Kagan helps with hair. Peggy assists." },
       { "time": "1:00 PM", "event": "Vendors & Crew Arrive", "location": "Industrial Gardens", "who": "Lady B, Jenny and any girls that want to help decorate tables", "notes": "DJ sets up sound." },
       { "time": "1:00 PM", "event": "Flower delivery", "location": "Greatman Cottage", "who": "Florist", "notes": "Bridal bouquet, boutonnieres, Lauren's flowers" },
