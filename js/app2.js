@@ -20,6 +20,9 @@ const budgetAccess = ['karen', 'danny'];
 // Only these people can see tasks
 const tasksAccess = ['karen', 'danny', 'jeanne', 'cindy', 'duey', 'duschan', 'jose'];
 
+// Only these people can see docs
+const docsAccess = ['karen', 'danny', 'cindy', 'jeanne'];
+
 const vendorNames = {
     'david': 'Caterer (2B1L)',
     'hargrove': 'Caterer (2B1L)',
@@ -35,6 +38,13 @@ const vendorNames = {
     'glass': 'After Party Band',
     'branson': 'Bartenders',
     'larkin': 'Rain Tent'
+};
+
+// Map vendor roles to their contract files
+const vendorContracts = {
+    'Caterer (2B1L)': 'documents/contract-david-2b1l.pdf',
+    'DJ': 'documents/contract-lady-b.pdf',
+    'Bartenders': 'documents/contract-bronson.pdf'
 };
 
 // Check if name matches family
@@ -53,6 +63,12 @@ function hasBudgetAccess(name) {
 function hasTasksAccess(name) {
     const lower = name.toLowerCase().trim();
     return tasksAccess.some(n => lower.includes(n) || n.includes(lower));
+}
+
+// Check if name has docs access
+function hasDocsAccess(name) {
+    const lower = name.toLowerCase().trim();
+    return docsAccess.some(n => lower.includes(n) || n.includes(lower));
 }
 
 // Check if name matches vendor and return their role
@@ -145,6 +161,7 @@ function resetName(event) {
 function applyAccessLevel() {
     const budgetNav = document.querySelector('.nav-item[data-section="budget"]');
     const tasksNav = document.querySelector('.nav-item[data-section="tasks"]');
+    const docsNav = document.querySelector('.nav-item[data-section="documents"]');
     const userName = typeof currentUser === 'string' ? currentUser : currentUser?.name || '';
     const canSeeBudget = hasBudgetAccess(userName);
     const canSeeTasks = hasTasksAccess(userName);
@@ -162,6 +179,13 @@ function applyAccessLevel() {
         if (tasksNav) tasksNav.classList.remove('budget-hidden');
     } else {
         if (tasksNav) tasksNav.classList.add('budget-hidden');
+    }
+
+    // Docs access - Karen, Danny, Cindy, Jeanne
+    if (hasDocsAccess(userName)) {
+        if (docsNav) docsNav.classList.remove('budget-hidden');
+    } else {
+        if (docsNav) docsNav.classList.add('budget-hidden');
     }
 }
 
@@ -239,6 +263,11 @@ function setupNavigation() {
 
             // Block tasks access for non-authorized users
             if (sectionId === 'tasks' && !hasTasksAccess(userName)) {
+                return;
+            }
+
+            // Block docs access for non-authorized users
+            if (sectionId === 'documents' && !hasDocsAccess(userName)) {
                 return;
             }
 
@@ -552,6 +581,10 @@ function renderVendors() {
         const sanitizedNotes = vendor.notes ?
             vendor.notes.replace(/\$[\d,]+(\.\d{2})?/g, '').replace(/deposit|paid|remainder|due|balance/gi, '').replace(/\s+/g, ' ').trim() : '';
 
+        // Check if vendor has a contract and if current user should see it
+        const contractFile = vendorContracts[vendor.role];
+        const showContract = contractFile && (canSeeAllPrices || isMyVendorCard);
+
         return `
             <div class="vendor-card${isPersonalized ? ' flower-indicator' : ''}">
                 <div class="vendor-header">
@@ -568,6 +601,7 @@ function renderVendors() {
                     ${vendor.phone ? `<p><a href="tel:${vendor.phone}">${vendor.phone}</a></p>` : ''}
                     ${canSeeAllPrices && vendor.notes ? `<p style="font-size:0.85rem;">${vendor.notes}</p>` : ''}
                     ${!canSeeAllPrices && sanitizedNotes ? `<p style="font-size:0.85rem;">${sanitizedNotes}</p>` : ''}
+                    ${showContract ? `<p style="margin-top:10px;"><a href="${contractFile}" target="_blank" class="directions-btn">View Contract</a></p>` : ''}
                 </div>
             </div>
         `;
