@@ -501,32 +501,84 @@ const WEDDING_DATA = {
   },
 
   "todos": [
+    // === PAYMENTS (HIGH PRIORITY) ===
     { "task": "Pay photographer remainder ($2,700)", "assignee": "", "due": "Before April 11", "status": "not started", "priority": "high" },
     { "task": "Pay Antonia remainder ($825)", "assignee": "", "due": "4/11/26", "status": "not started", "priority": "high" },
     { "task": "Pay 2B1L catering remainder ($4,557.39)", "assignee": "", "due": "4/11/26", "status": "not started", "priority": "high" },
     { "task": "Pay venue remainder ($3,950)", "assignee": "", "due": "3/31/26", "status": "not started", "priority": "high" },
     { "task": "Pay Thomas Glass Band remainder ($1,700)", "assignee": "", "due": "4/11/26", "status": "not started", "priority": "high" },
+    { "task": "Pay YUR Rentals remainder ($2,390.69)", "assignee": "", "due": "Before April 11", "status": "not started", "priority": "high" },
+
+    // === URGENT / ORDER NOW ===
+    { "task": "Order dinnerware for BOTH nights (cups, plates, napkins, cutlery ~$565)", "assignee": "", "due": "ASAP", "status": "not started", "priority": "high" },
+    { "task": "Second Line permit - waiting on Lady B cosignature with LLC", "assignee": "", "due": "ASAP", "status": "in progress", "priority": "high" },
+    { "task": "Decide on portapotty (Geaux Geaux John quote)", "assignee": "Cindy", "due": "2/24/26", "status": "not started", "priority": "high" },
+    { "task": "Confirm tent contract and diagram with Larkin", "assignee": "Cindy/Danny", "due": "", "status": "not started", "priority": "high" },
+    { "task": "Book First Look location (Peter and Paul)", "assignee": "", "due": "", "status": "not started", "priority": "high" },
+
+    // === FRIDAY GARDEN WELCOME ===
+    { "task": "Yard cleanup at Milo Gardens", "assignee": "Danny/Jose", "due": "Week before", "status": "not started", "priority": "medium" },
+    { "task": "Spruce up Milo Garden sign", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Create directional signs 'MILO GARDENS →' (foam core/painted)", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Ask neighbors to close garage doors afternoon of Friday", "assignee": "Danny", "due": "", "status": "not started", "priority": "low" },
+    { "task": "Inform neighbors about Friday party", "assignee": "Danny", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Rent 5 high boys from Yur Rentals for Friday", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Buy white tablecloths at Goodwill with shawl overlays", "assignee": "", "due": "", "status": "not started", "priority": "low" },
+    { "task": "Arrange ice from neighbor", "assignee": "Danny", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Arrange Crawfish Boil vendor (ask Steve Kelly)", "assignee": "Danny", "due": "", "status": "not started", "priority": "high" },
+    { "task": "Confirm pizza delivery for Friday", "assignee": "Danny", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Buy liquor for Friday night", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+
+    // === WEDDING DAY PREP ===
+    { "task": "Define hair & makeup schedule and assignments", "assignee": "", "due": "", "status": "not started", "priority": "high" },
+    { "task": "Create seating chart based on final RSVPs", "assignee": "", "due": "", "status": "not started", "priority": "high" },
+    { "task": "Create table numbers", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Get guest book (plant photo coffee table book)", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Create slideshow for reception (need projector)", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Family photo table setup (childhood photos, parents wedding, grandparents)", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Schedule evening venue visit to check lighting", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Clean venue bathrooms and add flowers", "assignee": "", "due": "Week of", "status": "not started", "priority": "medium" },
+    { "task": "Bathroom basket of essentials for guests", "assignee": "", "due": "", "status": "not started", "priority": "low" },
+    { "task": "Secure white bride's bag", "assignee": "Cindy", "due": "", "status": "not started", "priority": "low" },
+    { "task": "Define room-flipping plan and assignments", "assignee": "", "due": "", "status": "not started", "priority": "high" },
+    { "task": "Order candles (specify colors/quantities for TAG)", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Define flower setup timing and add to schedule", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Create venue site map for caterer", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Practice special dance (Virgen - Adolescent Orchestra)", "assignee": "Karen/Danny/Jose", "due": "Week before", "status": "not started", "priority": "medium" },
+    { "task": "Confirm tent lighting needs (with/without tent)", "assignee": "Cindy/Danny", "due": "", "status": "not started", "priority": "medium" },
+
+    // === CEREMONY ===
     { "task": "Sam Kuslan confirmed for ceremony piano", "assignee": "", "due": "", "status": "done", "priority": "high" },
     { "task": "Dress fitting with Sophie Tran", "assignee": "Karen", "due": "Feb 10, 11am", "status": "scheduled", "priority": "high" },
-    { "task": "Confirm layout at venue", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-    { "task": "Finalize ceremony music selections", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Create DJ playlist for dinner", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Plan Bach Party Trip", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Finalize lodging assignments", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Pay YUR Rentals remainder ($2,364.75)", "assignee": "", "due": "Before April 11", "status": "not started", "priority": "high" },
-    { "task": "Costco run for liquor/BYOB supplies", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Book hair and makeup artist", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Create seating chart and table numbers", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Order wedding cake from Boulangerie", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Get marriage license", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Purchase wedding bands", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Finalize vows", "assignee": "Karen & Danny", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Get marriage license", "assignee": "", "due": "", "status": "not started", "priority": "high" },
+    { "task": "Purchase wedding bands", "assignee": "", "due": "", "status": "not started", "priority": "high" },
+
+    // === SECOND LINE ===
+    { "task": "Get DJ quote from Lady B for second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Decide on second line hand-outs (tiny drums or bandanas, NOT beads)", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+
+    // === NO DICE AFTER PARTY ===
+    { "task": "Confirm No Dice venue calendar is blocked", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Confirm Thomas Glass Band / check if deposit needed", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Book after party DJ (Lucid or Myron) for 11pm-end", "assignee": "", "due": "", "status": "not started", "priority": "high" },
+
+    // === SUNDAY BRUNCH ===
+    { "task": "Arrange coffee from Sarah for Sunday", "assignee": "", "due": "", "status": "not started", "priority": "low" },
+    { "task": "Order bagels and cream cheese from Stein's", "assignee": "", "due": "", "status": "not started", "priority": "low" },
+    { "task": "Order donuts for Sunday", "assignee": "", "due": "", "status": "not started", "priority": "low" },
+
+    // === ADMIN / OTHER ===
+    { "task": "Costco run for liquor/BYOB supplies", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Contact cleaning crew for post-party", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Find cute gift card receptacle", "assignee": "Karen", "due": "", "status": "not started", "priority": "low" },
+    { "task": "Prepare tips for vendors", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Thank you gifts for Lolo, Jose, and Kali", "assignee": "Karen", "due": "", "status": "not started", "priority": "low" },
     { "task": "Create family photo list for photographer", "assignee": "", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Order custom koozies", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Order custom kerchiefs for Puerto Rican second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Order maracas for Puerto Rican second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Order dinnerware disposables", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-    { "task": "Book after party DJ for No Dice", "assignee": "", "due": "", "status": "not started", "priority": "high" }
+    { "task": "Finalize lodging assignments", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Order wedding cake from Boulangerie", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Schedule Google Meet to review final schedule", "assignee": "Cindy", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Schedule final walkthrough meeting with all parties", "assignee": "Cindy", "due": "", "status": "not started", "priority": "medium" }
   ],
 
   "timeline": {
