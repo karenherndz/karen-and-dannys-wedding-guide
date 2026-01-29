@@ -710,6 +710,10 @@ function renderDayOf() {
                 <span class="person-name">YUR Event Rentals</span>
                 <span class="person-role"><a href="tel:5042180726">(504) 218-0726</a> - Furniture</span>
             </div>
+            <div class="person-item">
+                <span class="person-name">True Value Rental</span>
+                <span class="person-role"><a href="tel:5044432825">(504) 443-2825</a> - Catering Equipment Rental</span>
+            </div>
         `;
     }
 
