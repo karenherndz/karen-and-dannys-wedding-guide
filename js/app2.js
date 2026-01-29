@@ -17,6 +17,9 @@ const familyNames = [
 // Only Karen and Danny can see budget
 const budgetAccess = ['karen', 'danny'];
 
+// Only these people can see tasks
+const tasksAccess = ['karen', 'danny', 'jeanne', 'cindy', 'duey', 'duschan', 'jose', 'nestor'];
+
 const vendorNames = {
     'david': 'Caterer (2B1L)',
     'hargrove': 'Caterer (2B1L)',
@@ -44,6 +47,12 @@ function isFamilyMember(name) {
 function hasBudgetAccess(name) {
     const lower = name.toLowerCase().trim();
     return budgetAccess.some(n => lower.includes(n) || n.includes(lower));
+}
+
+// Check if name has tasks access
+function hasTasksAccess(name) {
+    const lower = name.toLowerCase().trim();
+    return tasksAccess.some(n => lower.includes(n) || n.includes(lower));
 }
 
 // Check if name matches vendor and return their role
@@ -135,19 +144,24 @@ function resetName(event) {
 
 function applyAccessLevel() {
     const budgetNav = document.querySelector('.nav-item[data-section="budget"]');
+    const tasksNav = document.querySelector('.nav-item[data-section="tasks"]');
     const userName = typeof currentUser === 'string' ? currentUser : currentUser?.name || '';
     const canSeeBudget = hasBudgetAccess(userName);
+    const canSeeTasks = hasTasksAccess(userName);
 
+    // Budget access - only Karen and Danny
     if (canSeeBudget) {
-        // Only Karen and Danny see budget
         if (budgetNav) budgetNav.classList.remove('budget-hidden');
         document.querySelectorAll('.price-hidden').forEach(el => el.classList.remove('price-hidden'));
-    } else if (accessLevel === 'vendor') {
-        // Hide budget tab, but vendor can see their own payment in vendors section
-        if (budgetNav) budgetNav.classList.add('budget-hidden');
     } else {
-        // Everyone else - hide budget
         if (budgetNav) budgetNav.classList.add('budget-hidden');
+    }
+
+    // Tasks access - only specific people
+    if (canSeeTasks) {
+        if (tasksNav) tasksNav.classList.remove('budget-hidden');
+    } else {
+        if (tasksNav) tasksNav.classList.add('budget-hidden');
     }
 }
 
@@ -216,13 +230,16 @@ function setupNavigation() {
         item.addEventListener('click', (e) => {
             e.preventDefault();
             const sectionId = item.getAttribute('data-section');
+            const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
 
             // Block budget access for non-authorized users
-            if (sectionId === 'budget') {
-                const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
-                if (!hasBudgetAccess(userName)) {
-                    return; // Don't navigate to budget
-                }
+            if (sectionId === 'budget' && !hasBudgetAccess(userName)) {
+                return;
+            }
+
+            // Block tasks access for non-authorized users
+            if (sectionId === 'tasks' && !hasTasksAccess(userName)) {
+                return;
             }
 
             // Update nav
