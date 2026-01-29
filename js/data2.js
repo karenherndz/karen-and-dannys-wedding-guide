@@ -151,7 +151,7 @@ const WEDDING_DATA = {
       "cost": 1650,
       "deposit": 825,
       "remainder": 825,
-      "arrivalTime": "12:00 PM Saturday",
+      "arrivalTime": "Friday Rehearsal & 12:00 PM Saturday",
       "status": "booked",
       "notes": "Make & install banners, draping. Sets up banners at Friday rehearsal. Deposit paid by Jose Nestor Remainder due 4/11/26."
     },
