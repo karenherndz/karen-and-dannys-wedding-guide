@@ -254,7 +254,7 @@ const WEDDING_DATA = {
       "remainder": 1700,
       "arrivalTime": "",
       "status": "booked",
-      "notes": "Playing at No Dice. Deposit paid by Papa (Jose Nestor). Remainder due 4/11/26."
+      "notes": "Playing at No Dice. Remainder due 4/11/26."
     },
     {
       "role": "Tailor / Dress",
@@ -647,7 +647,7 @@ const WEDDING_DATA = {
       { "item": "Food for Friday", "total": 500, "deposit": null, "paid": false, "remainder": 500, "dueDate": null, "whoPaid": null, "estimated": true },
       { "item": "Clean up Staff", "total": 300, "deposit": null, "paid": false, "remainder": 300, "dueDate": null, "whoPaid": null },
       { "item": "After Party DJ", "total": 500, "deposit": null, "paid": false, "remainder": 500, "dueDate": null, "whoPaid": null },
-      { "item": "After Party Live Band (Thomas Glass)", "total": 3000, "deposit": 1300, "paid": true, "remainder": 1700, "dueDate": "4/11/26", "whoPaid": "Papa (Jose Nestor)" }
+      { "item": "After Party Live Band (Thomas Glass)", "total": 3000, "deposit": 1300, "paid": true, "remainder": 1700, "dueDate": "4/11/26", "whoPaid": null }
     ],
     "tbd": [
       "Danny's Suit",
