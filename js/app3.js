@@ -110,13 +110,7 @@ function setUserAccess(name) {
     const userRoleEl = document.getElementById('user-role');
     const notYouLink = `<a href="#" class="not-you-link" onclick="resetName(event)">Not ${name}?</a>`;
 
-    const vendorRole = getVendorRole(name);
-    const isFamily = isFamilyMember(name);
-
-    // Debug alert
-    alert('Name: ' + name + '\nIs Family: ' + isFamily + '\nVendor Role: ' + vendorRole);
-
-    if (isFamily) {
+    if (isFamilyMember(name)) {
         accessLevel = 'family';
         userRoleEl.innerHTML = `✿ Welcome, ${name} ${notYouLink}`;
         userRoleEl.style.display = 'inline-block';
@@ -523,8 +517,6 @@ function renderVendors() {
     const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
     const canSeeAllPrices = isPlanningCrew(userName);
 
-    console.log('DEBUG renderVendors:', { accessLevel, currentUser, userName });
-
     vendorList.innerHTML = weddingData.vendors.map(vendor => {
         let statusClass = 'pending';
         if (vendor.status === 'booked') statusClass = 'booked';
@@ -551,17 +543,6 @@ function renderVendors() {
         // Check if vendor has a contract - only show to the vendor themselves
         const contractFile = vendorContracts[vendor.role];
         const showContract = contractFile && isMyVendorCard;
-
-        if (vendor.role === 'Caterer') {
-            console.log('DEBUG Caterer card:', {
-                vendorRole: vendor.role,
-                currentUserRole: currentUser?.role,
-                accessLevel,
-                isMyVendorCard,
-                contractFile,
-                showContract
-            });
-        }
 
         // Flower shows next to name if it's the user's card
         const flowerMark = isPersonalized ? ' <span style="color:var(--pink-medium);">✿</span>' : '';
@@ -863,6 +844,62 @@ function renderDocuments() {
                 <span class="person-name">Soloist Position</span>
                 <span class="person-role">Sam Kuslan (Piano)</span>
             </div>
+        `;
+    }
+
+    // Render contracts list
+    const contractsList = document.getElementById('contracts-list');
+    if (contractsList) {
+        contractsList.innerHTML = `
+            <a href="documents/contract-david-2b1l.pdf" target="_blank" class="doc-link">
+                <span class="doc-icon">📄</span>
+                <div class="doc-info">
+                    <div class="doc-name">2B1L Catering Contract</div>
+                    <div class="doc-desc">David Hargrove - Caterer</div>
+                </div>
+            </a>
+            <a href="documents/contract-lady-b.pdf" target="_blank" class="doc-link">
+                <span class="doc-icon">📄</span>
+                <div class="doc-info">
+                    <div class="doc-name">Lady B DJ Contract</div>
+                    <div class="doc-desc">DJ & Puerto Rican Second Line</div>
+                </div>
+            </a>
+            <a href="documents/contract-bronson.pdf" target="_blank" class="doc-link">
+                <span class="doc-icon">📄</span>
+                <div class="doc-info">
+                    <div class="doc-name">Branson Bartending Contract</div>
+                    <div class="doc-desc">Bar Service</div>
+                </div>
+            </a>
+            <a href="documents/contract-yur-event-rental.pdf" target="_blank" class="doc-link">
+                <span class="doc-icon">📄</span>
+                <div class="doc-info">
+                    <div class="doc-name">YUR Event Rental Contract</div>
+                    <div class="doc-desc">Furniture & Rentals</div>
+                </div>
+            </a>
+            <a href="documents/contract-four-seasons-hotel-block.pdf" target="_blank" class="doc-link">
+                <span class="doc-icon">📄</span>
+                <div class="doc-info">
+                    <div class="doc-name">Four Seasons Hotel Block</div>
+                    <div class="doc-desc">Guest Accommodations</div>
+                </div>
+            </a>
+            <a href="documents/contract-catering-rental.pdf" target="_blank" class="doc-link">
+                <span class="doc-icon">📄</span>
+                <div class="doc-info">
+                    <div class="doc-name">Catering Rental Contract</div>
+                    <div class="doc-desc">Equipment Rental</div>
+                </div>
+            </a>
+            <a href="documents/contract-catering-rental-2.pdf" target="_blank" class="doc-link">
+                <span class="doc-icon">📄</span>
+                <div class="doc-info">
+                    <div class="doc-name">Catering Rental Contract 2</div>
+                    <div class="doc-desc">Additional Equipment</div>
+                </div>
+            </a>
         `;
     }
 }
