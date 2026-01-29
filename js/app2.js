@@ -217,6 +217,14 @@ function setupNavigation() {
             e.preventDefault();
             const sectionId = item.getAttribute('data-section');
 
+            // Block budget access for non-authorized users
+            if (sectionId === 'budget') {
+                const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
+                if (!hasBudgetAccess(userName)) {
+                    return; // Don't navigate to budget
+                }
+            }
+
             // Update nav
             navItems.forEach(n => n.classList.remove('active'));
             item.classList.add('active');
@@ -370,8 +378,9 @@ function renderCeremony() {
 function renderBudget() {
     if (!weddingData || !weddingData.budget) return;
 
-    // Only show budget for family members
-    if (accessLevel !== 'family') {
+    // Only Karen and Danny can see budget
+    const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
+    if (!hasBudgetAccess(userName)) {
         const vendorBudgetEl = document.getElementById('budget-vendors');
         const summaryEl = document.getElementById('budget-summary');
         const notesEl = document.getElementById('budget-notes');
@@ -500,6 +509,9 @@ function renderVendors() {
     const vendorList = document.getElementById('vendor-list');
     if (!vendorList) return;
 
+    const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
+    const canSeeAllPrices = hasBudgetAccess(userName);
+
     vendorList.innerHTML = weddingData.vendors.map(vendor => {
         let statusClass = 'pending';
         if (vendor.status === 'booked') statusClass = 'booked';
@@ -510,13 +522,18 @@ function renderVendors() {
         const isMyVendorCard = accessLevel === 'vendor' &&
             currentUser && currentUser.role === vendor.role;
 
-        // Show price only if family OR if it's the vendor's own card
-        const showPrice = accessLevel === 'family' || isMyVendorCard;
+        // Show price ONLY if:
+        // 1. Karen or Danny (budget access), OR
+        // 2. It's the vendor's own card AND that vendor has a cost
+        const showPrice = canSeeAllPrices || (isMyVendorCard && vendor.cost);
 
         // Check if current user's name appears in this vendor card
-        const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
         const vendorText = `${vendor.name || ''} ${vendor.company || ''} ${vendor.role || ''}`.toLowerCase();
         const isPersonalized = userName && vendorText.includes(userName.toLowerCase());
+
+        // Strip any dollar amounts and payment terms from notes for non-price viewers
+        const sanitizedNotes = vendor.notes ?
+            vendor.notes.replace(/\$[\d,]+(\.\d{2})?/g, '').replace(/deposit|paid|remainder|due|balance/gi, '').replace(/\s+/g, ' ').trim() : '';
 
         return `
             <div class="vendor-card${isPersonalized ? ' flower-indicator' : ''}">
@@ -532,8 +549,8 @@ function renderVendors() {
                     ${showPrice && vendor.cost ? `<p class="vendor-cost">$${vendor.cost.toLocaleString()}</p>` : ''}
                     ${vendor.arrivalTime ? `<p>Arrives: ${vendor.arrivalTime}</p>` : ''}
                     ${vendor.phone ? `<p><a href="tel:${vendor.phone}">${vendor.phone}</a></p>` : ''}
-                    ${vendor.notes && showPrice ? `<p style="font-size:0.85rem;">${vendor.notes}</p>` : ''}
-                    ${vendor.notes && !showPrice ? `<p style="font-size:0.85rem;">${vendor.notes.replace(/\$[\d,]+(\.\d{2})?/g, '').replace(/deposit|paid|remainder|due/gi, '').trim()}</p>` : ''}
+                    ${canSeeAllPrices && vendor.notes ? `<p style="font-size:0.85rem;">${vendor.notes}</p>` : ''}
+                    ${!canSeeAllPrices && sanitizedNotes ? `<p style="font-size:0.85rem;">${sanitizedNotes}</p>` : ''}
                 </div>
             </div>
         `;
