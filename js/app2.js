@@ -8,11 +8,14 @@ let accessLevel = 'guest'; // 'family', 'vendor', or 'guest'
 const familyNames = [
     'karen', 'danny', 'jose', 'lauren', 'cindy', 'duschan', 'duey',
     'elizabeth', 'peggy', 'marilyn', 'kali', 'jeanne', 'dave', 'milo',
-    'remy', 'amanda', 'doug', 'ellison', 'kathryn', 'nestor', 'david',
+    'remy', 'amanda', 'doug', 'ellison', 'kathryn', 'nestor',
     'zach', 'joey', 'john', 'gabriel', 'jonah', 'jess', 'mady', 'kelsey',
     'gabi', 'anna', 'carly', 'blair', 'sara', 'reagan', 'jenny', 'kagan',
     'khristian', 'scottie', 'tim', 'scott'
 ];
+
+// Only Karen and Danny can see budget
+const budgetAccess = ['karen', 'danny'];
 
 const vendorNames = {
     'david': 'Caterer (2B1L)',
@@ -35,6 +38,12 @@ const vendorNames = {
 function isFamilyMember(name) {
     const lower = name.toLowerCase().trim();
     return familyNames.some(n => lower.includes(n) || n.includes(lower));
+}
+
+// Check if name has budget access (only Karen and Danny)
+function hasBudgetAccess(name) {
+    const lower = name.toLowerCase().trim();
+    return budgetAccess.some(n => lower.includes(n) || n.includes(lower));
 }
 
 // Check if name matches vendor and return their role
@@ -126,16 +135,18 @@ function resetName(event) {
 
 function applyAccessLevel() {
     const budgetNav = document.querySelector('.nav-item[data-section="budget"]');
+    const userName = typeof currentUser === 'string' ? currentUser : currentUser?.name || '';
+    const canSeeBudget = hasBudgetAccess(userName);
 
-    if (accessLevel === 'family') {
-        // Full access
+    if (canSeeBudget) {
+        // Only Karen and Danny see budget
         if (budgetNav) budgetNav.classList.remove('budget-hidden');
         document.querySelectorAll('.price-hidden').forEach(el => el.classList.remove('price-hidden'));
     } else if (accessLevel === 'vendor') {
         // Hide budget tab, but vendor can see their own payment in vendors section
         if (budgetNav) budgetNav.classList.add('budget-hidden');
     } else {
-        // Guest - hide all prices and budget
+        // Everyone else - hide budget
         if (budgetNav) budgetNav.classList.add('budget-hidden');
     }
 }
