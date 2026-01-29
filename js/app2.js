@@ -18,8 +18,8 @@ const familyNames = [
 const planningCrew = ['karen', 'danny', 'jeanne', 'cindy', 'duey', 'duschan', 'jose'];
 
 const vendorNames = {
-    'david': 'Caterer (2B1L)',
-    'hargrove': 'Caterer (2B1L)',
+    'david': 'Caterer',
+    'hargrove': 'Caterer',
     'antonia': 'Decor / Banners',
     'lady b': 'DJ',
     'sam': 'Piano',
@@ -36,7 +36,7 @@ const vendorNames = {
 
 // Map vendor roles to their contract files
 const vendorContracts = {
-    'Caterer (2B1L)': 'documents/contract-david-2b1l.pdf',
+    'Caterer': 'documents/contract-david-2b1l.pdf',
     'DJ': 'documents/contract-lady-b.pdf',
     'Bartenders': 'documents/contract-bronson.pdf'
 };
