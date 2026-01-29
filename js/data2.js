@@ -107,7 +107,7 @@ const WEDDING_DATA = {
     "gettingReady": {
       "karen": {
         "name": "Hotel Peter and Paul",
-        "notes": "Hair, Makeup, Dress - with Mady, Kelsey, Kali, Kagan. Kagan helps with hair. Peggy assists."
+        "notes": "Hair, Makeup, Dress - with Lauren, Mady, Kelsey, Kali, Kagan. Makeup: Karen & Lauren only. Kagan helps with hair. Peggy assists."
       },
       "danny": {
         "name": "Greatman Loft",
@@ -445,7 +445,8 @@ const WEDDING_DATA = {
     "maidOfHonor": "Lauren Langenmayr",
     "bestMan": "Jose David Hernandez",
     "karen": {
-      "gettingReadyWith": ["Mady", "Kelsey", "Kali", "Kagan"],
+      "gettingReadyWith": ["Lauren", "Mady", "Kelsey", "Kali", "Kagan"],
+      "makeup": ["Karen", "Lauren"],
       "hairHelp": "Kagan",
       "assistant": "Peggy"
     },
@@ -591,7 +592,7 @@ const WEDDING_DATA = {
     ],
     "saturday": [
       { "time": "12:00 PM", "event": "Setup begins", "location": "Industrial Gardens", "who": "Jeanne, Antonia, YUR Rentals", "notes": "Jeanne oversees setup. Decor/draping and furniture delivery." },
-      { "time": "11:30 AM - 1:30 PM", "event": "Hair & Makeup", "location": "Hotel Peter and Paul", "who": "Karen, Mady, Kelsey, Kali, Kagan", "notes": "Kagan helps with hair. Peggy assists." },
+      { "time": "11:30 AM - 1:30 PM", "event": "Hair & Makeup", "location": "Hotel Peter and Paul", "who": "Karen, Lauren, Mady, Kelsey, Kali, Kagan", "notes": "Makeup: Karen & Lauren only. Kagan helps with hair. Peggy assists." },
       { "time": "1:00 PM", "event": "Vendors & Crew Arrive", "location": "Industrial Gardens", "who": "Lady B, Jenny and any girls that want to help decorate tables", "notes": "DJ sets up sound." },
       { "time": "1:00 PM", "event": "Flower delivery", "location": "Greatman Cottage", "who": "Florist", "notes": "Bridal bouquet, boutonnieres, Lauren's flowers" },
       { "time": "1:30 PM", "event": "Stephanie meets Karen at P&P", "location": "Hotel Peter and Paul", "who": "Karen, Stephanie Terrant", "notes": "Photographer meets Karen after hair & makeup for photos at Hotel Peter and Paul" },
