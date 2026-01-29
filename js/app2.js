@@ -14,14 +14,8 @@ const familyNames = [
     'khristian', 'scottie', 'tim', 'scott'
 ];
 
-// Only Karen and Danny can see budget
-const budgetAccess = ['karen', 'danny'];
-
-// Only these people can see tasks
-const tasksAccess = ['karen', 'danny', 'jeanne', 'cindy', 'duey', 'duschan', 'jose'];
-
-// Only these people can see docs
-const docsAccess = ['karen', 'danny', 'cindy', 'jeanne'];
+// Planning crew - can see Tasks, Budget, and Docs
+const planningCrew = ['karen', 'danny', 'jeanne', 'cindy', 'duey', 'duschan', 'jose'];
 
 const vendorNames = {
     'david': 'Caterer (2B1L)',
@@ -53,22 +47,10 @@ function isFamilyMember(name) {
     return familyNames.some(n => lower.includes(n) || n.includes(lower));
 }
 
-// Check if name has budget access (only Karen and Danny)
-function hasBudgetAccess(name) {
+// Check if name is in planning crew (can see Tasks, Budget, Docs)
+function isPlanningCrew(name) {
     const lower = name.toLowerCase().trim();
-    return budgetAccess.some(n => lower.includes(n) || n.includes(lower));
-}
-
-// Check if name has tasks access
-function hasTasksAccess(name) {
-    const lower = name.toLowerCase().trim();
-    return tasksAccess.some(n => lower.includes(n) || n.includes(lower));
-}
-
-// Check if name has docs access
-function hasDocsAccess(name) {
-    const lower = name.toLowerCase().trim();
-    return docsAccess.some(n => lower.includes(n) || n.includes(lower));
+    return planningCrew.some(n => lower.includes(n) || n.includes(lower));
 }
 
 // Check if name matches vendor and return their role
@@ -163,28 +145,16 @@ function applyAccessLevel() {
     const tasksNav = document.querySelector('.nav-item[data-section="tasks"]');
     const docsNav = document.querySelector('.nav-item[data-section="documents"]');
     const userName = typeof currentUser === 'string' ? currentUser : currentUser?.name || '';
-    const canSeeBudget = hasBudgetAccess(userName);
-    const canSeeTasks = hasTasksAccess(userName);
+    const canSeePlanningTabs = isPlanningCrew(userName);
 
-    // Budget access - only Karen and Danny
-    if (canSeeBudget) {
+    // Planning crew sees Tasks, Budget, and Docs
+    if (canSeePlanningTabs) {
         if (budgetNav) budgetNav.classList.remove('budget-hidden');
-        document.querySelectorAll('.price-hidden').forEach(el => el.classList.remove('price-hidden'));
-    } else {
-        if (budgetNav) budgetNav.classList.add('budget-hidden');
-    }
-
-    // Tasks access - only specific people
-    if (canSeeTasks) {
         if (tasksNav) tasksNav.classList.remove('budget-hidden');
-    } else {
-        if (tasksNav) tasksNav.classList.add('budget-hidden');
-    }
-
-    // Docs access - Karen, Danny, Cindy, Jeanne
-    if (hasDocsAccess(userName)) {
         if (docsNav) docsNav.classList.remove('budget-hidden');
     } else {
+        if (budgetNav) budgetNav.classList.add('budget-hidden');
+        if (tasksNav) tasksNav.classList.add('budget-hidden');
         if (docsNav) docsNav.classList.add('budget-hidden');
     }
 }
@@ -256,18 +226,9 @@ function setupNavigation() {
             const sectionId = item.getAttribute('data-section');
             const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
 
-            // Block budget access for non-authorized users
-            if (sectionId === 'budget' && !hasBudgetAccess(userName)) {
-                return;
-            }
-
-            // Block tasks access for non-authorized users
-            if (sectionId === 'tasks' && !hasTasksAccess(userName)) {
-                return;
-            }
-
-            // Block docs access for non-authorized users
-            if (sectionId === 'documents' && !hasDocsAccess(userName)) {
+            // Block planning tabs (budget, tasks, docs) for non-planning crew
+            const planningTabs = ['budget', 'tasks', 'documents'];
+            if (planningTabs.includes(sectionId) && !isPlanningCrew(userName)) {
                 return;
             }
 
@@ -426,7 +387,7 @@ function renderBudget() {
 
     // Only Karen and Danny can see budget
     const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
-    if (!hasBudgetAccess(userName)) {
+    if (!isPlanningCrew(userName)) {
         const vendorBudgetEl = document.getElementById('budget-vendors');
         const summaryEl = document.getElementById('budget-summary');
         const notesEl = document.getElementById('budget-notes');
@@ -556,7 +517,7 @@ function renderVendors() {
     if (!vendorList) return;
 
     const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
-    const canSeeAllPrices = hasBudgetAccess(userName);
+    const canSeeAllPrices = isPlanningCrew(userName);
 
     vendorList.innerHTML = weddingData.vendors.map(vendor => {
         let statusClass = 'pending';
