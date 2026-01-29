@@ -205,7 +205,7 @@ const WEDDING_DATA = {
       "remainder": 2700,
       "arrivalTime": "2:00 PM Saturday",
       "status": "booked",
-      "notes": "First look at 2:00 PM at Greatman Cottage Courtyard. Departs after second line at 8:45 PM. Deposit paid by Karen."
+      "notes": "First look at 2:00 PM at Hotel Peter and Paul. Departs after second line at 8:45 PM. Deposit paid by Karen."
     },
     {
       "role": "Florist",
@@ -540,12 +540,11 @@ const WEDDING_DATA = {
     "saturday": [
       { "time": "11:00 AM", "event": "Setup begins", "location": "Industrial Gardens", "who": "Venue staff" },
       { "time": "12:00 PM", "event": "Jeanne, Antonia & YUR Rentals arrive", "location": "Industrial Gardens", "who": "Jeanne, Antonia, YUR Rentals", "notes": "Jeanne oversees setup. Decor/draping setup and furniture delivery." },
-      { "time": "11:30 - 12:30 PM", "event": "Lunch available", "location": "Greatman Cottage/Loft", "who": "Wedding party" },
       { "time": "11:30 AM - 1:30 PM", "event": "Hair & Makeup", "location": "Hotel Peter and Paul", "who": "Karen, Mady, Kelsey, Kali, Kagan", "notes": "Kagan helps with hair. Peggy assists." },
       { "time": "1:00 PM", "event": "Vendors & Crew Arrive", "location": "Industrial Gardens", "who": "Lady B, Jenny and any girls that want to help decorate tables", "notes": "DJ sets up sound." },
       { "time": "1:00 PM", "event": "Flower delivery", "location": "Greatman Cottage", "who": "Florist", "notes": "Bridal bouquet, boutonnieres, Lauren's flowers" },
       { "time": "1:30 PM", "event": "Stephanie meets Karen at P&P", "location": "Hotel Peter and Paul", "who": "Karen, Stephanie Terrant", "notes": "Photographer meets Karen after hair & makeup for photos at Hotel Peter and Paul" },
-      { "time": "2:00 PM", "event": "First Look & Sam Kuslan arrives", "location": "Milo Gardens / Industrial Gardens", "who": "Karen, Danny, Photographer, Sam Kuslan", "notes": "First look photos. Sam sets up piano at venue." },
+      { "time": "2:00 PM", "event": "First Look & Sam Kuslan arrives", "location": "Hotel Peter and Paul / Industrial Gardens", "who": "Karen, Danny, Photographer, Sam Kuslan", "notes": "First look photos at Hotel Peter and Paul. Sam sets up piano at venue." },
       { "time": "2:30 PM", "event": "Flower Girls / Ushers arrive", "location": "Industrial Gardens", "who": "Flower Girls", "notes": "Hand out flower petals and usher guests to seats at 3pm." },
       { "time": "2:30 - 3:15 PM", "event": "Touch-ups & hang out", "location": "Conference room", "who": "Karen, Danny, Cindy, Duschan, Jose Nestor, Jose David, Lauren", "notes": "Away from guests" },
       { "time": "2:40 PM", "event": "Prelude music begins", "location": "Industrial Gardens", "who": "DJ", "notes": "Kamasi Washington - Harmony of Difference Album" },
