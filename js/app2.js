@@ -542,16 +542,19 @@ function renderVendors() {
         const sanitizedNotes = vendor.notes ?
             vendor.notes.replace(/\$[\d,]+(\.\d{2})?/g, '').replace(/deposit|paid|remainder|due|balance/gi, '').replace(/\s+/g, ' ').trim() : '';
 
-        // Check if vendor has a contract and if current user should see it
+        // Check if vendor has a contract - only show to the vendor themselves
         const contractFile = vendorContracts[vendor.role];
-        const showContract = contractFile && (canSeeAllPrices || isMyVendorCard);
+        const showContract = contractFile && isMyVendorCard;
+
+        // Flower shows next to name if it's the user's card
+        const flowerMark = isPersonalized ? ' <span style="color:var(--pink-medium);">✿</span>' : '';
 
         return `
-            <div class="vendor-card${isPersonalized ? ' flower-indicator' : ''}">
+            <div class="vendor-card">
                 <div class="vendor-header">
                     <div>
                         <div class="vendor-role">${vendor.role}</div>
-                        <div class="vendor-name">${vendor.name || vendor.company || 'TBD'}</div>
+                        <div class="vendor-name">${vendor.name || vendor.company || 'TBD'}${flowerMark}</div>
                     </div>
                     <div class="vendor-status ${statusClass}">${vendor.status}</div>
                 </div>
@@ -562,7 +565,7 @@ function renderVendors() {
                     ${vendor.phone ? `<p><a href="tel:${vendor.phone}">${vendor.phone}</a></p>` : ''}
                     ${canSeeAllPrices && vendor.notes ? `<p style="font-size:0.85rem;">${vendor.notes}</p>` : ''}
                     ${!canSeeAllPrices && sanitizedNotes ? `<p style="font-size:0.85rem;">${sanitizedNotes}</p>` : ''}
-                    ${showContract ? `<p style="margin-top:10px;"><a href="${contractFile}" target="_blank" class="directions-btn">View Contract</a></p>` : ''}
+                    ${showContract ? `<p style="margin-top:10px;"><a href="${contractFile}" target="_blank" class="directions-btn">View My Contract</a></p>` : ''}
                 </div>
             </div>
         `;
