@@ -694,37 +694,37 @@ function renderDayOf() {
         locationsList.innerHTML = `
             <div class="location-item">
                 <div class="location-name">Industrial Gardens</div>
-                <div class="location-purpose">Rehearsal (Fri 1-3pm) · Ceremony (Sat 3:15pm) · Reception (Sat 5pm)</div>
+                <div class="location-purpose">Rehearsal (Friday 1-3 PM) · Ceremony (Saturday 3:15 PM) · Reception (Saturday 5 PM)</div>
                 <div class="location-purpose">1024 Elysian Fields Avenue, New Orleans, LA 70118</div>
                 <a href="https://www.google.com/maps/dir/?api=1&destination=1024+Elysian+Fields+Avenue+New+Orleans+LA" target="_blank" class="directions-btn">Get Directions</a>
             </div>
             <div class="location-item">
                 <div class="location-name">Milo Gardens</div>
-                <div class="location-purpose">Welcome Party (Fri 4-7pm)</div>
+                <div class="location-purpose">Welcome Party (Friday 4-7 PM)</div>
                 <a href="https://www.google.com/maps/search/?api=1&query=Milo+Gardens+New+Orleans" target="_blank" class="directions-btn">Get Directions</a>
             </div>
             <div class="location-item">
                 <div class="location-name">Oak & Ale</div>
-                <div class="location-purpose">Rehearsal Dinner (Fri 7pm)</div>
+                <div class="location-purpose">Rehearsal Dinner (Friday 7 PM)</div>
                 <a href="https://www.google.com/maps/search/?api=1&query=Oak+and+Ale+New+Orleans" target="_blank" class="directions-btn">Get Directions</a>
             </div>
             <div class="location-item">
                 <div class="location-name">Hotel Peter and Paul</div>
-                <div class="location-purpose">Karen Getting Ready (Sat morning)</div>
+                <div class="location-purpose">Karen Getting Ready (Saturday Morning)</div>
                 <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Peter+and+Paul+New+Orleans" target="_blank" class="directions-btn">Get Directions</a>
             </div>
             <div class="location-item">
-                <div class="location-name">Danny's (TBD)</div>
-                <div class="location-purpose">Danny Getting Ready with the Guys (Sat morning)</div>
+                <div class="location-name">Danny's Place (TBD)</div>
+                <div class="location-purpose">Danny Getting Ready with the Guys (Saturday Morning)</div>
             </div>
             <div class="location-item">
                 <div class="location-name">No Dice</div>
-                <div class="location-purpose">After Party (Sat 9pm) · Thomas Glass Band</div>
+                <div class="location-purpose">After Party (Saturday 9 PM) · Thomas Glass Band</div>
                 <a href="https://www.google.com/maps/search/?api=1&query=No+Dice+New+Orleans" target="_blank" class="directions-btn">Get Directions</a>
             </div>
             <div class="location-item">
                 <div class="location-name">CastleDay</div>
-                <div class="location-purpose">Poolside Farewell (Sun 11am-2pm)</div>
+                <div class="location-purpose">Poolside Farewell (Sunday 11 AM - 2 PM)</div>
                 <div class="location-purpose">1319 Japonica Street, New Orleans, LA</div>
                 <a href="https://www.google.com/maps/dir/?api=1&destination=1319+Japonica+Street+New+Orleans+LA" target="_blank" class="directions-btn">Get Directions</a>
             </div>
