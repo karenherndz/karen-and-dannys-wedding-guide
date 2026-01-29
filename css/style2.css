@@ -694,6 +694,17 @@ a:hover {
     .vendor-grid {
         grid-template-columns: 1fr;
     }
+
+    /* Desktop nav - centered and evenly spaced */
+    .nav {
+        justify-content: center;
+    }
+
+    .nav-item {
+        flex: 0 0 auto;
+        padding: 16px 20px;
+        font-size: 0.75rem;
+    }
 }
 
 @media (min-width: 900px) {
@@ -711,6 +722,21 @@ a:hover {
 
     .section h2 {
         font-size: 2.5rem;
+    }
+
+    /* Larger desktop nav */
+    .nav-item {
+        padding: 18px 28px;
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+    }
+}
+
+@media (min-width: 1200px) {
+    /* Wide screens - more generous spacing */
+    .nav-item {
+        padding: 20px 36px;
+        font-size: 0.85rem;
     }
 }
 
