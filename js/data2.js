@@ -282,6 +282,19 @@ const WEDDING_DATA = {
       "notes": "Bar service with BYOB supply (Costco run)"
     },
     {
+      "role": "Cleaner",
+      "name": "TBD",
+      "company": "",
+      "phone": "",
+      "email": "",
+      "cost": null,
+      "deposit": null,
+      "remainder": null,
+      "arrivalTime": "",
+      "status": "TBD",
+      "notes": "Duties TBD - check with Antonia"
+    },
+    {
       "role": "Rain Contingency Tent",
       "name": "",
       "company": "Larkin",
