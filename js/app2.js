@@ -91,26 +91,37 @@ function handleNameSubmit(input, modal) {
 function setUserAccess(name) {
     currentUser = name;
     const userRoleEl = document.getElementById('user-role');
+    const notYouLink = `<a href="#" class="not-you-link" onclick="resetName(event)">Not ${name}?</a>`;
 
     if (isFamilyMember(name)) {
         accessLevel = 'family';
-        userRoleEl.innerHTML = `✿ Welcome, ${name}`;
+        userRoleEl.innerHTML = `✿ Welcome, ${name} ${notYouLink}`;
         userRoleEl.style.display = 'inline-block';
     } else {
         const vendorRole = getVendorRole(name);
         if (vendorRole) {
             accessLevel = 'vendor';
             currentUser = { name, role: vendorRole };
-            userRoleEl.innerHTML = `✿ ${name} - ${vendorRole}`;
+            userRoleEl.innerHTML = `✿ ${name} - ${vendorRole} ${notYouLink}`;
             userRoleEl.style.display = 'inline-block';
         } else {
             accessLevel = 'guest';
-            userRoleEl.innerHTML = `Welcome, ${name}`;
+            userRoleEl.innerHTML = `Welcome, ${name} ${notYouLink}`;
             userRoleEl.style.display = 'inline-block';
         }
     }
 
     applyAccessLevel();
+}
+
+function resetName(event) {
+    event.preventDefault();
+    localStorage.removeItem('weddingUserName');
+    const modal = document.getElementById('welcome-modal');
+    const input = document.getElementById('name-input');
+    modal.classList.remove('hidden');
+    input.value = '';
+    input.focus();
 }
 
 function applyAccessLevel() {
