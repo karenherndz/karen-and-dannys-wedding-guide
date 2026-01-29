@@ -663,8 +663,52 @@ function renderDayOf() {
     if (emergencyContacts) {
         emergencyContacts.innerHTML = `
             <div class="person-item">
+                <span class="person-name">Karen Hernandez</span>
+                <span class="person-role"><a href="tel:2162126400">(216) 212-6400</a> - Bride</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Danny Milojevic</span>
+                <span class="person-role"><a href="tel:7733688883">(773) 368-8883</a> - Groom</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Cindy Milojevic</span>
+                <span class="person-role"><a href="tel:7086068839">(708) 606-8839</a> - Danny's Mom</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Jose Nestor Hernandez</span>
+                <span class="person-role"><a href="tel:2165027882">(216) 502-7882</a> - Karen's Dad</span>
+            </div>
+            <div class="person-item">
                 <span class="person-name">Jeanne Gallo</span>
                 <span class="person-role"><a href="tel:3128822087">(312) 882-2087</a> - Day-of Coordinator</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Industrial Gardens</span>
+                <span class="person-role"><a href="tel:5043553767">(504) 355-3767</a> - Venue</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">David Hargrove</span>
+                <span class="person-role"><a href="tel:6468429038">(646) 842-9038</a> - Caterer (2B1L)</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Antonia Zennaro</span>
+                <span class="person-role"><a href="tel:5045183218">(504) 518-3218</a> - Decor / Banners</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Lady B</span>
+                <span class="person-role"><a href="tel:5042148105">(504) 214-8105</a> - DJ</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Sam Kuslan</span>
+                <span class="person-role"><a href="tel:2035352159">(203) 535-2159</a> - Piano</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">Stephanie Terrant</span>
+                <span class="person-role"><a href="tel:2197769158">(219) 776-9158</a> - Photographer</span>
+            </div>
+            <div class="person-item">
+                <span class="person-name">YUR Event Rentals</span>
+                <span class="person-role"><a href="tel:5042180726">(504) 218-0726</a> - Furniture</span>
             </div>
         `;
     }
