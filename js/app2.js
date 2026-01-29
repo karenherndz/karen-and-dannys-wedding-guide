@@ -818,11 +818,11 @@ function renderDocuments() {
                 Right: 52 (34 + 18) · Back: 64 · Main: 18 · Dance Floor: 36 · Courtyard: 18
             </div>
             <div class="person-item">
-                <span class="person-name">Tables to Flip</span>
-                <span class="person-role">7 Round Tables (Yellow)</span>
+                <span class="person-name">Tables to Move</span>
+                <span class="person-role">8 Round Tables (Yellow)</span>
             </div>
             <div style="font-size:0.85rem;color:var(--ivory-soft);padding:10px 0;border-bottom:1px solid rgba(245,240,230,0.15);">
-                Pre-decorated and ready to move. Ceremony chairs redistributed to tables during flip.
+                Pre-decorated and ready to move. Flip all ceremony chairs to face tables for dinner.
             </div>
             <div class="person-item">
                 <span class="person-name">Bars</span>
