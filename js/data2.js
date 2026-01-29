@@ -554,7 +554,7 @@ const WEDDING_DATA = {
     { "task": "Dress fitting with Sophie Tran", "assignee": "Karen", "due": "Feb 10, 11am", "status": "scheduled", "priority": "high" },
     { "task": "Finalize vows", "assignee": "Karen & Danny", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Get marriage license", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-    { "task": "Purchase wedding bands", "assignee": "", "due": "", "status": "not started", "priority": "high" },
+    { "task": "Purchase Karen's wedding band", "assignee": "", "due": "", "status": "not started", "priority": "high" },
 
     // === FLOWERS ===
     { "task": "Get flowers from Trader Joe's (wedding decoration flowers)", "assignee": "", "due": "1-3 days before wedding", "status": "not started", "priority": "high" },
