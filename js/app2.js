@@ -725,8 +725,9 @@ function renderDayOf() {
                 <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Peter+and+Paul+New+Orleans" target="_blank" class="directions-btn">Get Directions</a>
             </div>
             <div class="location-item">
-                <div class="location-name">Danny's Place (TBD)</div>
+                <div class="location-name">Milo Gardens</div>
                 <div class="location-purpose">Danny Getting Ready with the Guys (Saturday Morning)</div>
+                <a href="https://www.google.com/maps/search/?api=1&query=Milo+Gardens+New+Orleans" target="_blank" class="directions-btn">Get Directions</a>
             </div>
             <div class="location-item">
                 <div class="location-name">No Dice</div>
