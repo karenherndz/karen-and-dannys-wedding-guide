@@ -321,8 +321,8 @@ const WEDDING_DATA = {
 
   "ceremony": {
     "preludeMusic": "Kamasi Washington - Harmony of Difference",
-    "processionalMusic": "James Blake - I'll Come Too (Sam Kuslan on piano)",
-    "brideProcessionalMusic": "There Goes My Baby (Sam Kuslan on piano)",
+    "processionalMusic": "James Blake - I'll Come Too",
+    "brideProcessionalMusic": "There Goes My Baby - Charlie Wilson",
     "processional": [
       "Kali enters and stands up front",
       "Cindy escorted to seat by Danny, Duschan follows (sits left side)",
