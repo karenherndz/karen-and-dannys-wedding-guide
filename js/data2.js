@@ -615,7 +615,7 @@ const WEDDING_DATA = {
       { "time": "1:30 PM", "event": "Stephanie meets Karen at P&P", "location": "Hotel Peter and Paul", "who": "Karen, Stephanie Terrant", "notes": "Photographer meets Karen after hair & makeup for photos at Hotel Peter and Paul" },
       { "time": "2:00 PM", "event": "First Look & Sam Kuslan arrives", "location": "Hotel Peter and Paul / Industrial Gardens", "who": "Karen, Danny, Photographer, Sam Kuslan", "notes": "First look photos at Hotel Peter and Paul. Sam sets up piano at venue." },
       { "time": "2:30 PM", "event": "Flower Girls / Ushers arrive", "location": "Industrial Gardens", "who": "Flower Girls", "notes": "Hand out flower petals and usher guests to seats at 3pm." },
-      { "time": "2:30 - 3:15 PM", "event": "Touch-ups & hang out", "location": "Conference room", "who": "Karen, Danny, Cindy, Duschan, Jose Nestor, Jose David, Lauren", "notes": "Away from guests" },
+      { "time": "2:30 - 3:15 PM", "event": "Touch-ups & hang out", "location": "Conference room", "who": "Karen, Danny, Cindy, Duschan, Jose Nestor, Jose David, Lauren, Dave, Milo, Remy, Uncle Doug, Ellison", "notes": "Away from guests" },
       { "time": "2:40 PM", "event": "Prelude music begins", "location": "Industrial Gardens", "who": "DJ", "notes": "Kamasi Washington - Harmony of Difference Album" },
       { "time": "3:00 PM", "event": "Guests arrive - Flower Girls usher", "location": "Industrial Gardens", "who": "Flower Girls, Guests", "notes": "Flower girls hand out petals and usher guests. Seat family up front (roped off)." },
       { "time": "3:15 - 3:45 PM", "event": "CEREMONY", "location": "Industrial Gardens", "who": "Everyone", "notes": "Guests told 3:00 PM. Jeanne holds latecomers until ceremony is over." },
