@@ -509,7 +509,7 @@ const WEDDING_DATA = {
     ],
     "forGuests": [
       "Custom koozies",
-      "Custom kerchiefs for Puerto Rican second line",
+      "Maga flower and rainbow kerchiefs for Puerto Rican second line",
       "Maracas for Puerto Rican second line",
       "Chimes to cue guests (Cindy bringing)"
     ]
@@ -575,7 +575,7 @@ const WEDDING_DATA = {
 
     // === SECOND LINE ===
     { "task": "Get DJ quote from Lady B for second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Decide on second line hand-outs (tiny drums or bandanas, NOT beads)", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Get maga flower and rainbow kerchiefs for second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
 
     // === NO DICE AFTER PARTY ===
     { "task": "Confirm No Dice venue calendar is blocked", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
@@ -627,7 +627,7 @@ const WEDDING_DATA = {
       { "time": "6:40 PM", "event": "Dance Floor Open!", "location": "Industrial Gardens", "who": "Everyone" },
       { "time": "7:30 PM", "event": "Dessert", "location": "Industrial Gardens", "who": "Milo announces", "notes": "Milo does the dessert announcement." },
       { "time": "7:30 PM", "event": "Vendor payments distributed", "location": "Industrial Gardens", "who": "Jeanne" },
-      { "time": "8:45 PM", "event": "Puerto Rican Second Line Begins", "location": "Industrial Gardens to No Dice", "who": "Everyone", "notes": "DJ concludes, photographer departs. Pass out maracas/kerchiefs." },
+      { "time": "8:45 PM", "event": "Puerto Rican Second Line Begins", "location": "Industrial Gardens to No Dice", "who": "Everyone", "notes": "DJ concludes, photographer departs. Pass out maga flower and rainbow kerchiefs and maracas." },
       { "time": "9:00 PM", "event": "Second Line Lands at No Dice", "location": "No Dice", "who": "Everyone", "notes": "Jam out in the street, then head inside for drinks and hanging out." },
       { "time": "9:30 PM", "event": "Thomas Glass Band!", "location": "No Dice", "who": "Everyone", "notes": "Live music!" }
     ],
