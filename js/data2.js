@@ -77,8 +77,8 @@ const WEDDING_DATA = {
       }
     },
     "layout": {
-      "tablesToFlip": 8,
-      "notes": "8 round tables (yellow on layout) already decorated and ready to move. Flip all ceremony chairs to face tables for dinner.",
+      "tablesToFlip": 7,
+      "notes": "7 round tables (yellow on layout) already decorated and ready to move. Ceremony chairs redistributed to tables during flip.",
       "bars": ["Ceremony space bar (sets up during flip)", "Courtyard bar (open during cocktail hour)"],
       "photobooth": "14' x 5'",
       "seatingChart": "Near entrance"
@@ -88,7 +88,7 @@ const WEDDING_DATA = {
       "date": "Saturday April 11",
       "time": "5:00 PM",
       "address": "1024 Elysian Fields Avenue, New Orleans, LA 70118",
-      "notes": "Room flip 4:00-4:30 PM. Cocktail hour during flip."
+      "notes": "Room flip 3:45-4:30 PM. Cocktail hour during flip."
     },
     "afterParty": {
       "name": "No Dice",
@@ -125,9 +125,9 @@ const WEDDING_DATA = {
       "email": "",
       "cost": null,
       "paid": false,
-      "arrivalTime": "12:00 PM Saturday",
+      "arrivalTime": "11:45 AM Saturday",
       "status": "booked",
-      "notes": "Oversee setup, vendors, manage ceremony. Distributes vendor payments at 7:30 PM."
+      "notes": "Oversee setup, vendors, manage ceremony. Distributes vendor payments at 7:45 PM."
     },
     {
       "role": "Caterer",
@@ -151,9 +151,9 @@ const WEDDING_DATA = {
       "cost": 1650,
       "deposit": 825,
       "remainder": 825,
-      "arrivalTime": "Friday Rehearsal & 12:00 PM Saturday",
+      "arrivalTime": "Friday Rehearsal & 1:00 PM Saturday",
       "status": "booked",
-      "notes": "Make & install banners, draping. Sets up banners at Friday rehearsal. Deposit paid by Jose Nestor Remainder due 4/11/26."
+      "notes": "Make & install banners, draping. Sets up banners at Friday rehearsal. Arrives 1:00 PM Saturday for altar draping with staghorn fern. Deposit paid by Jose Nestor. Remainder due 4/11/26."
     },
     {
       "role": "DJ, Ritmeaux Krewe & Puerto Rican Second Line",
@@ -164,7 +164,7 @@ const WEDDING_DATA = {
       "cost": 1500,
       "deposit": null,
       "remainder": 1500,
-      "arrivalTime": "1:00 PM Saturday",
+      "arrivalTime": "11:45 AM Saturday",
       "status": "booked",
       "notes": "Cocktail reception music, dancing, PA for ceremony, handheld mic with stand. Leads Puerto Rican second line at 8:45 PM."
     },
@@ -176,9 +176,9 @@ const WEDDING_DATA = {
       "email": "",
       "cost": null,
       "paid": false,
-      "arrivalTime": "2:00 PM Saturday",
+      "arrivalTime": "11:45 AM Saturday",
       "status": "booked",
-      "notes": "Ceremony music. Dates blocked."
+      "notes": "Ceremony music. Sets up piano at venue."
     },
     {
       "role": "Furniture Rentals",
@@ -190,7 +190,7 @@ const WEDDING_DATA = {
       "paid": 785.40,
       "amountDue": 2390.69,
       "arrivalTime": "12:00 PM Saturday",
-      "pickupTime": "8:50 PM Saturday",
+      "pickupTime": "8:45 PM Saturday",
       "status": "booked",
       "notes": "170 fruitwood folding chairs w/ seat pads, 2 wood alpine bars, 12 banquet tables (8'), 7 round tables (60\"), 6 adjustable rounds (30\"), 12 chocolate linens (90x156), 13 chocolate linens (120\" round), 3 trash cans. Includes setup/breakdown. Pickup contact: Jeanne Gallo."
     },
@@ -203,9 +203,9 @@ const WEDDING_DATA = {
       "cost": 3000,
       "deposit": 300,
       "remainder": 2700,
-      "arrivalTime": "2:00 PM Saturday",
+      "arrivalTime": "1:30 PM Saturday (meets Karen at P&P)",
       "status": "booked",
-      "notes": "First look at 2:00 PM at Hotel Peter and Paul. Departs after second line at 8:45 PM. Deposit paid by Karen."
+      "notes": "Meets Karen at Hotel Peter and Paul after hair & makeup. First look photos. Departs after second line at 8:45 PM. Deposit paid by Karen."
     },
     {
       "role": "Florist",
@@ -254,7 +254,7 @@ const WEDDING_DATA = {
       "remainder": 1700,
       "arrivalTime": "",
       "status": "booked",
-      "notes": "Playing at No Dice. Remainder due 4/11/26."
+      "notes": "Playing at No Dice. 9:00-10:45 PM. Remainder due 4/11/26."
     },
     {
       "role": "Tailor / Dress",
@@ -280,19 +280,6 @@ const WEDDING_DATA = {
       "arrivalTime": "",
       "status": "booked",
       "notes": "Bar service with BYOB supply (Costco run)"
-    },
-    {
-      "role": "Cleaner",
-      "name": "TBD",
-      "company": "",
-      "phone": "",
-      "email": "",
-      "cost": null,
-      "deposit": null,
-      "remainder": null,
-      "arrivalTime": "",
-      "status": "TBD",
-      "notes": "Duties TBD - check with Antonia"
     },
     {
       "role": "Rain Contingency Tent",
@@ -333,56 +320,55 @@ const WEDDING_DATA = {
   ],
 
   "ceremony": {
-    "preludeMusic": "Kamasi Washington - Harmony of Difference",
-    "processionalMusic": "James Blake - I'll Come Too",
-    "brideProcessionalMusic": "There Goes My Baby - Charlie Wilson",
+    "preludeMusic": "Kamasi Washington Album (DJ plays at 2:40 PM)",
+    "processionalMusic": "Sam Kuslan piano - I Can't Believe The Way We Flow (James Blake)",
+    "brideProcessionalMusic": "Sam Kuslan piano - There Goes My Baby (Charlie Wilson)",
     "processional": [
       "Kali enters and stands up front",
-      "Cindy escorted to seat by Danny, Duschan follows (sits left side)",
+      "Cindy escorted to seat by Danny, Duey follows (sits left side)",
       "Danny stays up front next to Kali",
-      "Lauren Langenmayr and Jose David come down the aisle",
+      "Lauren and Jose come down the aisle",
       "Ring Bearers enter",
       "Bride's processional music begins - There Goes My Baby",
-      "Karen enters with her father Jose Nestor Hernandez",
-      "Guests stand as bride enters"
+      "Guests stand as music changes and bride enters",
+      "Karen enters with her father Jose N."
     ],
     "program": [
       "Welcome - Kali",
-      "Poem or literature reading",
+      "Kali speaks and ends with Kat's advice",
+      "Duschan Milojevic Speech (2 minutes)",
+      "Jose Hernandez Speech (2 minutes)",
       "Vows",
       "Ring ceremony",
       "Kiss the bride!"
     ],
-    "recessionalMusic": "Gal Costa - Cuidando de Longe",
+    "recessionalMusic": "Gal Costa - Cuidando de Longe (DJ plays)",
     "recessionalOrder": [
-      "Bride and Groom process down the aisle",
-      "Lauren Langenmayr and Jose David process",
-      "Cindy, Duschan, and Jose Nestor process",
-      "Flower girls guide the rest of the guests"
+      "Bride and Groom turn and lock arms, process down the aisle. Petals fly!",
+      "Lauren and Jose process down the aisle",
+      "Cindy and Duey, Jose Sr. and Elizabeth process"
     ],
-    "notes": "Jose Nestor walks Karen down the aisle and takes his seat. Kali says 'You may all be seated' and begins the ceremony. Jeanne holds latecomers until ceremony is over."
+    "notes": "Karen lets go of her father's arm at the arch, gives Lauren her bouquet to hold. Jose N. turns and takes a seat by Elizabeth. Jeanne holds latecomers until ceremony is over."
   },
 
   "speeches": {
     "order": [
-      { "speaker": "Jose Nestor Hernandez (Karen's Dad)", "time": "3 minutes" },
-      { "speaker": "Cindy & Duschan Milojevic (Danny's Parents)", "time": "3 minutes" },
-      { "speaker": "Jose David Hernandez (Best Man)", "time": "5 minutes" },
-      { "speaker": "Lauren Langenmayr (Danny's Sister / Maid of Honor)", "time": "5 minutes" }
+      { "speaker": "Danny (Thank-you toast)", "time": "6:45 PM" }
     ],
-    "maxTime": "5:30 PM",
-    "notes": "Speeches before dinner. Parents and siblings only."
+    "maxTime": "6:45 PM",
+    "notes": "After the buffet line dies down, Jeanne signals Danny for a thank-you toast."
   },
 
   "dances": {
     "firstDance": {
       "song": "Virgen - Adolescent Orchestra",
-      "time": "6:45 PM"
+      "prelude": "Everlasting Love - Natalie Cole",
+      "time": "4:55 PM"
     },
     "parentDance": {
-      "time": "After first dance"
+      "time": "Parents first, then Bride & Groom"
     },
-    "danceFloorOpen": "6:50 PM"
+    "danceFloorOpen": "5:15 PM"
   },
 
   "flowers": {
@@ -394,18 +380,27 @@ const WEDDING_DATA = {
       "1 father of groom boutonniere (Duey)",
       "1 Best Bro boutonniere",
       "1 FOB boutonniere (Jose Sr)",
-      "4 usher boutonnieres",
-      "Wedding decoration flowers (Trader Joe's - get 1-3 days before)"
+      "4 usher boutonnieres"
     ]
   },
 
   "staffing": [
     {
+      "role": "Day-of Coordinator",
+      "name": "Jeanne Gallo",
+      "task": "Oversee everything. Distributes payments at 7:45 PM."
+    },
+    {
       "role": "Plant Setup",
       "name": "Khristian",
       "task": "Transport & layout plants"
     },
-        {
+    {
+      "role": "Bartending",
+      "name": "Branson Bartending",
+      "task": "Bar service with BYOB supply (Costco run)"
+    },
+    {
       "role": "Flower Girls / Ushers",
       "name": "Flower Girls / Ushers",
       "task": "Hand out flower petals to guests, usher guests to seats"
@@ -509,127 +504,77 @@ const WEDDING_DATA = {
     ],
     "forGuests": [
       "Custom koozies",
-      "Maga flower and rainbow kerchiefs for Puerto Rican second line",
-      "Maracas for Puerto Rican second line",
+      "Cut-out kerchiefs and red flower clips for Puerto Rican second line (held by Juliet at corridor, big woven bowls on conference table)",
       "Chimes to cue guests (Cindy bringing)"
     ]
   },
 
   "todos": [
-    // === PAYMENTS (HIGH PRIORITY) ===
     { "task": "Pay photographer remainder ($2,700)", "assignee": "", "due": "Before April 11", "status": "not started", "priority": "high" },
     { "task": "Pay Antonia remainder ($825)", "assignee": "", "due": "4/11/26", "status": "not started", "priority": "high" },
     { "task": "Pay 2B1L catering remainder ($4,557.39)", "assignee": "", "due": "4/11/26", "status": "not started", "priority": "high" },
     { "task": "Pay venue remainder ($3,950)", "assignee": "", "due": "3/31/26", "status": "not started", "priority": "high" },
     { "task": "Pay Thomas Glass Band remainder ($1,700)", "assignee": "", "due": "4/11/26", "status": "not started", "priority": "high" },
     { "task": "Pay YUR Rentals remainder ($2,390.69)", "assignee": "", "due": "Before April 11", "status": "not started", "priority": "high" },
-
-    // === URGENT / ORDER NOW ===
     { "task": "Order dinnerware for BOTH nights (cups, plates, napkins, cutlery ~$565)", "assignee": "", "due": "ASAP", "status": "not started", "priority": "high" },
     { "task": "Second Line permit - waiting on Lady B cosignature with LLC", "assignee": "", "due": "ASAP", "status": "in progress", "priority": "high" },
     { "task": "Decide on portapotty (Geaux Geaux John quote)", "assignee": "Cindy", "due": "2/24/26", "status": "not started", "priority": "high" },
     { "task": "Confirm tent contract and diagram with Larkin", "assignee": "Cindy/Danny", "due": "", "status": "not started", "priority": "high" },
     { "task": "Book First Look location (Peter and Paul)", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-
-    // === FRIDAY GARDEN WELCOME ===
     { "task": "Yard cleanup at Milo Gardens", "assignee": "Danny/Jose", "due": "Week before", "status": "not started", "priority": "medium" },
-    { "task": "Spruce up Milo Garden sign", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Create directional signs 'MILO GARDENS →' (foam core/painted)", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Ask neighbors to close garage doors afternoon of Friday", "assignee": "Danny", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Inform neighbors about Friday party", "assignee": "Danny", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Rent 5 high boys from Yur Rentals for Friday", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Buy white tablecloths at Goodwill with shawl overlays", "assignee": "", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Arrange ice from neighbor", "assignee": "Danny", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Create directional signs 'MILO GARDENS' (foam core/painted)", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Arrange Crawfish Boil vendor (ask Steve Kelly)", "assignee": "Danny", "due": "", "status": "not started", "priority": "high" },
-    { "task": "Confirm pizza delivery for Friday", "assignee": "Danny", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Buy liquor for Friday night", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-
-    // === WEDDING DAY PREP ===
     { "task": "Define hair & makeup schedule and assignments", "assignee": "", "due": "", "status": "not started", "priority": "high" },
     { "task": "Create seating chart based on final RSVPs", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-    { "task": "Create table numbers", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Get guest book (plant photo coffee table book)", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Create slideshow for reception (need projector)", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Family photo table setup (childhood photos, parents wedding, grandparents)", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Schedule evening venue visit to check lighting", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Clean venue bathrooms and add flowers", "assignee": "", "due": "Week of", "status": "not started", "priority": "medium" },
-    { "task": "Bathroom basket of essentials for guests", "assignee": "", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Secure white bride's bag", "assignee": "Cindy", "due": "", "status": "not started", "priority": "low" },
     { "task": "Define room-flipping plan and assignments", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-    { "task": "Order candles (specify colors/quantities for TAG)", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Define flower setup timing and add to schedule", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Create venue site map for caterer", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Practice special dance (Virgen - Adolescent Orchestra)", "assignee": "Karen/Danny/Jose", "due": "Week before", "status": "not started", "priority": "medium" },
-    { "task": "Confirm tent lighting needs (with/without tent)", "assignee": "Cindy/Danny", "due": "", "status": "not started", "priority": "medium" },
-
-    // === CEREMONY ===
     { "task": "Sam Kuslan confirmed for ceremony piano", "assignee": "", "due": "", "status": "done", "priority": "high" },
     { "task": "Dress fitting with Sophie Tran", "assignee": "Karen", "due": "Feb 10, 11am", "status": "scheduled", "priority": "high" },
     { "task": "Finalize vows", "assignee": "Karen & Danny", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Get marriage license", "assignee": "", "due": "", "status": "not started", "priority": "high" },
     { "task": "Purchase Karen's wedding band", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-
-    // === FLOWERS ===
     { "task": "Get flowers from Trader Joe's (wedding decoration flowers)", "assignee": "", "due": "1-3 days before wedding", "status": "not started", "priority": "high" },
-    { "task": "Figure out which florist friends to use for boutonnieres", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-
-    // === SECOND LINE ===
-    { "task": "Get DJ quote from Lady B for second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Get maga flower and rainbow kerchiefs for second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-
-    // === NO DICE AFTER PARTY ===
+    { "task": "Get cut-out kerchiefs and red flower clips for second line (Juliet distributes)", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Confirm No Dice venue calendar is blocked", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Confirm Thomas Glass Band / check if deposit needed", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Book after party DJ (Lucid or Myron) for 11pm-end", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-
-    // === SUNDAY BRUNCH ===
-    { "task": "Arrange coffee from Sarah for Sunday", "assignee": "", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Order bagels and cream cheese from Stein's", "assignee": "", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Order donuts for Sunday", "assignee": "", "due": "", "status": "not started", "priority": "low" },
-
-    // === ADMIN / OTHER ===
     { "task": "Costco run for liquor/BYOB supplies", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Contact cleaning crew for post-party", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Find cute gift card receptacle", "assignee": "Karen", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Prepare tips for vendors", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Thank you gifts for Lolo, Jose, and Kali", "assignee": "Karen", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Create family photo list for photographer", "assignee": "", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Finalize lodging assignments", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Order custom koozies", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Order wedding cake from Boulangerie", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Schedule Google Meet to review final schedule", "assignee": "Cindy", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Schedule final walkthrough meeting with all parties", "assignee": "Cindy", "due": "", "status": "not started", "priority": "medium" }
+    { "task": "Finalize lodging assignments", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Create family photo list for photographer", "assignee": "", "due": "", "status": "not started", "priority": "low" },
+    { "task": "Practice special dance (Virgen - Adolescent Orchestra)", "assignee": "Karen/Danny/Jose", "due": "Week before", "status": "not started", "priority": "medium" },
+    { "task": "Schedule Google Meet to review final schedule", "assignee": "Cindy", "due": "", "status": "not started", "priority": "medium" }
   ],
 
   "timeline": {
     "friday": [
-      { "time": "1:00 - 3:00 PM", "event": "Rehearsal", "location": "Industrial Gardens", "who": "Karen, Danny, Jeanne (1pm), Antonia (1pm for setup), Khristian (plants), Cindy, Duschan, Jose Nestor, Jose David, Lauren, Dave, Milo, Remy, Amanda, Doug, Ellison, Kali, Elizabeth", "notes": "Walk through ceremony and room flip. Jeanne arrives at 1pm. Antonia arrives at 1pm to set up banners/decor. Khristian drops off plants. Give Jeanne all items for next day." },
-      { "time": "1:00 - 3:30 PM", "event": "Garden Welcome Crew Set Up", "location": "Milo Gardens", "who": "Marilyn, Peggy, Scottie, Tim", "notes": "Prep Milo Gardens for Friday welcome party" },
-      { "time": "3:30 PM", "event": "Back to Milo Gardens", "location": "Milo Gardens", "who": "Karen, Danny, Cindy, Duschan, Jose Nestor, Jose David, Lauren, Dave, Milo, Remy, Amanda, Doug, Ellison, Kali, Elizabeth" },
+      { "time": "1:00 - 3:00 PM", "event": "Rehearsal", "location": "Industrial Gardens", "who": "Cindy, Duey, Jose Sr., Jose Jr., Lauren, Dave, Milo, Remy, Amanda, Doug, Ellison, Kali, Jeanne, Ushers", "notes": "Walk through ceremony and room flip plan. Antonia sets up banners in main ceremony room. Give Jeanne all items for next day: table numbers, card receptacle, vendor envelopes with thank-yous, envelope with $50 petty cash in small bills, board for table seating." },
+      { "time": "1:00 - 3:30 PM", "event": "Garden Welcome Crew Set Up", "location": "Milo Gardens", "who": "Marilyn, Peggy, Scottie, Tim", "notes": "Prep Milo Gardens and greet any early arrivals" },
+      { "time": "3:30 PM", "event": "Key Members back at Milo Gardens", "location": "Milo Gardens", "who": "Wedding party & family" },
       { "time": "4:00 - 7:00 PM", "event": "Welcome Party", "location": "Milo Gardens", "who": "Everyone", "notes": "Crawfish boil, pizza, beer & wine, music. High-tops, seating areas." },
-      { "time": "7:00 PM", "event": "Rehearsal Dinner", "location": "Oak & Ale", "who": "Karen, Danny, Family" }
+      { "time": "7:00 PM", "event": "Rehearsal Dinner", "location": "Oak & Ale", "who": "Family" }
     ],
     "saturday": [
-      { "time": "11:00 AM - 1:30 PM", "event": "Hair & Makeup", "location": "Hotel Peter and Paul", "who": "Karen, Lauren, Mady, Kelsey, Kali, Kagan", "notes": "Makeup artist arrives at 11 AM for Lauren. Makeup: Karen & Lauren only. Kagan helps with hair. Peggy assists." },
-      { "time": "12:00 PM", "event": "Setup & Vendors Arrive", "location": "Industrial Gardens", "who": "Jeanne, Antonia, YUR Rentals, Lady B, Jenny and any girls that want to help decorate tables", "notes": "Jeanne oversees setup. Decor/draping and furniture delivery. DJ sets up sound." },
-      { "time": "1:00 PM", "event": "Flower delivery", "location": "Greatman Cottage", "who": "Florist", "notes": "Bridal bouquet, boutonnieres, Lauren's flowers" },
-      { "time": "1:30 PM", "event": "Stephanie meets Karen at P&P", "location": "Hotel Peter and Paul", "who": "Karen, Stephanie Terrant", "notes": "Photographer meets Karen after hair & makeup for photos at Hotel Peter and Paul" },
-      { "time": "2:00 PM", "event": "First Look & Sam Kuslan arrives", "location": "Hotel Peter and Paul / Industrial Gardens", "who": "Karen, Danny, Photographer, Sam Kuslan", "notes": "First look photos at Hotel Peter and Paul. Sam sets up piano at venue." },
-      { "time": "2:30 PM", "event": "Flower Girls / Ushers arrive", "location": "Industrial Gardens", "who": "Flower Girls", "notes": "Hand out flower petals and usher guests to seats at 3pm." },
-      { "time": "2:30 - 3:15 PM", "event": "Touch-ups & hang out", "location": "Conference room", "who": "Karen, Danny, Cindy, Duschan, Jose Nestor, Jose David, Lauren", "notes": "Away from guests" },
-      { "time": "2:40 PM", "event": "Prelude music begins", "location": "Industrial Gardens", "who": "DJ", "notes": "Kamasi Washington - Harmony of Difference Album" },
-      { "time": "3:00 PM", "event": "Guests arrive - Flower Girls usher", "location": "Industrial Gardens", "who": "Flower Girls, Guests", "notes": "Flower girls hand out petals and usher guests. Seat family up front (roped off)." },
-      { "time": "3:15 - 3:45 PM", "event": "CEREMONY", "location": "Industrial Gardens", "who": "Everyone", "notes": "Guests told 3:00 PM. Jeanne holds latecomers until ceremony is over." },
-      { "time": "3:45 - 4:30 PM", "event": "Room Flip & Cocktail Hour", "location": "Industrial Gardens", "who": "Zach, Joey, John, Gabriel + any guys", "notes": "High tops stocked with champagne glasses. Courtyard bar open. Guests hang out in street, balcony, or conference room while guys move 8 round tables and flip all chairs for dinner. Bar in ceremony space sets up during flip." },
-      { "time": "3:45 - 4:30 PM", "event": "Couple Photos & Family Photos", "location": "Baldwin Bookstore Courtyard / Industrial Gardens", "who": "Karen, Danny, Photographer, Family", "notes": "Karen & Danny take separate photos at Baldwin Bookstore courtyard, then family photos once back at venue until 4:30 PM." },
-      { "time": "5:00 - 6:30 PM", "event": "Dinner & Buffet", "location": "Industrial Gardens", "who": "Everyone", "notes": "DJ plays Karen & Danny's playlist." },
-      { "time": "5:55 PM", "event": "Speeches", "location": "Industrial Gardens", "who": "Jose Nestor, Cindy, Duschan, Jose David, Lauren", "notes": "After everyone has their meal." },
-      { "time": "6:30 PM", "event": "First Dance & Parent Dance", "location": "Industrial Gardens", "who": "Karen & Jose Nestor, Danny & Cindy, then Karen & Danny", "notes": "First dance song: Virgen - Adolescent Orchestra." },
-      { "time": "6:25 PM", "event": "Dance Floor Open!", "location": "Industrial Gardens", "who": "Everyone" },
-      { "time": "7:30 PM", "event": "Dessert", "location": "Industrial Gardens", "who": "Milo announces", "notes": "Milo does the dessert announcement." },
-      { "time": "7:30 PM", "event": "Vendor payments distributed", "location": "Industrial Gardens", "who": "Jeanne" },
-      { "time": "8:45 PM", "event": "Puerto Rican Second Line Begins", "location": "Industrial Gardens to No Dice", "who": "Everyone", "notes": "DJ concludes, photographer departs. Pass out maga flower and rainbow kerchiefs and maracas." },
-      { "time": "9:00 PM", "event": "Second Line Lands at No Dice", "location": "No Dice", "who": "Everyone", "notes": "Jam out in the street, then head inside for drinks and hanging out." },
-      { "time": "9:30 PM", "event": "Thomas Glass Band!", "location": "No Dice", "who": "Everyone", "notes": "Live music!" }
+      { "time": "11:00 AM - 1:30 PM", "event": "Hair & Makeup", "location": "Covenant Room, Hotel Peter and Paul", "who": "Karen, Lauren, Kelsey, Mady", "notes": "11:00 AM: Lauren's Makeup. 11:45/12 PM: Karen's Makeup. 12 PM: Lauren's Hair. 1:30 PM: Stephanie (Photographer) arrives, head to Industrial Gardens. Bring all flowers to venue. Peggy assists Karen and the girls. Danny gets dressed at Greatman Loft. Marilyn assists men with boutonnieres." },
+      { "time": "11:30 - 12:30 PM", "event": "Lunch available", "location": "Greatman Cottage / Loft", "who": "Wedding party" },
+      { "time": "11:45 AM", "event": "Setup begins", "location": "Industrial Gardens", "who": "Jeanne", "notes": "Set up table seating names, oversee all vendors, set up card box/guest book/pen, conference room projector and white tablecloths, display photographs by windows, reserve first two rows with ivory ribbon for family. Antonia arrives at 1:00 PM for altar draping with staghorn fern. Design Team (Jenny, Sara B, Liz) places cut flowers on tables. DJ Lady B arrives and sets up. Sam Kuslan arrives and sets up piano. We provide mic stand to Lady B." },
+      { "time": "1:00 PM", "event": "Flower delivery", "location": "Greatman Cottage", "who": "Florist", "notes": "1 bridal bouquet, 1 groom's boutonniere, 1 father of the groom boutonniere, 1 Best Bro boutonniere, 1 FOB boutonniere" },
+      { "time": "2:00 PM", "event": "Wedding Party & Photo Team Arrive", "location": "Industrial Gardens", "who": "Karen, Danny, Lauren, Jose D, Jose N, Elizabeth, Juliet, Dave, Milo, Remy, Cindy, Duschan, Doug, Amanda, Ellison, Kali, Kelsey, Mady, Jeanne, Marilyn, Peggy, Stephanie", "notes": "Bring the flowers. Beauty shots by Stephanie. Karen & Danny first look. Karen's nuclear family photos. Danny's nuclear family photos. Entire bridal party photos." },
+      { "time": "2:15 - 2:30 PM", "event": "Flower Girls / Ushers arrive", "location": "Industrial Gardens", "who": "Jonah, Jess, Mady, Kelsey, Gabi, Anna, Carly, Blair, Sara K, Reagan, Jenny, Sara B, Paloma", "notes": "Start duties handing out petals to guests and ushering them into the main area." },
+      { "time": "2:30 - 3:00 PM", "event": "Touch-ups & hang out", "location": "Conference room", "who": "Karen, Danny, Cindy, Duey, Jose Sr., Jose Jr., Lauren, Dave, Milo, Remy, Doug, Ellison", "notes": "Hair/makeup touch-ups, bathroom break. Away from guests. Give rings to ring bearers." },
+      { "time": "2:40 PM", "event": "Prelude music begins", "location": "Industrial Gardens", "who": "DJ", "notes": "Kamasi Washington Album while guests mingle and gather" },
+      { "time": "2:45 PM", "event": "Ushers on duty - Guests arrive", "location": "Industrial Gardens", "who": "Ushers, Guests", "notes": "Ushers encourage guests to take seats. Offer RIGHT arm to female guests, men walk behind. When ushering a single male, usher walks on his left. Guests can sit on either side. Seat immediate family up front (roped off aisles)." },
+      { "time": "3:00 - 3:45 PM", "event": "CEREMONY", "location": "Industrial Gardens", "who": "Everyone", "notes": "Jeanne holds latecomers until ceremony is over. Processional begins from back garden door. Kali enters and stands up front. Cindy escorted by Danny, Duey follows (left side). Danny stays up front. Lauren and Jose come down aisle. Ring bearers enter. Bride's processional: Karen enters with Jose N. Ceremony: Welcome by Kali (ends with Kat's advice), Duschan speech (2 min), Jose speech (2 min), Vows, Ring ceremony, Kiss the bride! Recessional: Gal Costa - Cuidando de Longe. Bride & Groom process, Lauren & Jose process, Cindy & Duey, Jose Sr. & Elizabeth process." },
+      { "time": "3:45 - 4:00 PM", "event": "Bridal Photos", "location": "Industrial Gardens", "who": "Karen, Danny, Stephanie", "notes": "Karen and Danny sneak with Stephanie for 15 minutes of bridal photos." },
+      { "time": "3:45 - 4:30 PM", "event": "Room Flip & Cocktail Hour", "location": "Industrial Gardens", "who": "Ushers, Mieczkowski Boys, Jeanne, Marilyn, Petal Girls", "notes": "Ushers and Mieczkowski Boys flip the room with Jeanne & Marilyn's oversight, carefully lifting preset tables into place. Sam Kuslan packs up piano. Lady B plays Danny's Playlist. Champagne poured and laid out by the bar. Kagan and Evan go to No Dice to set up their DJ set." },
+      { "time": "4:00 PM", "event": "Family & Group Photos", "location": "Industrial Gardens", "who": "Karen, Danny, Stephanie, Family", "notes": "Group photos: Karen's Family, Pelleranos, Hernandez (Aba, Tio Javier), Hernandez-Riveras (Titi Sonia), Williams (Grambo, Marsha, Doug, Dave, Amanda, Ellison, Jose D), Karen's Flower Girls, Mady & Kelsey, Danny's Family, Ames, Whitmers, Mieczkowskis & Jody, Ansons, Selkes, Danny's Friends. After photos: Karen and Danny escape for a private moment and bustle Karen's dress." },
+      { "time": "4:55 - 5:15 PM", "event": "First Dance", "location": "Industrial Gardens", "who": "Karen, Danny, Parents", "notes": "DJ announces guests find seats. Couple announced. Everlasting Love by Natalie Cole plays. DJ beckons all to dance floor. Parents first, then Bride & Groom. First dance song: Virgen - Adolescent Orchestra. DJ kicks music into full gear!" },
+      { "time": "5:15 PM", "event": "Dance Floor & Buffet Open", "location": "Industrial Gardens", "who": "Everyone", "notes": "DJ calls eating groups to head to the buffet." },
+      { "time": "6:45 PM", "event": "Danny's Toast", "location": "Industrial Gardens", "who": "Danny", "notes": "After the buffet line dies down, Jeanne signals Danny for a thank-you toast." },
+      { "time": "7:30 PM", "event": "Dessert", "location": "Industrial Gardens", "who": "Milo announces", "notes": "Milo announces cake! Cake and dessert table brought to the dance floor by catering." },
+      { "time": "7:45 PM", "event": "Vendor payments distributed", "location": "Industrial Gardens", "who": "Jeanne", "notes": "Jeanne distributes payments and gratuities to vendors." },
+      { "time": "8:45 PM", "event": "Second Line / Parranda Begins", "location": "Industrial Gardens to No Dice", "who": "Everyone", "notes": "DJ concludes. Bomba dancers appear and guide everyone through the corridor to begin La Parranda (Puerto Rican second line!). Cut-out kerchiefs and red flower clips held by Juliet and offered to guests at the corridor. Big woven bowls of each item on the conference table." },
+      { "time": "9:00 PM", "event": "After Party at No Dice", "location": "No Dice", "who": "Everyone", "notes": "Drink tickets offered at the door. Thomas Glass Band 9:00-10:45 PM. DJs ET Deaux & Kagan B2B 11:00 PM - 1:00 AM." },
+      { "time": "9:00 PM", "event": "Clean Up", "location": "Industrial Gardens", "who": "Venue staff, caterers", "notes": "YUR Event Furniture Rental reclaims equipment at 8:45 PM. Cleaning crew arrives for debris, decor, signage, photobooth, bathroom items, conference room items — brings them to Milo Gardens. David and caterers dishwash, bus, and disassemble buffet. Lady B packs up. Restroom trailer taken back. Venue manager takes out garbage and locks up. Karen and Danny take home plants, lights, and hung decor on Monday morning." }
     ],
     "sunday": [
       { "time": "11:00 AM - 2:00 PM", "event": "Poolside Farewell", "location": "CastleDay, 1319 Japonica St", "who": "Everyone", "notes": "Despedida al lado de la piscina. Casual attire." }
