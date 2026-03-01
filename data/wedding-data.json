@@ -456,8 +456,7 @@
     ],
     "forGuests": [
       "Custom koozies",
-      "Maga flower and rainbow kerchiefs for Puerto Rican second line",
-      "Maracas for Puerto Rican second line",
+      "Cut-out kerchiefs and red flower clips for Puerto Rican second line (held by Juliet at corridor, big woven bowls on conference table)",
       "Chimes to cue guests (Cindy bringing)"
     ]
   },
@@ -485,8 +484,8 @@
     { "task": "Finalize vows", "assignee": "Karen & Danny", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Create family photo list for photographer", "assignee": "", "due": "", "status": "not started", "priority": "low" },
     { "task": "Order custom koozies", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Get maga flower and rainbow kerchiefs for second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Order maracas for Puerto Rican second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Get cut-out kerchiefs and red flower clips for second line (Juliet distributes)", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Get cut-out kerchiefs and red flower clips for second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Order dinnerware disposables", "assignee": "", "due": "", "status": "not started", "priority": "high" },
     { "task": "Book after party DJ for No Dice", "assignee": "", "due": "", "status": "not started", "priority": "high" }
   ],
