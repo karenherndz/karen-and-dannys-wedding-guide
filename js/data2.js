@@ -73,7 +73,7 @@ const WEDDING_DATA = {
         "main": 18,
         "danceFloor": 36,
         "courtyard": 18,
-        "total": "170-188"
+        "total": "170"
       }
     },
     "layout": {
@@ -110,7 +110,7 @@ const WEDDING_DATA = {
         "notes": "Hair, Makeup, Dress - with Lauren, Mady, Kelsey, Kali, Kagan. Makeup: Karen & Lauren only. Kagan helps with hair. Peggy assists."
       },
       "danny": {
-        "name": "Greatman Loft",
+        "name": "Greatman Cottage, 3421 Dauphine Street",
         "notes": "Marilyn assists with boutonnieres"
       }
     }
@@ -203,9 +203,9 @@ const WEDDING_DATA = {
       "cost": 3000,
       "deposit": 300,
       "remainder": 2700,
-      "arrivalTime": "2:00 PM Saturday",
+      "arrivalTime": "1:45 PM Saturday (meets at venue)",
       "status": "booked",
-      "notes": "First look at 2:00 PM at Hotel Peter and Paul. Departs after second line at 8:45 PM. Deposit paid by Karen."
+      "notes": "Meets at Industrial Gardens at 1:45 PM. First look photos at venue. Departs after second line at 8:45 PM. Deposit paid by Karen."
     },
     {
       "role": "Florist",
@@ -388,7 +388,6 @@ const WEDDING_DATA = {
     "delivery": "1:00 PM to Greatman Cottage",
     "list": [
       "1 bridal bouquet",
-      "Lauren flowers",
       "1 groom's boutonniere",
       "1 father of groom boutonniere (Duey)",
       "1 Best Bro boutonniere",
@@ -464,7 +463,7 @@ const WEDDING_DATA = {
       "assistant": "Peggy"
     },
     "danny": {
-      "gettingReadyAt": "Greatman Loft",
+      "gettingReadyAt": "Greatman Cottage, 3421 Dauphine Street",
       "assistant": "Marilyn"
     },
     "ringBearers": "TBD",
@@ -607,11 +606,11 @@ const WEDDING_DATA = {
       { "time": "7:00 PM", "event": "Rehearsal Dinner", "location": "Oak & Ale", "who": "Family" }
     ],
     "saturday": [
-      { "time": "11:00 AM - 1:30 PM", "event": "Hair & Makeup", "location": "Covenant Room, Hotel Peter and Paul", "who": "Karen, Lauren, Kelsey, Mady", "notes": "11:00 AM: Lauren's Makeup. 11:45/12 PM: Karen's Makeup. 12 PM: Lauren's Hair. 1:30 PM: Stephanie (Photographer) arrives, head to Industrial Gardens. Bring all flowers to venue. Peggy assists Karen and the girls. Danny gets dressed at Greatman Loft. Marilyn assists men with boutonnieres." },
-      { "time": "11:30 - 12:30 PM", "event": "Lunch available", "location": "Greatman Cottage / Loft", "who": "Wedding party" },
+      { "time": "11:00 AM - 1:30 PM", "event": "Hair & Makeup", "location": "Covenant Room, Hotel Peter and Paul", "who": "Karen, Lauren, Kelsey, Mady", "notes": "11:00 AM: Lauren's Makeup. 11:45/12 PM: Karen's Makeup. 12 PM: Lauren's Hair. Bring all flowers to venue. Peggy assists Karen and the girls. Danny gets dressed at Greatman Cottage (3421 Dauphine St). Marilyn assists men with boutonnieres." },
+      { "time": "11:30 - 12:30 PM", "event": "Lunch available", "location": "Greatman Cottage, 3421 Dauphine St", "who": "Wedding party" },
       { "time": "11:45 AM", "event": "Setup begins", "location": "Industrial Gardens", "who": "Jeanne", "notes": "Set up table seating names, oversee all vendors, set up card box/guest book/pen, conference room projector and white tablecloths, display photographs by windows, reserve first two rows with ivory ribbon for family. Antonia arrives at 1:00 PM for altar draping with staghorn fern. Design Team (Jenny, Sara B, Liz) places cut flowers on tables. DJ Lady B arrives and sets up. Sam Kuslan arrives and sets up piano. We provide mic stand to Lady B." },
       { "time": "1:00 PM", "event": "Flower delivery", "location": "Greatman Cottage", "who": "Florist", "notes": "1 bridal bouquet, 1 groom's boutonniere, 1 father of the groom boutonniere, 1 Best Bro boutonniere, 1 FOB boutonniere" },
-      { "time": "2:00 PM", "event": "Wedding Party & Photo Team Arrive", "location": "Industrial Gardens", "who": "Karen, Danny, Lauren, Jose D, Jose N, Elizabeth, Juliet, Dave, Milo, Remy, Cindy, Duschan, Doug, Amanda, Ellison, Kali, Kelsey, Mady, Jeanne, Marilyn, Peggy, Stephanie", "notes": "Bring the flowers. Beauty shots by Stephanie. Karen & Danny first look. Karen's nuclear family photos. Danny's nuclear family photos. Entire bridal party photos." },
+      { "time": "2:00 PM", "event": "Wedding Party & Photo Team Arrive", "location": "Industrial Gardens", "who": "Karen, Danny, Lauren, Jose D, Jose N, Elizabeth, Juliet, Dave, Milo, Remy, Cindy, Duschan, Doug, Amanda, Ellison, Kali, Kelsey, Mady, Jeanne, Marilyn, Peggy, Stephanie", "notes": "Stephanie (Photographer) arrives at 1:45 PM. Bring the flowers. Beauty shots by Stephanie. Karen & Danny first look. Karen's nuclear family photos. Danny's nuclear family photos. Entire bridal party photos." },
       { "time": "2:15 - 2:30 PM", "event": "Flower Girls / Ushers arrive", "location": "Industrial Gardens", "who": "Jonah, Jess, Mady, Kelsey, Gabi, Anna, Carly, Blair, Sara K, Reagan, Jenny, Sara B, Paloma", "notes": "Start duties handing out petals to guests and ushering them into the main area." },
       { "time": "2:30 - 3:00 PM", "event": "Touch-ups & hang out", "location": "Conference room", "who": "Karen, Danny, Cindy, Duey, Jose Sr., Jose Jr., Lauren, Dave, Milo, Remy, Doug, Ellison", "notes": "Hair/makeup touch-ups, bathroom break. Away from guests. Give rings to ring bearers." },
       { "time": "2:40 PM", "event": "Prelude music begins", "location": "Industrial Gardens", "who": "DJ", "notes": "Kamasi Washington Album while guests mingle and gather" },
