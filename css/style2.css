@@ -299,6 +299,21 @@ a:hover {
     border-radius: 0 4px 4px 0;
 }
 
+.timeline-notes-list {
+    font-size: 0.85rem;
+    color: var(--ivory-soft);
+    margin-top: 10px;
+    padding: 12px 16px 12px 32px;
+    background: rgba(255, 214, 232, 0.1);
+    border-left: 3px solid var(--pink-medium);
+    border-radius: 0 4px 4px 0;
+    list-style: disc;
+}
+
+.timeline-notes-list li {
+    padding: 3px 0;
+}
+
 /* Tasks */
 .task-filters {
     display: flex;
