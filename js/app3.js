@@ -1047,6 +1047,13 @@ function renderDocuments() {
     const contractsList = document.getElementById('contracts-list');
     if (contractsList) {
         contractsList.innerHTML = `
+            <a href="documents/venue-contract.pdf" target="_blank" class="doc-link">
+                <span class="doc-icon">📄</span>
+                <div class="doc-info">
+                    <div class="doc-name">Venue Contract - Industrial Gardens</div>
+                    <div class="doc-desc">PJI Industrial Garden - Ceremony & Reception</div>
+                </div>
+            </a>
             <a href="documents/contract-david-2b1l.pdf" target="_blank" class="doc-link">
                 <span class="doc-icon">📄</span>
                 <div class="doc-info">
