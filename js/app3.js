@@ -399,8 +399,16 @@ function renderTimeline() {
     const saturdayEl = document.getElementById('saturday-timeline');
     const sundayEl = document.getElementById('sunday-timeline');
 
-    if (fridayEl && weddingData.timeline.friday) {
-        fridayEl.innerHTML = weddingData.timeline.friday.map(item => {
+    function formatNotes(notes) {
+        if (!notes) return '';
+        const items = notes.split(/\.\s+/).map(s => s.replace(/\.$/, '').trim()).filter(s => s.length > 0);
+        if (items.length <= 1) return `<div class="timeline-notes">${notes}</div>`;
+        return `<ul class="timeline-notes-list">${items.map(i => `<li>${i}</li>`).join('')}</ul>`;
+    }
+
+    function renderTimelineDay(el, events) {
+        if (!el || !events) return;
+        el.innerHTML = events.map(item => {
             const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
             const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
             const itemText = `${item.who || ''} ${item.notes || ''}`.toLowerCase();
@@ -412,49 +420,15 @@ function renderTimeline() {
                     <div class="timeline-event">${item.event}</div>
                     <div class="timeline-location">${item.location} <a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-left:10px;padding:4px 10px;font-size:0.65rem;">Directions</a></div>
                     ${item.who ? `<div class="timeline-who">${item.who}</div>` : ''}
-                    ${item.notes ? `<div class="timeline-notes">${item.notes}</div>` : ''}
+                    ${formatNotes(item.notes)}
                 </div>
             </div>
         `}).join('');
     }
 
-    if (saturdayEl && weddingData.timeline.saturday) {
-        saturdayEl.innerHTML = weddingData.timeline.saturday.map(item => {
-            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
-            const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
-            const itemText = `${item.who || ''} ${item.notes || ''}`.toLowerCase();
-            const isPersonalized = userName && itemText.includes(userName.toLowerCase());
-            return `
-            <div class="timeline-item${isPersonalized ? ' flower-indicator' : ''}">
-                <div class="timeline-time">${item.time}</div>
-                <div class="timeline-content">
-                    <div class="timeline-event">${item.event}</div>
-                    <div class="timeline-location">${item.location} <a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-left:10px;padding:4px 10px;font-size:0.65rem;">Directions</a></div>
-                    ${item.who ? `<div class="timeline-who">${item.who}</div>` : ''}
-                    ${item.notes ? `<div class="timeline-notes">${item.notes}</div>` : ''}
-                </div>
-            </div>
-        `}).join('');
-    }
-
-    if (sundayEl && weddingData.timeline.sunday) {
-        sundayEl.innerHTML = weddingData.timeline.sunday.map(item => {
-            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
-            const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
-            const itemText = `${item.who || ''} ${item.notes || ''}`.toLowerCase();
-            const isPersonalized = userName && itemText.includes(userName.toLowerCase());
-            return `
-            <div class="timeline-item${isPersonalized ? ' flower-indicator' : ''}">
-                <div class="timeline-time">${item.time}</div>
-                <div class="timeline-content">
-                    <div class="timeline-event">${item.event}</div>
-                    <div class="timeline-location">${item.location} <a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-left:10px;padding:4px 10px;font-size:0.65rem;">Directions</a></div>
-                    ${item.who ? `<div class="timeline-who">${item.who}</div>` : ''}
-                    ${item.notes ? `<div class="timeline-notes">${item.notes}</div>` : ''}
-                </div>
-            </div>
-        `}).join('');
-    }
+    renderTimelineDay(fridayEl, weddingData.timeline.friday);
+    renderTimelineDay(saturdayEl, weddingData.timeline.saturday);
+    renderTimelineDay(sundayEl, weddingData.timeline.sunday);
 }
 
 // Ceremony
