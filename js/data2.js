@@ -474,14 +474,9 @@ const WEDDING_DATA = {
       "task": "Prep Milo Gardens for Friday event and greet early arrivals"
     },
     {
-      "role": "Photo Booth Setup",
+      "role": "Photo Booth Setup & Parranda Handouts",
       "name": "Juliet Tonkin (+ Christopher Yalung if available)",
-      "task": "Set up Photo Booth camera. Christopher is a photojournalist — camera setup is right up his alley."
-    },
-    {
-      "role": "Parranda Handouts",
-      "name": "Juliet Tonkin (+ Christopher Yalung if available)",
-      "task": "Hold basket of rainbow colored kerchiefs and red hibiscus flowers to hand out to guests during the parranda."
+      "task": "Set up Photo Booth camera (Christopher is a photojournalist — camera setup is right up his alley). Hold basket of rainbow colored kerchiefs and red hibiscus flowers to hand out to guests during the parranda."
     },
     {
       "role": "Card Drop-off",
