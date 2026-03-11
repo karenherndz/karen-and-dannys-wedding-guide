@@ -145,7 +145,7 @@ const WEDDING_DATA = {
       "remainder": 4557.39,
       "arrivalTime": "",
       "status": "booked",
-      "notes": "Saturday catering. 50% deposit paid by Cindy & Duschan. Remainder due 4/11/26."
+      "notes": "Saturday catering. 50% deposit paid by Cindy & Duschan. Remainder due 4/11/26. Will likely set up a 10x10 ft space on the street — need to confirm exact location with PJI."
     },
     {
       "role": "Decor / Banners",
@@ -209,9 +209,9 @@ const WEDDING_DATA = {
       "cost": 3000,
       "deposit": 300,
       "remainder": 2700,
-      "arrivalTime": "1:30 PM Saturday (from Hotel Peter and Paul)",
+      "arrivalTime": "1:45 PM Saturday (from Hotel Peter and Paul)",
       "status": "booked",
-      "notes": "Arrives 1:30 PM from Hotel Peter and Paul. First look photos at the venue. Departs after second line at 8:45 PM. Deposit paid by Karen."
+      "notes": "Arrives 1:45 PM from Hotel Peter and Paul. First look photos at the venue. Departs after second line at 8:45 PM. Deposit paid by Karen."
     },
     {
       "role": "Florist",
@@ -661,7 +661,7 @@ const WEDDING_DATA = {
     { "task": "Create drink menu signs", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Paint yard signs (directional)", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Perrier Event Quote: water carafe, 2 metal tubs for beer, one more 60\" round table, one more 120 brown tablecloth, 16 6' banquet white tablecloths, 4 fruit caddies, increase chair count", "assignee": "Cindy", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "PJI venue questions: ask about kitchen/portapotty placement on Elysian Fields", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "PJI venue questions: confirm where caterer can set up 10x10 ft space on street, and kitchen/portapotty placement on Elysian Fields", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Danny's truck drops off everything to venue on way to Greatman Cottage", "assignee": "Danny", "due": "4/11/26", "status": "not started", "priority": "high" }
   ],
 
@@ -678,7 +678,7 @@ const WEDDING_DATA = {
       { "time": "11:30 - 12:30 PM", "event": "Lunch available", "location": "Greatman Cottage & Loft, 3421 Dauphine St", "who": "Wedding party" },
       { "time": "11:45 AM", "event": "Setup begins", "location": "Industrial Gardens", "who": "Jeanne", "notes": "Set up table seating names, oversee all vendors, set up card box/guest book/pen, conference room projector and white tablecloths, display photographs by windows, reserve first two rows with ivory ribbon for family. Antonia arrives at 1:00 PM for altar draping with staghorn fern. Design Team (Jenny, Sara B, Liz) places cut flowers on tables. DJ Lady B arrives and sets up. Sam Kuslan arrives and sets up piano. We provide mic stand to Lady B." },
       { "time": "1:00 PM", "event": "Flower delivery", "location": "Greatman Cottage", "who": "Florist", "notes": "1 bridal bouquet, 1 groom's boutonniere, 1 father of the groom boutonniere, 1 Best Bro boutonniere, 1 FOB boutonniere" },
-      { "time": "2:00 PM", "event": "Wedding Party & Photo Team Arrive", "location": "Industrial Gardens", "who": "Karen, Danny, Lauren, Jose D, Jose N, Elizabeth, Juliet, Dave, Milo, Remy, Cindy, Duschan, Doug, Amanda, Ellison, Kali, Kelsey, Mady, Jeanne, Marilyn, Peggy, Stephanie", "notes": "Stephanie (Photographer) arrives at 1:30 PM from Hotel Peter and Paul. Bring the flowers. Beauty shots by Stephanie. Karen & Danny first look at the venue. Karen's nuclear family photos. Danny's nuclear family photos. Entire bridal party photos." },
+      { "time": "2:00 PM", "event": "Wedding Party & Photo Team Arrive", "location": "Industrial Gardens", "who": "Karen, Danny, Lauren, Jose D, Jose N, Elizabeth, Juliet, Dave, Milo, Remy, Cindy, Duschan, Doug, Amanda, Ellison, Kali, Kelsey, Mady, Jeanne, Marilyn, Peggy, Stephanie", "notes": "Stephanie (Photographer) arrives at 1:45 PM from Hotel Peter and Paul. Bring the flowers. Beauty shots by Stephanie. Karen & Danny first look at the venue. Karen's nuclear family photos. Danny's nuclear family photos. Entire bridal party photos." },
       { "time": "2:15 - 2:30 PM", "event": "Flower Girls / Ushers arrive", "location": "Industrial Gardens", "who": "Jonah, Jess, Mady, Kelsey, Gabi, Anna, Carly, Blair, Sara K, Reagan, Jenny, Sara B, Paloma", "notes": "Start duties handing out petals to guests and ushering them into the main area." },
       { "time": "2:30 - 3:00 PM", "event": "Touch-ups & hang out", "location": "Conference room", "who": "Karen, Danny, Cindy, Duey, Jose Sr., Jose Jr., Lauren, Dave, Milo, Remy, Doug, Ellison", "notes": "Hair/makeup touch-ups, bathroom break. Away from guests. Give rings to ring bearers." },
       { "time": "2:40 PM", "event": "Prelude music begins", "location": "Industrial Gardens", "who": "DJ", "notes": "Kamasi Washington Album while guests mingle and gather" },
