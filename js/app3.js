@@ -250,7 +250,6 @@ function renderPersonalCard() {
             weddingData.timeline[day].forEach(ev => {
                 const evText = `${ev.who || ''} ${ev.notes || ''}`.toLowerCase();
                 if (evText.includes(lower)) {
-                    const dayLabel = day.charAt(0).toUpperCase() + day.slice(1);
                     timelineItems.push(`<strong>${ev.time}</strong> ${ev.event} @ ${ev.location}`);
                 }
             });
@@ -420,6 +419,7 @@ function renderTimeline() {
                     <div class="timeline-event">${item.event}</div>
                     <div class="timeline-location">${item.location} <a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-left:10px;padding:4px 10px;font-size:0.65rem;">Directions</a></div>
                     ${item.who ? `<div class="timeline-who">${item.who}</div>` : ''}
+                    ${item.groupPhotos ? `<ul class="timeline-notes-list">${item.groupPhotos.map(g => `<li>${g}</li>`).join('')}</ul>` : ''}
                     ${formatNotes(item.notes)}
                 </div>
             </div>
