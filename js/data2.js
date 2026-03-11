@@ -766,6 +766,87 @@ const WEDDING_DATA = {
     ]
   },
 
+  "bringToVenue": {
+    "forJeanneFriday": [
+      "Table numbers",
+      "Gift card receptacle/box",
+      "Vendor envelopes with thank-you's",
+      "Envelope with $50 petty cash in small bills",
+      "Board for table seating"
+    ],
+    "barAndDrinks": [
+      "All alcohol (beer, wine, liquor)",
+      "All cocktail ingredients",
+      "2 carafes for passion fruit cocktail",
+      "2 carafes for ice",
+      "Small tables for bartenders",
+      "All ice",
+      "Gallons of Ozarka water (stored in fridge)",
+      "Champagne (poured during cocktail hour)"
+    ],
+    "ceremony": [
+      "Ivory ribbon for first two rows",
+      "Rings (give to ring bearers at 2:30 PM)",
+      "Mic stand (we provide to Lady B)"
+    ],
+    "decorAndSetup": [
+      "Card box",
+      "Guest book + pen",
+      "Conference room projector",
+      "White tablecloths (conference room)",
+      "Family photographs (display by windows)",
+      "Candles",
+      "Plants (Kristian transports)",
+      "Cut flowers from Trader Joe's",
+      "Seating chart display",
+      "Slideshow (for projector)",
+      "Bathroom flowers",
+      "Bathroom basket of essentials"
+    ],
+    "flowers": [
+      "Bridal bouquet (white wisteria if available)",
+      "Groom's boutonniere",
+      "Father of groom boutonniere (Duey)",
+      "Best Bro boutonniere",
+      "FOB boutonniere (Jose Sr)",
+      "4 usher boutonnieres"
+    ],
+    "secondLine": [
+      "Rainbow colored kerchiefs",
+      "Red hibiscus flower clips",
+      "Big woven bowls (conference table)",
+      "Danny's pava hat"
+    ],
+    "forGuests": [
+      "Custom koozies",
+      "Chimes to cue guests (Cindy bringing)",
+      "Drink tickets (for No Dice door)",
+      "Flower petals (for flower girls)"
+    ],
+    "signage": [
+      "Drink menu signs (2)",
+      "Buffet offering signs",
+      "Buffet item identifiers",
+      "Banner for front of venue",
+      "Art frame with menu"
+    ],
+    "payments": [
+      "Photographer remainder ($2,700)",
+      "Antonia remainder ($825)",
+      "2B1L catering remainder ($4,557.39)",
+      "Thomas Glass Band remainder ($1,700)",
+      "YUR Rentals remainder ($2,390.69)",
+      "Bartender remainder ($450)",
+      "Tips/gratuities for vendors"
+    ],
+    "personal": [
+      "Karen's dress + change of clothes (8:30 PM)",
+      "White bride's bag",
+      "Dinnerware (cups, plates, napkins, cutlery)",
+      "Water & cocktail dispensers (Cindy to No Dice)"
+    ]
+  },
+
   "seatingChart": [
     { "table": 1, "guests": ["Aba", "Titi Amri", "Titi Sonia", "Tio Javi", "Alondra", "Titi Leida", "Lyanne"] },
     { "table": 2, "guests": ["Jose N", "Elizabeth", "Jose D", "Lauren", "Cindy", "Duey", "Peggy", "Marilyn"] },
