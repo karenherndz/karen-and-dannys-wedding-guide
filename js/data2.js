@@ -72,20 +72,27 @@ const WEDDING_DATA = {
         "drinking": "145-150"
       },
       "seating": {
-        "right": 52,
+        "right": 56,
         "back": 64,
-        "main": 18,
-        "danceFloor": 36,
+        "bottom": 18,
+        "danceFloor": 37,
         "courtyard": 18,
-        "total": "170"
+        "total": 174
       }
     },
     "layout": {
       "tablesToFlip": 8,
-      "notes": "8 round tables (yellow on layout) already decorated and ready to move. Flip all ceremony chairs to face tables for dinner.",
+      "notes": "Tables in yellow are items to flip — already decorated and ready to move. Ceremony chairs redistributed to tables during this time.",
       "bars": ["Ceremony space bar (sets up during flip)", "Courtyard bar (open during cocktail hour)"],
       "photobooth": "14' x 5'",
-      "seatingChart": "Near entrance"
+      "seatingChart": "5' x 2', near entrance",
+      "eatingGroups": [
+        "Tables 10 thru 13",
+        "Tables 6 thru 9",
+        "Tables 4 & 5",
+        "Tables 2 & 3",
+        "Table 1"
+      ]
     },
     "reception": {
       "name": "Industrial Gardens",
@@ -710,7 +717,7 @@ const WEDDING_DATA = {
         "notes": "After photos: Karen and Danny escape for a private moment and bustle Karen's dress."
       },
       { "time": "4:55 - 5:15 PM", "event": "First Dance", "location": "Industrial Gardens", "who": "Karen, Danny, Parents", "notes": "DJ announces guests find seats. Couple announced. Everlasting Love by Natalie Cole plays. DJ beckons all to dance floor. Parents first, then Bride & Groom. First dance song: Virgen - Adolescent Orchestra. DJ kicks music into full gear!" },
-      { "time": "5:15 PM", "event": "Dance Floor & Buffet Open", "location": "Industrial Gardens", "who": "Everyone", "notes": "DJ calls eating groups to head to the buffet." },
+      { "time": "5:15 PM", "event": "Dance Floor & Buffet Open", "location": "Industrial Gardens", "who": "Everyone", "notes": "DJ calls eating groups to head to the buffet in order: Tables 10-13, Tables 6-9, Tables 4 & 5, Tables 2 & 3, Table 1." },
       { "time": "6:45 PM", "event": "Danny's Toast", "location": "Industrial Gardens", "who": "Danny", "notes": "After the buffet line dies down, Jeanne signals Danny for a thank-you toast." },
       { "time": "7:30 PM", "event": "Dessert", "location": "Industrial Gardens", "who": "Milo announces", "notes": "Milo announces cake! Cake and dessert table brought to the dance floor by catering." },
       { "time": "7:45 PM", "event": "Vendor payments distributed", "location": "Industrial Gardens", "who": "Jeanne", "notes": "Jeanne distributes payments and gratuities to vendors." },
