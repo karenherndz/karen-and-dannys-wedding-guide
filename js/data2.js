@@ -591,7 +591,7 @@ const WEDDING_DATA = {
     // === FRIDAY GARDEN WELCOME ===
     { "task": "Yard cleanup at Milo Gardens", "assignee": "Danny/Jose", "due": "Week before", "status": "not started", "priority": "medium" },
     { "task": "Spruce up Milo Garden sign", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Create directional signs 'MILO GARDENS →' (foam core/painted)", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Create directional signs 'MILO GARDENS →' (foam core/painted) + sign on Jefferson Highway", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Ask neighbors to close garage doors afternoon of Friday", "assignee": "Danny", "due": "", "status": "not started", "priority": "low" },
     { "task": "Inform neighbors about Friday party", "assignee": "Danny", "due": "", "status": "not started", "priority": "medium" },
     { "task": "Rent 5 high boys from Perrier for Friday. Pickup 4/10, bring $70 cash. Rental Fri 7a-1p to Mon 7a-1p.", "assignee": "", "due": "4/10/26", "status": "not started", "priority": "medium" },
@@ -657,11 +657,28 @@ const WEDDING_DATA = {
     { "task": "Schedule final walkthrough meeting with all parties", "assignee": "Cindy", "due": "", "status": "not started", "priority": "medium" },
 
     // === FROM MASTER DOC - NEW ITEMS ===
-    { "task": "Design and make banner for wedding", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Create drink menu signs", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Paint yard signs (directional)", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Perrier Event Quote: water carafe, 2 metal tubs for beer, one more 60\" round table, one more 120 brown tablecloth, 16 6' banquet white tablecloths, 4 fruit caddies, increase chair count", "assignee": "Cindy", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "PJI venue questions: confirm where caterer can set up 10x10 ft space on street, and kitchen/portapotty placement on Elysian Fields", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    // === KAREN'S TO-DO ===
+    { "task": "Design and order banner for front of venue (gonna ask Antonia)", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Create a sign for the garden welcome on Jefferson Highway", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Drink Menu Signs (2) — maybe banana leaf?", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Buffet Offering Signs — find a cute window and write on the window glass", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Find beautiful art with frame to paint over and affix the menu to (maybe Antonia could help with welcome sign, seating chart, and menu sign)", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Make buffet item identifiers", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "Perrier Event Quote (wait until seating chart finalized): water carafe, 4 metal tubs for beer, 16 6' banquet white tablecloths, 4 fruit caddies, increase chair count by 10", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
+
+    // === QUESTIONS FOR INDUSTRIAL GARDENS (PJI) ===
+    { "task": "PJI: Review decoration plans", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "PJI: Schedule a time to come see the garden at night", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "PJI: Ask about hanging one thing on the tree by the fence", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "PJI: Ask about David (caterer) setting up his kitchen in the back area", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "PJI: Ask about cleaning — what are we responsible for", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "PJI: Ask if we can pick up lights, decor, and plants on Monday morning", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "PJI: Ask about restroom trailer hookups (water and electricity)", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "PJI: Ask about a place other than conference room to hide (maybe the office?) — all good if it has to be conference room", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "PJI: When can we begin setup? Biz hours Thursday, biz hours Friday, 12-2:45 PM Saturday", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+    { "task": "PJI: Update — portapotty and kitchen to be set up on Elysian Fields Ave parking lot and sidewalk respectively", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
+
+    // === OTHER ===
     { "task": "Danny's truck drops off everything to venue on way to Greatman Cottage", "assignee": "Danny", "due": "4/11/26", "status": "not started", "priority": "high" }
   ],
 
