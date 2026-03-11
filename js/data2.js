@@ -430,7 +430,7 @@ const WEDDING_DATA = {
   "staffing": [
     {
       "role": "Plant Setup",
-      "name": "Khristian",
+      "name": "Kristian",
       "task": "Transport & layout plants"
     },
         {
@@ -786,7 +786,7 @@ const WEDDING_DATA = {
     { "table": 9, "guests": ["John P & Emma", "Gabriel & Amy", "Sam K", "Jess I & Derek", "Jonah", "Anna S & Joshua"] },
     { "table": 10, "guests": ["Tim M & Jody", "Scottie & Sarah P", "Matt & Jackie S", "Steve & Luellen"] },
     { "table": 11, "guests": ["Jordan & Reilly", "Noa & Dana", "Dani M", "Ben & Jenna", "Emma S & Jeff"] },
-    { "table": 12, "guests": ["Khristian", "Elisa & Ken", "Jess B & Nathan", "Sam & Eliza", "Marcus & Sydney"] },
+    { "table": 12, "guests": ["Kristian", "Elisa & Ken", "Jess B & Nathan", "Sam & Eliza", "Marcus & Sydney"] },
     { "table": 13, "guests": ["Jeff A & Annie", "Cody & Jasmine", "Ari S", "Renee & Dan", "Scotty Selke & Emily"] }
   ]
 };
