@@ -440,7 +440,7 @@ const WEDDING_DATA = {
     },
     {
       "role": "Room Flip Crew",
-      "name": "Zach, Joey, John, Gabriel + any guys",
+      "name": "Zach, Joey, John, Gabriel, JT, Nathan + any guys",
       "task": "Move 7 pre-decorated tables, redistribute ceremony chairs to tables"
     },
     {
@@ -510,7 +510,7 @@ const WEDDING_DATA = {
     "Blair", "Sara K", "Reagan", "Jenny", "Kagan", "Sara B"
   ],
   "flipCrew": [
-    "Zach", "Joey", "John", "Gabriel", "+ any guys who want to help"
+    "Zach", "Joey", "John", "Gabriel", "JT", "Nathan", "+ any guys who want to help"
   ],
 
   "weddingParty": {
