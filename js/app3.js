@@ -909,6 +909,36 @@ function renderDayOf() {
         `).join('');
     }
 
+    // Bring to Venue list (planning crew only)
+    const bringList = document.getElementById('bring-to-venue-list');
+    if (bringList && weddingData.bringToVenue) {
+        const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
+        if (!isPlanningCrew(userName)) {
+            bringList.parentElement.style.display = 'none';
+        } else {
+            const sections = [
+                { title: 'For Jeanne (Give Friday)', items: weddingData.bringToVenue.forJeanneFriday },
+                { title: 'Bar & Drinks', items: weddingData.bringToVenue.barAndDrinks },
+                { title: 'Ceremony', items: weddingData.bringToVenue.ceremony },
+                { title: 'Decor & Setup', items: weddingData.bringToVenue.decorAndSetup },
+                { title: 'Flowers (from Greatman Cottage)', items: weddingData.bringToVenue.flowers },
+                { title: 'Second Line / Parranda', items: weddingData.bringToVenue.secondLine },
+                { title: 'For Guests', items: weddingData.bringToVenue.forGuests },
+                { title: 'Signage', items: weddingData.bringToVenue.signage },
+                { title: 'Payments (Envelopes)', items: weddingData.bringToVenue.payments },
+                { title: 'Personal', items: weddingData.bringToVenue.personal }
+            ];
+            bringList.innerHTML = sections.map(s => `
+                <div style="margin-bottom:12px;">
+                    <strong style="color:var(--pink-light);font-size:0.85rem;">${s.title}</strong>
+                    <ul style="margin:4px 0 0 16px;padding:0;list-style:none;">
+                        ${s.items.map(item => `<li style="padding:2px 0;font-size:0.8rem;color:var(--ivory-soft);">☐ ${item}</li>`).join('')}
+                    </ul>
+                </div>
+            `).join('');
+        }
+    }
+
     // Locations - Consolidated unique venues
     const locationsList = document.getElementById('locations-list');
     if (locationsList) {
