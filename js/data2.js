@@ -100,7 +100,7 @@ const WEDDING_DATA = {
       "time": "9:00 PM",
       "address": "",
       "capacity": 200,
-      "notes": "Thomas Glass Band 9:00-10:45 PM. DJs ET Deaux & Kagan B2B 11:00 PM - 1:00 AM. Second line at 8:45 PM leads to venue. 21+ only. 5 minute walk from wedding venue. Capacity 200. Cash bar. Tacos available for purchase late night. Food in back. No deposit necessary — confirmed. Aba, Tio Javier, maybe Titi Sonia will need transport back to the house. Dani is 22. Cindy bringing water and cocktail dispensers."
+      "notes": "Thomas Glass Band 9:00-10:45 PM. DJs ET Deaux & Kagan B2B 11:00 PM - 1:00 AM. Second line at 8:45 PM leads to venue. 21+ only. 5 minute walk from wedding venue. Capacity 200. Cash bar. Tacos available for purchase late night. Food in back. No deposit necessary — confirmed. Dani is 22. Cindy bringing water and cocktail dispensers."
     },
     "sundayFarewell": {
       "name": "CastleDay",
@@ -494,11 +494,6 @@ const WEDDING_DATA = {
       "task": "Coordinate handover of boxed leftovers from caterer David after wedding. Take leftovers to the rental house for Sunday lunches (maduros, ropa vieja, jerk chicken, rice and peas, stewed cabbage)."
     },
     {
-      "role": "Post-Wedding Transport",
-      "name": "Titi Amri's family",
-      "task": "Transport Aba, Tio Javier, maybe Titi Sonia, and Alondra back to the house after the wedding. Coordinate during parranda time while waiting for parade to finish."
-    },
-    {
       "role": "Sunday Brunch Setup",
       "name": "Sarah + Papa / volunteers",
       "task": "Sarah drops off coffee and bagels Sunday morning. Someone from the house picks up donuts. Set up breakfast food on the large dining table at CastleDay."
@@ -730,7 +725,7 @@ const WEDDING_DATA = {
       { "time": "7:30 PM", "event": "Dessert", "location": "Industrial Gardens", "who": "Milo announces", "notes": "Milo announces cake! Cake and dessert table brought to the dance floor by catering." },
       { "time": "7:45 PM", "event": "Vendor payments distributed", "location": "Industrial Gardens", "who": "Jeanne", "notes": "Jeanne distributes payments and gratuities to vendors." },
       { "time": "8:30 PM", "event": "Karen changes & gets Danny's pava hat", "location": "Industrial Gardens", "who": "Karen", "notes": "Karen goes to change and grab Danny's pava hat for the second line." },
-      { "time": "8:45 PM", "event": "Second Line / Parranda Begins", "location": "Industrial Gardens to No Dice", "who": "Everyone", "notes": "DJ concludes. Bomba dancers appear and guide everyone through the corridor to begin La Parranda (Puerto Rican second line!). SURPRISE FOR ABA — keep it secret! Cut-out kerchiefs and red flower clips held by Juliet (and Christopher if available) and offered to guests at the corridor. Big woven bowls of each item on the conference table. Parade is ~11 minutes to the afterparty venue (5 min walk by car). Juliet drops off cards at Hotel Peter and Paul safe during parade then rejoins. Aba, Tio Javier, maybe Titi Sonia need transport home — they can help coordinate leftover handover from David during this time. Afterparty is 21+." },
+      { "time": "8:45 PM", "event": "Second Line / Parranda Begins", "location": "Industrial Gardens to No Dice", "who": "Everyone", "notes": "DJ concludes. Bomba dancers appear and guide everyone through the corridor to begin La Parranda (Puerto Rican second line!). SURPRISE FOR ABA — keep it secret! Cut-out kerchiefs and red flower clips held by Juliet (and Christopher if available) and offered to guests at the corridor. Big woven bowls of each item on the conference table. Parade is ~11 minutes to the afterparty venue (5 min walk by car). Juliet drops off cards at Hotel Peter and Paul safe during parade then rejoins. Afterparty is 21+." },
       { "time": "9:00 PM", "event": "After Party at No Dice", "location": "No Dice", "who": "Everyone", "notes": "Drink tickets offered at the door. Thomas Glass Band 9:00-10:45 PM. DJs ET Deaux & Kagan B2B 11:00 PM - 1:00 AM." },
       { "time": "9:00 PM", "event": "Clean Up", "location": "Industrial Gardens", "who": "Venue staff, caterers", "notes": "YUR Event Furniture Rental reclaims equipment at 8:45 PM. Cleaning crew arrives for debris, decor, signage, photobooth, bathroom items, conference room items — brings them to Milo Gardens. David and caterers dishwash, bus, and disassemble buffet. Lady B packs up. Restroom trailer taken back. Venue manager takes out garbage and locks up. Karen and Danny take home plants, lights, and hung decor on Monday morning." }
     ],
