@@ -28,18 +28,15 @@
     <div id="personal-card" class="personal-card" style="display:none;"></div>
 
     <nav class="nav">
-        <a href="#timeline" class="nav-item active" data-section="timeline">Timeline</a>
-        <a href="#ceremony" class="nav-item" data-section="ceremony">Ceremony</a>
+        <a href="#schedule" class="nav-item active" data-section="schedule">Schedule</a>
+        <a href="#info" class="nav-item" data-section="info">Info</a>
         <a href="#tasks" class="nav-item" data-section="tasks">Tasks</a>
-        <a href="#vendors" class="nav-item" data-section="vendors">Vendors</a>
-        <a href="#people" class="nav-item" data-section="people">People</a>
-        <a href="#dayof" class="nav-item" data-section="dayof">Day-Of</a>
         <a href="#documents" class="nav-item" data-section="documents">Docs</a>
     </nav>
 
     <main class="main">
-        <!-- Timeline Section -->
-        <section id="timeline" class="section active">
+        <!-- Schedule Tab -->
+        <section id="schedule" class="section active">
             <h2>Wedding Weekend Timeline</h2>
 
             <div class="day-card">
@@ -58,9 +55,27 @@
             </div>
         </section>
 
-        <!-- Ceremony Section -->
-        <section id="ceremony" class="section">
-            <h2>Ceremony Details</h2>
+        <!-- Info Tab (everything else) -->
+        <section id="info" class="section">
+
+            <div class="quick-card emergency">
+                <h3>Emergency Contacts</h3>
+                <div id="emergency-contacts"></div>
+            </div>
+
+            <div class="quick-card">
+                <h3>Venue Layout & Eating Groups</h3>
+                <a href="documents/venue-layout.png" target="_blank">
+                    <img src="documents/venue-layout.png" alt="Venue Layout & Eating Groups" style="width:100%;border-radius:4px;">
+                </a>
+            </div>
+
+            <div class="quick-card">
+                <h3>Key Locations</h3>
+                <div id="locations-list"></div>
+            </div>
+
+            <h2 style="margin-top:25px;">Ceremony</h2>
 
             <div class="quick-card">
                 <h3>Processional Order</h3>
@@ -81,23 +96,26 @@
                 <h3>Recessional Order</h3>
                 <div id="ceremony-recessional"></div>
             </div>
-        </section>
 
-        <!-- Tasks Section -->
-        <section id="tasks" class="section">
-            <h2>Master To-Do List</h2>
-            <div id="task-list"></div>
-        </section>
+            <div class="quick-card">
+                <h3>Ceremony Setup Notes</h3>
+                <div id="ceremony-notes"></div>
+            </div>
 
-        <!-- Vendors Section -->
-        <section id="vendors" class="section">
-            <h2>Vendors</h2>
+            <div class="quick-card">
+                <h3>Speeches (6:15 PM - Must Finish by 6:45)</h3>
+                <div id="speeches-list"></div>
+            </div>
+
+            <h2 style="margin-top:25px;">Vendors</h2>
             <div class="vendor-grid" id="vendor-list"></div>
-        </section>
 
-        <!-- People Section -->
-        <section id="people" class="section">
-            <h2>People & Roles</h2>
+            <div class="quick-card">
+                <h3>Vendor Arrival Times</h3>
+                <div id="arrival-times"></div>
+            </div>
+
+            <h2 style="margin-top:25px;">People & Roles</h2>
 
             <div class="people-card">
                 <h3>Ceremony</h3>
@@ -119,33 +137,7 @@
                 <div id="flip-crew-list"></div>
             </div>
 
-                    </section>
-
-        <!-- Day-Of Section -->
-        <section id="dayof" class="section">
-            <h2>Day-Of Quick Reference</h2>
-
-            <div class="quick-card emergency">
-                <h3>Emergency Contacts</h3>
-                <div id="emergency-contacts"></div>
-            </div>
-
-            <div class="quick-card">
-                <h3>Venue Layout & Eating Groups</h3>
-                <a href="documents/venue-layout.png" target="_blank">
-                    <img src="documents/venue-layout.png" alt="Venue Layout & Eating Groups" style="width:100%;border-radius:4px;">
-                </a>
-            </div>
-
-            <div class="quick-card">
-                <h3>Ceremony Processional</h3>
-                <div id="processional-list"></div>
-            </div>
-
-            <div class="quick-card">
-                <h3>Speeches (6:15 PM - Must Finish by 6:45)</h3>
-                <div id="speeches-list"></div>
-            </div>
+            <h2 style="margin-top:25px;">Day-Of Details</h2>
 
             <div class="quick-card">
                 <h3>Flower List</h3>
@@ -155,21 +147,6 @@
             <div class="quick-card">
                 <h3>Items for Jeanne (Friday Rehearsal)</h3>
                 <div id="jeanne-items"></div>
-            </div>
-
-            <div class="quick-card">
-                <h3>Ceremony Setup Notes</h3>
-                <div id="ceremony-notes"></div>
-            </div>
-
-            <div class="quick-card">
-                <h3>Vendor Arrival Times</h3>
-                <div id="arrival-times"></div>
-            </div>
-
-            <div class="quick-card">
-                <h3>Key Locations</h3>
-                <div id="locations-list"></div>
             </div>
 
             <div class="quick-card">
@@ -185,7 +162,13 @@
             <a href="print.html" class="print-btn">Print Day-Of Guide</a>
         </section>
 
-        <!-- Documents Section -->
+        <!-- Tasks Tab (planning crew only) -->
+        <section id="tasks" class="section">
+            <h2>Master To-Do List</h2>
+            <div id="task-list"></div>
+        </section>
+
+        <!-- Documents Tab (planning crew only) -->
         <section id="documents" class="section">
             <h2>Documents</h2>
 

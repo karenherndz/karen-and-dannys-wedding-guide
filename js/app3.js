@@ -11,10 +11,10 @@ const familyNames = [
     'remy', 'amanda', 'doug', 'ellison', 'kathryn', 'nestor',
     'zach', 'joey', 'john', 'gabriel', 'jonah', 'jess', 'mady', 'kelsey',
     'gabi', 'anna', 'carly', 'blair', 'sara', 'reagan', 'jenny', 'kagan',
-    'khristian', 'scottie', 'tim', 'scott'
+    'kristian', 'scottie', 'tim', 'scott'
 ];
 
-// Planning crew - can see Tasks, Budget, and Docs
+// Planning crew - can see Tasks and Docs
 const planningCrew = ['karen', 'danny', 'jeanne', 'cindy', 'duey', 'duschan', 'jose'];
 
 const vendorNames = {
@@ -100,7 +100,6 @@ function handleNameSubmit(input, modal) {
         modal.classList.add('hidden');
         // Re-render to apply access level
         renderVendors();
-        renderBudget();
         applyAccessLevel();
         renderPersonalCard();
     }
@@ -144,19 +143,16 @@ function resetName(event) {
 }
 
 function applyAccessLevel() {
-    const budgetNav = document.querySelector('.nav-item[data-section="budget"]');
     const tasksNav = document.querySelector('.nav-item[data-section="tasks"]');
     const docsNav = document.querySelector('.nav-item[data-section="documents"]');
     const userName = typeof currentUser === 'string' ? currentUser : currentUser?.name || '';
     const canSeePlanningTabs = isPlanningCrew(userName);
 
-    // Planning crew sees Tasks, Budget, and Docs
+    // Planning crew sees Tasks and Docs
     if (canSeePlanningTabs) {
-        if (budgetNav) budgetNav.classList.remove('budget-hidden');
         if (tasksNav) tasksNav.classList.remove('budget-hidden');
         if (docsNav) docsNav.classList.remove('budget-hidden');
     } else {
-        if (budgetNav) budgetNav.classList.add('budget-hidden');
         if (tasksNav) tasksNav.classList.add('budget-hidden');
         if (docsNav) docsNav.classList.add('budget-hidden');
     }
@@ -331,13 +327,11 @@ function initApp() {
     renderCeremony();
     renderTasks();
     renderVendors();
-    renderBudget();
     renderPeople();
     renderDayOf();
     renderDocuments();
 
     setupNavigation();
-    setupTaskFilters();
     applyAccessLevel();
     renderPersonalCard();
 }
@@ -370,8 +364,8 @@ function setupNavigation() {
             const sectionId = item.getAttribute('data-section');
             const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
 
-            // Block planning tabs (budget, tasks, docs) for non-planning crew
-            const planningTabs = ['budget', 'tasks', 'documents'];
+            // Block planning tabs (tasks, docs) for non-planning crew
+            const planningTabs = ['tasks', 'documents'];
             if (planningTabs.includes(sectionId) && !isPlanningCrew(userName)) {
                 return;
             }
@@ -500,78 +494,6 @@ function renderCeremony() {
     }
 }
 
-// Budget
-function renderBudget() {
-    if (!weddingData || !weddingData.budget) return;
-
-    // Only Karen and Danny can see budget
-    const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
-    if (!isPlanningCrew(userName)) {
-        const vendorBudgetEl = document.getElementById('budget-vendors');
-        const summaryEl = document.getElementById('budget-summary');
-        const notesEl = document.getElementById('budget-notes');
-        if (vendorBudgetEl) vendorBudgetEl.innerHTML = '<p style="color:var(--ivory-soft);">Budget details are private.</p>';
-        if (summaryEl) summaryEl.innerHTML = '';
-        if (notesEl) notesEl.innerHTML = '';
-        return;
-    }
-
-    const budget = weddingData.budget;
-
-    // Expenses list
-    const vendorBudgetEl = document.getElementById('budget-vendors');
-    if (vendorBudgetEl && budget.expenses) {
-        vendorBudgetEl.innerHTML = budget.expenses.map(exp => {
-            const paidStatus = exp.remainder === 0 ? '✓ Paid in full' : (exp.deposit ? `$${exp.deposit.toLocaleString()} deposit paid` : 'Not paid');
-            const remainderText = exp.remainder > 0 ? `$${exp.remainder.toLocaleString()} due${exp.dueDate ? ' ' + exp.dueDate : ''}` : '';
-            const estimatedTag = exp.estimated ? ' <span style="color:var(--pink-medium);font-size:0.7rem;">(est)</span>' : '';
-            return `
-                <div class="person-item" style="flex-wrap:wrap;">
-                    <span class="person-name">${exp.item}</span>
-                    <span class="person-role" style="color:var(--ivory);text-align:right;">
-                        ${exp.total ? '$' + exp.total.toLocaleString() + estimatedTag : 'TBD'}
-                    </span>
-                </div>
-                <div style="width:100%;font-size:0.8rem;color:var(--ivory-soft);padding-bottom:10px;border-bottom:1px solid rgba(245,240,230,0.1);margin-bottom:10px;">
-                    ${paidStatus}${remainderText ? ' · ' + remainderText : ''}
-                </div>
-            `;
-        }).join('');
-    }
-
-    // Summary
-    const summaryEl = document.getElementById('budget-summary');
-    if (summaryEl) {
-        summaryEl.innerHTML = `
-            <div class="person-item">
-                <span class="person-name">Total Costs</span>
-                <span class="person-role" style="color:var(--ivory);font-size:1.1rem;font-weight:600;">$${budget.totalCosts.toLocaleString()}</span>
-            </div>
-            <div class="person-item">
-                <span class="person-name">Deposits Paid</span>
-                <span class="person-role" style="color:var(--pink-light);">$${budget.totalDeposits.toLocaleString()}</span>
-            </div>
-            <div class="person-item">
-                <span class="person-name">Still Owed</span>
-                <span class="person-role" style="color:var(--ivory);font-size:1.1rem;font-weight:600;">$${budget.totalRemaining.toLocaleString()}</span>
-            </div>
-            <div class="person-item" style="margin-top:15px;padding-top:15px;border-top:1px solid var(--pink-medium);">
-                <span class="person-name">Budget Remaining</span>
-                <span class="person-role" style="color:var(--pink-light);font-size:1.2rem;font-weight:600;">$${budget.budgetRemainder.toLocaleString()}</span>
-            </div>
-        `;
-    }
-
-    // TBD items
-    const notesEl = document.getElementById('budget-notes');
-    if (notesEl && budget.tbd) {
-        notesEl.innerHTML = `
-            <p style="color:var(--ivory);margin-bottom:10px;font-weight:500;">Still need pricing for:</p>
-            ${budget.tbd.map(item => `<p style="color:var(--ivory-soft);padding:4px 0;">• ${item}</p>`).join('')}
-        `;
-    }
-}
-
 // Tasks - master to-do list, readable sections
 function renderTasks() {
     if (!weddingData || !weddingData.masterTodos) return;
@@ -591,10 +513,6 @@ function renderTasks() {
             ${section.items.map(item => `<div style="padding:5px 0;font-size:0.82rem;color:var(--ivory-soft);border-bottom:1px solid rgba(255,255,255,0.05);white-space:pre-line;">• ${item}</div>`).join('')}
         </div>
     `).join('');
-}
-
-function setupTaskFilters() {
-    // No longer needed - tasks are grouped by section
 }
 
 // Vendors
@@ -803,22 +721,6 @@ function renderDayOf() {
             <div class="person-item">
                 <span class="person-name">True Value Rental</span>
                 <span class="person-role"><a href="tel:5044432825">(504) 443-2825</a> - Catering Equipment Rental</span>
-            </div>
-        `;
-    }
-
-    // Processional
-    const processionalList = document.getElementById('processional-list');
-    if (processionalList && weddingData.ceremony && weddingData.ceremony.processional) {
-        processionalList.innerHTML = weddingData.ceremony.processional.map((step, i) => `
-            <div class="person-item">
-                <span class="person-name">${i + 1}.</span>
-                <span class="person-role">${step}</span>
-            </div>
-        `).join('') + `
-            <div class="timeline-notes" style="margin-top:15px;">
-                ${weddingData.ceremony.notes || ''}
-                <br><br><strong>Recessional Music:</strong> ${weddingData.ceremony.recessionalMusic || 'TBD'}
             </div>
         `;
     }
