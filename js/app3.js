@@ -572,52 +572,23 @@ function renderBudget() {
     }
 }
 
-// Tasks - grouped by category, readable format
+// Tasks - master to-do list, readable sections
 function renderTasks() {
-    if (!weddingData || !weddingData.todos) return;
+    if (!weddingData || !weddingData.masterTodos) return;
 
     const taskList = document.getElementById('task-list');
     if (!taskList) return;
 
-    const groups = {};
-    let currentGroup = 'General';
-    weddingData.todos.forEach(task => {
-        if (!groups[currentGroup]) groups[currentGroup] = [];
-        groups[currentGroup].push(task);
-    });
+    const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
+    if (!isPlanningCrew(userName)) {
+        taskList.innerHTML = '<p style="color:var(--ivory-soft);">To-do list is only visible to the planning crew.</p>';
+        return;
+    }
 
-    // Regroup by section comments in data
-    const sections = [
-        { title: 'Payments', tasks: weddingData.todos.filter(t => t.task.startsWith('Pay ')) },
-        { title: 'Urgent / Order Now', tasks: weddingData.todos.filter(t => (t.due === 'ASAP' || t.status === 'in progress' || t.task.includes('Order dinnerware') || t.task.includes('portapotty') || t.task.includes('tent contract') || t.task.includes('First Look'))) },
-        { title: 'Karen\'s To-Do', tasks: weddingData.todos.filter(t => t.assignee && t.assignee.includes('Karen') && !t.task.startsWith('Pay ')) },
-        { title: 'Cindy\'s To-Do', tasks: weddingData.todos.filter(t => t.assignee && t.assignee.includes('Cindy') && !t.assignee.includes('Karen') && !t.task.startsWith('Pay ') && !t.task.includes('portapotty') && !t.task.includes('tent')) },
-        { title: 'Danny\'s To-Do', tasks: weddingData.todos.filter(t => t.assignee && t.assignee.includes('Danny') && !t.assignee.includes('Cindy') && !t.assignee.includes('Karen') && !t.task.startsWith('Pay ')) },
-        { title: 'PJI / Industrial Gardens Questions', tasks: weddingData.todos.filter(t => t.task.startsWith('PJI:')) },
-        { title: 'Ceremony', tasks: weddingData.todos.filter(t => (t.task.includes('vows') || t.task.includes('marriage license') || t.task.includes('wedding band') || t.task.includes('Sam Kuslan confirmed') || t.task.includes('Dress fitting')) && !t.task.startsWith('Pay ')) },
-        { title: 'Flowers', tasks: weddingData.todos.filter(t => t.task.includes('flower') || t.task.includes('Trader Joe') || t.task.includes('florist') || t.task.includes('boutonniere')) },
-        { title: 'Second Line', tasks: weddingData.todos.filter(t => (t.task.includes('second line') || t.task.includes('Second Line') || t.task.includes('kerchief') || t.task.includes('maga flower')) && !t.task.startsWith('Pay ') && !t.task.startsWith('PJI')) },
-        { title: 'After Party / No Dice', tasks: weddingData.todos.filter(t => (t.task.includes('No Dice') || t.task.includes('Thomas Glass') || t.task.includes('after party DJ') || t.task.includes('Book after')) && !t.task.startsWith('Pay ')) },
-        { title: 'Sunday Brunch', tasks: weddingData.todos.filter(t => t.task.includes('Sunday') || t.task.includes('coffee from Sarah') || t.task.includes('bagel') || t.task.includes('donut')) }
-    ];
-
-    // Collect all tasks that were placed in a section
-    const placed = new Set();
-    sections.forEach(s => s.tasks.forEach(t => placed.add(t)));
-
-    // Everything else
-    const remaining = weddingData.todos.filter(t => !placed.has(t));
-    if (remaining.length) sections.push({ title: 'Other', tasks: remaining });
-
-    taskList.innerHTML = sections.filter(s => s.tasks.length > 0).map(section => `
+    taskList.innerHTML = weddingData.masterTodos.map(section => `
         <div class="quick-card" style="margin-bottom:15px;">
-            <h3 style="font-size:0.95rem;margin-bottom:8px;">${section.title}</h3>
-            ${section.tasks.map(task => {
-                const done = task.status === 'done' || task.status === 'confirmed';
-                return `<div style="padding:5px 0;font-size:0.82rem;${done ? 'text-decoration:line-through;opacity:0.6;color:#6a9;' : 'color:var(--ivory-soft);'}border-bottom:1px solid rgba(255,255,255,0.05);">
-                    ${done ? '✓' : '•'} ${task.task}${task.assignee && !section.title.includes('Karen') && !section.title.includes('Cindy') && !section.title.includes('Danny') ? ` <span style="color:var(--pink-light);font-size:0.75rem;">(${task.assignee})</span>` : ''}${task.due ? ` <span style="color:var(--pink-light);font-size:0.75rem;">— ${task.due}</span>` : ''}
-                </div>`;
-            }).join('')}
+            <h3 style="font-size:0.95rem;margin-bottom:8px;">${section.section}</h3>
+            ${section.items.map(item => `<div style="padding:5px 0;font-size:0.82rem;color:var(--ivory-soft);border-bottom:1px solid rgba(255,255,255,0.05);white-space:pre-line;">• ${item}</div>`).join('')}
         </div>
     `).join('');
 }
