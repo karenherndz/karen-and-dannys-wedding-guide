@@ -328,6 +328,7 @@ function initApp() {
     renderTasks();
     renderVendors();
     renderPeople();
+    renderSeatingChart();
     renderDayOf();
     renderDocuments();
 
@@ -660,6 +661,36 @@ function renderPeople() {
             <span class="cousin-tag">${name}</span>
         `).join('');
     }
+}
+
+// Seating Chart - alphabetized with table numbers
+function renderSeatingChart() {
+    if (!weddingData || !weddingData.seatingChart) return;
+    const el = document.getElementById('seating-chart');
+    if (!el) return;
+
+    // Build alphabetized list of all guests with their table
+    const allGuests = [];
+    weddingData.seatingChart.forEach(t => {
+        t.guests.forEach(name => {
+            allGuests.push({ name, table: t.label || ('Table ' + t.table) });
+        });
+    });
+    allGuests.sort((a, b) => {
+        const aLast = a.name.split(' ').slice(-1)[0];
+        const bLast = b.name.split(' ').slice(-1)[0];
+        return aLast.localeCompare(bLast) || a.name.localeCompare(b.name);
+    });
+
+    el.innerHTML = `
+        <p style="color:var(--ivory);margin-bottom:10px;font-size:0.85rem;"><strong>174 total guests · 13 tables</strong></p>
+        ${allGuests.map(g => `
+            <div class="person-item">
+                <span class="person-name">${g.name}</span>
+                <span class="person-role">${g.table}</span>
+            </div>
+        `).join('')}
+    `;
 }
 
 // Day-Of Quick Reference
