@@ -841,18 +841,18 @@ const WEDDING_DATA = {
   },
 
   "seatingChart": [
-    { "table": 1, "guests": ["Aba", "Titi Amri", "Titi Sonia", "Tio Javi", "Alondra", "Titi Leida", "Lyanne"] },
-    { "table": 2, "guests": ["Jose N", "Elizabeth", "Jose D", "Lauren", "Cindy", "Duey", "Peggy", "Marilyn"] },
-    { "table": 3, "guests": ["Kali & Alex", "Kelsey & Brad", "Mady & Nick M", "Christopher Yalung", "Juliet Tonkin"] },
-    { "table": 4, "guests": ["Grambo", "Marsha", "Doug B", "Amanda", "Dave W", "Jessie", "Ellison", "Remy", "Milo"] },
-    { "table": 5, "guests": ["Kagan & Evan", "Liron", "Adina & Mark", "Michelle & J.", "K. White", "Pam & John"] },
-    { "table": 6, "guests": ["Tim S & Paloma", "Jenny & Taylor", "Liz W & Nick J", "Sara B", "Gabi & Frank"] },
-    { "table": 7, "guests": ["Blair & Stephen", "Sara K & Billy", "Tom B & Lindsay", "Carly & Sam A", "Nick D & Kate"] },
-    { "table": 8, "guests": ["Joey & Anya", "Zach & Christine", "Reagan & James", "Anna & Robbie"] },
-    { "table": 9, "guests": ["John P & Emma", "Gabriel & Amy", "Sam K", "Jess I & Derek", "Jonah", "Anna S & Joshua"] },
-    { "table": 10, "guests": ["Tim M & Jody", "Scottie & Sarah P", "Matt & Jackie S", "Steve & Luellen"] },
-    { "table": 11, "guests": ["Jordan & Reilly", "Noa & Dana", "Dani M", "Ben & Jenna", "Emma S & Jeff"] },
-    { "table": 12, "guests": ["Kristian", "Elisa & Ken", "Jess B & Nathan", "Sam & Eliza", "Marcus & Sydney"] },
-    { "table": 13, "guests": ["Jeff A & Annie", "Cody & Jasmine", "Ari S", "Renee & Dan", "Scotty Selke & Emily"] }
+    { "table": 1, "label": "Table 1", "count": "34-36", "guests": ["Gabrielle 'Gabi' Duncan", "Andrea Calabria", "Daniel Moldonado", "Julia Russ", "Blair Reynolds", "Carly Rosenberg", "Paloma Pinto", "Sara Karaosmanoglu", "Erin Cohn-Donnellan", "Ryan Donnellan", "Natalie Toth", "Chris Cunningham", "Blake Langenbach", "Anna Reisbaum", "Jamie Brener", "James Rennert", "Derek Spaeth", "Ross Garfield", "Coles Loomis", "Kagan Taylor", "Evan Thibodaux", "Ghazi Fortenberry", "Tyla Maiden", "Anthony Badon", "Liz Beatty", "Sara Beesley", "Jenny Conradi", "Julia Daniel", "Jack Brockman", "Madalynn Wittman", "JT Wittman", "Kelsey Lee", "Connor Damaschi", "Johnny Lawson", "Kristian Bailey"] },
+    { "table": 2, "label": "Table 2", "count": "18-20", "guests": ["Mike Jacobs", "Paul Economos", "Nick Ellman", "Emily Ferretti", "Dan Kowalczyk", "Jeremy Fleenor", "Kristin Fleenor", "John Murphy Fleenor", "Bahareh Javadi", "Ian Bowman", "Simon Fowell", "Dexter Gilmore", "Gabrielle Washington", "Kayla Strella-Green", "Mark Strella-Green", "Noah Young", "Shawan Rice", "Sam Kuslan", "Haley Vaughn", "Nguyen Nguyen"] },
+    { "table": 3, "label": "Table 3 (VIP)", "count": "18-19", "guests": ["Jose D. Hernandez", "Jose N. Hernandez", "Elizabeth Mazzie", "Kali Serna", "Juliet Tonkin", "Duschan Milojevic", "Cindy Milojevic", "David Langenmayr", "Lauren Langenmayr", "Remy Daniel Langenmayr", "Milo Joseph Langenmayr", "Karen Hernandez", "Danny Milojevic", "Eric Langenmayr", "Nina Chen Langenmayr", "Christopher Yalung", "Douglas Williams", "Amanda Williams", "Ellison Williams"] },
+    { "table": 4, "label": "Table 4", "count": "18-19", "guests": ["David S Williams II", "Roy Buckner", "Mariann Buckner", "Douglas Norris", "Autumn Solomon", "Dorothy Martin", "Karen White", "Michelle Sims", "Pamela Belyn", "Liron Anderson Bell", "Glenn Bell", "Adina Mardenbergh", "David S Williams", "Marsha Broussard", "Michael Ramey", "Lisa Kroeger", "Ed Kroeger", "David Lee", "Darlene Lee"] },
+    { "table": 5, "label": "Table 5", "count": "18", "guests": ["Jessica Mieczkowski", "Mark Mieczkowski", "Joey Mieczkowski", "John Mieczkowski", "Olivia Gomez", "Zach Mieczkowski", "J Tyler Whitmer", "Nathan Taylor", "John Whitmer", "Erin Whitmer", "Amanda Johnston", "Jody Ames", "Sean Faul", "Steven Ames", "Amy Ames", "Patty Farmar", "Dan Griewe", "Phyllis Myers"] },
+    { "table": 6, "label": "Table 6", "count": "8", "guests": ["Marilyn Ames", "Timothy Ames", "Peggy Noonan Whitmer", "Scott Whitmer", "Joyce Raspatello", "Richard Raspatello", "Jill Wilson", "Todd Wilson"] },
+    { "table": 7, "label": "Table 7", "count": "8", "guests": ["Don Rosenwinkel", "Karen Rosenwinkel", "Tim Philosophos", "Mariann Piano", "Jeanne Gallo", "John Gallo", "Thomas Moldauer", "Chris Moldauer"] },
+    { "table": 8, "label": "Table 8", "count": "7", "guests": ["Dave Sellke", "Elizabeth Sellke", "Frank Schnotala", "Chris Schnotala", "Goesel Anson", "John Anson", "Silvia Beaupre"] },
+    { "table": 9, "label": "Table 9", "count": "8", "guests": ["Chris Greb", "Meredith Greb", "Mary Claire Patterson", "Charlie Diamond", "Natalia Diamond", "Rachel Moldauer", "Stephen Diamond", "Peggy Diamond"] },
+    { "table": 10, "label": "Table 10", "count": "8", "guests": ["Joey Lyons", "Jack Nixon", "Henry Redman", "Claire Redman", "Nick Fowkes", "Eric Naumann", "Jesse Mathias", "Jonah Wander"] },
+    { "table": 11, "label": "Table 11", "count": "7", "guests": ["Leonardo Rivera", "Laura Sofia Hernandez Gonzales", "Victor Torres Montalvo", "Deanna Pellerano", "Gabriel Pellerano", "Daniel Pellerano", "Maria Diaz"] },
+    { "table": 12, "label": "Table 12", "count": "7", "guests": ["Angelina Maldonado", "Jose Javier Hernandez", "Sonia Hernandez", "Luis Rivera", "Amri Hernandez Pellerano", "Fernando Pellerano", "Paola Rivera"] },
+    { "table": 13, "label": "Table 13", "count": "7", "guests": ["Niah Anson", "David King", "Erika Sellke", "Peter Sellke", "Julia Sellke", "Eric Schnotala", "Kaitlyn Schnotala"] }
   ]
 };
