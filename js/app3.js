@@ -683,7 +683,7 @@ function renderSeatingChart() {
     });
 
     el.innerHTML = `
-        <p style="color:var(--ivory);margin-bottom:10px;font-size:0.85rem;"><strong>174 total guests · 13 tables</strong></p>
+        <p style="color:var(--ivory);margin-bottom:10px;font-size:0.85rem;"><strong>171 guests · 13 tables</strong></p>
         ${allGuests.map(g => `
             <div class="person-item">
                 <span class="person-name">${g.name}</span>
