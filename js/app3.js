@@ -130,6 +130,14 @@ function setUserAccess(name) {
     applyAccessLevel();
 }
 
+function toggleBringItem(id) {
+    const checkedItems = JSON.parse(localStorage.getItem('bringToVenueChecked') || '{}');
+    checkedItems[id] = !checkedItems[id];
+    if (!checkedItems[id]) delete checkedItems[id];
+    localStorage.setItem('bringToVenueChecked', JSON.stringify(checkedItems));
+    renderDayOf();
+}
+
 function resetName(event) {
     event.preventDefault();
     localStorage.removeItem('weddingUserName');
@@ -916,26 +924,34 @@ function renderDayOf() {
         if (!isPlanningCrew(userName)) {
             bringList.parentElement.style.display = 'none';
         } else {
+            const checkedItems = JSON.parse(localStorage.getItem('bringToVenueChecked') || '{}');
             const sections = [
-                { title: 'For Jeanne (Give Friday)', items: weddingData.bringToVenue.forJeanneFriday },
-                { title: 'Bar & Drinks', items: weddingData.bringToVenue.barAndDrinks },
-                { title: 'Ceremony', items: weddingData.bringToVenue.ceremony },
-                { title: 'Decor & Setup', items: weddingData.bringToVenue.decorAndSetup },
-                { title: 'Flowers (from Greatman Cottage)', items: weddingData.bringToVenue.flowers },
-                { title: 'Second Line / Parranda', items: weddingData.bringToVenue.secondLine },
-                { title: 'For Guests', items: weddingData.bringToVenue.forGuests },
-                { title: 'Signage', items: weddingData.bringToVenue.signage },
-                { title: 'Payments (Envelopes)', items: weddingData.bringToVenue.payments },
-                { title: 'Personal', items: weddingData.bringToVenue.personal }
+                { key: 'forJeanneFriday', title: 'For Jeanne (Give Friday)', items: weddingData.bringToVenue.forJeanneFriday },
+                { key: 'barAndDrinks', title: 'Bar & Drinks', items: weddingData.bringToVenue.barAndDrinks },
+                { key: 'ceremony', title: 'Ceremony', items: weddingData.bringToVenue.ceremony },
+                { key: 'decorAndSetup', title: 'Decor & Setup', items: weddingData.bringToVenue.decorAndSetup },
+                { key: 'flowers', title: 'Flowers (from Greatman Cottage)', items: weddingData.bringToVenue.flowers },
+                { key: 'secondLine', title: 'Second Line / Parranda', items: weddingData.bringToVenue.secondLine },
+                { key: 'forGuests', title: 'For Guests', items: weddingData.bringToVenue.forGuests },
+                { key: 'signage', title: 'Signage', items: weddingData.bringToVenue.signage },
+                { key: 'payments', title: 'Payments (Envelopes)', items: weddingData.bringToVenue.payments },
+                { key: 'personal', title: 'Personal', items: weddingData.bringToVenue.personal }
             ];
-            bringList.innerHTML = sections.map(s => `
+            bringList.innerHTML = sections.map(s => {
+                const doneCount = s.items.filter((_, i) => checkedItems[s.key + '_' + i]).length;
+                const allDone = doneCount === s.items.length;
+                return `
                 <div style="margin-bottom:12px;">
-                    <strong style="color:var(--pink-light);font-size:0.85rem;">${s.title}</strong>
-                    <ul style="margin:4px 0 0 16px;padding:0;list-style:none;">
-                        ${s.items.map(item => `<li style="padding:2px 0;font-size:0.8rem;color:var(--ivory-soft);">☐ ${item}</li>`).join('')}
+                    <strong style="color:${allDone ? '#6a9' : 'var(--pink-light)'};font-size:0.85rem;">${s.title}${allDone ? ' ✓' : doneCount > 0 ? ` (${doneCount}/${s.items.length})` : ''}</strong>
+                    <ul style="margin:4px 0 0 0;padding:0;list-style:none;">
+                        ${s.items.map((item, i) => {
+                            const id = s.key + '_' + i;
+                            const done = checkedItems[id];
+                            return `<li style="padding:4px 0;font-size:0.8rem;cursor:pointer;${done ? 'color:#6a9;text-decoration:line-through;opacity:0.7;' : 'color:var(--ivory-soft);'}" onclick="toggleBringItem('${id}', this)">${done ? '✓' : '☐'} ${item}${done ? ' — done' : ''}</li>`;
+                        }).join('')}
                     </ul>
                 </div>
-            `).join('');
+            `}).join('');
         }
     }
 
