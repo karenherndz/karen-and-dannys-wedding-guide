@@ -564,114 +564,121 @@ const WEDDING_DATA = {
     ]
   },
 
-  "todos": [
-    // === PAYMENTS (HIGH PRIORITY) ===
-    { "task": "Pay photographer remainder ($2,700)", "assignee": "", "due": "Before April 11", "status": "not started", "priority": "high" },
-    { "task": "Pay Antonia remainder ($825)", "assignee": "", "due": "4/11/26", "status": "not started", "priority": "high" },
-    { "task": "Pay 2B1L catering remainder ($4,557.39)", "assignee": "", "due": "4/11/26", "status": "not started", "priority": "high" },
-    { "task": "Pay venue remainder ($3,950)", "assignee": "", "due": "3/31/26", "status": "not started", "priority": "high" },
-    { "task": "Pay Thomas Glass Band remainder ($1,700)", "assignee": "", "due": "4/11/26", "status": "not started", "priority": "high" },
-    { "task": "Pay YUR Rentals remainder ($2,390.69)", "assignee": "", "due": "Before April 11", "status": "not started", "priority": "high" },
-
-    // === URGENT / ORDER NOW ===
-    { "task": "Order dinnerware for BOTH nights (cups, plates, napkins, cutlery ~$565)", "assignee": "", "due": "ASAP", "status": "not started", "priority": "high" },
-    { "task": "Second Line permit - waiting on Lady B cosignature with LLC. Ref code MMMW1X. Route .38 miles / 11 minutes.", "assignee": "", "due": "ASAP", "status": "in progress", "priority": "high" },
-    { "task": "Decide on portapotty (Geaux Geaux John quote). Location: Elysian Fields Ave parking lot/sidewalk.", "assignee": "Cindy", "due": "2/24/26", "status": "not started", "priority": "high" },
-    { "task": "Confirm tent contract and diagram with Larkin", "assignee": "Cindy/Danny", "due": "", "status": "not started", "priority": "high" },
-    { "task": "First Look at the venue (Industrial Gardens)", "assignee": "", "due": "", "status": "confirmed", "priority": "high" },
-
-    // === FRIDAY GARDEN WELCOME ===
-    { "task": "Yard cleanup at Milo Gardens", "assignee": "Danny/Jose", "due": "Week before", "status": "not started", "priority": "medium" },
-    { "task": "Spruce up Milo Garden sign", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Create directional signs 'MILO GARDENS →' (foam core/painted) + sign on Jefferson Highway", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Ask neighbors to close garage doors afternoon of Friday", "assignee": "Danny", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Inform neighbors about Friday party", "assignee": "Danny", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Rent 5 high boys from Perrier for Friday. Pickup 4/10, bring $70 cash. Rental Fri 7a-1p to Mon 7a-1p.", "assignee": "", "due": "4/10/26", "status": "not started", "priority": "medium" },
-    { "task": "Buy white tablecloths at Goodwill with shawl overlays", "assignee": "", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Arrange ice from neighbor", "assignee": "Danny", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Arrange Crawfish Boil vendor (ask Steve Kelly)", "assignee": "Danny", "due": "", "status": "not started", "priority": "high" },
-    { "task": "Confirm pizza delivery for Friday", "assignee": "Danny", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Buy liquor for Friday night", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-
-    // === WEDDING DAY PREP ===
-    { "task": "Define hair & makeup schedule and assignments", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-    { "task": "Create seating chart based on final RSVPs", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-    { "task": "Create table numbers", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Get guest book (plant photo coffee table book)", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Create slideshow for reception (need projector)", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Family photo table setup (childhood photos, parents wedding, grandparents)", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Schedule evening venue visit to check lighting", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Clean venue bathrooms and add flowers", "assignee": "", "due": "Week of", "status": "not started", "priority": "medium" },
-    { "task": "Bathroom basket of essentials for guests", "assignee": "", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Secure white bride's bag", "assignee": "Cindy", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Define room-flipping plan and assignments", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-    { "task": "Order candles (specify colors/quantities for TAG)", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Define flower setup timing and add to schedule", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Create venue site map for caterer", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Practice special dance (Virgen - Adolescent Orchestra)", "assignee": "Karen/Danny/Jose", "due": "Week before", "status": "not started", "priority": "medium" },
-    { "task": "Confirm tent lighting needs (with/without tent)", "assignee": "Cindy/Danny", "due": "", "status": "not started", "priority": "medium" },
-
-    // === CEREMONY ===
-    { "task": "Sam Kuslan confirmed for ceremony piano", "assignee": "", "due": "", "status": "done", "priority": "high" },
-    { "task": "Dress fitting with Sophie Tran", "assignee": "Karen", "due": "Feb 10, 11am", "status": "scheduled", "priority": "high" },
-    { "task": "Finalize vows", "assignee": "Karen & Danny", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Get marriage license", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-    { "task": "Purchase Karen's wedding band", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-
-    // === FLOWERS ===
-    { "task": "Get flowers from Trader Joe's (wedding decoration flowers)", "assignee": "", "due": "1-3 days before wedding", "status": "not started", "priority": "high" },
-    { "task": "Figure out which florist friends to use for boutonnieres", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-
-    // === SECOND LINE ===
-    { "task": "Get DJ quote from Lady B for second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Get maga flower and rainbow kerchiefs for second line", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-
-    // === NO DICE AFTER PARTY ===
-    { "task": "Confirm No Dice venue calendar is blocked", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Confirm Thomas Glass Band / check if deposit needed", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Book after party DJ (Lucid or Myron) for 11pm-end", "assignee": "", "due": "", "status": "not started", "priority": "high" },
-
-    // === SUNDAY BRUNCH ===
-    { "task": "Arrange coffee from Sarah for Sunday", "assignee": "", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Order bagels and cream cheese from Stein's", "assignee": "", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Order donuts for Sunday (Gerald's Donuts or Baker's Dozen)", "assignee": "", "due": "", "status": "not started", "priority": "low" },
-
-    // === ADMIN / OTHER ===
-    { "task": "Costco run for liquor/BYOB supplies", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Contact cleaning crew for post-party. Nicole asking friend.", "assignee": "Karen/Nicole", "due": "", "status": "in progress", "priority": "medium" },
-    { "task": "Find cute gift card receptacle", "assignee": "Karen", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Prepare tips for vendors", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Thank you gifts for Lolo, Jose, and Kali", "assignee": "Karen", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Create family photo list for photographer", "assignee": "", "due": "", "status": "not started", "priority": "low" },
-    { "task": "Finalize lodging assignments", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Order wedding cake from Boulangerie", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Schedule Google Meet to review final schedule", "assignee": "Cindy", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Schedule final walkthrough meeting with all parties", "assignee": "Cindy", "due": "", "status": "not started", "priority": "medium" },
-
-    // === FROM MASTER DOC - NEW ITEMS ===
-    // === KAREN'S TO-DO ===
-    { "task": "Design and order banner for front of venue (gonna ask Antonia)", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Create a sign for the garden welcome on Jefferson Highway", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Drink Menu Signs (2) — maybe banana leaf?", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Buffet Offering Signs — find a cute window and write on the window glass", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Find beautiful art with frame to paint over and affix the menu to (maybe Antonia could help with welcome sign, seating chart, and menu sign)", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Make buffet item identifiers", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "Perrier Event Quote (wait until seating chart finalized): water carafe, 4 metal tubs for beer, 16 6' banquet white tablecloths, 4 fruit caddies, increase chair count by 10", "assignee": "Karen", "due": "", "status": "not started", "priority": "medium" },
-
-    // === QUESTIONS FOR INDUSTRIAL GARDENS (PJI) ===
-    { "task": "PJI: Review decoration plans", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "PJI: Schedule a time to come see the garden at night", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "PJI: Ask about hanging one thing on the tree by the fence", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "PJI: Ask about David (caterer) setting up his kitchen in the back area", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "PJI: Ask about cleaning — what are we responsible for", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "PJI: Ask if we can pick up lights, decor, and plants on Monday morning", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "PJI: Ask about restroom trailer hookups (water and electricity)", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "PJI: Ask about a place other than conference room to hide (maybe the office?) — all good if it has to be conference room", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "PJI: When can we begin setup? Biz hours Thursday, biz hours Friday, 12-2:45 PM Saturday", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-    { "task": "PJI: Update — portapotty and kitchen to be set up on Elysian Fields Ave parking lot and sidewalk respectively", "assignee": "", "due": "", "status": "not started", "priority": "medium" },
-
-    // === OTHER ===
-    { "task": "Danny's truck drops off everything to venue on way to Greatman Cottage", "assignee": "Danny", "due": "4/11/26", "status": "not started", "priority": "high" }
+  "masterTodos": [
+    {
+      "section": "KAREN'S TO DO",
+      "items": [
+        "MARRIAGE LICENSE!?",
+        "At the final fitting, make a video of how to bustle your dress",
+        "Make Slideshow",
+        "Write Vows",
+        "Spruce up the Milo Gardens sign",
+        "Design and Order Banner for the front of the Venue (gonna ask Antonia)",
+        "Create a sign for the garden welcome on Jefferson Highway",
+        "Drink Menu Signs (2) (maybe banana leaf?)",
+        "Talk to neighbors about the party on Friday, 4-7 pm",
+        "Buffet Offering Signs (find a cute window and write on the window glass)",
+        "Perrier Event Quote (wait until seating chart is finalized):\n  • Water Carafe\n  • 4 Metal Tubs for beer\n  • 16 6' banquet white tablecloths\n  • 4 fruit caddies\n  • Increase the chair count by 10?",
+        "Find beautiful art with frames that you can paint over and then affix the menu to (maybe Antonia could help?? With welcome sign, seating chart and menu sign)",
+        "Make buffet item identifiers",
+        "Paint Yard Signs for Friday",
+        "Confirm and pay Beyond Septic Solutions",
+        "Need cleaning crew information",
+        "Prepare tips",
+        "Thank you gift/acknowledgement for Lolo, Duey & Cindy, Jose and Kali"
+      ]
+    },
+    {
+      "section": "QUESTIONS TO ASK INDUSTRIAL GARDENS",
+      "items": [
+        "Review decoration plans",
+        "Schedule a time to come see the garden at night",
+        "Ask about hanging one thing on the tree by the fence",
+        "Ask about David setting up his kitchen in the back area",
+        "Ask about cleaning and what we are responsible for with our cleaning",
+        "Ask if we can pick up the lights, decor and plants on Monday Morning",
+        "Ask about restroom trailer hookups (water and electricity)",
+        "Ask about a place other than the conference room where we can hide (maybe the office?) All good if it has to be the conference room",
+        "When can we begin set up — biz hours Thursday, biz hours Friday, 12-2:45pm Saturday",
+        "Update: portapotty and kitchen to be set up on Elysian Fields Avenue parking lot and sidewalk respectively"
+      ]
+    },
+    {
+      "section": "CINDY'S TO DO",
+      "items": [
+        "Gather Family Photos (young photos of grandparents and parents, baby Karen & Danny, kid Karen and Danny, high school Karen & Danny)",
+        "Create one pager for day of",
+        "Email my guests with wedding details",
+        "Check in with Rehearsal dinner location and finalize details",
+        "Reach out to Mieczkowskis to ask to help flip room",
+        "Reach out to sisters for help with Karen Hair (Peggy) and Danny (Marilyn) and also Friday garden set up",
+        "Meet with Jeanne and give update a few weeks before the wedding",
+        "White Bride's Bag!",
+        "Look into and order Lunch for getting ready",
+        "Nibbles for Friday garden event if local catering does not do so!",
+        "Ticket for guests — Have a beer or wine on us?",
+        "Book hair appointment / Dry Bar?",
+        "Book pedicure and nails?",
+        "Look at Hair photos to make decisions",
+        "SALSA PREP! Watch videos!",
+        "Sister Gift",
+        "Create and send an invitation for Friday Rehearsal dinner",
+        "Prep tips as needed",
+        "Call Hotel P & P regarding lock box",
+        "Call Oak and Ale to tighten up details for rehearsal dinner (Jillian (504) 210-7709)",
+        "Finalize with Greatman Cottage and Loft",
+        "Send final timeline document to vendors"
+      ]
+    },
+    {
+      "section": "BRING TO NOLA IN THE CAR",
+      "items": [
+        "Medella Beer",
+        "Moon Man",
+        "Spotted Cow",
+        "Dawn Chorus",
+        "Pink Candle holders",
+        "Table number cubes?",
+        "White Wedding bag",
+        "Photos of Jose N, Kat, and Karen",
+        "Aba and Abuelo Cheo"
+      ]
+    },
+    {
+      "section": "JOSE N TO DO",
+      "items": [
+        "Photos of Jose N, Kat, and Karen",
+        "Aba and Abuelo Cheo",
+        "Build Ramp for family",
+        "Help Karen & Danny with house projects"
+      ]
+    },
+    {
+      "section": "DANNY'S TO DO",
+      "items": [
+        "Where to get pizza from for Friday???",
+        "Will talk to catering company next food for snacks",
+        "Talk to Sarah about bringing coffee for Sunday",
+        "Order bagels for Sunday",
+        "Come up with plan for Kristian",
+        "Ask No Dice if the Boys can come for the first 1 1/2 hour? They cannot unless stopped at the door. In the moment… can join in the second line",
+        "Duey and Dad Liquor",
+        "Have a beer or wine for the first drink at the bar, Danny will ask!",
+        "Create a Cocktail Hour Playlist (jazz fusion)",
+        "Pick up high boys & other rentals from Perrier rentals on 4/10\n  • BRING $70 CASH\n  • Rental period: Pick up Friday 7a-1pm to Drop off 7a-1p Monday",
+        "Clean the Bathtub for beer",
+        "Write Vows",
+        "Work with Dad on Liquor needs"
+      ]
+    },
+    {
+      "section": "DUEY TO DO",
+      "items": [
+        "Liquor (Binny's Wedding Consult)",
+        "Define final list for Friday and Saturday needs",
+        "Prep Speech — 2 minutes"
+      ]
+    }
   ],
 
   "timeline": {
