@@ -773,6 +773,19 @@ function renderDayOf() {
     const arrivalTimes = document.getElementById('arrival-times');
     if (arrivalTimes && weddingData.vendors) {
         const vendorsWithArrival = weddingData.vendors.filter(v => v.arrivalTime);
+        vendorsWithArrival.sort((a, b) => {
+            const parseTime = (str) => {
+                const match = str.match(/(\d{1,2}):?(\d{2})?\s*(AM|PM)/i);
+                if (!match) return 999;
+                let h = parseInt(match[1]);
+                const m = parseInt(match[2] || '0');
+                const pm = match[3].toUpperCase() === 'PM';
+                if (pm && h !== 12) h += 12;
+                if (!pm && h === 12) h = 0;
+                return h * 60 + m;
+            };
+            return parseTime(a.arrivalTime) - parseTime(b.arrivalTime);
+        });
         arrivalTimes.innerHTML = vendorsWithArrival.map(v => `
             <div class="person-item">
                 <span class="person-name">${v.arrivalTime}</span>
