@@ -654,6 +654,7 @@ function renderVendors() {
                     ${canSeeAllPrices && vendor.notes ? `<p style="font-size:0.85rem;">${vendor.notes}</p>` : ''}
                     ${!canSeeAllPrices && sanitizedNotes ? `<p style="font-size:0.85rem;">${sanitizedNotes}</p>` : ''}
                     ${showContract ? `<p style="margin-top:10px;"><a href="${contractFile}" target="_blank" class="directions-btn">View My Contract</a></p>` : ''}
+                    ${vendor.photos ? vendor.photos.map(p => `<a href="${p}" target="_blank"><img src="${p}" alt="Reference photo" style="width:100%;border-radius:4px;margin-top:8px;"></a>`).join('') : ''}
                 </div>
             </div>
         `;
