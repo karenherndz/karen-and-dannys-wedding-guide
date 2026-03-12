@@ -590,21 +590,6 @@ const WEDDING_DATA = {
       ]
     },
     {
-      "section": "QUESTIONS TO ASK INDUSTRIAL GARDENS",
-      "items": [
-        "Review decoration plans",
-        "Schedule a time to come see the garden at night",
-        "Ask about hanging one thing on the tree by the fence",
-        "Ask about David setting up his kitchen in the back area",
-        "Ask about cleaning and what we are responsible for with our cleaning",
-        "Ask if we can pick up the lights, decor and plants on Monday Morning",
-        "Ask about restroom trailer hookups (water and electricity)",
-        "Ask about a place other than the conference room where we can hide (maybe the office?) All good if it has to be the conference room",
-        "When can we begin set up — biz hours Thursday, biz hours Friday, 12-2:45pm Saturday",
-        "Update: portapotty and kitchen to be set up on Elysian Fields Avenue parking lot and sidewalk respectively"
-      ]
-    },
-    {
       "section": "CINDY'S TO DO",
       "items": [
         "Gather Family Photos (young photos of grandparents and parents, baby Karen & Danny, kid Karen and Danny, high school Karen & Danny)",
