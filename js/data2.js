@@ -295,17 +295,18 @@ const WEDDING_DATA = {
       "notes": "2:00 PM – 8:45 PM. 180 guests total, 145–150 drinking. Bartenders bring: bar tools (mats, shakers, strainers, ice bucket), wine keys, beer keys, fruit + garnishes, straws. They refill ice and water. Can refill ice, water, and liquor at Robert's grocery across the street if compensated. We provide: all alcohol, all cocktail ingredients, 2 carafes for passion fruit cocktail, 2 carafes for ice + small tables for them, all ice, gallons of Ozarka water (stored in fridge)."
     },
     {
-      "role": "Cleaner",
-      "name": "TBD",
-      "company": "",
-      "phone": "",
+      "role": "Restroom Trailer",
+      "name": "Garrett",
+      "company": "Beyond Septic Solutions",
+      "phone": "(985) 688-8875",
       "email": "",
-      "cost": null,
+      "cost": 650,
       "deposit": null,
-      "remainder": null,
-      "arrivalTime": "",
-      "status": "TBD",
-      "notes": "Duties TBD - check with Antonia"
+      "remainder": 650,
+      "arrivalTime": "Morning of Saturday",
+      "status": "booked",
+      "notes": "3-stall restroom trailer. Arrives morning of Saturday. Liz will meet Garrett to move her car from the parking spot on Elysian Fields Ave. Hookup needed at hitch end of trailer (see photos). Setup location: Elysian Fields Ave parking lot.",
+      "photos": ["documents/restroom-trailer-location.jpg", "documents/restroom-trailer-hookup.jpeg"]
     },
     {
       "role": "Makeup",
