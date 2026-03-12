@@ -580,60 +580,58 @@ function renderBudget() {
     }
 }
 
-// Tasks
-function renderTasks(filter = 'all') {
+// Tasks - grouped by category, readable format
+function renderTasks() {
     if (!weddingData || !weddingData.todos) return;
 
     const taskList = document.getElementById('task-list');
     if (!taskList) return;
 
-    let tasks = weddingData.todos;
+    const groups = {};
+    let currentGroup = 'General';
+    weddingData.todos.forEach(task => {
+        if (!groups[currentGroup]) groups[currentGroup] = [];
+        groups[currentGroup].push(task);
+    });
 
-    if (filter === 'high') {
-        tasks = tasks.filter(t => t.priority === 'high');
-    } else if (filter === 'not started') {
-        tasks = tasks.filter(t => t.status === 'not started');
-    } else if (filter === 'done') {
-        tasks = tasks.filter(t => t.status === 'done');
-    }
+    // Regroup by section comments in data
+    const sections = [
+        { title: 'Payments', tasks: weddingData.todos.filter(t => t.task.startsWith('Pay ')) },
+        { title: 'Urgent / Order Now', tasks: weddingData.todos.filter(t => (t.due === 'ASAP' || t.status === 'in progress' || t.task.includes('Order dinnerware') || t.task.includes('portapotty') || t.task.includes('tent contract') || t.task.includes('First Look'))) },
+        { title: 'Karen\'s To-Do', tasks: weddingData.todos.filter(t => t.assignee && t.assignee.includes('Karen') && !t.task.startsWith('Pay ')) },
+        { title: 'Cindy\'s To-Do', tasks: weddingData.todos.filter(t => t.assignee && t.assignee.includes('Cindy') && !t.assignee.includes('Karen') && !t.task.startsWith('Pay ') && !t.task.includes('portapotty') && !t.task.includes('tent')) },
+        { title: 'Danny\'s To-Do', tasks: weddingData.todos.filter(t => t.assignee && t.assignee.includes('Danny') && !t.assignee.includes('Cindy') && !t.assignee.includes('Karen') && !t.task.startsWith('Pay ')) },
+        { title: 'PJI / Industrial Gardens Questions', tasks: weddingData.todos.filter(t => t.task.startsWith('PJI:')) },
+        { title: 'Ceremony', tasks: weddingData.todos.filter(t => (t.task.includes('vows') || t.task.includes('marriage license') || t.task.includes('wedding band') || t.task.includes('Sam Kuslan confirmed') || t.task.includes('Dress fitting')) && !t.task.startsWith('Pay ')) },
+        { title: 'Flowers', tasks: weddingData.todos.filter(t => t.task.includes('flower') || t.task.includes('Trader Joe') || t.task.includes('florist') || t.task.includes('boutonniere')) },
+        { title: 'Second Line', tasks: weddingData.todos.filter(t => (t.task.includes('second line') || t.task.includes('Second Line') || t.task.includes('kerchief') || t.task.includes('maga flower')) && !t.task.startsWith('Pay ') && !t.task.startsWith('PJI')) },
+        { title: 'After Party / No Dice', tasks: weddingData.todos.filter(t => (t.task.includes('No Dice') || t.task.includes('Thomas Glass') || t.task.includes('after party DJ') || t.task.includes('Book after')) && !t.task.startsWith('Pay ')) },
+        { title: 'Sunday Brunch', tasks: weddingData.todos.filter(t => t.task.includes('Sunday') || t.task.includes('coffee from Sarah') || t.task.includes('bagel') || t.task.includes('donut')) }
+    ];
 
-    taskList.innerHTML = tasks.map((task, index) => `
-        <div class="task-item ${task.status === 'done' ? 'done' : ''}" data-index="${index}">
-            <div class="task-checkbox ${task.status === 'done' ? 'done' : ''}" onclick="toggleTask(${index})">
-                ${task.status === 'done' ? '&#10003;' : ''}
-            </div>
-            <div class="task-content">
-                <div class="task-title">${task.task}</div>
-                <div class="task-meta">
-                    ${task.assignee ? `Assigned: ${task.assignee}` : ''}
-                    ${task.due ? ` | Due: ${task.due}` : ''}
-                    ${task.priority ? `<span class="task-priority ${task.priority}">${task.priority}</span>` : ''}
-                </div>
-            </div>
+    // Collect all tasks that were placed in a section
+    const placed = new Set();
+    sections.forEach(s => s.tasks.forEach(t => placed.add(t)));
+
+    // Everything else
+    const remaining = weddingData.todos.filter(t => !placed.has(t));
+    if (remaining.length) sections.push({ title: 'Other', tasks: remaining });
+
+    taskList.innerHTML = sections.filter(s => s.tasks.length > 0).map(section => `
+        <div class="quick-card" style="margin-bottom:15px;">
+            <h3 style="font-size:0.95rem;margin-bottom:8px;">${section.title}</h3>
+            ${section.tasks.map(task => {
+                const done = task.status === 'done' || task.status === 'confirmed';
+                return `<div style="padding:5px 0;font-size:0.82rem;${done ? 'text-decoration:line-through;opacity:0.6;color:#6a9;' : 'color:var(--ivory-soft);'}border-bottom:1px solid rgba(255,255,255,0.05);">
+                    ${done ? '✓' : '•'} ${task.task}${task.assignee && !section.title.includes('Karen') && !section.title.includes('Cindy') && !section.title.includes('Danny') ? ` <span style="color:var(--pink-light);font-size:0.75rem;">(${task.assignee})</span>` : ''}${task.due ? ` <span style="color:var(--pink-light);font-size:0.75rem;">— ${task.due}</span>` : ''}
+                </div>`;
+            }).join('')}
         </div>
     `).join('');
 }
 
-function toggleTask(index) {
-    if (!weddingData) return;
-    const task = weddingData.todos[index];
-    task.status = task.status === 'done' ? 'not started' : 'done';
-    renderTasks(currentFilter);
-    saveData();
-}
-
-let currentFilter = 'all';
-
 function setupTaskFilters() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentFilter = btn.getAttribute('data-filter');
-            renderTasks(currentFilter);
-        });
-    });
+    // No longer needed - tasks are grouped by section
 }
 
 // Vendors
