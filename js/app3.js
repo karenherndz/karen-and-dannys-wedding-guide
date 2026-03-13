@@ -179,10 +179,17 @@ function applyAccessLevel() {
         if (docsNav) docsNav.classList.toggle('budget-hidden', !hasVendorDocs);
     }
 
-    // Ceremony tab: family + any vendor (all ceremony content is access-controlled)
+    // Ceremony tab: only for family + vendors involved in the ceremony
     const ceremonyNav = document.querySelector('.nav-item[data-section="ceremony"]');
-    const hasAnyCeremonyAccess = isFamily || !!vendorRoleForAccess;
+    const ceremonyVendorRoles = ['DJ', 'Piano', 'Photographer', 'Decor / Banners'];
+    const hasAnyCeremonyAccess = isFamily || (vendorRoleForAccess && ceremonyVendorRoles.includes(vendorRoleForAccess));
     if (ceremonyNav) ceremonyNav.classList.toggle('budget-hidden', !hasAnyCeremonyAccess);
+
+    // Logistics tab: family + vendors who need venue/location info
+    const logisticsNav = document.querySelector('.nav-item[data-section="logistics"]');
+    const logisticsVendorRoles = ['Caterer', 'DJ', 'Bartenders', 'Furniture Rentals', 'Decor / Banners', 'Photographer', 'Restroom Trailer', 'Rain Tent'];
+    const hasLogisticsAccess = isFamily || (vendorRoleForAccess && logisticsVendorRoles.includes(vendorRoleForAccess));
+    if (logisticsNav) logisticsNav.classList.toggle('budget-hidden', !hasLogisticsAccess);
 
     // People tab: visible to everyone (emergency contacts are public)
     // Logistics tab: visible to everyone (venue layout & locations are public)
