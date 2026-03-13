@@ -179,6 +179,14 @@ function applyAccessLevel() {
         if (docsNav) docsNav.classList.toggle('budget-hidden', !hasVendorDocs);
     }
 
+    // Ceremony tab: family + any vendor (all ceremony content is access-controlled)
+    const ceremonyNav = document.querySelector('.nav-item[data-section="ceremony"]');
+    const hasAnyCeremonyAccess = isFamily || !!vendorRoleForAccess;
+    if (ceremonyNav) ceremonyNav.classList.toggle('budget-hidden', !hasAnyCeremonyAccess);
+
+    // People tab: visible to everyone (emergency contacts are public)
+    // Logistics tab: visible to everyone (venue layout & locations are public)
+
     // Show/hide sections based on role
     const vendorRole = typeof currentUser === 'object' ? currentUser?.role : null;
     document.querySelectorAll('.vendor-section').forEach(el => {

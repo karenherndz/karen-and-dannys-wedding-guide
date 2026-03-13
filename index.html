@@ -30,9 +30,10 @@
 
     <nav class="nav">
         <a href="#schedule" class="nav-item active" data-section="schedule">Schedule</a>
-        <a href="#info" class="nav-item" data-section="info">Info</a>
+        <a href="#ceremony" class="nav-item" data-section="ceremony">Ceremony</a>
+        <a href="#people" class="nav-item" data-section="people">People</a>
+        <a href="#logistics" class="nav-item" data-section="logistics">Logistics</a>
         <a href="#vendors" class="nav-item" data-section="vendors">Vendors</a>
-        <a href="#contacts" class="nav-item" data-section="contacts">Contacts</a>
         <a href="#documents" class="nav-item" data-section="documents">Docs</a>
         <a href="#tasks" class="nav-item" data-section="tasks">Tasks</a>
     </nav>
@@ -58,27 +59,9 @@
             </div>
         </section>
 
-        <!-- Info Tab (everything else) -->
-        <section id="info" class="section">
-
-            <div class="quick-card">
-                <h3>Venue Layout & Eating Groups</h3>
-                <a href="documents/venue-layout.png" target="_blank">
-                    <img src="documents/venue-layout.png" alt="Venue Layout & Eating Groups" style="width:100%;border-radius:4px;">
-                </a>
-            </div>
-
-            <div class="quick-card vendor-section" data-access="family">
-                <h3>Seating Chart</h3>
-                <div id="seating-chart"></div>
-            </div>
-
-            <div class="quick-card">
-                <h3>Key Locations</h3>
-                <div id="locations-list"></div>
-            </div>
-
-            <h2 class="vendor-section" data-access="family,DJ,Piano,Photographer" style="margin-top:25px;">Ceremony</h2>
+        <!-- Ceremony Tab -->
+        <section id="ceremony" class="section">
+            <h2>Ceremony</h2>
 
             <div class="quick-card vendor-section" data-access="family,DJ,Piano,Photographer">
                 <h3>Processional Order</h3>
@@ -109,11 +92,14 @@
                 <h3>Speeches (6:15 PM - Must Finish by 6:45)</h3>
                 <div id="speeches-list"></div>
             </div>
+        </section>
 
-            <h2 class="vendor-section" data-access="family,Photographer" style="margin-top:25px;">People & Roles</h2>
+        <!-- People Tab -->
+        <section id="people" class="section">
+            <h2>People & Roles</h2>
 
             <div class="people-card vendor-section" data-access="family,Photographer">
-                <h3>Ceremony</h3>
+                <h3>Wedding Party</h3>
                 <div id="family-list"></div>
             </div>
 
@@ -132,7 +118,32 @@
                 <div id="flip-crew-list"></div>
             </div>
 
-            <h2 class="vendor-section" data-access="family" style="margin-top:25px;">Day-Of Details</h2>
+            <div class="quick-card vendor-section" data-access="family">
+                <h3>Seating Chart</h3>
+                <div id="seating-chart"></div>
+            </div>
+
+            <div class="quick-card">
+                <h3>Emergency Contacts</h3>
+                <div id="emergency-contacts"></div>
+            </div>
+        </section>
+
+        <!-- Logistics Tab -->
+        <section id="logistics" class="section">
+            <h2>Logistics</h2>
+
+            <div class="quick-card">
+                <h3>Venue Layout & Eating Groups</h3>
+                <a href="documents/venue-layout.png" target="_blank">
+                    <img src="documents/venue-layout.png" alt="Venue Layout & Eating Groups" style="width:100%;border-radius:4px;">
+                </a>
+            </div>
+
+            <div class="quick-card">
+                <h3>Key Locations</h3>
+                <div id="locations-list"></div>
+            </div>
 
             <div class="quick-card vendor-section" data-access="family">
                 <h3>Flower List</h3>
@@ -166,12 +177,6 @@
                 <h3>Vendor Arrival Times</h3>
                 <div id="arrival-times"></div>
             </div>
-        </section>
-
-        <!-- Contacts Tab -->
-        <section id="contacts" class="section">
-            <h2>Emergency Contacts</h2>
-            <div id="emergency-contacts"></div>
         </section>
 
         <!-- Documents Tab (planning crew sees all, vendors see their docs) -->
