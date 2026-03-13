@@ -27,8 +27,6 @@ const vendorNames = {
     'kuslan': 'Piano',
     'stephanie': 'Photographer',
     'terrant': 'Photographer',
-    'sophie': 'Tailor / Dress',
-    'tran': 'Tailor / Dress',
     'thomas': 'After Party Band',
     'glass': 'After Party Band',
     'branson': 'Bartenders',
@@ -215,12 +213,18 @@ function renderPersonalCard() {
     const items = [];
 
     // Check vendors for this person
+    let matchedVendor = null;
     if (weddingData.vendors) {
         weddingData.vendors.forEach(v => {
             const vendorText = `${v.name || ''} ${v.company || ''} ${v.role || ''}`.toLowerCase();
             if (vendorText.includes(lower)) {
+                matchedVendor = v;
                 items.push({ label: 'Your Role', text: v.role });
                 if (v.arrivalTime) items.push({ label: 'Arrival', text: v.arrivalTime });
+                // Venue address for on-site vendors
+                const venueAddress = '1024 Elysian Fields Avenue, New Orleans, LA 70118';
+                const mapsUrl = 'https://www.google.com/maps/dir/?api=1&destination=1024+Elysian+Fields+Avenue+New+Orleans+LA';
+                items.push({ label: 'Venue', text: `Industrial Gardens<br>${venueAddress}<br><a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-top:6px;">Get Directions</a>` });
                 if (v.notes) items.push({ label: 'Details', text: v.notes.replace(/\$[\d,]+(\.\d{2})?/g, '').replace(/deposit|paid|remainder|due|balance/gi, '').replace(/\s+/g, ' ').trim() });
                 if (v.phone) items.push({ label: 'Contact', text: `<a href="tel:${v.phone}" style="color:var(--pink-light);">${v.phone}</a>` });
             }
@@ -330,6 +334,30 @@ function renderPersonalCard() {
         return true;
     });
 
+    // Build vendor photos and layout images
+    let vendorExtras = '';
+    if (matchedVendor) {
+        // Show photos attached to vendor (e.g. restroom trailer hookup pics)
+        if (matchedVendor.photos) {
+            vendorExtras += `<div style="margin-top:16px;">
+                <span class="info-label">Reference Photos:</span>
+                ${matchedVendor.photos.map(p => `<a href="${p}" target="_blank"><img src="${p}" alt="Reference photo" style="width:100%;border-radius:4px;margin-top:8px;"></a>`).join('')}
+            </div>`;
+        }
+        // Show venue layout for setup vendors
+        const setupRoles = ['Caterer', 'DJ', 'Bartenders', 'Furniture Rentals', 'Decor / Banners', 'Restroom Trailer'];
+        if (setupRoles.includes(matchedVendor.role)) {
+            vendorExtras += `<div style="margin-top:16px;">
+                <span class="info-label">Venue Layout:</span>
+                <a href="documents/venue-layout.png" target="_blank"><img src="documents/venue-layout.png" alt="Venue Layout" style="width:100%;border-radius:4px;margin-top:8px;"></a>
+            </div>`;
+            vendorExtras += `<div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <a href="documents/floorplan-reception.png" target="_blank"><img src="documents/floorplan-reception.png" alt="Reception Floorplan" style="width:100%;border-radius:4px;"></a>
+                <a href="documents/floorplan-ceremony.png" target="_blank"><img src="documents/floorplan-ceremony.png" alt="Ceremony Floorplan" style="width:100%;border-radius:4px;"></a>
+            </div>`;
+        }
+    }
+
     card.innerHTML = `
         <h3>Your Info, ${userName}</h3>
         <div class="your-info">
@@ -338,6 +366,7 @@ function renderPersonalCard() {
                     <span class="info-label">${item.label}:</span> ${item.text}
                 </div>
             `).join('')}
+            ${vendorExtras}
         </div>
     `;
     card.style.display = 'block';
