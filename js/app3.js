@@ -44,6 +44,9 @@ const vendorContracts = {
         { name: 'Catering Rental Contract', file: 'documents/contract-catering-rental.pdf' },
         { name: 'Catering Rental Contract 2', file: 'documents/contract-catering-rental-2.pdf' }
     ],
+    'Photographer': [
+        { name: 'Stephanie Terrant Photography Contract', file: 'documents/contract-stephanie-photographer.pdf' }
+    ],
     'DJ': [
         { name: 'Lady B DJ Contract', file: 'documents/contract-lady-b.pdf' }
     ],
@@ -439,10 +442,14 @@ function setupNavigation() {
             const sectionId = item.getAttribute('data-section');
             const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
 
-            // Block planning tabs (tasks, docs) for non-planning crew
-            const planningTabs = ['tasks', 'documents'];
-            if (planningTabs.includes(sectionId) && !isPlanningCrew(userName)) {
+            // Block tasks tab for non-planning crew
+            if (sectionId === 'tasks' && !isPlanningCrew(userName)) {
                 return;
+            }
+            // Block docs tab unless planning crew or vendor with docs
+            if (sectionId === 'documents' && !isPlanningCrew(userName)) {
+                const vendorRole = typeof currentUser === 'object' ? currentUser?.role : null;
+                if (!vendorRole || !vendorContracts[vendorRole]) return;
             }
 
             // Update nav
@@ -1165,6 +1172,7 @@ function renderDocuments() {
         const allDocs = [
             { name: 'Venue Contract - Industrial Gardens', desc: 'PJI Industrial Garden', file: 'documents/venue-contract.pdf' },
             { name: '2B1L Catering Contract', desc: 'David Hargrove - Caterer', file: 'documents/contract-david-2b1l.pdf' },
+            { name: 'Stephanie Terrant Photography Contract', desc: 'Photographer', file: 'documents/contract-stephanie-photographer.pdf' },
             { name: 'Lady B DJ Contract', desc: 'DJ & Puerto Rican Second Line', file: 'documents/contract-lady-b.pdf' },
             { name: 'Branson Bartending Contract', desc: 'Bar Service', file: 'documents/contract-bronson.pdf' },
             { name: 'YUR Event Rental Contract', desc: 'Furniture & Rentals', file: 'documents/contract-yur-event-rental.pdf' },
