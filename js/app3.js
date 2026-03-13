@@ -564,6 +564,39 @@ function renderVendors() {
     const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
     const canSeeAllPrices = isPlanningCrew(userName);
 
+    // Simplified view for vendors/guests: just arrival time, name, business, phone
+    if (!canSeeAllPrices) {
+        const vendorsWithArrival = weddingData.vendors.filter(v => v.arrivalTime);
+        vendorsWithArrival.sort((a, b) => {
+            const parseTime = (str) => {
+                const match = str.match(/(\d{1,2}):?(\d{2})?\s*(AM|PM)/i);
+                if (!match) return 999;
+                let h = parseInt(match[1]);
+                const m = parseInt(match[2] || '0');
+                const pm = match[3].toUpperCase() === 'PM';
+                if (pm && h !== 12) h += 12;
+                if (!pm && h === 12) h = 0;
+                return h * 60 + m;
+            };
+            return parseTime(a.arrivalTime) - parseTime(b.arrivalTime);
+        });
+        vendorList.innerHTML = vendorsWithArrival.map(vendor => `
+            <div class="person-item">
+                <div>
+                    <span class="person-name">${vendor.name || vendor.company || 'TBD'}</span>
+                    ${vendor.company && vendor.name ? `<div style="font-size:0.85rem;color:var(--ivory-soft);">${vendor.company}</div>` : ''}
+                    <div style="font-size:0.75rem;color:var(--pink-medium);font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">${vendor.role}</div>
+                </div>
+                <div style="text-align:right;">
+                    <div style="font-size:0.85rem;color:var(--ivory-soft);">${vendor.arrivalTime}</div>
+                    ${vendor.phone ? `<div><a href="tel:${vendor.phone}">${vendor.phone}</a></div>` : ''}
+                    ${vendor.email ? `<div style="font-size:0.85rem;"><a href="mailto:${vendor.email}">${vendor.email}</a></div>` : ''}
+                </div>
+            </div>
+        `).join('');
+        return;
+    }
+
     vendorList.innerHTML = weddingData.vendors.map(vendor => {
         let statusClass = 'pending';
         if (vendor.status === 'booked') statusClass = 'booked';
@@ -574,24 +607,15 @@ function renderVendors() {
         const isMyVendorCard = accessLevel === 'vendor' &&
             currentUser && currentUser.role === vendor.role;
 
-        // Show price ONLY if:
-        // 1. Karen or Danny (budget access), OR
-        // 2. It's the vendor's own card AND that vendor has a cost
-        const showPrice = canSeeAllPrices || (isMyVendorCard && vendor.cost);
-
         // Check if current user's name appears in this vendor card
         const vendorText = `${vendor.name || ''} ${vendor.company || ''} ${vendor.role || ''}`.toLowerCase();
         const isPersonalized = userName && vendorText.includes(userName.toLowerCase());
 
-        // Strip any dollar amounts and payment terms from notes for non-price viewers
-        const sanitizedNotes = vendor.notes ?
-            vendor.notes.replace(/\$[\d,]+(\.\d{2})?/g, '').replace(/deposit|paid|remainder|due|balance/gi, '').replace(/\s+/g, ' ').trim() : '';
+        // Flower shows next to name if it's the user's card
+        const flowerMark = isPersonalized ? ' <span style="color:var(--pink-medium);">✿</span>' : '';
 
         // Check if vendor has contracts - show link to Docs tab
         const hasContracts = vendorContracts[vendor.role] && isMyVendorCard;
-
-        // Flower shows next to name if it's the user's card
-        const flowerMark = isPersonalized ? ' <span style="color:var(--pink-medium);">✿</span>' : '';
 
         return `
             <div class="vendor-card">
@@ -604,11 +628,10 @@ function renderVendors() {
                 </div>
                 <div class="vendor-details">
                     ${vendor.company && vendor.name ? `<p>${vendor.company}</p>` : ''}
-                    ${showPrice && vendor.cost ? `<p class="vendor-cost">$${vendor.cost.toLocaleString()}</p>` : ''}
+                    ${vendor.cost ? `<p class="vendor-cost">$${vendor.cost.toLocaleString()}</p>` : ''}
                     ${vendor.arrivalTime ? `<p>Arrives: ${vendor.arrivalTime}</p>` : ''}
                     ${vendor.phone ? `<p><a href="tel:${vendor.phone}">${vendor.phone}</a></p>` : ''}
-                    ${canSeeAllPrices && vendor.notes ? `<p style="font-size:0.85rem;">${vendor.notes}</p>` : ''}
-                    ${!canSeeAllPrices && sanitizedNotes ? `<p style="font-size:0.85rem;">${sanitizedNotes}</p>` : ''}
+                    ${vendor.notes ? `<p style="font-size:0.85rem;">${vendor.notes}</p>` : ''}
                     ${hasContracts ? `<p style="margin-top:10px;"><a href="#documents" class="directions-btn" onclick="document.querySelector('.nav-item[data-section=documents]').click()">View My Docs</a></p>` : ''}
                     ${vendor.photos ? vendor.photos.map(p => `<a href="${p}" target="_blank"><img src="${p}" alt="Reference photo" style="width:100%;border-radius:4px;margin-top:8px;"></a>`).join('') : ''}
                 </div>
