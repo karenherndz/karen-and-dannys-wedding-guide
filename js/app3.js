@@ -158,16 +158,12 @@ function applyAccessLevel() {
         if (docsNav) docsNav.classList.add('budget-hidden');
     }
 
-    // Family sees full Info tab; vendors/guests see simplified version
-    document.querySelectorAll('.family-only').forEach(el => {
-        el.style.display = isFamily ? '' : 'none';
-    });
-
-    // Ceremony section visible to family + Lady B (DJ handles ceremony sound)
+    // Show/hide sections based on role
     const vendorRole = typeof currentUser === 'object' ? currentUser?.role : null;
-    const canSeeCeremony = isFamily || vendorRole === 'DJ';
-    document.querySelectorAll('.ceremony-access').forEach(el => {
-        el.style.display = canSeeCeremony ? '' : 'none';
+    document.querySelectorAll('.vendor-section').forEach(el => {
+        const allowed = (el.dataset.access || '').split(',').map(s => s.trim());
+        const canSee = (isFamily && allowed.includes('family')) || (vendorRole && allowed.includes(vendorRole));
+        el.style.display = canSee ? '' : 'none';
     });
 }
 
