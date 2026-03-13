@@ -689,14 +689,24 @@ function renderSeatingChart() {
     });
 
     el.innerHTML = `
-        <p style="color:var(--ivory);margin-bottom:10px;font-size:0.85rem;"><strong>171 guests · 13 tables</strong></p>
-        ${allGuests.map(g => `
-            <div class="person-item">
-                <span class="person-name">${g.name}</span>
-                <span class="person-role">${g.table}</span>
-            </div>
-        `).join('')}
+        <input type="text" id="seating-search" placeholder="Search by name..." autocomplete="off" style="width:100%;padding:10px 12px;margin-bottom:12px;border:1px solid var(--pink-medium);border-radius:8px;background:rgba(255,255,255,0.08);color:var(--ivory);font-size:0.9rem;outline:none;">
+        <p style="color:var(--ivory);margin-bottom:10px;font-size:0.85rem;"><strong>${allGuests.length} guests · 13 tables</strong></p>
+        <div id="seating-list">
+            ${allGuests.map(g => `
+                <div class="person-item seating-entry" data-name="${g.name.toLowerCase()}">
+                    <span class="person-name">${g.name}</span>
+                    <span class="person-role">${g.table}</span>
+                </div>
+            `).join('')}
+        </div>
     `;
+
+    document.getElementById('seating-search').addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        document.querySelectorAll('.seating-entry').forEach(entry => {
+            entry.style.display = !q || entry.dataset.name.includes(q) ? '' : 'none';
+        });
+    });
 }
 
 // Day-Of Quick Reference
