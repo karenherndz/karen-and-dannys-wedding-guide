@@ -162,6 +162,13 @@ function applyAccessLevel() {
     document.querySelectorAll('.family-only').forEach(el => {
         el.style.display = isFamily ? '' : 'none';
     });
+
+    // Ceremony section visible to family + Lady B (DJ handles ceremony sound)
+    const vendorRole = typeof currentUser === 'object' ? currentUser?.role : null;
+    const canSeeCeremony = isFamily || vendorRole === 'DJ';
+    document.querySelectorAll('.ceremony-access').forEach(el => {
+        el.style.display = canSeeCeremony ? '' : 'none';
+    });
 }
 
 // Personalized info card
