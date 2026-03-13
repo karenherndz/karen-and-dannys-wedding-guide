@@ -147,6 +147,7 @@ function applyAccessLevel() {
     const docsNav = document.querySelector('.nav-item[data-section="documents"]');
     const userName = typeof currentUser === 'string' ? currentUser : currentUser?.name || '';
     const canSeePlanningTabs = isPlanningCrew(userName);
+    const isFamily = isFamilyMember(userName);
 
     // Planning crew sees Tasks and Docs
     if (canSeePlanningTabs) {
@@ -156,6 +157,11 @@ function applyAccessLevel() {
         if (tasksNav) tasksNav.classList.add('budget-hidden');
         if (docsNav) docsNav.classList.add('budget-hidden');
     }
+
+    // Family sees full Info tab; vendors/guests see simplified version
+    document.querySelectorAll('.family-only').forEach(el => {
+        el.style.display = isFamily ? '' : 'none';
+    });
 }
 
 // Personalized info card
