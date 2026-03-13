@@ -310,15 +310,15 @@ const WEDDING_DATA = {
     },
     {
       "role": "Makeup",
-      "name": "",
+      "name": "Candace",
       "company": "Glam Nola",
       "phone": "",
-      "email": "",
+      "email": "info@glam-nola.com",
       "cost": null,
       "paid": false,
       "arrivalTime": "",
-      "status": "contacted",
-      "notes": "Contacted, quote received."
+      "status": "booked",
+      "notes": ""
     },
     {
       "role": "Photo Booth",
