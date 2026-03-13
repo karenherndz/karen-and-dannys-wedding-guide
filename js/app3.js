@@ -32,14 +32,32 @@ const vendorNames = {
     'thomas': 'After Party Band',
     'glass': 'After Party Band',
     'branson': 'Bartenders',
-    'larkin': 'Rain Tent'
+    'larkin': 'Rain Tent',
+    'yur': 'Furniture Rentals',
+    'true value': 'Catering Equipment Rental',
+    'garrett': 'Restroom Trailer',
+    'beyond septic': 'Restroom Trailer'
 };
 
-// Map vendor roles to their contract files
+// Map vendor roles to their contract/doc files
 const vendorContracts = {
-    'Caterer': 'documents/contract-david-2b1l.pdf',
-    'DJ': 'documents/contract-lady-b.pdf',
-    'Bartenders': 'documents/contract-bronson.pdf'
+    'Caterer': [
+        { name: '2B1L Catering Contract', file: 'documents/contract-david-2b1l.pdf' },
+        { name: 'Catering Rental Contract', file: 'documents/contract-catering-rental.pdf' },
+        { name: 'Catering Rental Contract 2', file: 'documents/contract-catering-rental-2.pdf' }
+    ],
+    'DJ': [
+        { name: 'Lady B DJ Contract', file: 'documents/contract-lady-b.pdf' }
+    ],
+    'Bartenders': [
+        { name: 'Branson Bartending Contract', file: 'documents/contract-bronson.pdf' }
+    ],
+    'Furniture Rentals': [
+        { name: 'YUR Event Rental Contract', file: 'documents/contract-yur-event-rental.pdf' }
+    ],
+    'Rain Tent': [
+        { name: 'Venue Contract - Industrial Gardens', file: 'documents/venue-contract.pdf' }
+    ]
 };
 
 // Check if name matches family
@@ -149,13 +167,15 @@ function applyAccessLevel() {
     const canSeePlanningTabs = isPlanningCrew(userName);
     const isFamily = isFamilyMember(userName);
 
-    // Planning crew sees Tasks and Docs
+    // Planning crew sees Tasks; planning crew + vendors see Docs
+    const vendorRoleForAccess = typeof currentUser === 'object' ? currentUser?.role : null;
+    const hasVendorDocs = vendorRoleForAccess && vendorContracts[vendorRoleForAccess];
     if (canSeePlanningTabs) {
         if (tasksNav) tasksNav.classList.remove('budget-hidden');
         if (docsNav) docsNav.classList.remove('budget-hidden');
     } else {
         if (tasksNav) tasksNav.classList.add('budget-hidden');
-        if (docsNav) docsNav.classList.add('budget-hidden');
+        if (docsNav) docsNav.classList.toggle('budget-hidden', !hasVendorDocs);
     }
 
     // Show/hide sections based on role
@@ -558,9 +578,8 @@ function renderVendors() {
         const sanitizedNotes = vendor.notes ?
             vendor.notes.replace(/\$[\d,]+(\.\d{2})?/g, '').replace(/deposit|paid|remainder|due|balance/gi, '').replace(/\s+/g, ' ').trim() : '';
 
-        // Check if vendor has a contract - only show to the vendor themselves
-        const contractFile = vendorContracts[vendor.role];
-        const showContract = contractFile && isMyVendorCard;
+        // Check if vendor has contracts - show link to Docs tab
+        const hasContracts = vendorContracts[vendor.role] && isMyVendorCard;
 
         // Flower shows next to name if it's the user's card
         const flowerMark = isPersonalized ? ' <span style="color:var(--pink-medium);">✿</span>' : '';
@@ -581,7 +600,7 @@ function renderVendors() {
                     ${vendor.phone ? `<p><a href="tel:${vendor.phone}">${vendor.phone}</a></p>` : ''}
                     ${canSeeAllPrices && vendor.notes ? `<p style="font-size:0.85rem;">${vendor.notes}</p>` : ''}
                     ${!canSeeAllPrices && sanitizedNotes ? `<p style="font-size:0.85rem;">${sanitizedNotes}</p>` : ''}
-                    ${showContract ? `<p style="margin-top:10px;"><a href="${contractFile}" target="_blank" class="directions-btn">View My Contract</a></p>` : ''}
+                    ${hasContracts ? `<p style="margin-top:10px;"><a href="#documents" class="directions-btn" onclick="document.querySelector('.nav-item[data-section=documents]').click()">View My Docs</a></p>` : ''}
                     ${vendor.photos ? vendor.photos.map(p => `<a href="${p}" target="_blank"><img src="${p}" alt="Reference photo" style="width:100%;border-radius:4px;margin-top:8px;"></a>`).join('') : ''}
                 </div>
             </div>
@@ -909,108 +928,64 @@ function loadSavedData() {
     }
 }
 
-// Documents
+// Documents - planning crew sees all, vendors see only their docs
 function renderDocuments() {
-    const layoutDetails = document.getElementById('layout-details');
-    if (layoutDetails) {
-        layoutDetails.innerHTML = `
-            <div class="person-item">
-                <span class="person-name">Ceremony Seating</span>
-                <span class="person-role">170-188 Total</span>
-            </div>
-            <div style="font-size:0.85rem;color:var(--ivory-soft);padding:10px 0;border-bottom:1px solid rgba(245,240,230,0.15);">
-                Right: 52 (34 + 18) · Back: 64 · Main: 18 · Dance Floor: 36 · Courtyard: 18
-            </div>
-            <div class="person-item">
-                <span class="person-name">Tables to Move</span>
-                <span class="person-role">8 Round Tables (Yellow)</span>
-            </div>
-            <div style="font-size:0.85rem;color:var(--ivory-soft);padding:10px 0;border-bottom:1px solid rgba(245,240,230,0.15);">
-                Pre-decorated and ready to move. Flip all ceremony chairs to face tables for dinner.
-            </div>
-            <div class="person-item">
-                <span class="person-name">Bars</span>
-                <span class="person-role">2 Locations</span>
-            </div>
-            <div style="font-size:0.85rem;color:var(--ivory-soft);padding:10px 0;border-bottom:1px solid rgba(245,240,230,0.15);">
-                Ceremony space bar (sets up during flip) · Courtyard bar (open during cocktail hour)
-            </div>
-            <div class="person-item">
-                <span class="person-name">Photobooth</span>
-                <span class="person-role">14' x 5'</span>
-            </div>
-            <div class="person-item">
-                <span class="person-name">Seating Chart</span>
-                <span class="person-role">Near Entrance (5' x 2')</span>
-            </div>
-            <div class="person-item">
-                <span class="person-name">Soloist Position</span>
-                <span class="person-role">Sam Kuslan (Piano)</span>
-            </div>
-        `;
-    }
+    const docsContent = document.getElementById('docs-content');
+    if (!docsContent) return;
 
-    // Render contracts list
-    const contractsList = document.getElementById('contracts-list');
-    if (contractsList) {
-        contractsList.innerHTML = `
-            <a href="documents/venue-contract.pdf" target="_blank" class="doc-link">
-                <span class="doc-icon">📄</span>
-                <div class="doc-info">
-                    <div class="doc-name">Venue Contract - Industrial Gardens</div>
-                    <div class="doc-desc">PJI Industrial Garden - Ceremony & Reception</div>
-                </div>
-            </a>
-            <a href="documents/contract-david-2b1l.pdf" target="_blank" class="doc-link">
-                <span class="doc-icon">📄</span>
-                <div class="doc-info">
-                    <div class="doc-name">2B1L Catering Contract</div>
-                    <div class="doc-desc">David Hargrove - Caterer</div>
-                </div>
-            </a>
-            <a href="documents/contract-lady-b.pdf" target="_blank" class="doc-link">
-                <span class="doc-icon">📄</span>
-                <div class="doc-info">
-                    <div class="doc-name">Lady B DJ Contract</div>
-                    <div class="doc-desc">DJ & Puerto Rican Second Line</div>
-                </div>
-            </a>
-            <a href="documents/contract-bronson.pdf" target="_blank" class="doc-link">
-                <span class="doc-icon">📄</span>
-                <div class="doc-info">
-                    <div class="doc-name">Branson Bartending Contract</div>
-                    <div class="doc-desc">Bar Service</div>
-                </div>
-            </a>
-            <a href="documents/contract-yur-event-rental.pdf" target="_blank" class="doc-link">
-                <span class="doc-icon">📄</span>
-                <div class="doc-info">
-                    <div class="doc-name">YUR Event Rental Contract</div>
-                    <div class="doc-desc">Furniture & Rentals</div>
-                </div>
-            </a>
-            <a href="documents/contract-four-seasons-hotel-block.pdf" target="_blank" class="doc-link">
-                <span class="doc-icon">📄</span>
-                <div class="doc-info">
-                    <div class="doc-name">Four Seasons Hotel Block</div>
-                    <div class="doc-desc">Guest Accommodations</div>
-                </div>
-            </a>
-            <a href="documents/contract-catering-rental.pdf" target="_blank" class="doc-link">
-                <span class="doc-icon">📄</span>
-                <div class="doc-info">
-                    <div class="doc-name">Catering Rental Contract</div>
-                    <div class="doc-desc">Equipment Rental</div>
-                </div>
-            </a>
-            <a href="documents/contract-catering-rental-2.pdf" target="_blank" class="doc-link">
-                <span class="doc-icon">📄</span>
-                <div class="doc-info">
-                    <div class="doc-name">Catering Rental Contract 2</div>
-                    <div class="doc-desc">Additional Equipment</div>
-                </div>
-            </a>
+    const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
+    const vendorRole = typeof currentUser === 'object' ? currentUser?.role : null;
+
+    if (isPlanningCrew(userName)) {
+        // Planning crew sees everything
+        const allDocs = [
+            { name: 'Venue Contract - Industrial Gardens', desc: 'PJI Industrial Garden', file: 'documents/venue-contract.pdf' },
+            { name: '2B1L Catering Contract', desc: 'David Hargrove - Caterer', file: 'documents/contract-david-2b1l.pdf' },
+            { name: 'Lady B DJ Contract', desc: 'DJ & Puerto Rican Second Line', file: 'documents/contract-lady-b.pdf' },
+            { name: 'Branson Bartending Contract', desc: 'Bar Service', file: 'documents/contract-bronson.pdf' },
+            { name: 'YUR Event Rental Contract', desc: 'Furniture & Rentals', file: 'documents/contract-yur-event-rental.pdf' },
+            { name: 'Four Seasons Hotel Block', desc: 'Guest Accommodations', file: 'documents/contract-four-seasons-hotel-block.pdf' },
+            { name: 'Catering Rental Contract', desc: 'Equipment Rental', file: 'documents/contract-catering-rental.pdf' },
+            { name: 'Catering Rental Contract 2', desc: 'Additional Equipment', file: 'documents/contract-catering-rental-2.pdf' }
+        ];
+        docsContent.innerHTML = `
+            <div class="quick-card">
+                <h3>Venue Layout & Eating Groups</h3>
+                <a href="documents/venue-layout.png" target="_blank">
+                    <img src="documents/venue-layout.png" alt="Venue Layout & Eating Groups" style="width:100%;border-radius:4px;margin-bottom:15px;">
+                </a>
+            </div>
+            <div class="quick-card">
+                <h3>Contracts / Invoices</h3>
+                ${allDocs.map(d => `
+                    <a href="${d.file}" target="_blank" class="doc-link">
+                        <span class="doc-icon">📄</span>
+                        <div class="doc-info">
+                            <div class="doc-name">${d.name}</div>
+                            <div class="doc-desc">${d.desc}</div>
+                        </div>
+                    </a>
+                `).join('')}
+            </div>
         `;
+    } else if (vendorRole && vendorContracts[vendorRole]) {
+        // Vendor sees only their docs
+        const docs = vendorContracts[vendorRole];
+        docsContent.innerHTML = `
+            <div class="quick-card">
+                <h3>Your Documents</h3>
+                ${docs.map(d => `
+                    <a href="${d.file}" target="_blank" class="doc-link">
+                        <span class="doc-icon">📄</span>
+                        <div class="doc-info">
+                            <div class="doc-name">${d.name}</div>
+                        </div>
+                    </a>
+                `).join('')}
+            </div>
+        `;
+    } else {
+        docsContent.innerHTML = '<p style="color:var(--ivory-soft);">No documents available.</p>';
     }
 }
 

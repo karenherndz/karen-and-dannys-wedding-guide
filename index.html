@@ -12,8 +12,9 @@
     <div id="welcome-modal" class="welcome-modal">
         <div class="welcome-content">
             <h2>Welcome!</h2>
-            <p>What's your first name?</p>
-            <input type="text" id="name-input" placeholder="Enter your first name" autocomplete="off">
+            <p>What's your first name or business?</p>
+            <p style="font-size:0.8rem;color:var(--ivory-soft);margin-top:-5px;margin-bottom:10px;">(i.e. Larkin, YUR Event Rental, True Value Rental)</p>
+            <input type="text" id="name-input" placeholder="Enter your name or business" autocomplete="off">
             <button id="name-submit" class="welcome-btn">Enter</button>
         </div>
     </div>
@@ -31,8 +32,9 @@
         <a href="#schedule" class="nav-item active" data-section="schedule">Schedule</a>
         <a href="#info" class="nav-item" data-section="info">Info</a>
         <a href="#vendors" class="nav-item" data-section="vendors">Vendors</a>
-        <a href="#tasks" class="nav-item" data-section="tasks">Tasks</a>
+        <a href="#contacts" class="nav-item" data-section="contacts">Contacts</a>
         <a href="#documents" class="nav-item" data-section="documents">Docs</a>
+        <a href="#tasks" class="nav-item" data-section="tasks">Tasks</a>
     </nav>
 
     <main class="main">
@@ -58,11 +60,6 @@
 
         <!-- Info Tab (everything else) -->
         <section id="info" class="section">
-
-            <div class="quick-card emergency">
-                <h3>Emergency Contacts</h3>
-                <div id="emergency-contacts"></div>
-            </div>
 
             <div class="quick-card">
                 <h3>Venue Layout & Eating Groups</h3>
@@ -171,36 +168,22 @@
             </div>
         </section>
 
+        <!-- Contacts Tab -->
+        <section id="contacts" class="section">
+            <h2>Emergency Contacts</h2>
+            <div id="emergency-contacts"></div>
+        </section>
+
+        <!-- Documents Tab (planning crew sees all, vendors see their docs) -->
+        <section id="documents" class="section">
+            <h2>Documents</h2>
+            <div id="docs-content"></div>
+        </section>
+
         <!-- Tasks Tab (planning crew only) -->
         <section id="tasks" class="section">
             <h2>Master To-Do List</h2>
             <div id="task-list"></div>
-        </section>
-
-        <!-- Documents Tab (planning crew only) -->
-        <section id="documents" class="section">
-            <h2>Documents</h2>
-
-            <div class="quick-card">
-                <h3>Venue Layout & Eating Groups</h3>
-                <a href="documents/venue-layout.png" target="_blank">
-                    <img src="documents/venue-layout.png" alt="Venue Layout & Eating Groups" style="width:100%;border-radius:4px;margin-bottom:15px;">
-                </a>
-            </div>
-
-            <div class="quick-card">
-                <h3>Permits</h3>
-                <div id="permits-list">
-                    <p style="color:var(--ivory-soft);">Drop your permit PDFs in the /documents folder and I'll link them here.</p>
-                </div>
-            </div>
-
-            <div class="quick-card">
-                <h3>Contracts / Invoices</h3>
-                <div id="contracts-list">
-                    <p style="color:var(--ivory-soft);">Vendor contracts and agreements.</p>
-                </div>
-            </div>
         </section>
     </main>
 
