@@ -118,6 +118,7 @@ function handleNameSubmit(input, modal) {
         modal.classList.add('hidden');
         // Re-render to apply access level
         renderVendors();
+        renderDocuments();
         applyAccessLevel();
         renderPersonalCard();
     }
