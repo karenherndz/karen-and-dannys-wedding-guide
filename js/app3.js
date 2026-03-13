@@ -500,6 +500,8 @@ const vendorSchedules = {
             { time: '5:15 PM', event: 'Call eating groups to buffet', notes: 'Announce groups in order: Tables 10-13, Tables 6-9, Tables 4 & 5, Tables 2 & 3, Table 1.' },
             { time: '6:45 PM', event: "Danny's toast", notes: 'Jeanne signals Danny. Coordinate with Jeanne for timing (after buffet line dies down).' },
             { time: '7:30 PM', event: 'Dessert', notes: 'Milo announces cake. Cake and dessert table brought to dance floor.' },
+            { time: '8:25 PM', event: 'Last call', notes: 'Announce last call at the bar.' },
+            { time: '8:30 PM', event: 'Go with Karen to change', notes: 'Accompany Karen to change for the Parranda. Get Danny\'s pava hat.' },
             { time: '8:45 PM', event: 'Second line / Parranda', notes: 'Conclude music. Bomba dancers appear and guide everyone through the corridor for La Parranda (Puerto Rican second line). 5 min walk to No Dice for after party.' }
         ]
     },
@@ -536,7 +538,8 @@ const vendorSchedules = {
             { time: '3:45 PM', event: 'Ceremony ends — pour champagne', notes: 'Immediately begin pouring champagne and laying it out by the bar for the cocktail hour toast.' },
             { time: '3:50 PM', event: 'Courtyard bar opens', notes: 'Cocktail hour in courtyard while room flips. Serve drinks.' },
             { time: '4:30 PM', event: 'Ceremony space bar opens', notes: 'Room flip complete. Both bars operational.' },
-            { time: '8:45 PM', event: 'Last call & wrap up', notes: 'Event concludes. Second line departs for after party. Robert\'s grocery across the street can refill ice/water/liquor if compensated. We provide: all alcohol, all cocktail ingredients, 2 carafes for passion fruit cocktail, 2 carafes for ice + small tables, all ice, gallons of Ozarka water (in fridge).' }
+            { time: '8:25 PM', event: 'Last call', notes: 'Announce last call.' },
+            { time: '8:45 PM', event: 'Wrap up', notes: 'Event concludes. Second line departs for after party. We provide: all alcohol, all cocktail ingredients, 2 carafes for passion fruit cocktail, 2 carafes for ice + small tables, all ice, gallons of Ozarka water (in fridge).' }
         ]
     },
     'Furniture Rentals': {
