@@ -169,7 +169,7 @@ const WEDDING_DATA = {
     },
     {
       "role": "DJ, Ritmeaux Krewe & Puerto Rican Second Line",
-      "name": "Lady B",
+      "name": "Bianca (Lady B)",
       "company": "",
       "phone": "(504) 214-8105",
       "email": "",
