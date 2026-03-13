@@ -459,6 +459,123 @@ function setupNavigation() {
     });
 }
 
+// Vendor-specific schedules
+const vendorSchedules = {
+    'Photographer': {
+        title: 'Photography Schedule',
+        subtitle: 'Saturday, April 11',
+        events: [
+            { time: '1:45 PM', event: 'Arrive at venue', notes: 'Coming from Hotel Peter and Paul. Bring flowers to venue.' },
+            { time: '2:00 PM', event: 'Beauty shots & first look', notes: 'Karen & Danny first look at the venue.' },
+            { time: '2:00 - 2:30 PM', event: 'Nuclear family photos', notes: "Karen's nuclear family photos. Danny's nuclear family photos. Entire bridal party photos." },
+            { time: '2:30 - 3:00 PM', event: 'Break', notes: 'Wedding party doing touch-ups in conference room.' },
+            { time: '3:00 PM', event: 'Ceremony begins', notes: 'Ceremony coverage. Processional from back garden door.' },
+            { time: '3:45 PM', event: 'Ceremony ends' },
+            { time: '3:45 - 4:00 PM', event: 'Bridal photos', notes: 'Karen and Danny sneak away for 15 minutes of bridal photos.' },
+            { time: '4:00 PM', event: 'Family & group photos', notes: "Karen's Family, Pelleranos, Hernandez (Aba, Tio Javier), Hernandez-Riveras (Titi Sonia), Williams (Grambo, Marsha, Doug, Dave, Amanda, Ellison, Jose D), Mom's Friends (Michelle, Liron, Adina, Pam, Karen White), Karen's Flower Girls, Mady & Kelsey, Danny's Family, Ames, Whitmers, Mieczkowskis & Jody, Ansons, Selkes, Danny's Friends. After photos: Karen and Danny escape for a private moment and bustle Karen's dress." },
+            { time: '4:55 PM', event: 'First dance', notes: 'Virgen - Adolescent Orchestra. Parents dance first, then bride & groom.' },
+            { time: '6:45 PM', event: "Danny's toast" },
+            { time: '7:30 PM', event: 'Cake cutting', notes: 'Milo announces cake.' },
+            { time: '8:45 PM', event: 'Second line departure', notes: 'Bomba dancers lead everyone through corridor for La Parranda. Depart after second line.' }
+        ]
+    },
+    'DJ': {
+        title: 'MC / DJ Schedule',
+        subtitle: 'Saturday, April 11',
+        events: [
+            { time: '1:00 PM', event: 'Arrive & set up', notes: 'Set up PA for ceremony and reception. Handheld mic with stand (we provide mic stand). Coordinate with Sam Kuslan (piano) who arrives at 2:00 PM.' },
+            { time: '2:40 PM', event: 'Prelude music begins', notes: 'Play Kamasi Washington - Harmony of Difference album while guests arrive and mingle.' },
+            { time: '3:00 PM', event: 'Ceremony begins', notes: 'Sam Kuslan plays piano for processional: "I Can\'t Believe The Way We Flow" (James Blake). Bride\'s processional: "There Goes My Baby" (Charlie Wilson). Ceremony is ~45 minutes.' },
+            { time: '3:45 PM', event: 'Recessional', notes: 'Play Gal Costa - Cuidando de Longe for recessional.' },
+            { time: '3:50 PM', event: 'Cocktail hour music', notes: "Play Danny's cocktail hour playlist (jazz fusion). Sam packs up piano during this time. Courtyard bar is open." },
+            { time: '4:30 PM', event: 'Room flip complete', notes: 'Champagne poured and laid out by the bar.' },
+            { time: '4:55 PM', event: 'First dance', notes: 'Announce guests to find seats. Announce the couple. Play Everlasting Love - Natalie Cole as prelude. Beckon all to dance floor. Parents dance first, then bride & groom. First dance: Virgen - Adolescent Orchestra. Kick music into full gear!' },
+            { time: '5:15 PM', event: 'Call eating groups to buffet', notes: 'Announce groups in order: Tables 10-13, Tables 6-9, Tables 4 & 5, Tables 2 & 3, Table 1.' },
+            { time: '6:45 PM', event: "Danny's toast", notes: 'Jeanne signals Danny. Coordinate with Jeanne for timing (after buffet line dies down).' },
+            { time: '7:30 PM', event: 'Dessert', notes: 'Milo announces cake. Cake and dessert table brought to dance floor.' },
+            { time: '8:45 PM', event: 'Second line / Parranda', notes: 'Conclude music. Bomba dancers appear and guide everyone through the corridor for La Parranda (Puerto Rican second line). 5 min walk to No Dice for after party.' }
+        ]
+    },
+    'Piano': {
+        title: 'Piano Schedule',
+        subtitle: 'Saturday, April 11',
+        events: [
+            { time: '2:00 PM', event: 'Arrive & set up', notes: 'Bring your own amp. Set up for ceremony.' },
+            { time: '2:40 PM', event: 'Prelude begins', notes: 'DJ handles prelude music (Kamasi Washington). Stand by.' },
+            { time: '3:15 PM', event: 'Processional', notes: 'Play "I Can\'t Believe The Way We Flow" (James Blake) for processional.' },
+            { time: 'Bride enters', event: "Bride's processional", notes: 'Switch to "There Goes My Baby" (Charlie Wilson) when bride enters.' },
+            { time: 'After ceremony', event: 'Pack up', notes: 'DJ plays recessional (Gal Costa). Pack up piano during cocktail hour / room flip.' }
+        ]
+    },
+    'Caterer': {
+        title: 'Catering Schedule',
+        subtitle: 'Saturday, April 11',
+        events: [
+            { time: 'Morning', event: 'Arrive & set up', notes: 'Set up ~10x10 ft space on the street (confirm exact location with PJI). 180 guests total.' },
+            { time: '3:00 - 3:45 PM', event: 'Ceremony in progress', notes: 'Guests are seated for ceremony. Stay clear of ceremony area.' },
+            { time: '3:50 PM', event: 'Cocktail hour begins', notes: 'Guests move to courtyard during room flip.' },
+            { time: '4:30 PM', event: 'Room flip complete', notes: 'Tables are set. Buffet area ready.' },
+            { time: '5:15 PM', event: 'Buffet opens', notes: 'DJ calls eating groups in order: Tables 10-13, Tables 6-9, Tables 4 & 5, Tables 2 & 3, Table 1.' },
+            { time: '7:30 PM', event: 'Dessert', notes: 'Cake and dessert table brought to the dance floor.' },
+            { time: '8:45 PM', event: 'Event ends', notes: 'Box leftovers for Titi Amri\'s family (maduros, ropa vieja, jerk chicken, rice and peas, stewed cabbage). Dishwash, bus, and disassemble buffet.' }
+        ]
+    },
+    'Bartenders': {
+        title: 'Bar Schedule',
+        subtitle: 'Saturday, April 11',
+        events: [
+            { time: '2:00 PM', event: 'Arrive & set up', notes: '2 bar locations: courtyard bar (opens during cocktail hour) and ceremony space bar (sets up during room flip). 180 guests, 145-150 drinking. You bring: bar tools, mats, shakers, strainers, ice bucket, wine/beer keys, fruit + garnishes, straws.' },
+            { time: '3:00 - 3:45 PM', event: 'Ceremony', notes: 'Ceremony in progress. Bars closed.' },
+            { time: '3:45 PM', event: 'Ceremony ends — pour champagne', notes: 'Immediately begin pouring champagne and laying it out by the bar for the cocktail hour toast.' },
+            { time: '3:50 PM', event: 'Courtyard bar opens', notes: 'Cocktail hour in courtyard while room flips. Serve drinks.' },
+            { time: '4:30 PM', event: 'Ceremony space bar opens', notes: 'Room flip complete. Both bars operational.' },
+            { time: '8:45 PM', event: 'Last call & wrap up', notes: 'Event concludes. Second line departs for after party. Robert\'s grocery across the street can refill ice/water/liquor if compensated. We provide: all alcohol, all cocktail ingredients, 2 carafes for passion fruit cocktail, 2 carafes for ice + small tables, all ice, gallons of Ozarka water (in fridge).' }
+        ]
+    },
+    'Furniture Rentals': {
+        title: 'Furniture Delivery Schedule',
+        subtitle: 'Saturday, April 11',
+        events: [
+            { time: '12:00 PM', event: 'Deliver & set up', notes: '170 fruitwood folding chairs w/ seat pads, 2 wood alpine bars, 12 banquet tables (8\'), 7 round tables (60"), 6 adjustable rounds (30"), 12 chocolate linens (90x156), 13 chocolate linens (120" round), 3 trash cans. Includes setup/breakdown.' },
+            { time: '8:50 PM', event: 'Pickup', notes: 'Reclaim all equipment. Pickup contact: Jeanne Gallo (312) 882-2087.' }
+        ]
+    },
+    'Decor / Banners': {
+        title: 'Decor Schedule',
+        subtitle: 'Friday & Saturday',
+        events: [
+            { time: 'Friday 1:00 PM', event: 'Rehearsal — banner setup', notes: 'Set up banners in main ceremony room at Industrial Gardens during rehearsal.' },
+            { time: 'Saturday 12:00 PM', event: 'Arrive for Saturday setup', notes: 'Altar draping with staghorn fern. Install remaining banners and decor.' },
+            { time: '3:00 PM', event: 'Ceremony begins', notes: 'Setup complete before guests arrive at 2:45 PM.' }
+        ]
+    },
+    'Restroom Trailer': {
+        title: 'Restroom Trailer Schedule',
+        subtitle: 'Saturday, April 11',
+        events: [
+            { time: 'Morning', event: 'Deliver trailer', notes: 'Setup location: Elysian Fields Ave parking lot. Liz will meet you to move her car from the parking spot. Hookup needed at hitch end of trailer (see photos below).' },
+            { time: 'All day', event: 'Available for guests', notes: '3-stall restroom trailer. ~180 guests.' },
+            { time: 'After 8:45 PM', event: 'Pickup', notes: 'Event concludes at 8:45 PM. Trailer taken back.' }
+        ]
+    },
+    'After Party Band': {
+        title: 'After Party Schedule',
+        subtitle: 'Saturday, April 11 — No Dice',
+        events: [
+            { time: '8:45 PM', event: 'Second line arrives', notes: 'Guests arrive via Puerto Rican second line from Industrial Gardens (~5 min walk). Be set up and ready.' },
+            { time: '9:00 PM', event: 'Thomas Glass Band plays', notes: 'Live set at No Dice.' },
+            { time: '10:45 PM', event: 'Set done', notes: 'DJs ET Deaux & Kagan take over B2B 11:00 PM - 1:00 AM.' }
+        ]
+    },
+    'Rain Tent': {
+        title: 'Tent Schedule',
+        subtitle: 'Saturday, April 11 (if needed)',
+        events: [
+            { time: 'TBD', event: 'Rain contingency setup', notes: 'Tenting for rain contingency at Industrial Gardens, 1024 Elysian Fields Avenue.' }
+        ]
+    }
+};
+
 // Timeline
 function renderTimeline() {
     if (!weddingData || !weddingData.timeline) return;
@@ -466,6 +583,8 @@ function renderTimeline() {
     const fridayEl = document.getElementById('friday-timeline');
     const saturdayEl = document.getElementById('saturday-timeline');
     const sundayEl = document.getElementById('sunday-timeline');
+    const vendorScheduleEl = document.getElementById('vendor-schedule');
+    const saturdayCard = document.getElementById('saturday-card');
 
     function formatNotes(notes) {
         if (!notes) return '';
@@ -473,6 +592,43 @@ function renderTimeline() {
         if (items.length <= 1) return `<div class="timeline-notes">${notes}</div>`;
         return `<ul class="timeline-notes-list">${items.map(i => `<li>${i}</li>`).join('')}</ul>`;
     }
+
+    // Check if vendor has a custom schedule
+    const vendorRole = typeof currentUser === 'object' ? currentUser?.role : null;
+    if (vendorRole && vendorSchedules[vendorRole] && vendorScheduleEl) {
+        const schedule = vendorSchedules[vendorRole];
+        const matchedVendor = weddingData.vendors ? weddingData.vendors.find(v => v.role === vendorRole) : null;
+
+        vendorScheduleEl.innerHTML = `
+            <div class="day-card">
+                <h3>${schedule.title}</h3>
+                <p style="color:var(--ivory-soft);margin-bottom:20px;margin-top:-10px;">${schedule.subtitle} · Industrial Gardens<br>1024 Elysian Fields Avenue, New Orleans, LA 70118</p>
+                <div class="timeline-list">
+                    ${schedule.events.map(item => `
+                        <div class="timeline-item">
+                            <div class="timeline-time">${item.time}</div>
+                            <div class="timeline-content">
+                                <div class="timeline-event">${item.event}</div>
+                                ${item.notes ? formatNotes(item.notes) : ''}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                ${matchedVendor && matchedVendor.photos ? `
+                    <div style="margin-top:20px;">
+                        ${matchedVendor.photos.map(p => `<a href="${p}" target="_blank"><img src="${p}" alt="Reference photo" style="width:100%;border-radius:4px;margin-top:8px;"></a>`).join('')}
+                    </div>
+                ` : ''}
+            </div>
+        `;
+        vendorScheduleEl.style.display = 'block';
+        if (saturdayCard) saturdayCard.style.display = 'none';
+        return;
+    }
+
+    // Family / guest: show full timeline
+    if (vendorScheduleEl) vendorScheduleEl.style.display = 'none';
+    if (saturdayCard) saturdayCard.style.display = '';
 
     function renderTimelineDay(el, events) {
         if (!el || !events) return;
