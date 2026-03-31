@@ -670,22 +670,34 @@ function renderMasterTimeline() {
     // Build a timeline row in the grid
     function renderRow(item, dayKey, index) {
         const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
-        const itemText = `${item.who || ''} ${item.notes || ''}`.toLowerCase();
+        const itemText = `${item.who || ''} ${item.notes || ''} ${(item.bullets || []).join(' ')}`.toLowerCase();
         const isPersonalized = userName && itemText.includes(userName.toLowerCase());
         const noteKey = `${dayKey}-${index}-notes`;
         const eventKey = `${dayKey}-${index}-event`;
-        const whoKey = `${dayKey}-${index}-who`;
 
-        // Section sub-header (full-width, like Google Doc)
+        // Section header (full-width, matching PDF)
         let sectionHeader = '';
         if (item.section) {
             sectionHeader = `<div class="mt-section-header"><h4>${item.section}</h4></div>`;
         }
 
-        let detailHTML = `<div class="mt-event">${e(eventKey, item.event)}</div>`;
-        detailHTML += `<div class="mt-location">${item.location}</div>`;
-        if (item.who) {
-            detailHTML += `<div class="mt-who">${e(whoKey, item.who)}</div>`;
+        // Left column: event label + time (matching PDF left column)
+        let timeHTML = '';
+        if (item.event) {
+            timeHTML += `<div class="mt-time-label">${e(eventKey, item.event)}</div>`;
+        }
+        timeHTML += `<div class="mt-time-clock">${e(dayKey + '-' + index + '-time', item.time)}</div>`;
+        if (item.leftLabels) {
+            item.leftLabels.forEach((lbl) => {
+                if (lbl.event) timeHTML += `<div class="mt-time-label" style="margin-top:12px;">${lbl.event}</div>`;
+                if (lbl.time) timeHTML += `<div class="mt-time-clock">${lbl.time}</div>`;
+            });
+        }
+
+        // Right column: notes + groupPhotos + bullets (matching PDF right column)
+        let detailHTML = '';
+        if (item.notes) {
+            detailHTML += renderNotes(item.notes, noteKey);
         }
         if (item.groupPhotos) {
             detailHTML += `<ul class="mt-bullets">${item.groupPhotos.map(g => `<li>${g}</li>`).join('')}</ul>`;
@@ -696,14 +708,11 @@ function renderMasterTimeline() {
                 return `<li>${e(bk, b)}</li>`;
             }).join('')}</ul>`;
         }
-        if (item.notes) {
-            detailHTML += renderNotes(item.notes, noteKey);
-        }
 
         return `
             ${sectionHeader}
             <div class="mt-row${isPersonalized ? ' mt-highlight' : ''}">
-                <div class="mt-time">${e(dayKey + '-' + index + '-time', item.time)}</div>
+                <div class="mt-time">${timeHTML}</div>
                 <div class="mt-detail">${detailHTML}</div>
             </div>
         `;
