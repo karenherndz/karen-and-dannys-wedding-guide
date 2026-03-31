@@ -1193,6 +1193,13 @@ a:hover {
     font-weight: 600;
 }
 
+.mt-notes {
+    font-size: 0.82rem;
+    color: var(--ivory-soft);
+    line-height: 1.6;
+    margin-top: 6px;
+}
+
 /* Section dividers within the grid */
 .mt-section-header {
     grid-column: 1 / -1;

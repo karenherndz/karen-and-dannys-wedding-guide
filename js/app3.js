@@ -619,15 +619,13 @@ function renderMasterTimeline() {
         return display;
     }
 
-    // Split notes into bullet items
-    function toBullets(notes, key) {
+    // Render notes as text (no auto-splitting)
+    function renderNotes(notes, key) {
         if (!notes) return '';
-        const items = notes.split(/\.\s+/).map(s => s.replace(/\.$/, '').trim()).filter(s => s.length > 0);
         if (editable) {
-            return `<ul class="mt-bullets"><li contenteditable="true" class="editable-field" data-edit-key="${key}" onblur="saveTimelineEdit('${key}', this.innerText)">${getTimelineEdit(key) || notes}</li></ul>`;
+            return `<div class="mt-notes" contenteditable="true" class="editable-field" data-edit-key="${key}" onblur="saveTimelineEdit('${key}', this.innerText)">${getTimelineEdit(key) || notes}</div>`;
         }
-        if (items.length <= 1) return `<ul class="mt-bullets"><li>${notes}</li></ul>`;
-        return `<ul class="mt-bullets">${items.map(i => `<li>${i}</li>`).join('')}</ul>`;
+        return `<div class="mt-notes">${notes}</div>`;
     }
 
     // Check if vendor has a custom schedule
@@ -647,7 +645,7 @@ function renderMasterTimeline() {
                         <div class="mt-time">${item.time}</div>
                         <div class="mt-detail">
                             <div class="mt-event">${item.event}</div>
-                            ${item.notes ? `<ul class="mt-bullets">${item.notes.split(/\.\s+/).map(s => s.replace(/\.$/, '').trim()).filter(s => s).map(s => `<li>${s}</li>`).join('')}</ul>` : ''}
+                            ${item.notes ? `<div class="mt-notes">${item.notes}</div>` : ''}
                         </div>
                     </div>
                 `).join('')}
@@ -678,6 +676,12 @@ function renderMasterTimeline() {
         const eventKey = `${dayKey}-${index}-event`;
         const whoKey = `${dayKey}-${index}-who`;
 
+        // Section sub-header (full-width, like Google Doc)
+        let sectionHeader = '';
+        if (item.section) {
+            sectionHeader = `<div class="mt-section-header"><h4>${item.section}</h4></div>`;
+        }
+
         let detailHTML = `<div class="mt-event">${e(eventKey, item.event)}</div>`;
         detailHTML += `<div class="mt-location">${item.location}</div>`;
         if (item.who) {
@@ -687,10 +691,11 @@ function renderMasterTimeline() {
             detailHTML += `<ul class="mt-bullets">${item.groupPhotos.map(g => `<li>${g}</li>`).join('')}</ul>`;
         }
         if (item.notes) {
-            detailHTML += toBullets(item.notes, noteKey);
+            detailHTML += renderNotes(item.notes, noteKey);
         }
 
         return `
+            ${sectionHeader}
             <div class="mt-row${isPersonalized ? ' mt-highlight' : ''}">
                 <div class="mt-time">${e(dayKey + '-' + index + '-time', item.time)}</div>
                 <div class="mt-detail">${detailHTML}</div>
