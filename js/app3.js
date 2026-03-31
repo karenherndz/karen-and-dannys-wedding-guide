@@ -703,76 +703,6 @@ function renderMasterTimeline() {
         `;
     }
 
-    // Build ceremony detail rows (inline within Saturday grid)
-    function buildCeremonyRows() {
-        if (!weddingData.ceremony || !isFamily) return '';
-        const c = weddingData.ceremony;
-        let rows = '';
-
-        // Ceremony Details header
-        rows += `<div class="mt-section-header"><h4>Ceremony Details</h4></div>`;
-
-        // Processional
-        if (c.processional) {
-            rows += `<div class="mt-row">
-                <div class="mt-time">Processional</div>
-                <div class="mt-detail">
-                    <div class="mt-event">Processional Order</div>
-                    <ol class="mt-numbered">${c.processional.map((step, i) => `<li>${e('processional-' + i, step)}</li>`).join('')}</ol>
-                    ${c.notes ? `<ul class="mt-bullets"><li>${e('ceremony-notes', c.notes)}</li></ul>` : ''}
-                </div>
-            </div>`;
-        }
-
-        // Program
-        if (c.program) {
-            rows += `<div class="mt-row">
-                <div class="mt-time">Program</div>
-                <div class="mt-detail">
-                    <div class="mt-event">Ceremony Program</div>
-                    <ol class="mt-numbered">${c.program.map((step, i) => `<li>${e('program-' + i, step)}</li>`).join('')}</ol>
-                </div>
-            </div>`;
-        }
-
-        // Music
-        rows += `<div class="mt-row">
-            <div class="mt-time">Music</div>
-            <div class="mt-detail">
-                <div class="mt-kv"><span class="mt-kv-label">Prelude</span><span class="mt-kv-value">${e('music-prelude', c.preludeMusic || 'TBD')}</span></div>
-                <div class="mt-kv"><span class="mt-kv-label">Processional</span><span class="mt-kv-value">${e('music-processional', c.processionalMusic || 'TBD')}</span></div>
-                <div class="mt-kv"><span class="mt-kv-label">Bride's Processional</span><span class="mt-kv-value">${e('music-bride', c.brideProcessionalMusic || 'TBD')}</span></div>
-                <div class="mt-kv"><span class="mt-kv-label">Recessional</span><span class="mt-kv-value">${e('music-recessional', c.recessionalMusic || 'TBD')}</span></div>
-                <div class="mt-kv"><span class="mt-kv-label">First Dance</span><span class="mt-kv-value">${e('music-first-dance', weddingData.dances?.firstDance?.song || 'TBD')}</span></div>
-            </div>
-        </div>`;
-
-        // Recessional
-        if (c.recessionalOrder) {
-            rows += `<div class="mt-row">
-                <div class="mt-time">Recessional</div>
-                <div class="mt-detail">
-                    <div class="mt-event">Recessional Order</div>
-                    <ol class="mt-numbered">${c.recessionalOrder.map((step, i) => `<li>${e('recessional-' + i, step)}</li>`).join('')}</ol>
-                </div>
-            </div>`;
-        }
-
-        return rows;
-    }
-
-    // Build speeches row
-    function buildSpeechesRow() {
-        if (!weddingData.speeches?.order || !isFamily) return '';
-        return `<div class="mt-row">
-            <div class="mt-time">6:45 PM</div>
-            <div class="mt-detail">
-                <div class="mt-event">Danny's Toast</div>
-                <ul class="mt-bullets"><li>${e('speech-notes', weddingData.speeches.notes || '')}</li></ul>
-            </div>
-        </div>`;
-    }
-
     // Build vendor contacts section
     function buildVendorContacts() {
         if (!weddingData.vendors || !isFamily) return '';
@@ -798,18 +728,11 @@ function renderMasterTimeline() {
         `;
     }
 
-    // Find ceremony insert point
+    // Build Saturday rows - straight from data, matching Google Doc order
     const satEvents = weddingData.timeline?.saturday || [];
-    let ceremonyInsertIndex = satEvents.findIndex(ev => ev.event && ev.event.toUpperCase().includes('CEREMONY'));
-    if (ceremonyInsertIndex === -1) ceremonyInsertIndex = 3;
-
-    // Build Saturday rows
     let saturdayRows = '';
     satEvents.forEach((item, i) => {
         saturdayRows += renderRow(item, 'saturday', i);
-        if (i === ceremonyInsertIndex) {
-            saturdayRows += buildCeremonyRows();
-        }
     });
 
     // Editable indicator
