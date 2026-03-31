@@ -180,12 +180,6 @@ function applyAccessLevel() {
         if (docsNav) docsNav.classList.toggle('budget-hidden', !hasVendorDocs);
     }
 
-    // Ceremony tab: only for family + vendors involved in the ceremony
-    const ceremonyNav = document.querySelector('.nav-item[data-section="ceremony"]');
-    const ceremonyVendorRoles = ['DJ', 'Piano', 'Photographer', 'Decor / Banners'];
-    const hasAnyCeremonyAccess = isFamily || (vendorRoleForAccess && ceremonyVendorRoles.includes(vendorRoleForAccess));
-    if (ceremonyNav) ceremonyNav.classList.toggle('budget-hidden', !hasAnyCeremonyAccess);
-
     // Logistics tab: family + vendors who need venue/location info
     const logisticsNav = document.querySelector('.nav-item[data-section="logistics"]');
     const logisticsVendorRoles = ['Caterer', 'DJ', 'Bartenders', 'Furniture Rentals', 'Decor / Banners', 'Photographer', 'Restroom Trailer', 'Rain Tent'];
@@ -225,7 +219,7 @@ function renderPersonalCard() {
                 items.push({ label: 'Your Role', text: v.role });
                 if (v.arrivalTime) items.push({ label: 'Arrival', text: v.arrivalTime });
                 // Venue address for on-site vendors
-                const venueAddress = '1024 Elysian Fields Avenue, New Orleans, LA 70118';
+                const venueAddress = '1024 Elysian Fields Avenue, New Orleans, LA 70117';
                 const mapsUrl = 'https://www.google.com/maps/dir/?api=1&destination=1024+Elysian+Fields+Avenue+New+Orleans+LA';
                 items.push({ label: 'Venue', text: `Industrial Gardens<br>${venueAddress}<br><a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-top:6px;">Get Directions</a>` });
                 if (v.notes) items.push({ label: 'Details', text: v.notes.replace(/\$[\d,]+(\.\d{2})?/g, '').replace(/deposit|paid|remainder|due|balance/gi, '').replace(/\s+/g, ' ').trim() });
@@ -400,8 +394,7 @@ function initApp() {
     updateCountdown();
     setInterval(updateCountdown, 60000); // Update every minute
 
-    renderTimeline();
-    renderCeremony();
+    renderMasterTimeline();
     renderTasks();
     renderVendors();
     renderPeople();
@@ -480,7 +473,7 @@ const vendorSchedules = {
             { time: '3:45 PM', event: 'Ceremony ends' },
             { time: '3:45 - 4:00 PM', event: 'Bridal photos', notes: 'Karen and Danny sneak away for 15 minutes of bridal photos.' },
             { time: '4:00 PM', event: 'Family & group photos', notes: "Karen's Family, Pelleranos, Hernandez (Aba, Tio Javier), Hernandez-Riveras (Titi Sonia), Williams (Grambo, Marsha, Doug, Dave, Amanda, Ellison, Jose D), Mom's Friends (Michelle, Liron, Adina, Pam, Karen White), Karen's Flower Girls, Mady & Kelsey, Danny's Family, Ames, Whitmers, Mieczkowskis & Jody, Ansons, Selkes, Danny's Friends. After photos: Karen and Danny escape for a private moment and bustle Karen's dress." },
-            { time: '4:55 PM', event: 'First dance', notes: 'Virgen - Adolescent Orchestra. Parents dance first, then bride & groom.' },
+            { time: '4:55 PM', event: 'First dance', notes: 'Virgen - Adolescent Orchestra. Jose & Karen first, Danny & Cindy join, then Karen & Danny dance.' },
             { time: '6:45 PM', event: "Danny's toast" },
             { time: '7:30 PM', event: 'Cake cutting', notes: 'Milo announces cake.' },
             { time: '8:45 PM', event: 'Second line departure', notes: 'Bomba dancers lead everyone through corridor for La Parranda. Depart after second line.' }
@@ -490,13 +483,13 @@ const vendorSchedules = {
         title: 'MC / DJ Schedule',
         subtitle: 'Saturday, April 11',
         events: [
-            { time: '1:00 PM', event: 'Arrive & set up', notes: 'Set up PA for ceremony and reception. Handheld mic with stand (we provide mic stand). Coordinate with Sam Kuslan (piano) who arrives at 2:00 PM.' },
+            { time: '1:00 PM', event: 'Arrive & set up', notes: 'Set up PA for ceremony and reception. Handheld mic with stand (we provide mic stand). Coordinate with Sam Kuslan (piano) who arrives at 12:00 PM.' },
             { time: '2:40 PM', event: 'Prelude music begins', notes: 'Play Kamasi Washington - Harmony of Difference album while guests arrive and mingle.' },
             { time: '3:00 PM', event: 'Ceremony begins', notes: 'Sam Kuslan plays piano for processional: "I Can\'t Believe The Way We Flow" (James Blake). Bride\'s processional: "There Goes My Baby" (Charlie Wilson). Ceremony is ~45 minutes.' },
             { time: '3:45 PM', event: 'Recessional', notes: 'Play Gal Costa - Cuidando de Longe for recessional.' },
             { time: '3:50 PM', event: 'Cocktail hour music', notes: "Play Danny's cocktail hour playlist (jazz fusion). Sam packs up piano during this time. Courtyard bar is open." },
             { time: '4:30 PM', event: 'Room flip complete', notes: 'Champagne poured and laid out by the bar.' },
-            { time: '4:55 PM', event: 'First dance', notes: 'Announce guests to find seats. Announce the couple. Play Everlasting Love - Natalie Cole as prelude. Beckon all to dance floor. Parents dance first, then bride & groom. First dance: Virgen - Adolescent Orchestra. Kick music into full gear!' },
+            { time: '4:55 PM', event: 'First dance', notes: 'Announce guests to find seats. Announce the couple. Play Everlasting Love - Natalie Cole as prelude. Beckon all to dance floor. Jose & Karen dance first, then Danny & Cindy join, then Karen & Danny dance. First dance: Virgen - Adolescent Orchestra. Kick music into full gear!' },
             { time: '5:15 PM', event: 'Call eating groups to buffet', notes: 'Announce groups in order: Tables 10-13, Tables 6-9, Tables 4 & 5, Tables 2 & 3, Table 1.' },
             { time: '6:45 PM', event: "Danny's toast", notes: 'Jeanne signals Danny. Coordinate with Jeanne for timing (after buffet line dies down).' },
             { time: '7:30 PM', event: 'Dessert', notes: 'Milo announces cake. Cake and dessert table brought to dance floor.' },
@@ -509,7 +502,7 @@ const vendorSchedules = {
         title: 'Piano Schedule',
         subtitle: 'Saturday, April 11',
         events: [
-            { time: '2:00 PM', event: 'Arrive & set up', notes: 'Bring your own amp. Set up for ceremony.' },
+            { time: '12:00 PM', event: 'Arrive & set up', notes: 'Bring your own amp. Set up piano for ceremony.' },
             { time: '2:40 PM', event: 'Prelude begins', notes: 'DJ handles prelude music (Kamasi Washington). Stand by.' },
             { time: '3:15 PM', event: 'Processional', notes: 'Play "I Can\'t Believe The Way We Flow" (James Blake) for processional.' },
             { time: 'Bride enters', event: "Bride's processional", notes: 'Switch to "There Goes My Baby" (Charlie Wilson) when bride enters.' },
@@ -586,15 +579,45 @@ const vendorSchedules = {
     }
 };
 
-// Timeline
-function renderTimeline() {
-    if (!weddingData || !weddingData.timeline) return;
+// Check if current user can edit the master timeline
+function canEditTimeline() {
+    const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
+    const lower = userName.toLowerCase().trim();
+    return ['karen', 'cindy'].includes(lower);
+}
 
-    const fridayEl = document.getElementById('friday-timeline');
-    const saturdayEl = document.getElementById('saturday-timeline');
-    const sundayEl = document.getElementById('sunday-timeline');
+// Save an edit to localStorage
+function saveTimelineEdit(key, value) {
+    const edits = JSON.parse(localStorage.getItem('timelineEdits') || '{}');
+    edits[key] = value;
+    localStorage.setItem('timelineEdits', JSON.stringify(edits));
+}
+
+// Get a saved edit from localStorage
+function getTimelineEdit(key) {
+    const edits = JSON.parse(localStorage.getItem('timelineEdits') || '{}');
+    return edits[key] || null;
+}
+
+// Master Timeline - combines schedule, ceremony, and vendor contacts
+function renderMasterTimeline() {
+    if (!weddingData) return;
+
+    const container = document.getElementById('master-timeline');
     const vendorScheduleEl = document.getElementById('vendor-schedule');
-    const saturdayCard = document.getElementById('saturday-card');
+    if (!container) return;
+
+    const editable = canEditTimeline();
+    const editAttr = editable ? 'contenteditable="true" class="editable-field"' : '';
+
+    function makeEditable(key, content) {
+        const saved = getTimelineEdit(key);
+        const display = saved || content || '';
+        if (editable) {
+            return `<span ${editAttr} data-edit-key="${key}" onblur="saveTimelineEdit('${key}', this.innerText)">${display}</span>`;
+        }
+        return display;
+    }
 
     function formatNotes(notes) {
         if (!notes) return '';
@@ -612,7 +635,7 @@ function renderTimeline() {
         vendorScheduleEl.innerHTML = `
             <div class="day-card">
                 <h3>${schedule.title}</h3>
-                <p style="color:var(--ivory-soft);margin-bottom:20px;margin-top:-10px;">${schedule.subtitle} · Industrial Gardens<br>1024 Elysian Fields Avenue, New Orleans, LA 70118</p>
+                <p style="color:var(--ivory-soft);margin-bottom:20px;margin-top:-10px;">${schedule.subtitle} · Industrial Gardens<br>1024 Elysian Fields Avenue, New Orleans, LA 70117</p>
                 <div class="timeline-list">
                     ${schedule.events.map(item => `
                         <div class="timeline-item">
@@ -632,22 +655,24 @@ function renderTimeline() {
             </div>
         `;
         vendorScheduleEl.style.display = 'block';
-        if (saturdayCard) saturdayCard.style.display = 'none';
+        container.style.display = 'none';
         return;
     }
 
-    // Family / guest: show full timeline
+    // Family / guest: show full master timeline
     if (vendorScheduleEl) vendorScheduleEl.style.display = 'none';
-    if (saturdayCard) saturdayCard.style.display = '';
+    container.style.display = '';
 
-    function renderTimelineDay(el, events) {
-        if (!el || !events) return;
-        el.innerHTML = events.map(item => {
-            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
-            const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
-            const itemText = `${item.who || ''} ${item.notes || ''}`.toLowerCase();
-            const isPersonalized = userName && itemText.includes(userName.toLowerCase());
-            return `
+    const isFamily = isFamilyMember(typeof currentUser === 'string' ? currentUser : (currentUser?.name || ''));
+
+    function renderTimelineEvent(item, dayKey, index) {
+        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
+        const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
+        const itemText = `${item.who || ''} ${item.notes || ''}`.toLowerCase();
+        const isPersonalized = userName && itemText.includes(userName.toLowerCase());
+        const noteKey = `${dayKey}-${index}-notes`;
+
+        return `
             <div class="timeline-item${isPersonalized ? ' flower-indicator' : ''}">
                 <div class="timeline-time">${item.time}</div>
                 <div class="timeline-content">
@@ -655,84 +680,168 @@ function renderTimeline() {
                     <div class="timeline-location">${item.location} <a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-left:10px;padding:4px 10px;font-size:0.65rem;">Directions</a></div>
                     ${item.who ? `<div class="timeline-who">${item.who}</div>` : ''}
                     ${item.groupPhotos ? `<ul class="timeline-notes-list">${item.groupPhotos.map(g => `<li>${g}</li>`).join('')}</ul>` : ''}
-                    ${formatNotes(item.notes)}
+                    ${editable && item.notes ? `<div class="timeline-notes" ${editAttr} data-edit-key="${noteKey}" onblur="saveTimelineEdit('${noteKey}', this.innerText)">${getTimelineEdit(noteKey) || item.notes}</div>` : formatNotes(item.notes)}
                 </div>
             </div>
-        `}).join('');
+        `;
     }
 
-    renderTimelineDay(fridayEl, weddingData.timeline.friday);
-    renderTimelineDay(saturdayEl, weddingData.timeline.saturday);
-    renderTimelineDay(sundayEl, weddingData.timeline.sunday);
-}
+    // Build the ceremony section (inline within Saturday)
+    let ceremonySection = '';
+    if (weddingData.ceremony && isFamily) {
+        const c = weddingData.ceremony;
 
-// Ceremony
-function renderCeremony() {
-    if (!weddingData) return;
-
-    // Processional
-    const processionalEl = document.getElementById('ceremony-processional');
-    if (processionalEl && weddingData.ceremony && weddingData.ceremony.processional) {
-        processionalEl.innerHTML = weddingData.ceremony.processional.map((step, i) => `
-            <div class="person-item">
-                <span class="person-name">${i + 1}.</span>
-                <span class="person-role">${step}</span>
+        const processional = c.processional ? `
+            <div class="master-subsection">
+                <h4>Processional Order</h4>
+                <ol class="master-list">${c.processional.map(step => `<li>${step}</li>`).join('')}</ol>
+                ${c.notes ? `<div class="timeline-notes" style="margin-top:10px;">${c.notes}</div>` : ''}
             </div>
-        `).join('') + `
-            <div class="timeline-notes" style="margin-top:15px;">
-                ${weddingData.ceremony.notes || ''}
+        ` : '';
+
+        const program = c.program ? `
+            <div class="master-subsection">
+                <h4>Ceremony Program</h4>
+                <ol class="master-list">${c.program.map(item => `<li>${item}</li>`).join('')}</ol>
+            </div>
+        ` : '';
+
+        const music = `
+            <div class="master-subsection">
+                <h4>Music</h4>
+                <div class="person-item"><span class="person-name">Prelude</span><span class="person-role">${c.preludeMusic || 'TBD'}</span></div>
+                <div class="person-item"><span class="person-name">Processional</span><span class="person-role">${c.processionalMusic || 'TBD'}</span></div>
+                <div class="person-item"><span class="person-name">Bride's Processional</span><span class="person-role">${c.brideProcessionalMusic || 'TBD'}</span></div>
+                <div class="person-item"><span class="person-name">Recessional</span><span class="person-role">${c.recessionalMusic || 'TBD'}</span></div>
+                <div class="person-item"><span class="person-name">First Dance</span><span class="person-role">${weddingData.dances?.firstDance?.song || 'TBD'}</span></div>
+            </div>
+        `;
+
+        const recessional = c.recessionalOrder ? `
+            <div class="master-subsection">
+                <h4>Recessional Order</h4>
+                <ol class="master-list">${c.recessionalOrder.map(step => `<li>${step}</li>`).join('')}</ol>
+            </div>
+        ` : '';
+
+        const setupNotes = weddingData.dayOfItems?.ceremonySetup ? `
+            <div class="master-subsection">
+                <h4>Ceremony Setup Notes</h4>
+                <ul class="master-list">${weddingData.dayOfItems.ceremonySetup.map(n => `<li>${n}</li>`).join('')}</ul>
+            </div>
+        ` : '';
+
+        ceremonySection = `
+            <div class="master-ceremony-block">
+                <h3 style="color:var(--pink-light);font-size:1.3rem;margin:25px 0 15px;">Ceremony Details</h3>
+                ${processional}${program}${music}${recessional}${setupNotes}
             </div>
         `;
     }
 
-    // Program
-    const programEl = document.getElementById('ceremony-program');
-    if (programEl && weddingData.ceremony && weddingData.ceremony.program) {
-        programEl.innerHTML = weddingData.ceremony.program.map((item, i) => `
-            <div class="person-item">
-                <span class="person-name">${i + 1}.</span>
-                <span class="person-role">${item}</span>
-            </div>
-        `).join('');
-    }
-
-    // Music
-    const musicEl = document.getElementById('ceremony-music');
-    if (musicEl && weddingData.ceremony) {
-        musicEl.innerHTML = `
-            <div class="person-item">
-                <span class="person-name">Prelude</span>
-                <span class="person-role">${weddingData.ceremony.preludeMusic || 'TBD'}</span>
-            </div>
-            <div class="person-item">
-                <span class="person-name">Processional</span>
-                <span class="person-role">${weddingData.ceremony.processionalMusic || 'TBD'}</span>
-            </div>
-            <div class="person-item">
-                <span class="person-name">Bride's Processional</span>
-                <span class="person-role">${weddingData.ceremony.brideProcessionalMusic || 'TBD'}</span>
-            </div>
-            <div class="person-item">
-                <span class="person-name">Recessional</span>
-                <span class="person-role">${weddingData.ceremony.recessionalMusic || 'TBD'}</span>
-            </div>
-            <div class="person-item">
-                <span class="person-name">First Dance</span>
-                <span class="person-role">${weddingData.dances?.firstDance?.song || 'TBD'}</span>
+    // Build speeches section
+    let speechesSection = '';
+    if (weddingData.speeches?.order && isFamily) {
+        speechesSection = `
+            <div class="master-subsection" style="margin-top:20px;">
+                <h4>Speeches (6:15 PM - Must Finish by 6:45)</h4>
+                ${weddingData.speeches.order.map(s => `
+                    <div class="person-item">
+                        <span class="person-name">${s.speaker}</span>
+                        <span class="person-role">${s.time}</span>
+                    </div>
+                `).join('')}
             </div>
         `;
     }
 
-    // Recessional Order
-    const recessionalEl = document.getElementById('ceremony-recessional');
-    if (recessionalEl && weddingData.ceremony && weddingData.ceremony.recessionalOrder) {
-        recessionalEl.innerHTML = weddingData.ceremony.recessionalOrder.map((step, i) => `
-            <div class="person-item">
-                <span class="person-name">${i + 1}.</span>
-                <span class="person-role">${step}</span>
+    // Build vendor contacts section
+    let vendorContactsSection = '';
+    if (weddingData.vendors && isFamily) {
+        const vendorsWithPhone = weddingData.vendors.filter(v => v.phone);
+        vendorContactsSection = `
+            <div class="day-card" style="margin-top:15px;">
+                <h3>Vendor Contacts</h3>
+                <div class="timeline-list">
+                    ${vendorsWithPhone.map(v => `
+                        <div class="person-item">
+                            <div>
+                                <span class="person-name">${v.name || v.company || 'TBD'}</span>
+                                <div style="font-size:0.75rem;color:var(--pink-medium);font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">${v.role}</div>
+                            </div>
+                            <div style="text-align:right;">
+                                ${v.arrivalTime ? `<div style="font-size:0.8rem;color:var(--ivory-soft);">Arrives: ${v.arrivalTime}</div>` : ''}
+                                <div><a href="tel:${v.phone}">${v.phone}</a></div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
             </div>
-        `).join('');
+        `;
     }
+
+    // Find where ceremony is in the Saturday timeline to inject ceremony details after it
+    const satEvents = weddingData.timeline?.saturday || [];
+    let ceremonyInsertIndex = satEvents.findIndex(e => e.event && e.event.toLowerCase().includes('ceremony'));
+    if (ceremonyInsertIndex === -1) ceremonyInsertIndex = 3; // fallback
+
+    // Find where speeches are in the timeline
+    let speechesInsertIndex = satEvents.findIndex(e => e.event && (e.event.toLowerCase().includes('speech') || e.event.toLowerCase().includes('toast')));
+
+    // Build Saturday timeline with ceremony and speeches injected
+    let saturdayItems = '';
+    satEvents.forEach((item, i) => {
+        saturdayItems += renderTimelineEvent(item, 'saturday', i);
+        if (i === ceremonyInsertIndex) {
+            saturdayItems += ceremonySection;
+        }
+        if (i === speechesInsertIndex && speechesSection) {
+            saturdayItems += speechesSection;
+        }
+    });
+
+    // If ceremony wasn't inserted (no match), append it
+    if (ceremonyInsertIndex === -1 && ceremonySection) {
+        saturdayItems += ceremonySection;
+    }
+
+    // Editable indicator
+    const editBanner = editable ? `
+        <div style="background:rgba(255,182,211,0.15);border:1px solid var(--pink-medium);border-radius:8px;padding:10px 15px;margin-bottom:15px;font-size:0.8rem;color:var(--pink-light);">
+            ✎ You can edit notes directly — changes save automatically to your browser.
+        </div>
+    ` : '';
+
+    container.innerHTML = `
+        ${editBanner}
+
+        ${isFamily && weddingData.timeline?.friday ? `
+            <div class="day-card">
+                <h3>Friday, April 10 — Garden Welcome</h3>
+                <div class="timeline-list">
+                    ${weddingData.timeline.friday.map((item, i) => renderTimelineEvent(item, 'friday', i)).join('')}
+                </div>
+            </div>
+        ` : ''}
+
+        <div class="day-card">
+            <h3>Saturday, April 11 — Wedding Day</h3>
+            <div class="timeline-list">
+                ${saturdayItems}
+            </div>
+        </div>
+
+        ${isFamily && weddingData.timeline?.sunday ? `
+            <div class="day-card">
+                <h3>Sunday, April 12 — Poolside Farewell</h3>
+                <div class="timeline-list">
+                    ${weddingData.timeline.sunday.map((item, i) => renderTimelineEvent(item, 'sunday', i)).join('')}
+                </div>
+            </div>
+        ` : ''}
+
+        ${vendorContactsSection}
+    `;
 }
 
 // Tasks - master to-do list, readable sections
@@ -1065,8 +1174,10 @@ function renderDayOf() {
         `).join('');
     }
 
-    // Bring to Venue list (planning crew only)
-    const bringList = document.getElementById('bring-to-venue-list');
+    // Bring to Venue list (planning crew only) — render in both Logistics and Setup tabs
+    const bringListIds = ['bring-to-venue-list', 'bring-to-venue-list-setup'];
+    bringListIds.forEach(id => {
+    const bringList = document.getElementById(id);
     if (bringList && weddingData.bringToVenue) {
         const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
         if (!isPlanningCrew(userName)) {
@@ -1094,6 +1205,7 @@ function renderDayOf() {
             `).join('');
         }
     }
+    });
 
     // Locations - Consolidated unique venues
     const locationsList = document.getElementById('locations-list');
@@ -1102,13 +1214,14 @@ function renderDayOf() {
             <div class="location-item">
                 <div class="location-name">Industrial Gardens</div>
                 <div class="location-purpose">Rehearsal (Friday 1-3 PM) · Ceremony (Saturday 3:15 PM) · Reception (Saturday 5 PM)</div>
-                <div class="location-purpose">1024 Elysian Fields Avenue, New Orleans, LA 70118</div>
+                <div class="location-purpose">1024 Elysian Fields Avenue, New Orleans, LA 70117</div>
                 <a href="https://www.google.com/maps/dir/?api=1&destination=1024+Elysian+Fields+Avenue+New+Orleans+LA" target="_blank" class="directions-btn">Get Directions</a>
             </div>
             <div class="location-item">
                 <div class="location-name">Milo Gardens</div>
                 <div class="location-purpose">Welcome Party (Friday 4-7 PM)</div>
-                <a href="https://www.google.com/maps/search/?api=1&query=Milo+Gardens+New+Orleans" target="_blank" class="directions-btn">Get Directions</a>
+                <div class="location-purpose">553 ½ Brooklyn Ave., Jefferson, La 70121</div>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=553+Brooklyn+Ave+Jefferson+LA+70121" target="_blank" class="directions-btn">Get Directions</a>
             </div>
             <div class="location-item">
                 <div class="location-name">Oak & Ale</div>

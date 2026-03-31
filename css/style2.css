@@ -1097,3 +1097,70 @@ a:hover {
         border-color: #ddd;
     }
 }
+
+/* Master Timeline */
+.master-ceremony-block {
+    border-top: 1px solid var(--pink-medium);
+    border-bottom: 1px solid var(--pink-medium);
+    padding: 15px 0;
+    margin: 15px 0;
+}
+
+.master-subsection {
+    margin-bottom: 18px;
+}
+
+.master-subsection h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--pink-medium);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.master-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.master-list li {
+    padding: 5px 0;
+    font-size: 0.85rem;
+    color: var(--ivory-soft);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.master-list li::before {
+    content: counter(list-item) ". ";
+    color: var(--pink-medium);
+    font-weight: 600;
+}
+
+ol.master-list {
+    counter-reset: list-item;
+}
+
+ol.master-list li {
+    counter-increment: list-item;
+}
+
+ul.master-list li::before {
+    content: "• ";
+}
+
+/* Editable fields */
+.editable-field {
+    outline: none;
+    border-bottom: 1px dashed var(--pink-medium);
+    padding: 2px 4px;
+    border-radius: 2px;
+    transition: background 0.2s;
+}
+
+.editable-field:focus {
+    background: rgba(255,182,211,0.1);
+    border-bottom-color: var(--pink-light);
+}

@@ -29,8 +29,8 @@
     <div id="personal-card" class="personal-card" style="display:none;"></div>
 
     <nav class="nav">
-        <a href="#schedule" class="nav-item active" data-section="schedule">Schedule</a>
-        <a href="#ceremony" class="nav-item" data-section="ceremony">Ceremony</a>
+        <a href="#timeline" class="nav-item active" data-section="timeline">Master Timeline</a>
+        <a href="#setup" class="nav-item" data-section="setup">Setup</a>
         <a href="#people" class="nav-item" data-section="people">People</a>
         <a href="#logistics" class="nav-item" data-section="logistics">Logistics</a>
         <a href="#vendors" class="nav-item" data-section="vendors">Vendors</a>
@@ -39,61 +39,60 @@
     </nav>
 
     <main class="main">
-        <!-- Schedule Tab -->
-        <section id="schedule" class="section active">
-            <h2>Wedding Weekend Timeline</h2>
+        <!-- Master Timeline Tab -->
+        <section id="timeline" class="section active">
+            <h2>Master Timeline</h2>
 
             <!-- Vendor-specific schedule (shown instead of full timeline for vendors) -->
             <div id="vendor-schedule" style="display:none;"></div>
 
-            <div class="day-card vendor-section" data-access="family">
-                <h3>Friday, April 10 - Garden Welcome</h3>
-                <div class="timeline-list" id="friday-timeline"></div>
-            </div>
-
-            <div id="saturday-card" class="day-card">
-                <h3>Saturday, April 11 - Wedding Day!</h3>
-                <div class="timeline-list" id="saturday-timeline"></div>
-            </div>
-
-            <div class="day-card vendor-section" data-access="family">
-                <h3>Sunday, April 12 - Poolside Farewell</h3>
-                <div class="timeline-list" id="sunday-timeline"></div>
-            </div>
+            <!-- Full master timeline rendered by JS -->
+            <div id="master-timeline"></div>
         </section>
 
-        <!-- Ceremony Tab -->
-        <section id="ceremony" class="section">
-            <h2>Ceremony</h2>
+        <!-- Setup Tab -->
+        <section id="setup" class="section">
+            <h2>Setup</h2>
 
-            <div class="quick-card vendor-section" data-access="family,DJ,Piano,Photographer">
-                <h3>Processional Order</h3>
-                <div id="ceremony-processional"></div>
+            <div class="quick-card vendor-section" data-access="family,Caterer,DJ,Bartenders,Furniture Rentals,Decor / Banners">
+                <h3>Venue Layout & Eating Groups</h3>
+                <a href="documents/venue-layout.png" target="_blank">
+                    <img src="documents/venue-layout.png" alt="Venue Layout & Eating Groups" style="width:100%;border-radius:4px;">
+                </a>
             </div>
 
-            <div class="quick-card vendor-section" data-access="family,DJ,Piano,Photographer">
-                <h3>Ceremony Program</h3>
-                <div id="ceremony-program"></div>
+            <div class="quick-card vendor-section" data-access="family,Caterer,DJ,Bartenders,Furniture Rentals,Decor / Banners,Photographer,Restroom Trailer,Rain Tent">
+                <h3>Floorplans</h3>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                    <div>
+                        <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--pink-medium);margin-bottom:8px;font-weight:600;">Reception</p>
+                        <a href="documents/floorplan-reception.png" target="_blank">
+                            <img src="documents/floorplan-reception.png" alt="Reception Floorplan" style="width:100%;border-radius:4px;">
+                        </a>
+                    </div>
+                    <div>
+                        <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--pink-medium);margin-bottom:8px;font-weight:600;">Ceremony</p>
+                        <a href="documents/floorplan-ceremony.png" target="_blank">
+                            <img src="documents/floorplan-ceremony.png" alt="Ceremony Floorplan" style="width:100%;border-radius:4px;">
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <div class="quick-card vendor-section" data-access="family,DJ,Piano,Photographer">
-                <h3>Music</h3>
-                <div id="ceremony-music"></div>
+            <div class="quick-card vendor-section" data-access="family,Restroom Trailer">
+                <h3>Restroom Trailer Placement</h3>
+                <p style="color:var(--ivory-soft);margin-bottom:12px;">Elysian Fields Ave parking lot. Hookup needed at hitch end of trailer.</p>
+                <a href="documents/restroom-trailer-location.jpg" target="_blank">
+                    <img src="documents/restroom-trailer-location.jpg" alt="Restroom trailer location" style="width:100%;border-radius:4px;margin-bottom:8px;">
+                </a>
+                <a href="documents/restroom-trailer-hookup.jpeg" target="_blank">
+                    <img src="documents/restroom-trailer-hookup.jpeg" alt="Restroom trailer hookup" style="width:100%;border-radius:4px;">
+                </a>
             </div>
 
-            <div class="quick-card vendor-section" data-access="family,DJ,Piano,Photographer">
-                <h3>Recessional Order</h3>
-                <div id="ceremony-recessional"></div>
-            </div>
-
-            <div class="quick-card vendor-section" data-access="family,DJ,Decor / Banners">
-                <h3>Ceremony Setup Notes</h3>
-                <div id="ceremony-notes"></div>
-            </div>
-
-            <div class="quick-card vendor-section" data-access="family,DJ">
-                <h3>Speeches (6:15 PM - Must Finish by 6:45)</h3>
-                <div id="speeches-list"></div>
+            <div class="quick-card vendor-section" data-access="family">
+                <h3>What to Bring to the Venue</h3>
+                <div id="bring-to-venue-list-setup"></div>
             </div>
         </section>
 
@@ -213,7 +212,7 @@
         </section>
     </main>
 
-    <script src="js/data2.js?v=20260312b"></script>
-    <script src="js/app3.js?v=20260312b"></script>
+    <script src="js/data2.js?v=20260330a"></script>
+    <script src="js/app3.js?v=20260330a"></script>
 </body>
 </html>
