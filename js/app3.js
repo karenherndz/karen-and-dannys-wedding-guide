@@ -599,7 +599,7 @@ function getTimelineEdit(key) {
     return edits[key] || null;
 }
 
-// Master Timeline - combines schedule, ceremony, and vendor contacts
+// Master Timeline - Google Doc style grid layout
 function renderMasterTimeline() {
     if (!weddingData) return;
 
@@ -608,22 +608,26 @@ function renderMasterTimeline() {
     if (!container) return;
 
     const editable = canEditTimeline();
-    const editAttr = editable ? 'contenteditable="true" class="editable-field"' : '';
 
-    function makeEditable(key, content) {
+    // Make any text field editable for Karen/Cindy
+    function e(key, content) {
         const saved = getTimelineEdit(key);
-        const display = saved || content || '';
+        const display = saved !== null ? saved : (content || '');
         if (editable) {
-            return `<span ${editAttr} data-edit-key="${key}" onblur="saveTimelineEdit('${key}', this.innerText)">${display}</span>`;
+            return `<span contenteditable="true" class="editable-field" data-edit-key="${key}" onblur="saveTimelineEdit('${key}', this.innerText)">${display}</span>`;
         }
         return display;
     }
 
-    function formatNotes(notes) {
+    // Split notes into bullet items
+    function toBullets(notes, key) {
         if (!notes) return '';
         const items = notes.split(/\.\s+/).map(s => s.replace(/\.$/, '').trim()).filter(s => s.length > 0);
-        if (items.length <= 1) return `<div class="timeline-notes">${notes}</div>`;
-        return `<ul class="timeline-notes-list">${items.map(i => `<li>${i}</li>`).join('')}</ul>`;
+        if (editable) {
+            return `<ul class="mt-bullets"><li contenteditable="true" class="editable-field" data-edit-key="${key}" onblur="saveTimelineEdit('${key}', this.innerText)">${getTimelineEdit(key) || notes}</li></ul>`;
+        }
+        if (items.length <= 1) return `<ul class="mt-bullets"><li>${notes}</li></ul>`;
+        return `<ul class="mt-bullets">${items.map(i => `<li>${i}</li>`).join('')}</ul>`;
     }
 
     // Check if vendor has a custom schedule
@@ -633,22 +637,22 @@ function renderMasterTimeline() {
         const matchedVendor = weddingData.vendors ? weddingData.vendors.find(v => v.role === vendorRole) : null;
 
         vendorScheduleEl.innerHTML = `
-            <div class="day-card">
-                <h3>${schedule.title}</h3>
-                <p style="color:var(--ivory-soft);margin-bottom:20px;margin-top:-10px;">${schedule.subtitle} · Industrial Gardens<br>1024 Elysian Fields Avenue, New Orleans, LA 70117</p>
-                <div class="timeline-list">
-                    ${schedule.events.map(item => `
-                        <div class="timeline-item">
-                            <div class="timeline-time">${item.time}</div>
-                            <div class="timeline-content">
-                                <div class="timeline-event">${item.event}</div>
-                                ${item.notes ? formatNotes(item.notes) : ''}
-                            </div>
-                        </div>
-                    `).join('')}
+            <div class="mt-doc">
+                <div class="mt-doc-header">
+                    <h3>${schedule.title}</h3>
+                    <div class="mt-subtitle">${schedule.subtitle} · Industrial Gardens · 1024 Elysian Fields Avenue, New Orleans, LA 70117</div>
                 </div>
+                ${schedule.events.map(item => `
+                    <div class="mt-row">
+                        <div class="mt-time">${item.time}</div>
+                        <div class="mt-detail">
+                            <div class="mt-event">${item.event}</div>
+                            ${item.notes ? `<ul class="mt-bullets">${item.notes.split(/\.\s+/).map(s => s.replace(/\.$/, '').trim()).filter(s => s).map(s => `<li>${s}</li>`).join('')}</ul>` : ''}
+                        </div>
+                    </div>
+                `).join('')}
                 ${matchedVendor && matchedVendor.photos ? `
-                    <div style="margin-top:20px;">
+                    <div style="padding:16px 20px;">
                         ${matchedVendor.photos.map(p => `<a href="${p}" target="_blank"><img src="${p}" alt="Reference photo" style="width:100%;border-radius:4px;margin-top:8px;"></a>`).join('')}
                     </div>
                 ` : ''}
@@ -665,150 +669,148 @@ function renderMasterTimeline() {
 
     const isFamily = isFamilyMember(typeof currentUser === 'string' ? currentUser : (currentUser?.name || ''));
 
-    function renderTimelineEvent(item, dayKey, index) {
-        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location + ' New Orleans')}`;
+    // Build a timeline row in the grid
+    function renderRow(item, dayKey, index) {
         const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
         const itemText = `${item.who || ''} ${item.notes || ''}`.toLowerCase();
         const isPersonalized = userName && itemText.includes(userName.toLowerCase());
         const noteKey = `${dayKey}-${index}-notes`;
+        const eventKey = `${dayKey}-${index}-event`;
+        const whoKey = `${dayKey}-${index}-who`;
+
+        let detailHTML = `<div class="mt-event">${e(eventKey, item.event)}</div>`;
+        detailHTML += `<div class="mt-location">${item.location}</div>`;
+        if (item.who) {
+            detailHTML += `<div class="mt-who">${e(whoKey, item.who)}</div>`;
+        }
+        if (item.groupPhotos) {
+            detailHTML += `<ul class="mt-bullets">${item.groupPhotos.map(g => `<li>${g}</li>`).join('')}</ul>`;
+        }
+        if (item.notes) {
+            detailHTML += toBullets(item.notes, noteKey);
+        }
 
         return `
-            <div class="timeline-item${isPersonalized ? ' flower-indicator' : ''}">
-                <div class="timeline-time">${item.time}</div>
-                <div class="timeline-content">
-                    <div class="timeline-event">${item.event}</div>
-                    <div class="timeline-location">${item.location} <a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-left:10px;padding:4px 10px;font-size:0.65rem;">Directions</a></div>
-                    ${item.who ? `<div class="timeline-who">${item.who}</div>` : ''}
-                    ${item.groupPhotos ? `<ul class="timeline-notes-list">${item.groupPhotos.map(g => `<li>${g}</li>`).join('')}</ul>` : ''}
-                    ${editable && item.notes ? `<div class="timeline-notes" ${editAttr} data-edit-key="${noteKey}" onblur="saveTimelineEdit('${noteKey}', this.innerText)">${getTimelineEdit(noteKey) || item.notes}</div>` : formatNotes(item.notes)}
-                </div>
+            <div class="mt-row${isPersonalized ? ' mt-highlight' : ''}">
+                <div class="mt-time">${e(dayKey + '-' + index + '-time', item.time)}</div>
+                <div class="mt-detail">${detailHTML}</div>
             </div>
         `;
     }
 
-    // Build the ceremony section (inline within Saturday)
-    let ceremonySection = '';
-    if (weddingData.ceremony && isFamily) {
+    // Build ceremony detail rows (inline within Saturday grid)
+    function buildCeremonyRows() {
+        if (!weddingData.ceremony || !isFamily) return '';
         const c = weddingData.ceremony;
+        let rows = '';
 
-        const processional = c.processional ? `
-            <div class="master-subsection">
-                <h4>Processional Order</h4>
-                <ol class="master-list">${c.processional.map(step => `<li>${step}</li>`).join('')}</ol>
-                ${c.notes ? `<div class="timeline-notes" style="margin-top:10px;">${c.notes}</div>` : ''}
-            </div>
-        ` : '';
+        // Ceremony Details header
+        rows += `<div class="mt-section-header"><h4>Ceremony Details</h4></div>`;
 
-        const program = c.program ? `
-            <div class="master-subsection">
-                <h4>Ceremony Program</h4>
-                <ol class="master-list">${c.program.map(item => `<li>${item}</li>`).join('')}</ol>
-            </div>
-        ` : '';
+        // Processional
+        if (c.processional) {
+            rows += `<div class="mt-row">
+                <div class="mt-time">Processional</div>
+                <div class="mt-detail">
+                    <div class="mt-event">Processional Order</div>
+                    <ol class="mt-numbered">${c.processional.map((step, i) => `<li>${e('processional-' + i, step)}</li>`).join('')}</ol>
+                    ${c.notes ? `<ul class="mt-bullets"><li>${e('ceremony-notes', c.notes)}</li></ul>` : ''}
+                </div>
+            </div>`;
+        }
 
-        const music = `
-            <div class="master-subsection">
-                <h4>Music</h4>
-                <div class="person-item"><span class="person-name">Prelude</span><span class="person-role">${c.preludeMusic || 'TBD'}</span></div>
-                <div class="person-item"><span class="person-name">Processional</span><span class="person-role">${c.processionalMusic || 'TBD'}</span></div>
-                <div class="person-item"><span class="person-name">Bride's Processional</span><span class="person-role">${c.brideProcessionalMusic || 'TBD'}</span></div>
-                <div class="person-item"><span class="person-name">Recessional</span><span class="person-role">${c.recessionalMusic || 'TBD'}</span></div>
-                <div class="person-item"><span class="person-name">First Dance</span><span class="person-role">${weddingData.dances?.firstDance?.song || 'TBD'}</span></div>
-            </div>
-        `;
+        // Program
+        if (c.program) {
+            rows += `<div class="mt-row">
+                <div class="mt-time">Program</div>
+                <div class="mt-detail">
+                    <div class="mt-event">Ceremony Program</div>
+                    <ol class="mt-numbered">${c.program.map((step, i) => `<li>${e('program-' + i, step)}</li>`).join('')}</ol>
+                </div>
+            </div>`;
+        }
 
-        const recessional = c.recessionalOrder ? `
-            <div class="master-subsection">
-                <h4>Recessional Order</h4>
-                <ol class="master-list">${c.recessionalOrder.map(step => `<li>${step}</li>`).join('')}</ol>
+        // Music
+        rows += `<div class="mt-row">
+            <div class="mt-time">Music</div>
+            <div class="mt-detail">
+                <div class="mt-kv"><span class="mt-kv-label">Prelude</span><span class="mt-kv-value">${e('music-prelude', c.preludeMusic || 'TBD')}</span></div>
+                <div class="mt-kv"><span class="mt-kv-label">Processional</span><span class="mt-kv-value">${e('music-processional', c.processionalMusic || 'TBD')}</span></div>
+                <div class="mt-kv"><span class="mt-kv-label">Bride's Processional</span><span class="mt-kv-value">${e('music-bride', c.brideProcessionalMusic || 'TBD')}</span></div>
+                <div class="mt-kv"><span class="mt-kv-label">Recessional</span><span class="mt-kv-value">${e('music-recessional', c.recessionalMusic || 'TBD')}</span></div>
+                <div class="mt-kv"><span class="mt-kv-label">First Dance</span><span class="mt-kv-value">${e('music-first-dance', weddingData.dances?.firstDance?.song || 'TBD')}</span></div>
             </div>
-        ` : '';
+        </div>`;
 
-        const setupNotes = weddingData.dayOfItems?.ceremonySetup ? `
-            <div class="master-subsection">
-                <h4>Ceremony Setup Notes</h4>
-                <ul class="master-list">${weddingData.dayOfItems.ceremonySetup.map(n => `<li>${n}</li>`).join('')}</ul>
-            </div>
-        ` : '';
+        // Recessional
+        if (c.recessionalOrder) {
+            rows += `<div class="mt-row">
+                <div class="mt-time">Recessional</div>
+                <div class="mt-detail">
+                    <div class="mt-event">Recessional Order</div>
+                    <ol class="mt-numbered">${c.recessionalOrder.map((step, i) => `<li>${e('recessional-' + i, step)}</li>`).join('')}</ol>
+                </div>
+            </div>`;
+        }
 
-        ceremonySection = `
-            <div class="master-ceremony-block">
-                <h3 style="color:var(--pink-light);font-size:1.3rem;margin:25px 0 15px;">Ceremony Details</h3>
-                ${processional}${program}${music}${recessional}${setupNotes}
-            </div>
-        `;
+        return rows;
     }
 
-    // Build speeches section
-    let speechesSection = '';
-    if (weddingData.speeches?.order && isFamily) {
-        speechesSection = `
-            <div class="master-subsection" style="margin-top:20px;">
-                <h4>Speeches (6:15 PM - Must Finish by 6:45)</h4>
-                ${weddingData.speeches.order.map(s => `
-                    <div class="person-item">
-                        <span class="person-name">${s.speaker}</span>
-                        <span class="person-role">${s.time}</span>
+    // Build speeches row
+    function buildSpeechesRow() {
+        if (!weddingData.speeches?.order || !isFamily) return '';
+        return `<div class="mt-row">
+            <div class="mt-time">6:45 PM</div>
+            <div class="mt-detail">
+                <div class="mt-event">Danny's Toast</div>
+                <ul class="mt-bullets"><li>${e('speech-notes', weddingData.speeches.notes || '')}</li></ul>
+            </div>
+        </div>`;
+    }
+
+    // Build vendor contacts section
+    function buildVendorContacts() {
+        if (!weddingData.vendors || !isFamily) return '';
+        const vendorsWithPhone = weddingData.vendors.filter(v => v.phone);
+        return `
+            <div class="mt-doc" style="margin-top:24px;">
+                <div class="mt-doc-header">
+                    <h3>Vendor Contacts</h3>
+                </div>
+                ${vendorsWithPhone.map(v => `
+                    <div class="mt-vendor-row">
+                        <div>
+                            <div class="mt-vendor-name">${v.name || v.company || 'TBD'}</div>
+                            <div class="mt-vendor-role">${v.role}</div>
+                        </div>
+                        <div class="mt-vendor-info">
+                            ${v.arrivalTime ? `<div style="font-size:0.8rem;color:var(--ivory-soft);">${v.arrivalTime}</div>` : ''}
+                            <div><a href="tel:${v.phone}">${v.phone}</a></div>
+                        </div>
                     </div>
                 `).join('')}
             </div>
         `;
     }
 
-    // Build vendor contacts section
-    let vendorContactsSection = '';
-    if (weddingData.vendors && isFamily) {
-        const vendorsWithPhone = weddingData.vendors.filter(v => v.phone);
-        vendorContactsSection = `
-            <div class="day-card" style="margin-top:15px;">
-                <h3>Vendor Contacts</h3>
-                <div class="timeline-list">
-                    ${vendorsWithPhone.map(v => `
-                        <div class="person-item">
-                            <div>
-                                <span class="person-name">${v.name || v.company || 'TBD'}</span>
-                                <div style="font-size:0.75rem;color:var(--pink-medium);font-weight:500;text-transform:uppercase;letter-spacing:0.05em;">${v.role}</div>
-                            </div>
-                            <div style="text-align:right;">
-                                ${v.arrivalTime ? `<div style="font-size:0.8rem;color:var(--ivory-soft);">Arrives: ${v.arrivalTime}</div>` : ''}
-                                <div><a href="tel:${v.phone}">${v.phone}</a></div>
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-        `;
-    }
-
-    // Find where ceremony is in the Saturday timeline to inject ceremony details after it
+    // Find ceremony insert point
     const satEvents = weddingData.timeline?.saturday || [];
-    let ceremonyInsertIndex = satEvents.findIndex(e => e.event && e.event.toLowerCase().includes('ceremony'));
-    if (ceremonyInsertIndex === -1) ceremonyInsertIndex = 3; // fallback
+    let ceremonyInsertIndex = satEvents.findIndex(ev => ev.event && ev.event.toUpperCase().includes('CEREMONY'));
+    if (ceremonyInsertIndex === -1) ceremonyInsertIndex = 3;
 
-    // Find where speeches are in the timeline
-    let speechesInsertIndex = satEvents.findIndex(e => e.event && (e.event.toLowerCase().includes('speech') || e.event.toLowerCase().includes('toast')));
-
-    // Build Saturday timeline with ceremony and speeches injected
-    let saturdayItems = '';
+    // Build Saturday rows
+    let saturdayRows = '';
     satEvents.forEach((item, i) => {
-        saturdayItems += renderTimelineEvent(item, 'saturday', i);
+        saturdayRows += renderRow(item, 'saturday', i);
         if (i === ceremonyInsertIndex) {
-            saturdayItems += ceremonySection;
-        }
-        if (i === speechesInsertIndex && speechesSection) {
-            saturdayItems += speechesSection;
+            saturdayRows += buildCeremonyRows();
         }
     });
-
-    // If ceremony wasn't inserted (no match), append it
-    if (ceremonyInsertIndex === -1 && ceremonySection) {
-        saturdayItems += ceremonySection;
-    }
 
     // Editable indicator
     const editBanner = editable ? `
         <div style="background:rgba(255,182,211,0.15);border:1px solid var(--pink-medium);border-radius:8px;padding:10px 15px;margin-bottom:15px;font-size:0.8rem;color:var(--pink-light);">
-            ✎ You can edit notes directly — changes save automatically to your browser.
+            ✎ You can edit all text directly — changes save automatically to your browser.
         </div>
     ` : '';
 
@@ -816,31 +818,34 @@ function renderMasterTimeline() {
         ${editBanner}
 
         ${isFamily && weddingData.timeline?.friday ? `
-            <div class="day-card">
-                <h3>Friday, April 10 — Garden Welcome</h3>
-                <div class="timeline-list">
-                    ${weddingData.timeline.friday.map((item, i) => renderTimelineEvent(item, 'friday', i)).join('')}
+            <div class="mt-doc">
+                <div class="mt-doc-header">
+                    <h3>Friday, April 10</h3>
+                    <div class="mt-subtitle">Rehearsal & Garden Welcome</div>
                 </div>
+                ${weddingData.timeline.friday.map((item, i) => renderRow(item, 'friday', i)).join('')}
             </div>
         ` : ''}
 
-        <div class="day-card">
-            <h3>Saturday, April 11 — Wedding Day</h3>
-            <div class="timeline-list">
-                ${saturdayItems}
+        <div class="mt-doc">
+            <div class="mt-doc-header">
+                <h3>Saturday, April 11</h3>
+                <div class="mt-subtitle">Wedding Day · Industrial Gardens · 1024 Elysian Fields Avenue, New Orleans, LA 70117</div>
             </div>
+            ${saturdayRows}
         </div>
 
         ${isFamily && weddingData.timeline?.sunday ? `
-            <div class="day-card">
-                <h3>Sunday, April 12 — Poolside Farewell</h3>
-                <div class="timeline-list">
-                    ${weddingData.timeline.sunday.map((item, i) => renderTimelineEvent(item, 'sunday', i)).join('')}
+            <div class="mt-doc">
+                <div class="mt-doc-header">
+                    <h3>Sunday, April 12</h3>
+                    <div class="mt-subtitle">Poolside Farewell</div>
                 </div>
+                ${weddingData.timeline.sunday.map((item, i) => renderRow(item, 'sunday', i)).join('')}
             </div>
         ` : ''}
 
-        ${vendorContactsSection}
+        ${buildVendorContacts()}
     `;
 }
 
