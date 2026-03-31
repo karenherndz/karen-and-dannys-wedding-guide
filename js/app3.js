@@ -690,6 +690,12 @@ function renderMasterTimeline() {
         if (item.groupPhotos) {
             detailHTML += `<ul class="mt-bullets">${item.groupPhotos.map(g => `<li>${g}</li>`).join('')}</ul>`;
         }
+        if (item.bullets) {
+            detailHTML += `<ul class="mt-bullets">${item.bullets.map((b, bi) => {
+                const bk = `${dayKey}-${index}-bullet-${bi}`;
+                return `<li>${e(bk, b)}</li>`;
+            }).join('')}</ul>`;
+        }
         if (item.notes) {
             detailHTML += renderNotes(item.notes, noteKey);
         }

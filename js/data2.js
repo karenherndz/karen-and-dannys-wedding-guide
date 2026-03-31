@@ -678,18 +678,120 @@ const WEDDING_DATA = {
       { "time": "7:00 PM", "event": "Rehearsal Dinner", "location": "Oak & Ale", "who": "Family" }
     ],
     "saturday": [
-      { "section": "Men's Preparation", "time": "11:30 AM - 2:00 PM", "event": "Greatman Cottage", "location": "Greatman Cottage & Loft, 3421 Dauphine St", "who": "Danny, Jose, Jose Jr., Dave, Remy, Milo, Danny's friends", "notes": "Lunch provided. Danny dresses at Greatman Loft. Marilyn assists with boutonnieres." },
-      { "time": "1:00 PM", "event": "Flower Delivery to Greatman Cottage", "location": "Greatman Cottage", "who": "Florist", "notes": "1 bridal bouquet (white wisteria, white orchid, jasmine sprig requested), 1 groom's boutonniere, 1 father of groom boutonniere, 1 Best Bro boutonniere, 1 FOB boutonniere. Cindy, Marilyn, Peggy make bouquets and boutonnieres. Marilyn brings all flowers to venue." },
-      { "section": "Women's Preparation", "time": "11:30 AM - 1:30 PM", "event": "Hair and Makeup", "location": "Peter and Paul (check-in 9:00 AM)", "who": "Karen, Lauren, Kelsey, Mady, Kagan", "notes": "Karen dresses at Grand Loft Room 309. 11:00 AM: Lauren's Makeup. 11:45/12 PM: Karen's Makeup. 12 PM: Lauren's Hair. Cindy: Glam Nola Makeup, (504) 432-9395." },
-      { "time": "1:45 PM", "event": "Photographer Arrives", "location": "Hotel Peter and Paul", "who": "Stephanie Terrant", "notes": "Stephanie arrives; group heads to Industrial Gardens." },
-      { "section": "Venue Setup", "time": "12:00 PM - 2:45 PM", "event": "Setup Operations", "location": "Industrial Gardens", "who": "Jeanne, Antonia, Sam Kuslan, Lady B", "notes": "Antonia and flower girls arrive. Lady B (DJ) arrives 1:00 PM. Sam Kuslan (pianist) arrives 12:00 PM. Jeanne arrives 12:00 PM — three hours of setup. Oversee all vendors. Card box, guest book, pen in conference room. iPad setup, white tablecloths, rearrange seating, photograph display by windows. Juliet sets up iPad and photographs. Reserve first two rows with ivory ribbon (both sides). Ribbon and white duct tape in bride's bag with Jeanne. YUR Rentals arrive 12:00 PM — set up chairs and tables per floor plan. Design Team (Jenny, Sara B, Liz, possibly Tom) places cut flowers; Jenny leads table placement. Lady B sets up DJ equipment and handheld mic. Sam sets up piano. Tim and Scottie bring high tops and chairs to PJI." },
-      { "time": "2:30 PM", "event": "Wedding Party Hides", "location": "Conference room", "who": "Wedding party", "notes": "Hair/makeup touch-ups, bathroom break. Away from guests. Give rings to Jose." },
-      { "section": "Wedding Party Arrival", "time": "2:00 PM", "event": "Bride, Groom, and Wedding Party Arrive", "location": "Industrial Gardens", "who": "Karen, Danny, Lauren, Jose D., Jose N., Elizabeth, Juliet, Dave, Milo, Remy, Cindy, Duschan, Doug Williams, Amanda Williams, Ellison, Kali, Kelsey, Mady, Jeanne, Marilyn, Peggy, Karen's grandmother", "notes": "Arrive with flowers. Beauty shots by Stephanie: first look, Karen's nuclear family, Danny's nuclear family, entire bridal party, Cindy and Duey." },
-      { "time": "2:15 - 2:30 PM", "event": "Flower Girls / Ushers Duties Begin", "location": "Industrial Gardens", "who": "Jonah, Jess, Mady, Kelsey, Gabi, Anna, Carly, Blair, Sara K, Reagan, Jenny, Sara B, Paloma", "notes": "Hand out petals to guests and usher guests into main area." },
-      { "time": "2:45 PM", "event": "Guests Arrive", "location": "Industrial Gardens", "who": "Ushers, Guests", "notes": "Ushers offer RIGHT arm to female guests, men walk behind. When ushering a single male, usher walks on his left. Guests can sit on either side. Seat immediate family up front (roped off aisles). Lady B plays prelude music (Kamasi Washington Album) at 2:40 PM. Jeanne holds latecomers until ceremony ends." },
-      { "section": "Ceremony", "time": "3:00 - 3:45 PM", "event": "Ceremony", "location": "Industrial Gardens", "who": "Everyone", "notes": "Processional: Sam Kuslan piano — 'I Can't Believe the Way We Flow' (James Blake). Kali enters, stands front. Karen's grandmother escorted by aunt Amri to left side. Cindy escorted by Danny; Duey follows; left side. Danny stays front with Kali. Lauren and Jose down aisle together. Ring bearers enter. Bride's processional: Sam Kuslan piano — 'There Goes My Baby' (Charlie Wilson). Karen enters with father Jose N. At arch: Karen releases father's arm, gives bouquet to Lauren, holds Danny's hand. Jose N. sits by Elizabeth. Welcome by Kali (including Kat's advice). Duschan Milojevic speech (2 minutes). Jose N. Hernandez speech (2 minutes). Vows. Ring ceremony. Kiss the bride! Recessional: DJ plays 'Cuidando de Longe' by Gal Costa. Bride and groom lock arms, process down aisle — petals fly, Karen and Danny kiss in petals. Lauren and Jose process. Cindy, Duey, Jose Sr., Elizabeth process." },
-      { "section": "Reception", "time": "3:45 - 4:30 PM", "event": "Cocktails and Room Flip", "location": "Industrial Gardens", "who": "Ushers, Mieczkowski Boys, Jeanne, Marilyn", "notes": "Danny and Karen take 15-minute bridal photos with Stephanie. Ushers and Mieczkowski boys flip room with Jeanne and Marilyn oversight. Sam packs piano/amp 3:45 PM. Lady B plays Danny's playlist. Champagne/wine available at bar. Kagan and Evan go to No Dice for DJ setup." },
-      { "time": "4:00 PM", "event": "Family & Group Photos", "location": "Industrial Gardens", "who": "Karen, Danny, Stephanie, Family",
+      { "section": "Men's Preparation", "time": "11:30 AM - 2:00 PM", "event": "Greatman Cottage", "location": "Greatman Cottage & Loft, 3421 Dauphine St", "who": "Danny, Jose, Jose Jr., Dave, Remy, Milo, Danny's friends", "bullets": [
+        "Lunch for all available at Greatman Cottage",
+        "DANNY GETS DRESSED AT GREATMAN LOFT",
+        "Marilyn assists men pinning boutonnieres, etc.",
+        "Present are Jose, Jose Jr, Dave, Remy, Milo, and Danny's friends"
+      ]},
+      { "section": "Flower Delivery", "time": "1:00 PM", "event": "Personal Flowers Delivered", "location": "Greatman Cottage", "who": "Florist", "bullets": [
+        "1 bridal bouquet (would love white wisteria, white orchid and maybe jasmine sprig if available)",
+        "Cindy, Marilyn, and Peggy will make bouquets and boutonnieres",
+        "1 groom's boutonniere",
+        "1 father of the groom boutonniere",
+        "1 Best Bro boutonniere",
+        "1 FOB boutonniere",
+        "MARILYN — BRING ALL FLOWERS TO THE VENUE"
+      ]},
+      { "section": "Women's Preparation", "time": "11:30 AM - 1:30 PM", "event": "Hair and Makeup", "location": "Hotel Peter and Paul (check-in 9:00 AM)", "who": "Karen, Lauren, Kelsey, Mady, Kagan", "bullets": [
+        "KAREN GETS DRESSED AT Grand Loft Room 309",
+        "Assisted by: Lauren, Kelsey, Mady, Kagan",
+        "11:00 AM: Lauren's Makeup",
+        "11:45/12 PM: Karen's Makeup",
+        "12 PM: Lauren's Hair",
+        "Cindy: Glam Nola Makeup, (504) 432-9395"
+      ]},
+      { "time": "1:45 PM", "event": "Photographer Arrives", "location": "Hotel Peter and Paul", "who": "Stephanie Terrant", "bullets": [
+        "Stephanie arrives and group heads to Industrial Gardens"
+      ]},
+      { "section": "Venue Setup", "time": "12:00 - 2:45 PM", "event": "Setup Operations", "location": "Industrial Gardens", "who": "Jeanne, Antonia, Sam Kuslan, Lady B, YUR Rentals, Design Team", "bullets": [
+        "Antonia and flower girls arrive for setup",
+        "1:00 PM — Lady B (DJ) arrives",
+        "12:00 PM — Sam Kuslan (pianist) arrives and sets up",
+        "Jeanne arrives at 12:00 PM — three hours of setup time",
+        "Oversee all vendors and their setup",
+        "Set up the card box, guest book, and pen in the conference room",
+        "Conference room: set up the iPad, place white tablecloths over tables, rearrange seating, display photographs by the windows",
+        "Juliet will set up the iPad and photographs",
+        "Reserve the first two rows with ivory ribbon on each side for family",
+        "Ribbon and white duct tape in the bride's bag that Jeanne has",
+        "YUR Rentals arrive at 12:00 PM — set up chairs for ceremony and tables per floor plan",
+        "Check in with DJ — Lady B",
+        "Meet the bridal party at 2:00 PM upon arrival",
+        "Check in with and attend to all wedding party needs",
+        "Prep wedding party on ceremony details and instructions",
+        "Collect cell phones!",
+        "2:30 PM — Wedding party hides",
+        "Tim and Scottie bring high tops and chairs to PJI",
+        "Jenny, Sara B, Liz, maybe Tom lead placing cut flowers in vases",
+        "Jenny takes the lead on placing flowers on the tables",
+        "DJ Lady B sets up for cocktail reception music, dancing, and PA for ceremony; provides handheld mic",
+        "Sam Kuslan (piano) sets up for ceremony"
+      ]},
+      { "section": "Wedding Party Arrival", "time": "2:00 PM", "event": "Bride, Groom, and Wedding Party Arrive", "location": "Industrial Gardens", "who": "Karen, Danny, Lauren, Jose D., Jose N., Elizabeth, Juliet, Dave, Milo, Remy, Cindy, Duschan, Doug Williams, Amanda Williams, Ellison, Kali, Kelsey, Mady, Jeanne, Marilyn, Peggy, Karen's grandmother", "bullets": [
+        "BRING THE FLOWERS",
+        "Beauty shots by photographer Stephanie:",
+        "Karen and Danny first look",
+        "Karen's nuclear family photos",
+        "Danny's nuclear family photos",
+        "Entire bridal party photos",
+        "Cindy and Duey photos"
+      ]},
+      { "time": "2:15 - 2:30 PM", "event": "Flower Girls / Ushers Arrive", "location": "Industrial Gardens", "who": "Jonah, Jess, Mady, Kelsey, Gabi, Anna, Carly, Blair, Sara K, Reagan, Jenny, Sara B, Paloma", "bullets": [
+        "Hand out petals to guests and usher them into the main area"
+      ]},
+      { "time": "2:30 PM", "event": "Wedding Party Hides", "location": "Conference Room", "who": "Wedding party", "bullets": [
+        "Hair/makeup touch-ups as needed, bathroom break",
+        "Karen, Danny, Cindy, Duey, Jose Sr. and Jr., Lauren, and boys hang out in conference room away from guests",
+        "Give rings to Jose"
+      ]},
+      { "section": "Guest Arrival & Ushering", "time": "2:45 PM", "event": "Guests Arrive", "location": "Industrial Gardens", "who": "Ushers, Guests", "bullets": [
+        "Ushers encourage guests to take seats",
+        "Offer RIGHT arm to female guests; men walk behind",
+        "When ushering a single male, usher walks on his left",
+        "Guests can sit on either side",
+        "Seat immediate family up front (roped off aisles)",
+        "2:40 PM — Lady B plays prelude music (Kamasi Washington Album) while guests mingle",
+        "Jeanne will hold any latecomers until the ceremony is over"
+      ]},
+      { "section": "Ceremony", "time": "3:00 - 3:45 PM", "event": "Ceremony", "location": "Industrial Gardens", "who": "Everyone", "notes": "Processional begins at 3:00 (up to 3:15 if many people come late). All participants enter from the door in the back of the garden.", "bullets": [
+        "Prelude Music",
+        "Sam Kuslan piano — \"I Can't Believe the Way We Flow\" (James Blake)",
+        "Kali enters and stands up front",
+        "Karen's grandmother escorted to her seat by Amri (Karen's aunt), sits on the left",
+        "Cindy is escorted to seat by Danny; Duey follows behind. Sits on left side of the aisle",
+        "Danny stays up front next to Kali",
+        "Lauren and Jose come down the aisle together",
+        "Ring bearers enter",
+        "Bride's processional music begins — Sam Kuslan piano, \"There Goes My Baby\" (Charlie Wilson)",
+        "Guests stand as the music changes and bride enters",
+        "Karen enters with her father, Jose N.",
+        "At the arch: Karen lets go of her father's arm, gives Lauren bouquet to hold, holds Danny's hand. Jose N. takes a seat by Elizabeth.",
+        "Welcome — Kali",
+        "Kali speaks and ends with Kat's advice",
+        "Duschan Milojevic speech (2 minutes)",
+        "Jose N. Hernandez speech (2 minutes)",
+        "Vows",
+        "Ring ceremony",
+        "Kiss the bride!",
+        "Recessional: DJ plays \"Cuidando de Longe\" by Gal Costa",
+        "Bride and groom turn and lock arms, process down the aisle — petals fly!",
+        "Karen and Danny kiss again in the petals",
+        "Lauren and Jose process down the aisle",
+        "Cindy and Duey, Jose Sr. and Elizabeth process"
+      ]},
+      { "section": "Cocktails and Reception", "time": "3:45 - 4:30 PM", "event": "Room Flip Begins // Karen and Danny Take Pictures", "location": "Industrial Gardens", "who": "Everyone", "bullets": [
+        "Danny and Karen sneak with Stephanie for 15 minutes of bridal photos",
+        "Ushers and Mieczkowski boys flip the room with Jeanne & Marilyn's oversight, carefully lifting preset tables and moving them into place",
+        "3:45 PM — Sam Kuslan packs up his piano and amp"
+      ]},
+      { "time": "3:45 - 4:55 PM", "event": "Cocktails", "location": "Industrial Gardens — Courtyard", "who": "Everyone", "bullets": [
+        "Cocktail hour",
+        "Lady B plays Danny's playlist",
+        "Champagne/wine poured and laid out by the bar",
+        "Kagan and Evan go to No Dice to set up their DJ set"
+      ]},
+      { "time": "4:00 PM", "event": "Family & Group Photos", "location": "Industrial Gardens", "who": "Karen, Danny, Stephanie, Family", "notes": "Alert these people ahead of time. After photos: Karen and Danny escape for a private moment and bustle Karen's dress.",
         "groupPhotos": [
           "Pelleranos",
           "Hernandez (Aba, Tio Javier)",
@@ -705,17 +807,58 @@ const WEDDING_DATA = {
           "Ansons",
           "Selkes",
           "Danny's Friends"
-        ],
-        "notes": "After photos: couple has private moment; Karen's dress bustled."
+        ]
       },
-      { "time": "4:55 - 5:15 PM", "event": "First Dance", "location": "Industrial Gardens", "who": "Karen, Danny, Parents", "notes": "DJ announces seating; couple announced. Music: 'Everlasting Love' by Natalie Cole. DJ beckons all to dance floor. Jose and Karen dance first, then Danny and Cindy join, then Karen and Danny dance. First dance song: Virgen - Adolescent Orchestra. DJ kicks music into full gear, invites all to dance floor." },
-      { "time": "6:45 PM", "event": "Dance Floor and Buffet Open", "location": "Industrial Gardens", "who": "Everyone", "notes": "DJ calls eating groups to buffet. Jeanne signals Danny for thank-you toast after final buffet line." },
-      { "time": "7:30 PM", "event": "Dessert Announcement", "location": "Industrial Gardens", "who": "Milo announces", "notes": "Milo announces donuts. Cake and dessert table brought to dance floor." },
-      { "time": "7:45 PM", "event": "Vendor Payments and Gift Management", "location": "Industrial Gardens", "who": "Jeanne", "notes": "Jeanne distributes payments and gratuities. Tucks away gifts and envelopes." },
-      { "time": "8:30 PM", "event": "Outfit Change", "location": "Industrial Gardens", "who": "Karen", "notes": "Karen changes; retrieves Danny's pava hat." },
-      { "time": "8:45 PM", "event": "Second Line / Parranda Begins", "location": "Industrial Gardens to No Dice", "who": "Everyone", "notes": "Bomba dancers appear; guide group to corridor for La Parranda. Juliet distributes cut-out kerchiefs and red flower clips from bowls on conference table. Scottie hands out drink tickets." },
-      { "section": "After Party", "time": "9:00 PM", "event": "No Dice", "location": "No Dice", "who": "Everyone", "notes": "Drink tickets offered at door. Thomas Glass Band 9:00-10:45 PM. DJs ET Deaux & Kagan B2B 11:00 PM - 1:00 AM." },
-      { "time": "9:00 PM", "event": "Clean Up", "location": "Industrial Gardens", "who": "Venue staff, caterers", "notes": "YUR Event Furniture Rental reclaims equipment at 8:45 PM. Cleaning crew arrives — packs decor, signage, photobooth, bathroom items, conference items to Milo Gardens. David and caterers dishwash, bus, disassemble buffet. Lady B packs DJ equipment. Restroom trailer removed. Venue manager handles garbage, locks up. Karen and Danny take plants, lights, hung decor Monday morning." }
+      { "section": "First Dance", "time": "4:55 - 5:15 PM", "event": "First Dance", "location": "Industrial Gardens", "who": "Karen, Danny, Parents", "bullets": [
+        "DJ announces that guests find seats",
+        "The couple is announced to the group",
+        "\"Everlasting Love\" by Natalie Cole plays",
+        "DJ beckons all guests to come to the dance floor",
+        "Jose and Karen dance first, then Danny and Cindy join, then Karen and Danny dance",
+        "First dance: \"Virgen\" — Adolescent Orchestra",
+        "DJ kicks music into full gear and invites all to join on the dance floor!"
+      ]},
+      { "section": "Dancing & Dining", "time": "5:15 PM", "event": "Dance Floor and Buffet Open", "location": "Industrial Gardens", "who": "Everyone", "bullets": [
+        "The dance floor and buffet are now open",
+        "DJ calls eating groups to head to the buffet"
+      ]},
+      { "time": "6:45 PM", "event": "Danny's Toast", "location": "Industrial Gardens", "who": "Danny", "bullets": [
+        "After the final buffet line dies down, Jeanne signals Danny for a thank-you toast"
+      ]},
+      { "section": "Dessert", "time": "7:30 PM", "event": "Dessert", "location": "Industrial Gardens", "who": "Milo announces", "bullets": [
+        "Milo announces dessert… donuts!!!",
+        "Cake and dessert table brought to the dance floor by catering"
+      ]},
+      { "section": "Evening Transitions", "time": "7:45 PM", "event": "Vendor Payments and Gift Management", "location": "Industrial Gardens", "who": "Jeanne", "bullets": [
+        "Jeanne distributes payments and gratuities to vendors",
+        "Jeanne tucks away any gifts and envelopes"
+      ]},
+      { "time": "8:25 PM", "event": "Last Call", "location": "Industrial Gardens", "who": "DJ", "bullets": [
+        "Announce last call at the bar"
+      ]},
+      { "time": "8:30 PM", "event": "Outfit Change", "location": "Industrial Gardens", "who": "Karen, Lady B", "bullets": [
+        "Karen goes to change and get Danny's pava hat!",
+        "Lady B goes with Karen"
+      ]},
+      { "section": "Second Line / Parranda", "time": "8:45 PM", "event": "La Parranda Begins", "location": "Industrial Gardens to No Dice", "who": "Everyone", "bullets": [
+        "DJ concludes. Bomba dancers appear and guide everyone through the corridor to begin La Parranda (Puerto Rican second line!)",
+        "Cut-out kerchiefs and red flower clips held by Juliet and offered to guests at the corridor. Big woven bowls on the conference table",
+        "Scottie hands out drink tickets!"
+      ]},
+      { "section": "After Party", "time": "9:00 PM", "event": "No Dice", "location": "No Dice", "who": "Everyone", "bullets": [
+        "Drink tickets offered at the door to No Dice",
+        "Thomas Glass Band 9:00 PM - 10:45 PM",
+        "DJs ET Deaux & Kagan B2B 11:00 PM - 1:00 AM"
+      ]},
+      { "section": "Cleanup", "time": "9:00 PM", "event": "Clean Up", "location": "Industrial Gardens", "who": "Venue staff, caterers", "bullets": [
+        "YUR Event Furniture Rental reclaims equipment at 8:45 PM",
+        "Cleaning crew arrives — packs up decor, signage, photobooth, bathroom items, conference room items, and brings them to Milo Gardens",
+        "David and caterers dishwash, bus, and disassemble the buffet line",
+        "Lady B (DJ) packs up",
+        "Restroom trailer gets taken back",
+        "Venue manager takes out garbage and locks up",
+        "Karen and Danny will take home plants, lights, and hung decor Monday morning"
+      ]}
     ],
     "sunday": [
       { "time": "Morning", "event": "Sunday Brunch Setup", "location": "CastleDay, 1319 Japonica St", "who": "Sarah, Papa, volunteers", "notes": "Let Sarah in to drop off coffee and bagels. Someone from the house picks up donuts. Set up breakfast food on the large dining table. Leftover Caribbean food from wedding available (boxed by caterer David): maduros, ropa vieja, jerk chicken, rice and peas, stewed cabbage." },
