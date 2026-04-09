@@ -83,48 +83,6 @@ body {
     opacity: 1;
 }
 
-.personal-card {
-    max-width: 600px;
-    margin: 0 auto 20px;
-    padding: 28px 30px;
-    background: rgba(255, 214, 232, 0.1);
-    border: 1px solid var(--pink-medium);
-    border-radius: 8px;
-}
-
-.personal-card h3 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--pink-light);
-    margin-bottom: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.personal-card .your-info {
-    font-size: 0.85rem;
-    color: var(--ivory);
-    line-height: 1.8;
-}
-
-.personal-card .your-info .info-item {
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(245, 240, 230, 0.1);
-}
-
-.personal-card .your-info .info-item:last-child {
-    border-bottom: none;
-}
-
-.personal-card .your-info .info-label {
-    color: var(--pink-medium);
-    font-weight: 500;
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
 .countdown {
     display: block;
     margin-bottom: 20px;

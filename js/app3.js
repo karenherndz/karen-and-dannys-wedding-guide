@@ -121,7 +121,6 @@ function handleNameSubmit(input, modal) {
         renderVendors();
         renderDocuments();
         applyAccessLevel();
-        renderPersonalCard();
     }
 }
 
@@ -158,8 +157,6 @@ function resetName(event) {
     modal.classList.remove('hidden');
     input.value = '';
     input.focus();
-    const card = document.getElementById('personal-card');
-    if (card) card.style.display = 'none';
 }
 
 function applyAccessLevel() {
@@ -198,177 +195,6 @@ function applyAccessLevel() {
     });
 }
 
-// Personalized info card
-function renderPersonalCard() {
-    const card = document.getElementById('personal-card');
-    if (!card || !weddingData) return;
-
-    const userName = typeof currentUser === 'string' ? currentUser : (currentUser?.name || '');
-    if (!userName) { card.style.display = 'none'; return; }
-
-    const lower = userName.toLowerCase().trim();
-    const items = [];
-
-    // Check vendors for this person
-    let matchedVendor = null;
-    if (weddingData.vendors) {
-        weddingData.vendors.forEach(v => {
-            const vendorText = `${v.name || ''} ${v.company || ''} ${v.role || ''}`.toLowerCase();
-            if (vendorText.includes(lower)) {
-                matchedVendor = v;
-                items.push({ label: 'Your Role', text: v.role });
-                if (v.arrivalTime) items.push({ label: 'Arrival', text: v.arrivalTime });
-                // Venue address for on-site vendors
-                const venueAddress = '1024 Elysian Fields Avenue, New Orleans, LA 70117';
-                const mapsUrl = 'https://www.google.com/maps/dir/?api=1&destination=1024+Elysian+Fields+Avenue+New+Orleans+LA';
-                items.push({ label: 'Venue', text: `Industrial Gardens<br>${venueAddress}<br><a href="${mapsUrl}" target="_blank" class="directions-btn" style="margin-top:6px;">Get Directions</a>` });
-                if (v.notes) items.push({ label: 'Details', text: v.notes.replace(/\$[\d,]+(\.\d{2})?/g, '').replace(/deposit|paid|remainder|due|balance/gi, '').replace(/\s+/g, ' ').trim() });
-                if (v.phone) items.push({ label: 'Contact', text: `<a href="tel:${v.phone}" style="color:var(--pink-light);">${v.phone}</a>` });
-            }
-        });
-    }
-
-    // Check staffing for this person
-    if (weddingData.staffing) {
-        weddingData.staffing.forEach(s => {
-            if (s.name.toLowerCase().includes(lower)) {
-                const alreadyHasRole = items.some(i => i.label === 'Your Role');
-                if (!alreadyHasRole) items.push({ label: 'Your Role', text: s.role });
-                items.push({ label: 'Task', text: s.task });
-            }
-        });
-    }
-
-    // Check if flower girl / usher
-    if (weddingData.flowerGirls && weddingData.flowerGirls.some(fg => fg.toLowerCase().includes(lower))) {
-        items.push({ label: 'Duty', text: 'Flower Girl / Usher - hand out petals and help usher guests to seats' });
-        items.push({ label: 'Arrive', text: '2:15 PM at Industrial Gardens' });
-    }
-
-    // Check if flip crew
-    if (weddingData.flipCrew && weddingData.flipCrew.some(fc => fc.toLowerCase().includes(lower))) {
-        items.push({ label: 'Duty', text: 'Room Flip Crew - help move tables and flip chairs after ceremony (3:45 PM)' });
-    }
-
-    // Check wedding party
-    if (weddingData.weddingParty) {
-        const wp = weddingData.weddingParty;
-        if (wp.maidOfHonor && wp.maidOfHonor.toLowerCase().includes(lower)) {
-            items.push({ label: 'Role', text: 'Maid of Honor' });
-        }
-        if (wp.bestMan && wp.bestMan.toLowerCase().includes(lower)) {
-            items.push({ label: 'Role', text: 'Best Man' });
-        }
-        if (wp.karen && wp.karen.gettingReadyWith && wp.karen.gettingReadyWith.some(n => n.toLowerCase().includes(lower))) {
-            items.push({ label: 'Getting Ready', text: 'Hotel Peter and Paul (Covenant Room) - 11:00 AM' });
-        }
-    }
-
-    // Check ceremony roles
-    if (weddingData.ceremony) {
-        const cText = JSON.stringify(weddingData.ceremony).toLowerCase();
-        if (cText.includes(lower)) {
-            if (weddingData.ceremony.processional) {
-                weddingData.ceremony.processional.forEach(step => {
-                    if (step.toLowerCase().includes(lower)) {
-                        items.push({ label: 'Processional', text: step });
-                    }
-                });
-            }
-            if (weddingData.ceremony.program) {
-                weddingData.ceremony.program.forEach(step => {
-                    if (step.toLowerCase().includes(lower)) {
-                        items.push({ label: 'Ceremony', text: step });
-                    }
-                });
-            }
-        }
-    }
-
-    // Find timeline events where this person is mentioned
-    const timelineItems = [];
-    ['friday', 'saturday', 'sunday'].forEach(day => {
-        if (weddingData.timeline && weddingData.timeline[day]) {
-            weddingData.timeline[day].forEach(ev => {
-                const evText = `${ev.who || ''} ${ev.notes || ''}`.toLowerCase();
-                if (evText.includes(lower)) {
-                    timelineItems.push(`<strong>${ev.time}</strong> ${ev.event} @ ${ev.location}`);
-                }
-            });
-        }
-    });
-    if (timelineItems.length > 0) {
-        items.push({ label: 'Your Schedule', text: timelineItems.join('<br>') });
-    }
-
-    // Special cases for key people
-    if (lower === 'karen') {
-        if (!items.some(i => i.label === 'Getting Ready')) {
-            items.unshift({ label: 'Getting Ready', text: 'Hotel Peter and Paul (Covenant Room) - 11:00 AM' });
-        }
-    }
-    if (lower === 'danny') {
-        items.unshift({ label: 'Getting Ready', text: 'Greatman Cottage, 3421 Dauphine Street' });
-    }
-    if (lower === 'jeanne') {
-        if (!items.some(i => i.text && i.text.includes('payment'))) {
-            items.push({ label: 'Key Task', text: 'Distribute vendor payments and gratuities at 7:45 PM' });
-        }
-    }
-
-    // Render the card
-    if (items.length === 0) {
-        card.style.display = 'none';
-        return;
-    }
-
-    // Deduplicate items by text
-    const seen = new Set();
-    const unique = items.filter(item => {
-        const key = item.text;
-        if (seen.has(key)) return false;
-        seen.add(key);
-        return true;
-    });
-
-    // Build vendor photos and layout images
-    let vendorExtras = '';
-    if (matchedVendor) {
-        // Show photos attached to vendor (e.g. restroom trailer hookup pics)
-        if (matchedVendor.photos) {
-            vendorExtras += `<div style="margin-top:16px;">
-                <span class="info-label">Reference Photos:</span>
-                ${matchedVendor.photos.map(p => `<a href="${p}" target="_blank"><img src="${p}" alt="Reference photo" style="width:100%;border-radius:4px;margin-top:8px;"></a>`).join('')}
-            </div>`;
-        }
-        // Show venue layout for setup vendors
-        const setupRoles = ['Caterer', 'DJ', 'Bartenders', 'Furniture Rentals', 'Decor / Banners', 'Restroom Trailer'];
-        if (setupRoles.includes(matchedVendor.role)) {
-            vendorExtras += `<div style="margin-top:16px;">
-                <span class="info-label">Venue Layout:</span>
-                <a href="documents/venue-layout.png" target="_blank"><img src="documents/venue-layout.png" alt="Venue Layout" style="width:100%;border-radius:4px;margin-top:8px;"></a>
-            </div>`;
-            vendorExtras += `<div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-                <a href="documents/floorplan-reception.png" target="_blank"><img src="documents/floorplan-reception.png" alt="Reception Floorplan" style="width:100%;border-radius:4px;"></a>
-                <a href="documents/floorplan-ceremony.png" target="_blank"><img src="documents/floorplan-ceremony.png" alt="Ceremony Floorplan" style="width:100%;border-radius:4px;"></a>
-            </div>`;
-        }
-    }
-
-    card.innerHTML = `
-        <h3>Your Info, ${userName}</h3>
-        <div class="your-info">
-            ${unique.map(item => `
-                <div class="info-item">
-                    <span class="info-label">${item.label}:</span> ${item.text}
-                </div>
-            `).join('')}
-            ${vendorExtras}
-        </div>
-    `;
-    card.style.display = 'block';
-}
-
 // Load wedding data
 async function loadData() {
     // Use embedded data (works locally and on GitHub Pages)
@@ -404,7 +230,6 @@ function initApp() {
 
     setupNavigation();
     applyAccessLevel();
-    renderPersonalCard();
 }
 
 // Countdown
