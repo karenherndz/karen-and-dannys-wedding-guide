@@ -8,209 +8,30 @@
     <link rel="stylesheet" href="css/style2.css">
 </head>
 <body>
-    <!-- Welcome Modal -->
-    <div id="welcome-modal" class="welcome-modal">
-        <div class="welcome-content">
-            <h2>Welcome!</h2>
-            <p>What's your first name or business?</p>
-            <p style="font-size:0.8rem;color:var(--ivory-soft);margin-top:-5px;margin-bottom:10px;">(i.e. Larkin, YUR Event Rental, True Value Rental)</p>
-            <input type="text" id="name-input" placeholder="Enter your name or business" autocomplete="off">
-            <button id="name-submit" class="welcome-btn">Enter</button>
-        </div>
-    </div>
-
     <header class="header">
-        <div class="user-role" id="user-role" style="display:none;"></div>
         <div class="countdown" id="countdown"></div>
         <h1>Karen & Danny</h1>
         <p class="date">April 11, 2026</p>
     </header>
 
-    <nav class="nav">
-        <a href="#timeline" class="nav-item active" data-section="timeline">Master Timeline</a>
-        <a href="#setup" class="nav-item" data-section="setup">Setup</a>
-        <a href="#people" class="nav-item" data-section="people">People</a>
-        <a href="#logistics" class="nav-item" data-section="logistics">Logistics</a>
-        <a href="#vendors" class="nav-item" data-section="vendors">Vendors</a>
-        <a href="#documents" class="nav-item" data-section="documents">Docs</a>
-        <a href="#tasks" class="nav-item" data-section="tasks">Tasks</a>
-    </nav>
-
     <main class="main">
-        <!-- Master Timeline Tab -->
         <section id="timeline" class="section active">
             <h2>Master Timeline</h2>
-
-            <!-- Vendor-specific schedule (shown instead of full timeline for vendors) -->
-            <div id="vendor-schedule" style="display:none;"></div>
-
-            <!-- Full master timeline rendered by JS -->
-            <div id="master-timeline"></div>
-        </section>
-
-        <!-- Setup Tab -->
-        <section id="setup" class="section">
-            <h2>Setup</h2>
-
-            <div class="quick-card vendor-section" data-access="family,Caterer,DJ,Bartenders,Furniture Rentals,Decor / Banners">
-                <h3>Venue Layout & Eating Groups</h3>
-                <a href="documents/venue-layout.png" target="_blank">
-                    <img src="documents/venue-layout.png" alt="Venue Layout & Eating Groups" style="width:100%;border-radius:4px;">
+            <div class="timeline-pdf">
+                <a href="documents/master-timeline.pdf" target="_blank" class="timeline-pdf-link">
+                    <img src="documents/timeline-page-1.png" alt="Master Timeline Page 1">
+                    <img src="documents/timeline-page-2.png" alt="Master Timeline Page 2">
+                    <img src="documents/timeline-page-3.png" alt="Master Timeline Page 3">
+                    <img src="documents/timeline-page-4.png" alt="Master Timeline Page 4">
+                    <img src="documents/timeline-page-5.png" alt="Master Timeline Page 5">
+                    <img src="documents/timeline-page-6.png" alt="Master Timeline Page 6">
+                    <img src="documents/timeline-page-7.png" alt="Venue Layout - Pre Ceremony">
+                    <img src="documents/timeline-page-8.png" alt="Venue Layout - Reception">
                 </a>
             </div>
-
-            <div class="quick-card vendor-section" data-access="family,Caterer,DJ,Bartenders,Furniture Rentals,Decor / Banners,Photographer,Restroom Trailer,Rain Tent">
-                <h3>Floorplans</h3>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-                    <div>
-                        <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--pink-medium);margin-bottom:8px;font-weight:600;">Reception</p>
-                        <a href="documents/floorplan-reception.png" target="_blank">
-                            <img src="documents/floorplan-reception.png" alt="Reception Floorplan" style="width:100%;border-radius:4px;">
-                        </a>
-                    </div>
-                    <div>
-                        <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--pink-medium);margin-bottom:8px;font-weight:600;">Ceremony</p>
-                        <a href="documents/floorplan-ceremony.png" target="_blank">
-                            <img src="documents/floorplan-ceremony.png" alt="Ceremony Floorplan" style="width:100%;border-radius:4px;">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quick-card vendor-section" data-access="family,Restroom Trailer">
-                <h3>Restroom Trailer Placement</h3>
-                <p style="color:var(--ivory-soft);margin-bottom:12px;">Elysian Fields Ave parking lot. Hookup needed at hitch end of trailer.</p>
-                <a href="documents/restroom-trailer-location.jpg" target="_blank">
-                    <img src="documents/restroom-trailer-location.jpg" alt="Restroom trailer location" style="width:100%;border-radius:4px;margin-bottom:8px;">
-                </a>
-                <a href="documents/restroom-trailer-hookup.jpeg" target="_blank">
-                    <img src="documents/restroom-trailer-hookup.jpeg" alt="Restroom trailer hookup" style="width:100%;border-radius:4px;">
-                </a>
-            </div>
-
-            <div class="quick-card vendor-section" data-access="family">
-                <h3>What to Bring to the Venue</h3>
-                <div id="bring-to-venue-list-setup"></div>
-            </div>
-        </section>
-
-        <!-- People Tab -->
-        <section id="people" class="section">
-            <h2>People & Roles</h2>
-
-            <div class="quick-card">
-                <h3>Emergency Contacts</h3>
-                <div id="emergency-contacts"></div>
-            </div>
-
-            <div class="people-card vendor-section" data-access="family,Photographer">
-                <h3>Wedding Party</h3>
-                <div id="family-list"></div>
-            </div>
-
-            <div class="people-card vendor-section" data-access="family">
-                <h3>Wedding Day Crew</h3>
-                <div id="staffing-list"></div>
-            </div>
-
-            <div class="people-card vendor-section" data-access="family">
-                <h3>Flower Girls / Ushers</h3>
-                <div id="cousins-list" class="cousins-grid"></div>
-            </div>
-
-            <div class="people-card vendor-section" data-access="family">
-                <h3>Flip Crew (Guys)</h3>
-                <div id="flip-crew-list"></div>
-            </div>
-
-            <div class="quick-card vendor-section" data-access="family">
-                <h3>Seating Chart</h3>
-                <div id="seating-chart"></div>
-            </div>
-        </section>
-
-        <!-- Logistics Tab -->
-        <section id="logistics" class="section">
-            <h2>Logistics</h2>
-
-            <div class="quick-card vendor-section" data-access="family,Caterer,DJ,Bartenders,Furniture Rentals,Decor / Banners">
-                <h3>Venue Layout & Eating Groups</h3>
-                <a href="documents/venue-layout.png" target="_blank">
-                    <img src="documents/venue-layout.png" alt="Venue Layout & Eating Groups" style="width:100%;border-radius:4px;">
-                </a>
-            </div>
-
-            <div class="quick-card vendor-section" data-access="family,Caterer,DJ,Bartenders,Furniture Rentals,Decor / Banners,Photographer,Restroom Trailer,Rain Tent">
-                <h3>Floorplans</h3>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-                    <div>
-                        <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--pink-medium);margin-bottom:8px;font-weight:600;">Reception</p>
-                        <a href="documents/floorplan-reception.png" target="_blank">
-                            <img src="documents/floorplan-reception.png" alt="Reception Floorplan" style="width:100%;border-radius:4px;">
-                        </a>
-                    </div>
-                    <div>
-                        <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--pink-medium);margin-bottom:8px;font-weight:600;">Ceremony</p>
-                        <a href="documents/floorplan-ceremony.png" target="_blank">
-                            <img src="documents/floorplan-ceremony.png" alt="Ceremony Floorplan" style="width:100%;border-radius:4px;">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quick-card vendor-section" data-access="family,Caterer,DJ,Bartenders,Furniture Rentals,Decor / Banners,Photographer,Restroom Trailer,Rain Tent,Piano">
-                <h3>Key Locations</h3>
-                <div id="locations-list"></div>
-            </div>
-
-            <div class="quick-card vendor-section" data-access="family">
-                <h3>Flower List</h3>
-                <div id="flowers-list"></div>
-            </div>
-
-            <div class="quick-card vendor-section" data-access="family">
-                <h3>Items for Jeanne (Friday Rehearsal)</h3>
-                <div id="jeanne-items"></div>
-            </div>
-
-            <div class="quick-card vendor-section" data-access="family">
-                <h3>What to Bring to the Venue</h3>
-                <div id="bring-to-venue-list"></div>
-            </div>
-
-            <div class="quick-card memorial vendor-section" data-access="family">
-                <h3>In Loving Memory</h3>
-                <p>Karen's mom is posthumously honored at this celebration of love.</p>
-            </div>
-
-            <a href="print.html" class="print-btn vendor-section" data-access="family">Print Day-Of Guide</a>
-        </section>
-
-        <!-- Vendors Tab -->
-        <section id="vendors" class="section">
-            <h2>Vendors</h2>
-            <div class="vendor-grid" id="vendor-list"></div>
-
-            <div class="quick-card vendor-section" data-access="family">
-                <h3>Vendor Arrival Times</h3>
-                <div id="arrival-times"></div>
-            </div>
-        </section>
-
-        <!-- Documents Tab (planning crew sees all, vendors see their docs) -->
-        <section id="documents" class="section">
-            <h2>Documents</h2>
-            <div id="docs-content"></div>
-        </section>
-
-        <!-- Tasks Tab (planning crew only) -->
-        <section id="tasks" class="section">
-            <h2>Master To-Do List</h2>
-            <div id="task-list"></div>
         </section>
     </main>
 
-    <script src="js/data2.js?v=20260409a"></script>
-    <script src="js/app3.js?v=20260409a"></script>
+    <script src="js/app3.js?v=20260409b"></script>
 </body>
 </html>
